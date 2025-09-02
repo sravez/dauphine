@@ -6,80 +6,67 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{smfbook}
+\documentclass{report}
+\usepackage[french]{babel}
+\usepackage{amsmath}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+\geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
 %\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}
 \usepackage{amssymb}
 
-% Will Robertson's fontspec.sty can be used to simplify font choices.
-% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
-% and change "Hoefler Text" to any of these choices.
 
-\usepackage{fontspec,xltxtra,xunicode}
-\defaultfontfeatures{Mapping=tex-text}
-\setromanfont[Mapping=tex-text]{Hoefler Text}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
-\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
-\title{Math - Exercice}
-\author{Serge RAVEZ}
+%\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Math - Exercices}
+\author{Poppy RAVEZ}
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
-
-% For many users, the previous commands will be enough.
-% If you want to directly input Unicode, add an Input Menu or Keyboard to the menu bar 
-% using the International Panel in System Preferences.
-% Unicode must be typeset using a font containing the appropriate characters.
-% Remove the comment signs below for examples.
-
-% \newfontfamily{\A}{Geeza Pro}
-% \newfontfamily{\H}[Scale=0.9]{Lucida Grande}
-% \newfontfamily{\J}[Scale=0.85]{Osaka}
-
-% Here are some multilingual Unicode fonts: this is Arabic text: {\A السلام عليكم}, this is Hebrew: {\H שלום}, 
-% and here's some Japanese: {\J 今日は}.
 
 
 \chapter{Calcul algébrique}
 
 \section*{Application 1.2}
 
-\subsection*{1}
+\subsubsection*{1. Développement}
 \begin{equation*}
 \begin{split}
 	(a+b+c)^{2} &= (a+b+c)(a+b+c) \\
-	&= a^{2}+ab+ac+ba+b^{2}+bc+ca+cb+c^{2}\\
-	&=a^{2}+b^{2}+c^{2} + 2(ab+ac+bc)
+	            &= a^{2}+ab+ac+ba+b^{2}+bc+ca+cb+c^{2}\\
+	            &= a^{2}+b^{2}+c^{2} + 2(ab+ac+bc)
 \end{split}	
 \end{equation*}
 
 
-\subsection*{2}
+\subsubsection*{2. Calcul}
 
 \begin{equation*}
 	\begin{split}
-		10002 \times 99998 &= (10^4 +2)(10^4 - 2) \\
-		                                   &= 10^8 - 4 \\
-		                                   &= 99 999 996
+		10\,002 \times 99\,998 &= (10^4 +2)(10^4 - 2) \\
+		                       &= 10^8 - 4 \\
+		                       &= 99\,999\,996
 	\end{split}
 \end{equation*}
 
 \begin{equation*}
 	\begin{split}
-		100001^2 &= (10^5 + 1)^2 \\
-		&= 10^{10} + 2 \times 10^5 + 1 \\
-		&= 10000200001
+		100\,001^2 &= (10^5 + 1)^2 \\
+		           &= 10^{10} + 2 \times 10^5 + 1 \\
+		           &= 10\,000\,200\,001
 	\end{split}
 \end{equation*}
 
 
 
-\subsection*{3}
+\subsubsection*{3. Factorisation}
 
 \begin{equation*}
 	\begin{split}
@@ -93,19 +80,19 @@
 
 \section*{Application 1.8}
 
-\subsection*{1}
+\subsection*{1.}
 
 \begin{displaymath}
 	\binom{n}{0}= \frac{n!}{0!(n-0)!}= \frac{n!}{1 \times n!}=1
 \end{displaymath}
 
-\subsection*{2}
+\subsection*{2.}
 \begin{displaymath}
 	\binom{n}{n}= \frac{n!}{(n-n)!n!}= \frac{n!}{0!n!}=1
 \end{displaymath}
 
 
-\subsection*{3}
+\subsection*{3.}
 \begin{displaymath}
 	\binom{n}{k}= \frac{n!}{(n-k)!k!}= \frac{n!}{(n-k)!(n-(n-k))!}=\binom{n}{n-k}
 \end{displaymath}
@@ -116,9 +103,10 @@
 
 Soit $E$ un ensemble de $n$ éléments et $e$ un de ces éléments.
 
-Le nombre de combinaisons de $k$ éléments contenant $e$ est $N_e = \binom{n-1}{k-1}$ (il faut choisir $k-1$ éléments dans les $n-1$ restants)
+Le nombre de combinaisons de $k$ éléments contenant $e$ est $N_e = \binom{n-1}{k-1}$ : chaque combinaison est
+constituée de $e$ et de $k-1$ éléments dans les $n-1$ restants.
 
-Le nombre de combinaisons de $k$ éléments ne contenant pas $e$ est $N_{\bar{e}} = \binom{n-1}{k}$ (il faut choisir $k$ éléments dans les $n-1$ restants)
+Le nombre de combinaisons de $k$ éléments ne contenant pas $e$ est $N_{\bar{e}} = \binom{n-1}{k}$ : il faut choisir $k$ éléments dans les $n-1$ restants.
 
 Donc :
 \begin{displaymath}
@@ -136,9 +124,9 @@ Supposons que  $P(N)$ avec $N \in \mathbb{N}^*$ est vrai ; on a :
 
 \begin{equation*}
 	\begin{cases}
-		\binom{N+1}{0} = 1 \Rightarrow \binom{N+1}{0} \in \mathbb{N}^* \\
-		\forall k \in \left\lbrace 1, ... , N\right\rbrace , \binom{N+1}{k} = \binom{N}{k} + \binom{N}{k-1} \in \mathbb{N}^* \text{somme de 2 entiers naturels non nuls}\\
-		\binom{N+1}{N+1} = 1  \Rightarrow \binom{N+1}{0} \in \mathbb{N}^*
+		\binom{N+1}{0} = 1 \implies \binom{N+1}{0} \in \mathbb{N}^* \\
+		\forall k \in \left\lbrace 1, ... , N\right\rbrace , \binom{N+1}{k} = \binom{N}{k} + \binom{N}{k-1} \in \mathbb{N}^* \text{ car somme de 2 entiers naturels non nuls}\\
+		\binom{N+1}{N+1} = 1  \implies \binom{N+1}{N+1} \in \mathbb{N}^*
 	\end{cases}
 \end{equation*}
 
@@ -151,18 +139,18 @@ Si la raison est différente de $1$, la somme d'une suite géométrique est : «
 
 \section*{Application 1.22}
 
-\subsection*{1} Somme de 7 éléments consécutifs d'une suite arithmétique
+\subsection*{1. Somme de 7 éléments consécutifs d'une suite arithmétique}
 \begin{displaymath}
 	2 + 3 + 4 + 5 + 6 + 7 + 8 = \frac{(8+2)\times 7}{2} = 35
 \end{displaymath}
 
-\subsection*{2} Somme de termes consécutifs d'une suite géométrique
+\subsection*{2. Somme de termes consécutifs d'une suite géométrique}
 \begin{displaymath}
 \sum_{k = 0}^{4} 3^k = \frac{3^5-1}{3-1}=\frac{243-1}{2}=121
 \end{displaymath}
 
 
-\subsection*{3} Sommes de coefficients binomiaux
+\subsection*{3. Sommes de coefficients binomiaux} 
 \begin{displaymath}
 	\sum_{k = 0}^{n} \binom{n}{k} = \sum_{k = 0}^{n} \binom{n}{k} 1^k . 1^{n-k} = (1+1)^n = 2^n
 \end{displaymath}
@@ -173,50 +161,49 @@ Si la raison est différente de $1$, la somme d'une suite géométrique est : «
 
 \section*{Application 1.27 - Inégalités}
 
-\subsection*{1} Changement de sens
+\subsection*{1. Changement de sens}
+\begin{alignat*}{3}
+	        &         &          x &\leq y \\
+	\implies& \qquad  &   x+(-x-y) &\leq y+(-x-y) &\qquad& \text{d'après (b)}\\
+	\implies&         &         -y &\leq -x
+\end{alignat*}
+
+
+\subsection*{2. Addition d'inégalités}
+
+L'addition d'un réel à une inégalité (b) permet de dire :
 \begin{displaymath}
 	\begin{split}
-                     x &\leq y \\
-\Rightarrow x - y &\leq y - y   \text{ d'après $(b)$}\\
-\Rightarrow x - y - x &\leq 0 - x  \text{ d'après $(b)$}\\
-\Rightarrow -y& \leq -x
+x \leq y & \implies x  + z\leq y + z \\
+z \leq t & \implies z + y \leq t + y
 	\end{split}
 \end{displaymath}
 
+Donc d'après la transitivité (c) : $ x  + z \leq y + t$ 
 
-\subsection*{2} Addition d'inégalités
-
-L'addition d'un réel à une inégalité $(b)$ permet de dire :
-\begin{displaymath}
-	\begin{split}
-x \leq y & \Rightarrow x  + z\leq y + z \\
-z \leq t & \Rightarrow z + y \leq t + y
-	\end{split}
-\end{displaymath}
-
-Donc d'après la transitivité $(c)$  : $ x  + z \leq y + t$ 
-
-\subsection*{3} Soustraction d'inégalités
+\subsection*{3. Soustraction d'inégalités}
  
-Changement de sens : $z \leq t \Rightarrow -t \leq -z$ (cf. ci-dessous)
+Changement de sens : $z \leq t \implies -t \leq -z$ (cf. ci-dessous)
 
 Addition d'inégalités : $x - t \leq y - z$ 
 
-\subsection*{4} Produit d'un réel négatif avec une inégalités
+\subsection*{4. Produit d'un réel négatif avec une inégalités}
 
-$ z < 0 \Rightarrow -z > 0 \Rightarrow x(-z) \leq y(-z)$ d'après (d)
+\begin{alignat*}{3}
+	        &         &     z &< 0 \\
+	\implies& \qquad  &    -z &> 0        &\qquad& \text{Changement de sens}\\
+	\implies&         & x(-z) &\leq y(-z) &      & \text{d'après (d)}\\
+	\implies&         &    xz &\geq yz    &      & \text{Changement de sens}
+\end{alignat*}
 
-$ \Rightarrow xz \geq yz$ d'après la première proposition
+\subsection*{5. Produit d'inégalités à termes positifs}
 
-\subsection*{5} Produit d'inégalités à termes positifs
+\begin{alignat*}{3}
+	        &\qquad &  x \leq y  &\wedge z\leq t\\
+	\implies&       & xz \leq yz &\wedge zy \leq ty &\qquad &\text{d'après (d) car $z$ et $y$ sont positifs} \\
+	\implies&       &         xz &\leq yt           &       &\text{d'après (c), transitivité}
+\end{alignat*}
 
-\begin{displaymath}
-	\begin{split}
-	x \leq y  &\wedge z\leq t\\
-	\Rightarrow xz \leq yz &\wedge zy \leq ty \text{ d'après $(d)$} \\
-	\Rightarrow xz &\leq yt \text{ d'après $(c)$}
-	\end{split}
-\end{displaymath}
 
 
 \end{document}  
