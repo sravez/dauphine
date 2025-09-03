@@ -500,11 +500,143 @@ Donc :
 	\begin{split}
 		\sum_{k=1}^{n} k2^k
 			&= \sum_{k=1}^{n}\sum_{l=1}^{k} 2^k\\
+			&= \sum_{1 \le l \le k \le n} 2^k\\
 			&= \sum_{l=1}^{n}\sum_{k=l}^{n} 2^k\\
 			&= \sum_{l=1}^{n} \left(2^{n+1} - 2^l\right) \text{ (somme d'une suite géométrique)}\\
 			&= n 2^{n+1} - \sum_{l=1}^{n} 2^l \\
 			&= n 2^{n+1} - (2^{n+1}-2)  \text{ (somme d'une suite géométrique)}\\
 			&= (n-1)2^{n+1} +2
+	\end{split}
+\end{equation*}
+
+\section*{Exercice 16}
+
+\begin{equation*}
+	\begin{split}
+		\sum_{0\le i \le j \le n} j
+		&= \sum_{j=0}^{n} \sum_{i=0}^{j} j \\
+		&= \sum_{j=0}^{n} j(j+1) \\
+		&= \sum_{j=0}^{n} (j + j^2) \\
+		&= \frac{n(n+1)}{2} + \frac{n(n+1)(2n+1)}{6} \\
+		&= \frac{n(n+1)(2n+4)}{6} \\
+		&= \frac{n(n+1)(n+2)}{3} \\
+	\end{split}
+\end{equation*}
+
+\begin{equation*}
+	\begin{split}
+		\sum_{0\le i, j \le n} i
+		&= \sum_{j=0}^{n} \sum_{i=0}^{j} i \\
+		&= \sum_{j=0}^{n} \frac{j(j+1)}{2} \\
+		&= \frac{1}{2} \sum_{0\le i \le j \le n} j \\
+		&= \frac{n(n+1)(n+2)}{6} 
+	\end{split}
+\end{equation*}
+
+\section*{Exercice 17}
+
+\subsubsection*{a}
+\begin{equation*}
+	\begin{split}
+		\sum_{1\le j \le i \le n} \binom{i}{j}
+		&= \sum_{i=1}^{n} \sum_{j=1}^{i} \binom{i}{j} \\
+		&= \sum_{i=1}^{n} (2^i -1)\\
+		&= 2^{n+1} - 2 - n
+	\end{split}
+\end{equation*}
+
+\subsubsection*{b}
+\begin{equation*}
+	\begin{split}
+		\sum_{1\le j \le i \le n} \frac{1}{i}
+		&= \sum_{i=1}^{n} \sum_{j=1}^{i} \frac{1}{i} \\
+		&= \sum_{i=1}^{n} \frac{i}{i} \\
+		&= n
+	\end{split}
+\end{equation*}
+
+\subsubsection*{c}
+\begin{equation*}
+	\begin{split}
+		\sum_{1\le i \le j \le n} \frac{i}{j}
+		&= \sum_{j=1}^{n} \sum_{i=1}^{j} \frac{i}{j} \\
+		&= \sum_{j=1}^{n} \frac{j(j+1)}{2j} \\
+		&= \frac{1}{2}\sum_{j=1}^{n} (j+1) \\
+		&= \frac{1}{2} \left(\frac{n(n+1)}{2} + n\right) \\
+		&= \frac{n(n+3)}{4}
+	\end{split}
+\end{equation*}
+
+\section*{Exercice 18}
+
+\subsubsection*{1}
+
+\begin{displaymath}
+	x < y \Rightarrow x + y < y + y \Rightarrow \frac{x+y}{2} < y \Rightarrow m <y
+\end{displaymath}
+
+\subsubsection*{2}
+
+Inégalité de Young avec $\sqrt{x}$ et $\sqrt{y}$ :
+
+\begin{displaymath}
+	\sqrt{x} \sqrt{y} < \frac{\sqrt{x}^2 + \sqrt{y}^2}{2} \Rightarrow g<m
+\end{displaymath}
+
+\subsubsection*{3}
+
+\begin{displaymath}
+	h = \frac{2xy}{x+y} = \frac{g^2}{m} < \frac{gm}{m} \Rightarrow h < g
+\end{displaymath}
+
+\subsubsection*{4}
+
+\begin{displaymath}
+	h = \frac{2xy}{x+y} > \frac{2xy}{y+y} \Rightarrow h > x
+\end{displaymath}
+
+\section*{Exercice 19}
+\begin{displaymath}
+	(1+x)^n = \sum_{k=0}^{n}\binom{n}{k}x^k = 1 + nx + \sum_{k=2}^{n}\binom{n}{k}x^k \geq 1 + nx
+\end{displaymath}
+
+\section*{Exercice 20}
+
+\subsubsection*{1}
+\begin{equation*}
+	\begin{split}
+	&\begin{cases}
+		\forall x \in [1, 2], 5 \le 2x+3 \le 7 \\
+		\forall x \in [1, 2], 7 \le x^2+6 \le 10 \\
+	\end{cases} \\
+	\Rightarrow
+	&\begin{cases}
+		\forall x \in [1, 2], 5 \le 2x+3 \le 7 \\
+		\forall x \in [1, 2], \frac{1}{10} \le \frac{1}{x^2+6} \le \frac{1}{7} \\
+	\end{cases} \\
+	\Rightarrow
+	& \forall x \in [1, 2], \frac{5}{10} \le \frac{2x+3}{x^2+6} \le \frac{7}{7} \\
+	\Rightarrow
+	&\forall x \in [1, 2], \frac{1}{2} \le \frac{2x+3}{x^2+6} \le 1
+	\end{split}
+\end{equation*}
+
+\subsubsection*{2}
+\begin{equation*}
+	\begin{split}
+		&\begin{cases}
+			\forall x \in [1, 2], 2 \le 2x \le 4 \\
+			\forall x \in [1, 2], -4 \le x^2-5 \le -1 \\
+		\end{cases} \\
+		\Rightarrow
+		&\begin{cases}
+			\forall x \in [1, 2], 2 \le 2x \le 4 \\
+			\forall x \in [1, 2], \frac{1}{4} \le \frac{-1}{x^2-5} \le 1 \\
+		\end{cases} \\
+		\Rightarrow
+		& \forall x \in [1, 2], \frac{2}{4} \le \frac{-2x}{x^2-5} \le \frac{4}{1} \\
+		\Rightarrow
+		& \forall x \in [1, 2], -4 \le \frac{2x}{x^2-5} \le \frac{-1}{2} \\
 	\end{split}
 \end{equation*}
 
