@@ -1,0 +1,196 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass{report}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+%\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Math - Exercices}
+\author{Poppy RAVEZ}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+
+\chapter*{2 - Fonctions réelles usuelles}
+
+
+\subsection*{Application 2.3}
+
+\subsubsection*{a. $\forall x \in \mathbb{R}, x \leq |x|$}
+
+\begin{displaymath}
+	\begin{cases}
+		\forall x \in \mathbb{R}^{+}, |x| = x \geq x \\
+		\forall x \in \mathbb{R}^{-}_{*}, |x| = -x > 0 > x
+	\end{cases}
+\end{displaymath}
+Donc $\forall x \in \mathbb{R}, x \leq |x|$
+
+\subsubsection*{b. $\forall x \in \mathbb{R}, |x| = 0 \Longleftrightarrow x = 0$}
+
+Par définition : $x = 0 \Longrightarrow |x| = 0$.
+
+Si $|x| = 0$, les solutions  vérifient :
+
+\begin{displaymath}
+	\begin{cases}
+		x = |x| = 0 \text{ si } x \in \mathbb{R}^{+}\\
+		-x = |x| = 0 \text{ si } x \in \mathbb{R}^{-}_{*}
+	\end{cases}
+\end{displaymath}
+
+Donc $x=0$
+
+L'implication réciproque $|x|=0, \Longrightarrow x=0$ est donc vraie ce qui démontre l'équivalence.
+
+\subsubsection*{c. $\forall (x,y) \in \mathbb{R}^2, |xy| = |x|.|y|$}
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	$x$                  & $y$                  & $|xy|$\\
+	\hline
+	$\mathbb{R}^{+}$     & $\mathbb{R}^{+}$     & $|xy| = xy = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{+}$     & $\mathbb{R}^{-}_{*}$ & $|xy| = -xy = x(-y) = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{-}_{*}$ & $\mathbb{R}^{+}$     & $|xy| = -xy = (-x)y = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{-}_{*}$ & $\mathbb{R}^{-}_{*}$ & $|xy| = xy =(-x)(-y) = |x|.|y|$ \\
+	\hline
+\end{tabular}
+
+CQFD
+
+Dans l'absolu et pour coller à la définition, il faudrait distinguer les cas $xy<0$ et $xy=0$ quand les deux variables n'ont pas
+le même signe.
+
+
+\subsubsection*{d. $\forall x \in \mathbb{R}, \forall z \in \mathbb{R}^{+}, |x| \leq z \Longleftrightarrow -z \leq x \leq z$}
+
+Soit $z \in \mathbb{R}^{+}$ (et donc $-z \leq 0$).
+
+Si $x \in \mathbb{R}^{+}$ (et donc $|x|=x \geq 0$):
+
+\begin{itemize}
+	\item $|x| \leq z \Longrightarrow -z \leq 0 \leq x \leq z \Longrightarrow -z \leq x \leq z$
+	\item $-z \leq x \leq z \Longrightarrow -z \leq 0 \leq x \leq z \Longrightarrow |x| \leq z$
+\end{itemize}
+
+Ce qui démontre l'équivalence sur $\mathbb{R}^{+}$ ; l'équivalence sur $\mathbb{R}^{-}$ en est la conséquence
+en remplaçant $x$ par $-x$ (les deux inégalités étant invariantes par changement de signe).
+
+
+\subsection*{Application 2.34 - Dérivabilité de $p_{\alpha}$ en $0$ avec $\alpha \geq 1$}
+
+$p_{\alpha}$ est définie sur $\mathbb{R}^{+}_{*}$ par $p_{\alpha}(x) = \exp(\alpha \ln(x))$, cependant :
+\begin{displaymath}
+	\lim_{x\rightarrow 0^{+}} \ln(x) = -\infty \Longrightarrow\forall \alpha>0, \lim_{x\rightarrow 0^{+}} p_{\alpha}(x) = 0
+\end{displaymath}
+
+On peut donc, si $\alpha > 0 0$, définir par continuité la fonction $p_{\alpha}$ en $0$ avec la valeur nulle.
+
+On a alors :
+\begin{equation*}
+	\begin{split}
+		\lim_{h\rightarrow 0^{+}} \frac{p_{\alpha}(h) - 0}{h}
+		&= \lim_{h\rightarrow 0^{+}} \frac{e^{\alpha \ln(h)}}{h} \\
+		&= \lim_{h\rightarrow 0^{+}} \frac{e^{\alpha \ln(h)}}{e^{\ln(h)}} \\
+		&= \lim_{h\rightarrow 0^{+}} e^{(\alpha-1) \ln(h)} \\
+		&=0 \text{ si $\alpha >1$ car alors $\lim_{h\rightarrow 0^{+}} (\alpha-1) \ln(h) = -\infty$}
+	\end{split}
+\end{equation*}
+
+La fonction $p_{\alpha}$ prolongée en $0$ avec $p_{\alpha}(0)=0$ est donc dérivable à droite en $0$ si $\alpha>1$
+avec $p'_{\alpha}(0)=0$.
+
+
+\subsection*{Application 2.41 - Limite en $0$ de $x^x$}
+
+\begin{equation*}
+	\begin{split}
+		\lim_{x\rightarrow 0^{+}} x^x
+		&= \lim_{x\rightarrow 0^{+}} e^{x\ln(x)} \\
+	    &= 1 \text{ car  $\lim_{x\rightarrow 0^{+}} x\ln(x) = 0$ d'après la proposition 2.39}
+	\end{split}
+\end{equation*}
+
+
+\subsection*{Exercice 2.1}
+
+\begin{equation*}
+	\begin{split}
+		\forall x \in \mathbb{R}, \lim_{h\rightarrow 0} \dfrac{\dfrac{1}{1+(x+h)^2}-\dfrac{1}{1+x^2}}{h}
+		&= \lim_{x\rightarrow 0} \dfrac{1+x^2-1-(x+h)^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{x\rightarrow 0} \dfrac{-2xh-h^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{x\rightarrow 0} \dfrac{-2x-h}{(1+(x+h)^2)(1+x^2)} \\
+		&= \frac{-2x}{(1+x^2)^2} \\
+	\end{split}
+\end{equation*}
+
+Car la limite du dénominateur est un réel strictement positif.
+
+La fonction $f$ est donc dérivable sur $\mathbb{R}$ et $f'(x) = \frac{-2x}{(1+x^2)^2}$
+
+On constate de manière évidente que $f$ est paire, strictement positive, atteint son maximum en $0$ et que :
+\begin{displaymath}
+	\lim_{x \rightarrow \pm \infty} f(x) = 0^{+}
+\end{displaymath}
+
+
+On en déduit le tableau de variation suivant :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}{$-\infty$ ,$0$, $+\infty$}
+	\tkzTabLine{, + , 0 , - , }
+	\tkzTabVar{-/$0$, +/$1$, -/$0$}
+\end{tikzpicture}
+
+$f$ possède deux points d'inflexion (où elle traverse sa tangente) caractérisés par $f''(x)=0$ :
+
+\begin{equation*}
+	\begin{split}
+		f''(x) &= \dfrac{-2(1+x^2)^2-2(-2x)(2x)(1+x^2)}{(1+x^2)^4} \\
+		       &= \dfrac{-2(1+x^2)+8x^2}{(1+x^2)^3} \\
+		       &= 2\dfrac{3x^2-1}{(1+x^2)^3} 
+	\end{split}
+\end{equation*}
+
+Les points d'inflexion sont donc $\binom{\pm\frac{1}{\sqrt{3}}}{\frac{3}{4}}$.
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-4, xmax= 4,
+		ymin=0, ymax=1.1,
+		]
+		\addplot[blue,samples=81]{1/(1+x^2)};
+	\end{axis}	
+\end{tikzpicture}
+
+\end{document}  
