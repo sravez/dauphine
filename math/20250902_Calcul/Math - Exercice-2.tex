@@ -101,6 +101,63 @@ Si $x \in \mathbb{R}^{+}$ (et donc $|x|=x \geq 0$):
 Ce qui démontre l'équivalence sur $\mathbb{R}^{+}$ ; l'équivalence sur $\mathbb{R}^{-}$ en est la conséquence
 en remplaçant $x$ par $-x$ (les deux inégalités étant invariantes par changement de signe).
 
+\subsection*{Application 2.12}
+
+\subsubsection*{1. $\exp(-\frac{1}{x^2})$}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} -\frac{1}{x^2} =-\infty \Longrightarrow 	\lim_{x \rightarrow 0} exp(-\frac{1}{x^2})= 0 \text{ car } \lim_{x \rightarrow -\infty} x = 0
+\end{displaymath}
+
+\subsubsection*{2.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} (1 + e^x + x)= +\infty
+\end{displaymath}
+
+\subsubsection*{3.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{e^x+1}{e^x-1}= \lim_{x \rightarrow +\infty} \frac{1+e^{-x}}{1-e^{-x}} = 1 \text{ car }
+	\lim_{x \rightarrow +\infty} e^{-x} = 0
+\end{displaymath}
+
+
+\subsection*{Application 2.16}
+
+\begin{equation*}
+	\begin{split}
+		\ln(4-\sqrt{3}) + \ln(4+\sqrt{3})
+		&= \ln ((4-\sqrt{3})(4+\sqrt{3}))\\
+		&= \ln (4^2-\sqrt{3}^2) \\
+		&= \ln 13
+	\end{split}
+\end{equation*}
+
+\begin{equation*}
+	\begin{split}
+		\ln(\sqrt{x+1})
+		&= 	\ln((x+1)^{1/2})\\
+		&= \frac{\ln(x+1)}{2}
+	\end{split}
+\end{equation*}
+
+\subsection*{Application 2.17}
+D'après la définition de la dérivée d'une fonction :
+\begin{displaymath}
+\lim_{x \rightarrow 0} \frac{\ln(1+x)}{x} = \lim_{x \rightarrow 0} \frac{\ln(1+x) - \ln(1)}{x} = \ln'(1) = \frac{1}{1} = 1
+\end{displaymath}
+
+
+\subsection*{Application 2.24}
+
+
+\subsection*{Application 2.32}
+\begin{equation*}
+	\begin{split}
+		\forall x \in \mathbb{R}^{+}_{*}, \left(  x^{\frac{1}{x}} \right)^{x^2+2x}
+		&= x^{\frac{x^2+2x}{x}} \\
+		&= x^{x+2}
+	\end{split}
+\end{equation*}
+
 
 \subsection*{Application 2.34 - Dérivabilité de $p_{\alpha}$ en $0$ avec $\alpha \geq 1$}
 
@@ -167,7 +224,7 @@ On en déduit le tableau de variation suivant :
 	\tkzTabVar{-/$0$, +/$1$, -/$0$}
 \end{tikzpicture}
 
-$f$ possède deux points d'inflexion (où elle traverse sa tangente) caractérisés par $f''(x)=0$ :
+Recherchons les points d'inflexion (où elle traverse sa tangente) caractérisés par $f''(x)=0$ :
 
 \begin{equation*}
 	\begin{split}
@@ -193,4 +250,173 @@ Les points d'inflexion sont donc $\binom{\pm\frac{1}{\sqrt{3}}}{\frac{3}{4}}$.
 	\end{axis}	
 \end{tikzpicture}
 
-\end{document}  
+
+\subsection*{Exercice 2.2}
+
+$f$ est impaire, continue et dérivable sur $\mathbb{R}$.
+
+$f(0) = 0$.
+
+\begin{displaymath}
+\lim_{x \rightarrow -\infty} f(x) = 0^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = 0^{+}
+\end{displaymath}
+
+\subsubsection*{Variations}
+
+\begin{displaymath}
+	f'(x) = \frac{1+nx^2-2nxx}{(1+nx^2)^2}=\frac{1-nx^2}{(1+nx^2)^2}
+\end{displaymath}
+
+$f'(0) = 1$ : toutes les courbes en la même tangente à l'origine
+
+Les extrema (où $f'(x)=0$) sont donc $\pm\frac{1}{\sqrt{n}}$
+
+$f(\frac{1}{\sqrt{n}}) = \frac{1}{2\sqrt{n}}$
+
+On constate que $\frac{f(1/\sqrt{n})}{1/\sqrt{n}} = \frac{1}{2}$, les extrema sont donc tous sur la droite
+d'équation $y=\frac{x}{2}$.
+
+Le tableau de variation est donc :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}{$-\infty$ ,$-\frac{1}{\sqrt(n)}$, $+\frac{1}{\sqrt(n)}$, $+\infty$}
+	\tkzTabLine{, - , 0 , +, 0, - , }
+	\tkzTabVar{+/$0^{-}$, -/$-\frac{1}{2\sqrt{n}}$, +/$\frac{1}{2\sqrt{n}}$, -/$0^{+}$}
+	\tkzTabVal{2}{3}{0.5}{0}{0}
+\end{tikzpicture}
+
+\subsubsection*{Points d'inflexion}
+
+\begin{displaymath}
+	f''(x) = \frac{-2nx(1+nx^2)^2-4nx(1-nx^2)(1+nx^2)}{(1+nx^2)^4}
+	       =-2nx\frac{1+nx^2+2(1-nx^2)}{(1+nx^2)^3}
+	       = -2nx\frac{3-nx^2}{(1+nx^2)^3}
+\end{displaymath}
+
+Chaque courbe présente donc 3 points d'inflexion alignés en $-\sqrt{\frac{3}{n}}$, $0$ et $\sqrt{\frac{3}{n}}$.
+
+On constate que $\frac{f(\sqrt{\frac{3}{n}})}{\sqrt{\frac{3}{n}}} = \frac{1}{4}$ et que $f'\left({\pm \sqrt{\frac{3}{n}}}\right)=-1/8$, ce qui montre que tous les points d'inflexion sont sur la droite
+$y=x/4$ et que les tangentes en ces points sont toutes parallèles.
+
+\subsubsection*{Représentation graphique}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-4, xmax= 4,
+		ymin=-0.6, ymax=0.6,
+		legend pos= north west,
+		]
+		\addplot[blue,samples=81]{x/(1+x^2)};
+		\addlegendentry{$n=1$}
+		\addplot[red,samples=81]{x/(1+2*x^2)};
+		\addlegendentry{$n=2$}
+		\addplot[green,samples=81]{x/(1+3*x^2)};
+		\addlegendentry{$n=3$}
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Exercice 2.3}
+
+\subsubsection*{1.}
+
+\begin{equation*}
+	\begin{split}
+		|\sin^{12}(x) - 2\cos^9(x)| &\leq |\sin^{12}(x)|+ |2\cos^9(x)| \text{ (inégalité triangulaire)} \\
+		                         &\leq 1 + 2 \\
+		                         & \leq 3
+	\end{split}
+\end{equation*}
+
+\subsubsection*{2.}
+
+\begin{equation*}
+	\begin{split}
+		|1-x^{12} +4x^3| &\leq |1- x^{12}|+ |4x^3| \text{ (inégalité triangulaire)} \\
+		&\leq 1 + 4 \text{ pour $x \in [-1, 1]$}\\
+		& \leq 5
+	\end{split}
+\end{equation*}
+
+
+\subsection*{Exercice 2.4}
+
+\subsubsection*{(a)}
+
+\begin{alignat*}{2}
+&                    & |x+1| &=2 \\
+&\Longleftrightarrow &(x+1=2 \wedge x+1 \geq 0) &\vee (-x-1=2 \wedge x+1 \leq 0) \\
+&\Longleftrightarrow & x=1 &\vee x=-3 \\
+\end{alignat*}
+
+Donc : $S=\left\lbrace -3 ; 1 \right\rbrace$
+
+\subsubsection*{(b)}
+
+\begin{alignat*}{2}
+	&                    & |x+3| &\leq 4 \\
+	&\Longleftrightarrow &(x+3\leq 4 \wedge x+3 \geq 0) &\vee (-x-3\leq 4 \wedge x+3 \leq 0) \\
+	&\Longleftrightarrow & (-3 \leq x \leq 1) &\vee (-7 \leq x \leq -3) \\
+	&\Longleftrightarrow & -7 \leq &x \leq 1 \\
+\end{alignat*}
+
+Donc : $S=[-7 ; 1]$
+
+\subsubsection*{(c)}
+
+\begin{alignat*}{2}
+	&                    & |x+1| &>3  \\
+	&\Longleftrightarrow &(x+1 > 3 \wedge x+1 \geq 0) &\vee (-x-1 >3 \wedge x+1 \leq 0) \\
+	&\Longleftrightarrow & (x > 2) &\vee (x < -4)
+\end{alignat*}
+
+Donc : $S=]-\infty ; -4] \cup ]2 ; +\infty[$
+
+\subsubsection*{(d)}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x-4|$ / 1, $|x+2|$/1,$|2x-4|-|x+2|$/1, S/1}
+	           {$-\infty$ ,$-2$, $2$    , $+\infty$}
+	\tkzTabLine{, -2x+4 , , -2x+4, , 2x-4 , }
+	\tkzTabLine{, -x-2 , , x+2, , x+2 , }
+	\tkzTabLine{, -x+6 , , -3x+2, , x-6 , }
+	\tkzTabLine{, \varnothing , , \left\lbrace \frac{2}{3}\right\rbrace , , \left\lbrace 6 \right\rbrace , }
+\end{tikzpicture}
+
+Donc : $S=\left\lbrace \frac{2}{3} ; 6 \right\rbrace$
+
+\subsubsection*{(e)}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x+4|$ / 1, $|x+1|$/1,$|2x+4| - |x+1|$/1, S/1}
+	{$-\infty$ ,$-2$, $-1$    , $+\infty$}
+	\tkzTabLine{, -2x-4 , , 2x+4, , 2x+4 , }
+	\tkzTabLine{, -x-1 , , -x-1, , x+1 , }
+	\tkzTabLine{, -x-3 , , 3x+5, , x+3 , }
+	\tkzTabLine{, [-3 ;-2] , , [-2 ; -\frac{5}{3}] , , \varnothing , }
+\end{tikzpicture}
+
+Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
+
+\subsubsection*{(f)}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x|$/1,$|x+1| - |x|+1$/1, S/1}
+	{$-\infty$ ,$-1$, $0$    , $+\infty$}
+	\tkzTabLine{, -x-1 , , x+1, , x+1 , }
+	\tkzTabLine{, -x , , -x, , x , }
+	\tkzTabLine{, 0 , , 2x+2, , 2 , }
+	\tkzTabLine{, ]-\infty ;-1] , , \left\lbrace -1 \right\rbrace , , \varnothing , }
+\end{tikzpicture}
+
+Donc : $S= ]-\infty ; -1]$
+
+\end{document}]
