@@ -670,4 +670,70 @@ intervalle ouvert entre ses racines ($-3$ et $2$).
 
 $D = ]-\infty ; -3 [ \cup ]2; +\infty[$
 
+\subsection*{Exercice 2.13}
+\subsubsection*{1. Dérivabilité en 0}
+
+Soit $\alpha \in ]0;1[$
+
+\begin{equation*}
+	\begin{split}
+		\lim_{x \rightarrow 0^{+}} \frac{p_{\alpha}(x) - p_{\alpha}(0)}{x}
+		&= \lim_{x \rightarrow 0^{+}} \frac{e^{\alpha \ln(x)}}{e^{\ln x}} \\
+		&= \lim_{x \rightarrow 0^{+}} e^{(\alpha-1) \ln(x)} \\
+		&= +\infty
+	\end{split}
+\end{equation*}
+
+$p_\alpha$ n'est donc pas dérivable en $0$.
+
+\subsubsection*{2.}
+
+C'est la conséquence du cas précédent $\alpha = \frac{1}{2}$.
+
+On peut calculer :
+
+\begin{equation*}
+	\begin{split}
+		\lim_{h \rightarrow 0^{+}} \frac{f(1-h) - f(1)}{-h}
+			&= \lim_{h \rightarrow 0^{+}} -\frac{\sqrt{h(2-h)}}{h} \\
+			&= \lim_{h \rightarrow 0^{+}} -\sqrt{\frac{(2-h)}{h}} \\
+			&= -\infty
+	\end{split}
+\end{equation*}
+
+$f$ n'est donc pas dérivable en $1$.
+
+Le calcul est identique en $-1$ mais $f$ étant paire la non dérivabilité en $-1$ est évidente.
+
+
+\subsection*{Exercice 2.14}
+
+Domaine de définition : $D = [-1 ; 1]$
+
+$f'(x) = -\frac{x}{\sqrt{1-x^2}}$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-1$  , $0$   , $1$}
+	\tkzTabLine{, + , 0 , -, }
+	
+	\tkzTabVar{-/$0$, +/$1$ , -/$0$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-1.1, xmax= 1.1,
+		ymin=0, ymax=1.1,
+		]
+		\addplot[blue,samples=161]{sqrt(1-x^2)};
+	\end{axis}	
+\end{tikzpicture}
+
+On a : $x^2 + f^2(x) = 1$
+La courbe est donc le demi-cercle de centre 0 et de rayon 1.
 \end{document}]
