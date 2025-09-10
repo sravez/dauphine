@@ -735,5 +735,105 @@ $f'(x) = -\frac{x}{\sqrt{1-x^2}}$
 \end{tikzpicture}
 
 On a : $x^2 + f^2(x) = 1$
-La courbe est donc le demi-cercle de centre 0 et de rayon 1.
+La courbe est donc le demi-cercle centré sur l'origine et de rayon 1.
+
+\subsection*{Exercice 2.15}
+
+\begin{displaymath}
+	D_{f \circ g} = [1 ; +\infty[
+\end{displaymath}
+
+\begin{displaymath}
+	D_{g \circ f} = \mathbb{R}^{+}_{*}
+\end{displaymath}
+
+
+\subsection*{Exercice 2.16}
+\subsubsection*{1.}
+$f(x) = \sqrt{x-1} - \sqrt{2x-3}$ est continue sur son domaine de définition.
+
+$D = [\frac{3}{2} ; +\infty[$
+
+$f(\frac{3}{2}) = \frac{1}{\sqrt{2}}$
+
+$f(x) = 0 \Rightarrow x-1 = 2x-3 \Rightarrow x = 2 $
+
+$\lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+On en déduit le tableau suivant :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f$/1 }
+	{$\frac{3}{2}$  , $2$   , $+\infty$}
+	\tkzTabLine{, + , z , -, }
+\end{tikzpicture}
+
+\subsubsection*{2.}
+$f(x) = \sqrt{|x-1|} - \sqrt{|2x-3|}$
+
+$D = \mathbb{R}$
+
+$f(x) = 0 \Longleftrightarrow (x-1)^2 = (2x-3)^2 \Longleftrightarrow 3x^2 -10x +8 =0 \Longleftrightarrow (x-2)(3x-4) =0$
+
+$f(\frac{3}{2}) = \frac{1}{\sqrt{2}} > 0$
+
+$\lim_{x \rightarrow -\infty} f(x) = \lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f$/1 }
+	{$-\infty$, $\frac{4}{3}$  , $2$   , $+\infty$}
+	\tkzTabLine{, - , z , +, z, - }
+\end{tikzpicture}
+
+
+\subsubsection*{3.}
+\begin{equation*}
+	\begin{split}
+		f(x) &= (x^2-3)(2-\sqrt{x})(\sqrt{x^2-2x+1}-4) \\
+		     &= (x^2-3)(2-\sqrt{x})(\sqrt{(x-1)^2}-4) \\
+		     &= (x^2-3)(2-\sqrt{x})(|x-1|-4) \\
+	\end{split}
+\end{equation*}
+
+$D = \mathbb{R}^{+}$
+
+$f(x) = 0 \Longleftrightarrow x \in \{ \sqrt{3} ; 4 ; 5 \}$
+
+$\lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $x^2-3$/1, $2-\sqrt{x}$/1, $|x-1| - 4$/1, $f(x)$/1 }
+	           {$0$, $\sqrt{3}$  , $4$, $5$   , $+\infty$}
+	\tkzTabLine{, - , z , + , t , + , t , + }
+	\tkzTabLine{, + , t , + , z , - , t , - }
+	\tkzTabLine{, - , t , - , t , - , z , + }
+	\tkzTabLine{, + , z , - , z , + , z , - }
+\end{tikzpicture}
+
+
+\subsubsection*{3.}
+\begin{equation*}
+	\begin{split}
+		f(x) &= \ln(x+3) + \ln(x+2) - \ln(x+11) \\
+		&= \ln \frac{(x+3)(x+2)}{x+11}
+	\end{split}
+\end{equation*}
+
+$\ln$ étant défini sur $\mathbb{R}^{+}_{*}$ :
+
+$D = ]-3 ; +\infty[ \cap ]-2 ; +\infty[ \cap ]-11 ; +\infty[ = ]-2 ; +\infty[$
+
+$\lim_{x \rightarrow +\infty} f(x) = +\infty$
+
+$f(x)=0 \Longleftrightarrow  \frac{(x+3)(x+2)}{x+11} \leq 1 \Longleftrightarrow x^2 +4x -5 =0 \Longleftrightarrow x \in [-5 ; 1]$
+
+$f(0) = \ln\frac{6}{11} < 0$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f(x)$/1 }
+	           {$-2$, $1$ , $+\infty$}
+	\tkzTabLine{d, - , 0 , + ,  }
+	
+\end{tikzpicture}
+
 \end{document}]
