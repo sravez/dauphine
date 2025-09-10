@@ -601,5 +601,66 @@ elle est donc dérivable sur ce même domaine.
 	\end{split}
 \end{equation*}
 
+\subsection*{Exercice 2.10}
+
+$\exp$ étant défini sur $\mathbb{R}$ et $\ln$ sur $\mathbb{R}^{+}_{*}$ mais ne devant pas être nul (au dénominateur d'une
+fraction), on a $D = \mathbb{R}^{+}_{*}\setminus\{1\}$.
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} f(x) = 1^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1^{-}} f(x) = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1^{+}} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = 1^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) =-\frac{1}{x\ln^2 x} e^{\frac{1}{\ln x}} < 0
+\end{displaymath}
+
+$f$ est donc strictement décroissante sur $D$.
+
+
+On peut la prolonger en $0$ par continuité avec $f(0) = 1$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/3 }
+	           {$0$  , $1$   , $+\infty$}
+	\tkzTabLine{d, - , d , -, }
+
+	\tkzTabVar{+C/$1^{-}$, -D+/$0$/+$\infty$ , -/$1$ }
+\end{tikzpicture}
+
+
+\subsection*{Exercice 2.11}
+\subsubsection*{1. $x \geq \ln(1+x)$}
+
+Soit $f(x) = x - \ln(1+x)$
+
+$f(0) = 0$
+
+\begin{displaymath}
+	f'(x) = 1 - \frac{1}{1+x} = \frac{x}{1+x} \geq 0 \text{ sur } \mathbb{R}^{+}
+\end{displaymath}
+
+$f$ est donc croissante et par conséquence positive sur $\mathbb{R}^{+}$ : $x \geq \ln(1+x)$
+
+Soit $g(x) = \ln(1+x) + \frac{x^2}{2} - x$
+
+\subsubsection*{2. $x -\frac{x^2}{2} \leq \ln(1+x)$}
+$g(0) = 0$
+\begin{displaymath}
+	g'(x) = \frac{1}{1+x} + x - 1 = \frac{x^2}{1+x} \geq 0 \text{ sur } \mathbb{R}^{+}
+\end{displaymath}
+
+$g$ est donc croissante et positive sur $\mathbb{R}^{+}$ soit : $\ln(1+x) \geq -\frac{x^2}{2} + x$
 
 \end{document}]
