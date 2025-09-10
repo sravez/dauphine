@@ -265,6 +265,20 @@ $f(0) = 0$.
 	\lim_{x \rightarrow +\infty} f(x) = 0^{+}
 \end{displaymath}
 
+On peut remarquer que :
+\begin{displaymath}
+	f_n\left(\frac{1}{\sqrt{n}} x \right) = \frac{1}{\sqrt{n}} f_1(x).
+\end{displaymath}
+
+La représentation graphique de $f_n$ est donc la transformée de celle de $f_1$
+par l'homothétie ayant pour centre l'origine et de rapport $\frac{1}{\sqrt{n}}$.
+L'homothétie conservant les directions (et donc les sens de variations, extrema et
+points d'inflexion), ll suffit d'étudier $f_1$.
+
+Cette caractéristique, si elle nous échappe initialement, deviendra évidente durant
+l'étude de la fonction lorsque l'on constatera l'alignement des points particuliers
+(extrema et points d'inflexion).
+
 \subsubsection*{Variations}
 
 \begin{displaymath}
@@ -383,12 +397,12 @@ Donc : $S=]-\infty ; -4] \cup ]2 ; +\infty[$
 \subsubsection*{(d)}
 
 \begin{tikzpicture}
-	\tkzTabInit{$x$ / 1   , $|2x-4|$ / 1, $|x+2|$/1,$|2x-4|-|x+2|$/1, S/1}
+	\tkzTabInit{$x$ / 1   , $|2x-4|$ / 1, $|x+2|$/1, Equation/1, S/1}
 	           {$-\infty$ ,$-2$, $2$    , $+\infty$}
-	\tkzTabLine{, -2x+4 , , -2x+4, , 2x-4 , }
-	\tkzTabLine{, -x-2 , , x+2, , x+2 , }
-	\tkzTabLine{, -x+6 , , -3x+2, , x-6 , }
-	\tkzTabLine{, \varnothing , , \left\lbrace \frac{2}{3}\right\rbrace , , \left\lbrace 6 \right\rbrace , }
+	\tkzTabLine{, -2x+4       , , -2x+4, , 2x-4 , }
+	\tkzTabLine{, -x-2        , , x+2, , x+2 , }
+	\tkzTabLine{, -x+6=0      , , -3x+2=0, , x-6=0 , }
+	\tkzTabLine{, \varnothing ,\cup , \left\lbrace \frac{2}{3}\right\rbrace ,\cup , \left\lbrace 6 \right\rbrace , }
 \end{tikzpicture}
 
 Donc : $S=\left\lbrace \frac{2}{3} ; 6 \right\rbrace$
@@ -396,12 +410,12 @@ Donc : $S=\left\lbrace \frac{2}{3} ; 6 \right\rbrace$
 \subsubsection*{(e)}
 
 \begin{tikzpicture}
-	\tkzTabInit{$x$ / 1   , $|2x+4|$ / 1, $|x+1|$/1,$|2x+4| - |x+1|$/1, S/1}
+	\tkzTabInit{$x$ / 1   , $|2x+4|$ / 1, $|x+1|$/1,Equation/1, S/1}
 	{$-\infty$ ,$-2$, $-1$    , $+\infty$}
 	\tkzTabLine{, -2x-4 , , 2x+4, , 2x+4 , }
 	\tkzTabLine{, -x-1 , , -x-1, , x+1 , }
-	\tkzTabLine{, -x-3 , , 3x+5, , x+3 , }
-	\tkzTabLine{, [-3 ;-2] , , [-2 ; -\frac{5}{3}] , , \varnothing , }
+	\tkzTabLine{, -x-3 \leq 0 , , 3x+5 \leq 0, , x+3 \leq 0 , }
+	\tkzTabLine{, [-3 ;-2] ,\cup , [-2 ; -\frac{5}{3}] ,\cup , \varnothing , }
 \end{tikzpicture}
 
 Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
@@ -409,14 +423,122 @@ Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
 \subsubsection*{(f)}
 
 \begin{tikzpicture}
-	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x|$/1,$|x+1| - |x|+1$/1, S/1}
+	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x|$/1,Equation/1, S/1}
 	{$-\infty$ ,$-1$, $0$    , $+\infty$}
 	\tkzTabLine{, -x-1 , , x+1, , x+1 , }
 	\tkzTabLine{, -x , , -x, , x , }
-	\tkzTabLine{, 0 , , 2x+2, , 2 , }
-	\tkzTabLine{, ]-\infty ;-1] , , \left\lbrace -1 \right\rbrace , , \varnothing , }
+	\tkzTabLine{, 0=0 , , 2x+2=0, , 2=0 , }
+	\tkzTabLine{, ]-\infty ;-1] ,\cup , \left\lbrace -1 \right\rbrace , \cup, \varnothing , }
 \end{tikzpicture}
 
 Donc : $S= ]-\infty ; -1]$
 
+\subsection*{Exercice 2.5}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x-1|$ / 1, $|3x+1|$/1,Equation/1, S/1}
+	           {$-\infty$ ,$-\frac{1}{3}$, $\frac{1}{2}$    , $+\infty$}
+	\tkzTabLine{, -2x+1  , , -2x+1  , , 2x-1    , }
+	\tkzTabLine{, -3x-1  , ,  3x+1  , , 3x+1    , }
+	\tkzTabLine{, 4x+3=1 , , -8x-1=1, , -4x-3=1 , }
+	\tkzTabLine{,   \left\lbrace -\frac{1}{2} \right\rbrace,\cup , \left\lbrace -\frac{1}{4} \right\rbrace , \cup, \varnothing , }
+\end{tikzpicture}
+
+Donc : $S=\left\lbrace -\frac{1}{2} ; -\frac{1}{4} \right\rbrace$
+
+\subsection*{Exercice 2.6}
+
+\begin{equation*}
+	\begin{split}
+		\forall x \in [-3 ; 1],
+		& \begin{cases}
+			0 \leq |x+1| \leq 2 \\
+		    -1 \leq x+2 \leq 3 \\
+		    1 \leq x^2 + 1 \leq 10
+		\end{cases} \\
+		\Longrightarrow 
+		& \begin{cases}
+			-2 \leq |x+1|(x+2) \leq 6 \\
+			0 < \frac{1}{x^2 + 1} \leq 1
+		\end{cases} \\
+		\Longrightarrow 
+		& -2 \leq \frac{|x+1|(x+2)}{x^2 + 1} \leq 6 
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 2.7}
+
+\subsubsection*{1. Egalité de l'inégalité triangulaire}
+
+L'égalité est évidemment vraie si $x$ et $y$ sont de même signe :
+\begin{displaymath}
+	xy \geq 0 \Longrightarrow |x+y| = |x| + |y|
+\end{displaymath}
+
+Plutôt que de prouver la réciproque ($|x+y| = |x| + |y| \Longrightarrow xy \geq 0$), démontrons
+la contraposée : $xy < 0 \Longrightarrow |x+y| \neq |x| + |y|$.
+
+Soient $x$ et $y$ tels que $ x < 0 < y$, on alors :
+
+\begin{displaymath}
+		|x+y| - |x| - |y|
+		= \begin{cases}
+			x+y-(-x)-y = 2x \neq 0 \text { si } y \geq -x \\
+			-x-y-(-x)-y = -2y \neq 0 \text { si } y \leq -x \\
+		\end{cases}
+\end{displaymath}
+
+L'égalité n'est donc pas vérifiée si les 2 variables n'ont pas le même signe ce qui démontre la contraposée
+et donc l'équivalence.
+
+\subsubsection*{2. min et max}
+
+Les 2 fonctions étant symétriques en $x$ et $y$ (car $|x-y| = |y-x]$), il suffit de vérifier les égalités
+pour $x \leq y$ et elles seront vraies pour $x \geq y$.
+
+Supposons $x \leq y$ (et donc $|x-y|=y-x$), alors :
+\begin{equation*}
+	\begin{split}
+		\frac{x + y + |x-y|}{2} &= \frac{x + y + (y-x)}{2} \\
+		                        &= y \\
+		                        &= max(x,y)
+	\end{split}
+\end{equation*}
+
+et
+
+\begin{equation*}
+	\begin{split}
+		\frac{x + y - |x-y|}{2} &= \frac{x + y - (y-x)}{2} \\
+		&= x \\
+		&= min(x,y)
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 2.8}
+
+\subsubsection*{1.}
+\begin{equation*}
+	\begin{split}
+		&\frac{\exp(x^2-1)}{\exp(x+1)} \leq 1 \\
+		\Longleftrightarrow &\exp(x^2-1 -(x+1)) \leq 1 \\
+		\Longleftrightarrow &\exp((x+1)(x-2)) \leq 1 \\
+		\Longleftrightarrow &(x+1)(x-2) \leq 0 \\
+		\Longleftrightarrow & -1 \leq x \leq 2 \\
+	\end{split}
+\end{equation*}
+
+Donc : $S= [-1 ; 2]$
+
+\subsubsection*{2.}
+\begin{equation*}
+	\begin{split}
+		& e^{2x} + e^x -6 = 0 \\
+		\Longleftrightarrow & e^x = \frac{-1\pm \sqrt{25}}{2} \\
+		\Longrightarrow & e^x = 2 \text{ car $e^x$ est strictement positif} \\
+		\Longrightarrow & x = \ln 2
+	\end{split}
+\end{equation*}
+
+Donc : $S=\left\lbrace \ln 2 \right\rbrace$
 \end{document}]
