@@ -1039,4 +1039,232 @@ car $\lim_{x \rightarrow +\infty} \frac{\ln x}{x} = \lim_{x \rightarrow +\infty}
 	\end{split}	
 \end{equation*}
 
+
+\subsection*{Exercice 2.20}
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{x}
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{\ln(1+x)}{x}}
+		= \lim_{x \rightarrow 0^{+}} e^{1} 
+		= e
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{x^2} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{1}{x}\frac{\ln(1+x)}{x}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{1}{x}}
+		= +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{\sqrt{x}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{\ln(1+x)}{\sqrt{x}}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\sqrt{x}\frac{\ln(1+x)}{x}}
+		= \lim_{x \rightarrow 0^{+}} e^{\sqrt{x}}
+		= 1
+\end{displaymath}
+
+car $\lim_{x \rightarrow 0^{+}} \frac{\ln(1+x)}{x} = 1$ (cf. dérivée de $\ln$ en $1$)
+
+\subsection*{Exercice 2.21}
+
+$f(x) = x^x = e^{x \ln x}$
+
+Domaine de définition : $D = \mathbb{R}^+_*$
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} f(x) = 1  \text{ (cf. croissance comparée de $x$ et $\ln x$)}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) = (1+ \ln x)e^{x \ln x} = (1+ \ln x)x^x
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) = 0 \Longleftrightarrow 1 + \ln x = 0 \Longleftrightarrow x = \frac{1}{e} \approx 0,368
+\end{displaymath}
+
+\begin{displaymath}
+	f\left(\frac{1}{e}\right) = e^{-\frac{1}{e}} \approx 0,692
+\end{displaymath}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$0$  , $\frac{1}{e}$   , $+\infty$}
+	\tkzTabLine{d, - , z , +, }
+	\tkzTabVar{+C/$1$, -/$e^{-\frac{1}{e}}$ , +/$\infty$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=0:1.1,
+		ymin=0.5,
+		]
+		\addplot[blue, samples=101]{x^x};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Exercice 2.22}
+
+\subsubsection*{Exercice 2.22.1}
+
+$f_1(x) = \frac{1}{1+e^{-x}}$
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f_1(x) = 1
+\end{displaymath}
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} f_1(x) = 0
+\end{displaymath}
+
+$e^{-x}$ décroissante donc $(1+e^{-x})$ décroissante, donc $f_1$ est croissante.
+
+$f_1(0) = \frac{1}{2}$
+
+\begin{displaymath}
+	f_1'(x) = \frac{e^{-x}}{(1+e^{-x})^2} > 0
+\end{displaymath}
+
+Ce qui confirme que $f_1$ est strictement croissante sur $\mathbb{R}$.
+
+\begin{displaymath}
+	f_1''(x) = \frac{-(1+e^{-x})+2}{(1+e^{-x})^3}e^{-x}
+	         = \frac{1-e^{-x}}{(1+e^{-x})^3}e^{-x}
+\end{displaymath}
+
+$f_1$ présente donc un point d'inflexion en $0$.
+
+On constate que $f_1(x) + f_1(-x) = \frac{1}{2}$ ce qui signifie que la représentation
+graphique est symétrique par rapport au point $(0 ; \frac{1}{2})$
+
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-\infty$  , $+\infty$}
+	\tkzTabLine{, + , }
+	\tkzTabVar{-/$0^{+}$, +/$1^-$ }
+	\tkzTabVal{1}{2}{0.5}{0}{$\frac{1}{2}$}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-5:5,
+		ymin=0,
+		]
+		\addplot[blue, samples=101]{1/(1+exp(-x))};
+	\end{axis}	
+\end{tikzpicture}
+
+
+\subsubsection*{Exercice 2.22.2}
+
+$f_2(x) = 2x\sqrt{1-x^2}$ sur $[-1 ; 1]$
+
+$f_2$ est impaire
+
+\begin{displaymath}
+	f_2'(x) = 2\sqrt{1-x^2} + \frac{2x(-2x)}{2\sqrt{1-x^2}} 
+	        = \frac{2(1-x^2)-2x^2}{\sqrt{1-x^2}}
+	        = \frac{2-4x^2}{\sqrt{1-x^2}}
+\end{displaymath}
+
+$f_2$ s'annule donc en $\pm \frac{1}{\sqrt{2}}$
+
+$f\left( \frac{1}{\sqrt{2}} \right) = 1$
+	
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-1$, $-\frac{1}{\sqrt{2}}$, $\frac{1}{\sqrt{2}}$  , $1$}
+	\tkzTabLine{, + , z , -, z, + }
+	\tkzTabVar{+/$0$, -/$-1$,+/$1$, -/$0$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-1:1,
+		ymin=-1,
+		]
+		\addplot[blue, samples=101]{2*x*sqrt(1-x*x)};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsubsection*{Exercice 2.22.3}
+
+$f_3(x) = \exp\left( \frac{x-1}{x+1}\right) = \exp\left(1- \frac{2}{x+1}\right)$
+
+$D = \mathbb{R} \setminus \{-1\}$
+
+$f_3$ est strictement positive sur $D$
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} f_3(x) = e^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -1^{-}} f_3(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -1^{+}} f_3(x) = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f_1(x) = e^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	f_3'(x) = \frac{x+1-(x-1)}{(x+1)^2} \exp\left( \frac{x-1}{x+1}\right)
+	        = \frac{2}{(x+1)^2} \exp\left( \frac{x-1}{x+1}\right) > 0
+\end{displaymath}
+
+\begin{displaymath}
+	f_3''(x) = \left(\frac{-4(x+1)}{(x+1)^4} + \frac{4}{(x+1)^4}\right) \exp\left( \frac{x-1}{x+1}\right)
+	         = \frac{-4x}{(x+1)^4} \exp\left( \frac{x-1}{x+1}\right)
+\end{displaymath}
+
+$f_3$ présente un point d'inflexion en $(0 ; \frac{1}{e})$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-\infty$, $-1$, $+\infty$}
+	\tkzTabLine{, + , d , + }
+	\tkzTabVar{-/$e$, +DC-/$+\infty$/$0$, +/$e$ }
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=10cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		ymin=0,
+		]
+		\addplot[blue, domain=-10:-2.5, samples=51]{exp((x-1)/(x+1))};
+		\addplot[blue, domain=-1:9, samples=51]{exp((x-1)/(x+1))};
+		\addplot[red, thin, domain=-10:9]{exp(1)};
+		\addplot[red] coordinates {(-1,0)(-1,10)};
+	\end{axis}	
+\end{tikzpicture}
+
 \end{document}]
