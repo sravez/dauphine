@@ -577,14 +577,29 @@ Soit $f(x) = \left| \frac{x+1}{x-1} \right|$ définie sur $\mathbb{R} \setminus 
 \begin{tikzpicture}
 	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x-1|$/1,$f(x)$/1, $f'(x)$/1, Variations/2}
 	           {$-\infty$  ,$-1$ , $1$    , $+\infty$}
-	\tkzTabLine{, -x-1  , , x+1   , , x+1    , }
-	\tkzTabLine{, -x+1  , , -x+1  , , x-1    , }
-	\tkzTabLine{, \frac{x+1}{x-1} , , -\frac{x+1}{x-1}, , \frac{x+1}{x-1} , }
-	\tkzTabLine{, -\frac{2}{(x-1)^2}  , , \frac{2}{(x-1)^2} , , -\frac{2}{(x-1)^2} , }
-	\tkzTabVar{+/$1^{-}$, -/$0$ , +/$+\infty$, -/$1^{+}$ , }
+	\tkzTabLine{, -x-1               , d , x+1               , d , x+1    , }
+	\tkzTabLine{, -x+1               , d , -x+1              , d , x-1    , }
+	\tkzTabLine{, \frac{x+1}{x-1}    , d , -\frac{x+1}{x-1}  , d , \frac{x+1}{x-1} , }
+	\tkzTabLine{, -\frac{2}{(x-1)^2} , d , \frac{2}{(x-1)^2} , d , -\frac{2}{(x-1)^2} , }
+	\tkzTabVar{+/$1^{-}$, -C/$0$ , +D+/$+\infty$/$+\infty$, -/$1^{+}$ , }
 \end{tikzpicture}
 
-L'équation $f(x)=2$ présente donc 1 racine sur l'intervalle $]-1 ; 1[$ et une autre sur $]1; +\infty[$ : $\frac{1}{3}$ et $3$
+L'équation $f(x)=2$ présente donc 1 racine sur l'intervalle $]-1 ; 1[$ et une autre sur $]1; +\infty[$ : $\frac{1}{3}$ et $3$.
 
-On a donc $S = ]-\infty ; \frac{1}{3}] \cup [3 ; +\infty[$
+On a donc $S = ]-\infty ; -1[ \cup ]-1 ; \frac{1}{3}] \cup [3 ; +\infty[$
+
+\subsection*{Exercice 2.9}
+
+Il s'agit du produit de fonctions ($x$, $e^x$ et $1/(x+1)$) dérivables sur $\mathbb{R}\setminus\{-1\}$,
+elle est donc dérivable sur ce même domaine. 
+
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{(e^x + x e^x)(x+1)-x e^x}{(x+1)^2} \\
+		      &= \frac{(x+1)^2-x}{(x+1)^2}e^x \\
+		      &= \frac{x^2 + x + 1}{(x+1)^2}e^x
+	\end{split}
+\end{equation*}
+
+
 \end{document}]
