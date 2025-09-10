@@ -833,7 +833,92 @@ $f(0) = \ln\frac{6}{11} < 0$
 	\tkzTabInit{$x$/1, $f(x)$/1 }
 	           {$-2$, $1$ , $+\infty$}
 	\tkzTabLine{d, - , 0 , + ,  }
-	
 \end{tikzpicture}
+
+
+\subsection*{Exercice 2.17}
+
+\subsubsection*{1.a.}
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} x e^{-\ln x} = \lim_{x \rightarrow 0^{+}} x x^{-1} = 1
+\end{displaymath}
+
+\subsubsection*{1.b.}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{x+1}{x-1} = -1
+\end{displaymath}
+
+\subsubsection*{1.c.}
+\begin{displaymath}
+		\lim_{x \rightarrow 0} \frac{e^{\frac{1}{x^2}}+1}{2e^{\frac{1}{x^2}}-1}
+		        = \lim_{x \rightarrow 0} \frac{1 + e^{\frac{-1}{x^2}}}{2-e^{\frac{-1}{x^2}}} = \frac{1}{2}
+\end{displaymath}
+
+\subsubsection*{2.a.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{\sqrt{|x|}+1}{x-1} = 0^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{\sqrt{|x|}+1}{x-1} = 0^{-}
+\end{displaymath}
+
+\subsubsection*{2.b.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{x^3+1}{x^2-1} = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{x^3+1}{x^2-1} = -\infty
+\end{displaymath}
+
+\subsubsection*{2.c.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{e^{2x}+1}{e^{3x}-1} = \lim_{x \rightarrow +\infty} \frac{1+ e^{-2x}}{e^{x}-e^{-2x}} = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{e^{2x}+1}{e^{3x}-1} = -1
+\end{displaymath}
+
+
+\subsubsection*{2.d.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \left( \sqrt{|x|+1} - \sqrt{|x|-1} \right)
+		= \lim_{x \rightarrow +\infty} \frac{|x|+1-(|x|-1)}{\sqrt{|x|+1} + \sqrt{|x|-1}} = \lim_{x \rightarrow +\infty} \frac{2}{\sqrt{|x|+1} + \sqrt{|x|-1}} = 0
+\end{displaymath}
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \left( \sqrt{|x|+1} - \sqrt{|x|-1} \right) = 0
+\end{displaymath}
+
+\subsubsection*{2.e.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} 2^{-x}e^x = \lim_{x \rightarrow +\infty} e^{x(1-\ln 2)} = +\infty \text{ cf. exercice 2.11 ou } e>2 \Longleftrightarrow 1 > \ln 2
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} 2^{-x}e^x = \lim_{x \rightarrow -\infty} e^{x(1-\ln 2)} = 0^{}
+\end{displaymath}
+
+
+\subsection*{Exercice 2.18}
+
+\subsubsection*{2.18.1.a}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} e^{\frac{1}{x^2}} - e^{\frac{2}{x^2}}  = \lim_{x \rightarrow 0} e^{\frac{1}{x^2}}(1 - e^{\frac{1}{x^2}}) = -\infty
+\end{displaymath}
+
+\subsubsection*{2.18.1.b}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{1}{x^2}  + \ln |x| = \lim_{x \rightarrow 0} \frac{1}{x^2}  (1+ x^2\ln |x|) = +\infty
+\end{displaymath}
+car $ \lim_{x \rightarrow 0} x^2\ln |x| = 0$ d'après la proposition 2.39
+
+\subsubsection*{2.18.1.c}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{1+e^{-x}}{(e^x-1)^2 - |x|\ln |x|} = + \infty
+\end{displaymath}
+
+car $ \lim_{x \rightarrow 0} (e^x-1)^2 = 0^{+}$ et $ \lim_{x \rightarrow 0} |x|\ln |x| = 0^{-}$, la limite du dénominateur est donc $0^{+}$
 
 \end{document}]
