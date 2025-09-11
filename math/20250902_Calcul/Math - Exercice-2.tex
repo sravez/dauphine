@@ -6,8 +6,9 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass{report}
+\documentclass[a4paper,10pt]{report}
 \usepackage[french]{babel}
+\usepackage{standalone}
 \usepackage{amsmath}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
@@ -31,7 +32,8 @@
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
-
+%\include{../../templates/first_pages/first_page}
+\input{../../templates/first_pages/first_page}
 
 \part*{2 - Fonctions réelles usuelles}
 
@@ -799,9 +801,22 @@ On peut la prolonger en $0$ par continuité avec $f(0) = 1$
 	\tkzTabVar{+C/$1^{-}$, -D+/$0$/+$\infty$ , -/$1$ }
 \end{tikzpicture}
 
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=6cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		ymin=0,
+		]
+		\addplot[blue, domain=0:0.9, samples=81]{exp(1/ln(x))};
+		\addplot[blue, domain=1.5:5, samples=51]{exp(1/ln(x))};
+	\end{axis}	
+\end{tikzpicture}
 
 \subsection*{Exercice 2.11}
-\subsubsection*{1. $x \geq \ln(1+x)$}
+\subsubsection*{1. Montrons que $x \geq \ln(1+x)$ sur $\mathbb{R}^+$}
 
 Soit $f(x) = x - \ln(1+x)$
 
@@ -813,9 +828,11 @@ $f(0) = 0$
 
 $f$ est donc croissante et par conséquence positive sur $\mathbb{R}^{+}$ : $x \geq \ln(1+x)$
 
+
+\subsubsection*{2. Montrons que $x -\frac{x^2}{2} \leq \ln(1+x)$ sur $\mathbb{R}^+$}
+
 Soit $g(x) = \ln(1+x) + \frac{x^2}{2} - x$
 
-\subsubsection*{2. $x -\frac{x^2}{2} \leq \ln(1+x)$}
 $g(0) = 0$
 \begin{displaymath}
 	g'(x) = \frac{1}{1+x} + x - 1 = \frac{x^2}{1+x} \geq 0 \text{ sur } \mathbb{R}^{+}
@@ -825,13 +842,15 @@ $g$ est donc croissante et positive sur $\mathbb{R}^{+}$ soit : $\ln(1+x) \geq -
 
 \subsection*{Exercice 2.12}
 
-Le domaine de définition est le domaine ou $x^2 + x -6$ est strictement positive soit $\mathbb{R}$ diminué de l'éventuel
-intervalle ouvert entre ses racines ($-3$ et $2$).
+$f(x) = \frac{1}{\sqrt{x^2 +x - 6}}$
+
+Le domaine de définition est le domaine où $x^2 + x -6$ est strictement positive soit $\mathbb{R}$ diminué de l'éventuel
+intervalle fermé entre ses racines ($-3$ et $2$).
 
 $D = ]-\infty ; -3 [ \cup ]2; +\infty[$
 
 \subsection*{Exercice 2.13}
-\subsubsection*{1. Dérivabilité en 0}
+\subsubsection*{1. Dérivabilité de $p_\alpha$ en 0}
 
 Soit $\alpha \in ]0;1[$
 
@@ -868,6 +887,8 @@ Le calcul est identique en $-1$ mais $f$ étant paire la non dérivabilité en $
 
 \subsection*{Exercice 2.14}
 
+Soit $f(x) = \sqrt{1-x^2}$
+
 Domaine de définition : $D = [-1 ; 1]$
 
 $f'(x) = -\frac{x}{\sqrt{1-x^2}}$
@@ -894,10 +915,11 @@ $f'(x) = -\frac{x}{\sqrt{1-x^2}}$
 	\end{axis}	
 \end{tikzpicture}
 
-On a : $x^2 + f^2(x) = 1$
-La courbe est donc le demi-cercle centré sur l'origine et de rayon 1.
+On a : $x^2 + f^2(x) = 1$ ; la courbe est donc le demi-cercle centré sur l'origine et de rayon 1.
 
 \subsection*{Exercice 2.15}
+
+Soient $f(x) = \sqrt{x}$ et $g(x)= \ln x$.
 
 \begin{displaymath}
 	D_{f \circ g} = [1 ; +\infty[
@@ -979,15 +1001,23 @@ $\lim_{x \rightarrow +\infty} f(x) = -\infty$
 	\end{split}
 \end{equation*}
 
+\textbf{Domaine de définition}
+
 $\ln$ étant défini sur $\mathbb{R}^{+}_{*}$ :
 
-$D = ]-3 ; +\infty[ \cap ]-2 ; +\infty[ \cap ]-11 ; +\infty[ = ]-2 ; +\infty[$
+$D = ]-3 ; +\infty[ \cap ]-2 ; +\infty[ \cap ]-11 ; +\infty[ = ]-2 ; +\infty[$ (même si la forme rassemblée de $f$ est définie sur $]-11 ; -3[$)
+
+\textbf{Valeurs et limites}
+
+$\lim_{x \rightarrow -2^+} f(x) = -\infty$
 
 $\lim_{x \rightarrow +\infty} f(x) = +\infty$
 
-$f(x)=0 \Longleftrightarrow  \frac{(x+3)(x+2)}{x+11} \leq 1 \Longleftrightarrow x^2 +4x -5 =0 \Longleftrightarrow x \in [-5 ; 1]$
+$f(x)=0 \Longleftrightarrow  \frac{(x+3)(x+2)}{x+11} = 1 \Longleftrightarrow x^2 +4x -5 =0 \Longleftrightarrow x \in [-5 ; 1] \Longleftrightarrow x=1$ sur $D$.
 
 $f(0) = \ln\frac{6}{11} < 0$
+
+\textbf{Tableau de signe}
 
 \begin{tikzpicture}
 	\tkzTabInit{$x$/1, $f(x)$/1 }
@@ -1012,11 +1042,14 @@ $f(0) = \ln\frac{6}{11} < 0$
 \begin{displaymath}
 		\lim_{x \rightarrow 0} \frac{e^{\frac{1}{x^2}}+1}{2e^{\frac{1}{x^2}}-1}
 		        = \lim_{x \rightarrow 0} \frac{1 + e^{\frac{-1}{x^2}}}{2-e^{\frac{-1}{x^2}}} = \frac{1}{2}
+		        \quad \text{car } \lim_{x \rightarrow 0} e^{\frac{-1}{x^2}} = 0
 \end{displaymath}
 
 \subsubsection*{2.a.}
 \begin{displaymath}
-	\lim_{x \rightarrow +\infty} \frac{\sqrt{|x|}+1}{x-1} = 0^{+}
+	\lim_{x \rightarrow +\infty} \frac{\sqrt{|x|}+1}{x-1}
+		= \lim_{x \rightarrow +\infty} \frac{1 + \frac{1}{\sqrt{|x|}}}{\frac{x}{\sqrt{|x|}}-\frac{1}{\sqrt{|x|}}}
+		= 0^{+}
 \end{displaymath}
 
 \begin{displaymath}
@@ -1025,7 +1058,7 @@ $f(0) = \ln\frac{6}{11} < 0$
 
 \subsubsection*{2.b.}
 \begin{displaymath}
-	\lim_{x \rightarrow +\infty} \frac{x^3+1}{x^2-1} = +\infty
+	\lim_{x \rightarrow +\infty} \frac{x^3+1}{x^2-1} = \lim_{x \rightarrow +\infty} \frac{ x+ \frac{1}{x^2} }{ 1- \frac{1}{x^2}} =+\infty
 \end{displaymath}
 
 \begin{displaymath}
