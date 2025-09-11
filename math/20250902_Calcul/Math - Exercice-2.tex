@@ -33,8 +33,9 @@
 \begin{document}
 
 
-\chapter*{2 - Fonctions réelles usuelles}
+\part*{2 - Fonctions réelles usuelles}
 
+\chapter*{Cours}
 
 \subsection*{Application 2.3}
 
@@ -149,6 +150,7 @@ D'après la définition de la dérivée d'une fonction :
 \subsection*{Application 2.24}
 
 \subsubsection*{Application 2.24.i}
+
 \begin{tikzpicture}
 	\begin{axis}[
 		axis lines=center,
@@ -163,8 +165,22 @@ D'après la définition de la dérivée d'une fonction :
 	\end{axis}	
 \end{tikzpicture}
 
-La fonction n'est par définition pas définie sur $\mathbb{R}^-_*$ mais on pourrait l'y définir 
-au sens de racine cubique (i.e. $x^{1/3}= y \Longleftrightarrow y^3 =x$) par $f(x) = -f(-x)$
+Comme vu dans la proposition 2.22, $p_{1/3}$ est étendue à $\mathbb{R}$ comme la réciproque de $p_3$ qui est une bijection
+ de  $\mathbb{R}$ dans $\mathbb{R}$ : la racine cubique. On peut formellement définir $p_{1/3}$ sur $\mathbb{R}^-$ par $\forall x \in \mathbb{R}^-,
+ p_{1/3}(x) = -p_{1/3}(-x)$. On complète donc le graphe par son symétrique par rapport à l'origine.
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		]
+		\addplot[blue,domain=-8:0,samples=161]{-(-x)^(1/3))};
+		\addplot[blue,domain=0:8,samples=161]{x^(1/3))};
+	\end{axis}	
+\end{tikzpicture}
 
 \subsubsection*{Application 2.24.ii}
 
@@ -184,6 +200,9 @@ $D=\mathbb{R}^{+}_*$
 	\end{axis}	
 \end{tikzpicture}
 
+\subsection*{Application 2.26 - Pour aller plus loin}
+Cela n'est vrai sur $\mathbb{R}$ que pour les entiers impairs car $x^{2k}$ n'est pas une bijection.
+
 \subsection*{Application 2.32}
 \begin{equation*}
 	\begin{split}
@@ -201,7 +220,7 @@ $p_{\alpha}$ est définie sur $\mathbb{R}^{+}_{*}$ par $p_{\alpha}(x) = \exp(\al
 	\lim_{x\rightarrow 0^{+}} \ln(x) = -\infty \Longrightarrow\forall \alpha>0, \lim_{x\rightarrow 0^{+}} p_{\alpha}(x) = 0
 \end{displaymath}
 
-On peut donc, si $\alpha > 0 0$, définir par continuité la fonction $p_{\alpha}$ en $0$ avec la valeur nulle.
+On peut donc, si $\alpha > 0$, définir par continuité la fonction $p_{\alpha}$ en $0$ avec la valeur nulle.
 
 On a alors :
 \begin{equation*}
@@ -228,15 +247,16 @@ avec $p'_{\alpha}(0)=0$.
 	\end{split}
 \end{equation*}
 
+\chapter*{Exercices}
 
 \subsection*{Exercice 2.1}
 
 \begin{equation*}
 	\begin{split}
 		\forall x \in \mathbb{R}, \lim_{h\rightarrow 0} \dfrac{\dfrac{1}{1+(x+h)^2}-\dfrac{1}{1+x^2}}{h}
-		&= \lim_{x\rightarrow 0} \dfrac{1+x^2-1-(x+h)^2}{h(1+(x+h)^2)(1+x^2)} \\
-		&= \lim_{x\rightarrow 0} \dfrac{-2xh-h^2}{h(1+(x+h)^2)(1+x^2)} \\
-		&= \lim_{x\rightarrow 0} \dfrac{-2x-h}{(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{h\rightarrow 0} \dfrac{1+x^2-1-(x+h)^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{h\rightarrow 0} \dfrac{-2xh-h^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{h\rightarrow 0} \dfrac{-2x-h}{(1+(x+h)^2)(1+x^2)} \\
 		&= \frac{-2x}{(1+x^2)^2} \\
 	\end{split}
 \end{equation*}
@@ -308,7 +328,7 @@ On peut remarquer que :
 La représentation graphique de $f_n$ est donc la transformée de celle de $f_1$
 par l'homothétie ayant pour centre l'origine et de rapport $\frac{1}{\sqrt{n}}$.
 L'homothétie conservant les directions (et donc les sens de variations, extrema et
-points d'inflexion), ll suffit d'étudier $f_1$.
+points d'inflexion, et pentes des tangentes), ll suffit d'étudier $f_1$.
 
 Cette caractéristique, si elle nous échappe initialement, deviendra évidente durant
 l'étude de la fonction lorsque l'on constatera l'alignement des points particuliers
@@ -390,7 +410,7 @@ $y=x/4$ et que les tangentes en ces points sont toutes parallèles.
 \begin{equation*}
 	\begin{split}
 		|1-x^{12} +4x^3| &\leq |1- x^{12}|+ |4x^3| \text{ (inégalité triangulaire)} \\
-		&\leq 1 + 4 \text{ pour $x \in [-1, 1]$}\\
+		&\leq 1 + 4 \text{ car }x \in [-1, 1], 1- x^{12} \in [0 ; 1]\\
 		& \leq 5
 	\end{split}
 \end{equation*}
@@ -400,15 +420,38 @@ $y=x/4$ et que les tangentes en ces points sont toutes parallèles.
 
 \subsubsection*{(a)}
 
+Les deux termes étant positifs, on peut élever l'égalité au carré ou raisonner par disjonction de cas en fonction du signe de $x+1$ :
+
+\begin{alignat*}{2}
+	&                    & |x+1| &=2 \\
+	&\Longleftrightarrow &(x+1)^2 &= 4 \\
+	&\Longleftrightarrow & x^2 +2x -3 &= 0 \\
+	&\Longleftrightarrow & (x-1)(x+3) &= 0 \\
+\end{alignat*}
 \begin{alignat*}{2}
 &                    & |x+1| &=2 \\
 &\Longleftrightarrow &(x+1=2 \wedge x+1 \geq 0) &\vee (-x-1=2 \wedge x+1 \leq 0) \\
+&\Longleftrightarrow &(x=1 \wedge x \geq -1) &\vee (x=-3 \wedge x \leq -1) \\
 &\Longleftrightarrow & x=1 &\vee x=-3 \\
 \end{alignat*}
 
 Donc : $S=\left\lbrace -3 ; 1 \right\rbrace$
 
 \subsubsection*{(b)}
+
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |x+3| &\leq 4 \\
+	&\Longleftrightarrow &(x+3)^2 &\leq 16 \\
+	&\Longleftrightarrow & (x^2 + 6x -7) & \leq 0 \\
+	&\Longleftrightarrow & (x+7)(x-1) \leq 0\\
+\end{alignat*}
+
+L'ensembe des solutions est donc l'intervalle fermé entre les 2 racines $-7$ et $1$.
+
+Ou par disjonction de cas :
 
 \begin{alignat*}{2}
 	&                    & |x+3| &\leq 4 \\
@@ -421,6 +464,20 @@ Donc : $S=[-7 ; 1]$
 
 \subsubsection*{(c)}
 
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |x+1| &> 9 \\
+	&\Longleftrightarrow &(x+1)^2 &> 9 \\
+	&\Longleftrightarrow & x^2 + 2x -8 & >0 \\
+	&\Longleftrightarrow & (x+4)(x-2) &> 0\\
+\end{alignat*}
+
+L'ensembe des solutions est donc $\mathbb{R}$ diminué de l'intervalle fermé entre les 2 racines $-4$ et $2$ : $\mathbb{R} \setminus [-4 ; 2]$
+
+Ou par disjonction de cas :
+
 \begin{alignat*}{2}
 	&                    & |x+1| &>3  \\
 	&\Longleftrightarrow &(x+1 > 3 \wedge x+1 \geq 0) &\vee (-x-1 >3 \wedge x+1 \leq 0) \\
@@ -430,6 +487,19 @@ Donc : $S=[-7 ; 1]$
 Donc : $S=]-\infty ; -4] \cup ]2 ; +\infty[$
 
 \subsubsection*{(d)}
+
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |2x-4| &= |x+2| \\
+	&\Longleftrightarrow &(2x-4)^2 &= (x+2)^2 \\
+	&\Longleftrightarrow & 3x^2 -20x +12 & =0 \\
+	&\Longleftrightarrow & (3x-2)(x-6) &= 0\\
+\end{alignat*}
+
+
+Ou par disjonction de cas :
 
 \begin{tikzpicture}
 	\tkzTabInit{$x$ / 1   , $|2x-4|$ / 1, $|x+2|$/1, Equation/1, S/1}
@@ -444,6 +514,18 @@ Donc : $S=\left\lbrace \frac{2}{3} ; 6 \right\rbrace$
 
 \subsubsection*{(e)}
 
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |2x+4|        &\leq |x+1| \\
+	&\Longleftrightarrow & (2x+4)^2      &\leq (x+1)^2 \\
+	&\Longleftrightarrow & 3x^2 +14x +15 &\leq 0 \\
+	&\Longleftrightarrow & (3x+5)(x+3)   &\leq 0 \\
+	&\Longleftrightarrow & -3 \leq &x \leq -\frac{5}{3}
+\end{alignat*}
+
+Ou par disjonction de cas :
+
 \begin{tikzpicture}
 	\tkzTabInit{$x$ / 1   , $|2x+4|$ / 1, $|x+1|$/1,Equation/1, S/1}
 	{$-\infty$ ,$-2$, $-1$    , $+\infty$}
@@ -457,6 +539,21 @@ Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
 
 \subsubsection*{(f)}
 
+Si $|x|<1$, l'égalité ne peut être vérifiée car le terme de droite est strictement négatif et celui de
+gauche positif. Considérons donc que $|x|\geq 1$ et élevons au carré :
+
+\begin{alignat*}{2}
+	&\forall x \in \mathbb{R} \setminus ]-1;1[,  & |x+1|   &= |x| -1 \\
+	&\Longleftrightarrow                         & (x+1)^2 &= (|x|-1)^2 \\
+	&\Longleftrightarrow                         & x       &= -|x| \\
+	&\Longleftrightarrow                         & x       &\leq 0 \\
+		&\Longleftrightarrow                     & x       &\leq -1 \\
+\end{alignat*}
+
+
+
+Ou par disjonction de cas :
+
 \begin{tikzpicture}
 	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x|$/1,Equation/1, S/1}
 	{$-\infty$ ,$-1$, $0$    , $+\infty$}
@@ -469,6 +566,9 @@ Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
 Donc : $S= ]-\infty ; -1]$
 
 \subsection*{Exercice 2.5}
+
+
+Par disjonction de cas :
 
 \begin{tikzpicture}
 	\tkzTabInit{$x$ / 1   , $|2x-1|$ / 1, $|3x+1|$/1,Equation/1, S/1}
@@ -503,7 +603,22 @@ Donc : $S=\left\lbrace -\frac{1}{2} ; -\frac{1}{4} \right\rbrace$
 
 \subsection*{Exercice 2.7}
 
+\subsubsection*{Rappel de logique}
+
+«$A$ est vraie si et seulement si (ssi) $B$ est vraie» signifie que A et B sont équivalentes ($A\Longleftrightarrow B$).
+
+«$A$ vraie si $B$ vraie » signifie que $B \Rightarrow A$
+
+«$A$ vraie seulement si $B$ vraie » signifie que  $\bar{B} \Rightarrow \bar{A}$ soit $A \Rightarrow B$
+
+On démontre une équivalence soit par équivalences successives soit en montrant que $A\Rightarrow B$ et que 
+$B\Rightarrow A$.
+
+Une implication est équivalente à sa contraposée : on peut démontrer que $A\Rightarrow B$ en montrant que
+$\bar{B}\Rightarrow \bar{A}$ ou $\bar{A}$ est la négation de $A$.
+
 \subsubsection*{1. Egalité de l'inégalité triangulaire}
+
 
 L'égalité est évidemment vraie si $x$ et $y$ sont de même signe :
 \begin{displaymath}
@@ -583,11 +698,17 @@ Donc : $S=\left\lbrace \ln 2 \right\rbrace$
 		\forall x \in \mathbb{R} \setminus \left\lbrace -1 ; 1 \right\rbrace, & \ln |x+1| - \ln |x-1| \leq \ln 2 \\
 		\Longleftrightarrow & \ln \left| \frac{x+1}{x-1} \right| \leq \ln 2 \\
 		\Longleftrightarrow & \left| \frac{x+1}{x-1} \right| \leq 2 \text{ car $\ln$ est croissante sur $\mathbb{R}^{+}_{*}$} \\
+		\Longleftrightarrow & \left( \frac{x+1}{x-1} \right)^2 \leq 4 \text{ car les 2 termes sont positifs} \\
+		\Longleftrightarrow & 3x^2-10x+3 \geq 0 \\
+		\Longleftrightarrow & (3x-1)(x-3) \geq 0 \\
+		\Longleftrightarrow & x \in ]-\infty ; \frac{1}{3}] \cup [3 : +\infty[ \\
 	\end{split}
 \end{equation*}
 
+Et donc $S = ]-\infty ; -1[ \cup ]-1 ; \frac{1}{3}] \cup [3 ; +\infty[$
 
-Soit $f(x) = \left| \frac{x+1}{x-1} \right|$ définie sur $\mathbb{R} \setminus \left\lbrace -1 ; 1 \right\rbrace$.
+
+On aurait également pu étudier la fonction $f(x) = \left| \frac{x+1}{x-1} \right|$ définie sur $\mathbb{R} \setminus \left\lbrace -1 ; 1 \right\rbrace$.
 
 \begin{displaymath}
 	\lim_{x \rightarrow -\infty} f(x) = 1^{-}
@@ -625,6 +746,8 @@ On a donc $S = ]-\infty ; -1[ \cup ]-1 ; \frac{1}{3}] \cup [3 ; +\infty[$
 
 \subsection*{Exercice 2.9}
 
+Soit $f(x) = \frac{xe^x}{x+1}$
+
 Il s'agit du produit de fonctions ($x$, $e^x$ et $1/(x+1)$) dérivables sur $\mathbb{R}\setminus\{-1\}$,
 elle est donc dérivable sur ce même domaine. 
 
@@ -638,7 +761,9 @@ elle est donc dérivable sur ce même domaine.
 
 \subsection*{Exercice 2.10}
 
-$\exp$ étant défini sur $\mathbb{R}$ et $\ln$ sur $\mathbb{R}^{+}_{*}$ mais ne devant pas être nul (au dénominateur d'une
+Soit $f(x) = e^\frac{^1}{\ln x}$
+
+$\exp$ étant défini sur $\mathbb{R}$ et $\ln$ sur $\mathbb{R}^{+}_{*}$ mais ne devant pas être nul (car au dénominateur d'une
 fraction), on a $D = \mathbb{R}^{+}_{*}\setminus\{1\}$.
 
 \begin{displaymath}
