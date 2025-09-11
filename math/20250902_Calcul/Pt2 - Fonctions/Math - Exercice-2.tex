@@ -1,0 +1,1463 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{report}
+\usepackage[french]{babel}
+\usepackage{standalone}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+%\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Math - Exercices}
+\author{Poppy RAVEZ}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\include{cover	}
+%\input{cover}
+
+\part*{2 - Fonctions réelles usuelles}
+
+\chapter*{Cours}
+
+\subsection*{Application 2.3}
+
+\subsubsection*{a. $\forall x \in \mathbb{R}, x \leq |x|$}
+
+\begin{displaymath}
+	\begin{cases}
+		\forall x \in \mathbb{R}^{+}, |x| = x \geq x \\
+		\forall x \in \mathbb{R}^{-}_{*}, |x| = -x > 0 > x
+	\end{cases}
+\end{displaymath}
+Donc $\forall x \in \mathbb{R}, x \leq |x|$
+
+\subsubsection*{b. $\forall x \in \mathbb{R}, |x| = 0 \Longleftrightarrow x = 0$}
+
+Par définition : $x = 0 \Longrightarrow |x| = 0$.
+
+Si $|x| = 0$, les solutions  vérifient :
+
+\begin{displaymath}
+	\begin{cases}
+		x = |x| = 0 \text{ si } x \in \mathbb{R}^{+}\\
+		-x = |x| = 0 \text{ si } x \in \mathbb{R}^{-}_{*}
+	\end{cases}
+\end{displaymath}
+
+Donc $x=0$
+
+L'implication réciproque $|x|=0, \Longrightarrow x=0$ est donc vraie ce qui démontre l'équivalence.
+
+\subsubsection*{c. $\forall (x,y) \in \mathbb{R}^2, |xy| = |x|.|y|$}
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	$x$                  & $y$                  & $|xy|$\\
+	\hline
+	$\mathbb{R}^{+}$     & $\mathbb{R}^{+}$     & $|xy| = xy = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{+}$     & $\mathbb{R}^{-}_{*}$ & $|xy| = -xy = x(-y) = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{-}_{*}$ & $\mathbb{R}^{+}$     & $|xy| = -xy = (-x)y = |x|.|y|$ \\
+	\hline
+	$\mathbb{R}^{-}_{*}$ & $\mathbb{R}^{-}_{*}$ & $|xy| = xy =(-x)(-y) = |x|.|y|$ \\
+	\hline
+\end{tabular}
+
+CQFD
+
+Dans l'absolu et pour coller à la définition, il faudrait distinguer les cas $xy<0$ et $xy=0$ quand les deux variables n'ont pas
+le même signe.
+
+
+\subsubsection*{d. $\forall x \in \mathbb{R}, \forall z \in \mathbb{R}^{+}, |x| \leq z \Longleftrightarrow -z \leq x \leq z$}
+
+Soit $z \in \mathbb{R}^{+}$ (et donc $-z \leq 0$).
+
+Si $x \in \mathbb{R}^{+}$ (et donc $|x|=x \geq 0$):
+
+\begin{itemize}
+	\item $|x| \leq z \Longrightarrow -z \leq 0 \leq x \leq z \Longrightarrow -z \leq x \leq z$
+	\item $-z \leq x \leq z \Longrightarrow -z \leq 0 \leq x \leq z \Longrightarrow |x| \leq z$
+\end{itemize}
+
+Ce qui démontre l'équivalence sur $\mathbb{R}^{+}$ ; l'équivalence sur $\mathbb{R}^{-}$ en est la conséquence
+en remplaçant $x$ par $-x$ (les deux inégalités étant invariantes par changement de signe).
+
+\subsection*{Application 2.12}
+
+\subsubsection*{1. $\exp(-\frac{1}{x^2})$}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} -\frac{1}{x^2} =-\infty \Longrightarrow 	\lim_{x \rightarrow 0} exp(-\frac{1}{x^2})= 0 \text{ car } \lim_{x \rightarrow -\infty} \exp(x) = 0
+\end{displaymath}
+
+\subsubsection*{2.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} (1 + e^x + x)= +\infty
+\end{displaymath}
+
+\subsubsection*{3.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{e^x+1}{e^x-1}= \lim_{x \rightarrow +\infty} \frac{1+e^{-x}}{1-e^{-x}} = 1 \text{ car }
+	\lim_{x \rightarrow +\infty} e^{-x} = 0
+\end{displaymath}
+
+
+\subsection*{Application 2.16}
+
+\begin{equation*}
+	\begin{split}
+		\ln(4-\sqrt{3}) + \ln(4+\sqrt{3})
+		&= \ln ((4-\sqrt{3})(4+\sqrt{3}))\\
+		&= \ln (4^2-\sqrt{3}^2) \\
+		&= \ln 13
+	\end{split}
+\end{equation*}
+
+\begin{equation*}
+	\begin{split}
+		\ln(\sqrt{x+1})
+		&= 	\ln((x+1)^{1/2})\\
+		&= \frac{\ln(x+1)}{2}
+	\end{split}
+\end{equation*}
+
+\subsection*{Application 2.17}
+D'après la définition de la dérivée d'une fonction :
+\begin{displaymath}
+\lim_{x \rightarrow 0} \frac{\ln(1+x)}{x} = \lim_{x \rightarrow 0} \frac{\ln(1+x) - \ln(1)}{x} = \ln'(1) = \frac{1}{1} = 1
+\end{displaymath}
+
+
+\subsection*{Application 2.24}
+
+\subsubsection*{Application 2.24.i}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=0,
+		ymin=0, 
+		]
+		\addplot[blue,domain=0:8,samples=161]{x^(1/3))};
+	\end{axis}	
+\end{tikzpicture}
+
+Comme vu dans la proposition 2.22, $p_{1/3}$ est étendue à $\mathbb{R}$ comme la réciproque de $p_3$ qui est une bijection
+ de  $\mathbb{R}$ dans $\mathbb{R}$ : la racine cubique. On peut formellement définir $p_{1/3}$ sur $\mathbb{R}^-$ par $\forall x \in \mathbb{R}^-,
+ p_{1/3}(x) = -p_{1/3}(-x)$. On complète donc le graphe par son symétrique par rapport à l'origine.
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		]
+		\addplot[blue,domain=-8:0,samples=161]{-(-x)^(1/3))};
+		\addplot[blue,domain=0:8,samples=161]{x^(1/3))};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsubsection*{Application 2.24.ii}
+
+$D=\mathbb{R}^{+}_*$
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=0,
+		ymin=0, 
+		]
+		\addplot[blue,domain=0.1:16,samples=161]{x^(-1/4))};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Application 2.26 - Pour aller plus loin}
+Cela n'est vrai sur $\mathbb{R}$ que pour les entiers impairs car $x^{2k}$ n'est pas une bijection.
+
+\subsection*{Application 2.32}
+\begin{equation*}
+	\begin{split}
+		\forall x \in \mathbb{R}^{+}_{*}, \left(  x^{\frac{1}{x}} \right)^{x^2+2x}
+		&= x^{\frac{x^2+2x}{x}} \\
+		&= x^{x+2}
+	\end{split}
+\end{equation*}
+
+
+\subsection*{Application 2.34 - Dérivabilité de $p_{\alpha}$ en $0$ avec $\alpha \geq 1$}
+
+$p_{\alpha}$ est définie sur $\mathbb{R}^{+}_{*}$ par $p_{\alpha}(x) = \exp(\alpha \ln(x))$, cependant :
+\begin{displaymath}
+	\lim_{x\rightarrow 0^{+}} \ln(x) = -\infty \Longrightarrow\forall \alpha>0, \lim_{x\rightarrow 0^{+}} p_{\alpha}(x) = 0
+\end{displaymath}
+
+On peut donc, si $\alpha > 0$, définir par continuité la fonction $p_{\alpha}$ en $0$ avec la valeur nulle.
+
+On a alors :
+\begin{equation*}
+	\begin{split}
+		\lim_{h\rightarrow 0^{+}} \frac{p_{\alpha}(h) - 0}{h}
+		&= \lim_{h\rightarrow 0^{+}} \frac{e^{\alpha \ln(h)}}{h} \\
+		&= \lim_{h\rightarrow 0^{+}} \frac{e^{\alpha \ln(h)}}{e^{\ln(h)}} \\
+		&= \lim_{h\rightarrow 0^{+}} e^{(\alpha-1) \ln(h)} \\
+		&=0 \text{ si $\alpha >1$ car alors $\lim_{h\rightarrow 0^{+}} (\alpha-1) \ln(h) = -\infty$}
+	\end{split}
+\end{equation*}
+
+La fonction $p_{\alpha}$ prolongée en $0$ avec $p_{\alpha}(0)=0$ est donc dérivable à droite en $0$ si $\alpha>1$
+avec $p'_{\alpha}(0)=0$.
+
+
+\subsection*{Application 2.41 - Limite en $0$ de $x^x$}
+
+\begin{equation*}
+	\begin{split}
+		\lim_{x\rightarrow 0^{+}} x^x
+		&= \lim_{x\rightarrow 0^{+}} e^{x\ln(x)} \\
+	    &= 1 \text{ car  $\lim_{x\rightarrow 0^{+}} x\ln(x) = 0$ d'après la proposition 2.39}
+	\end{split}
+\end{equation*}
+
+\chapter*{Exercices}
+
+\subsection*{Exercice 2.1}
+
+\begin{equation*}
+	\begin{split}
+		\forall x \in \mathbb{R}, \lim_{h\rightarrow 0} \dfrac{\dfrac{1}{1+(x+h)^2}-\dfrac{1}{1+x^2}}{h}
+		&= \lim_{h\rightarrow 0} \dfrac{1+x^2-1-(x+h)^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{h\rightarrow 0} \dfrac{-2xh-h^2}{h(1+(x+h)^2)(1+x^2)} \\
+		&= \lim_{h\rightarrow 0} \dfrac{-2x-h}{(1+(x+h)^2)(1+x^2)} \\
+		&= \frac{-2x}{(1+x^2)^2} \\
+	\end{split}
+\end{equation*}
+
+Car la limite du dénominateur est un réel strictement positif.
+
+La fonction $f$ est donc dérivable sur $\mathbb{R}$ et $f'(x) = \frac{-2x}{(1+x^2)^2}$
+
+On constate de manière évidente que $f$ est paire, strictement positive, atteint son maximum en $0$ et que :
+\begin{displaymath}
+	\lim_{x \rightarrow \pm \infty} f(x) = 0^{+}
+\end{displaymath}
+
+
+On en déduit le tableau de variation suivant :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}{$-\infty$ ,$0$, $+\infty$}
+	\tkzTabLine{, + , 0 , - , }
+	\tkzTabVar{-/$0$, +/$1$, -/$0$}
+\end{tikzpicture}
+
+Recherchons les points d'inflexion (où elle traverse sa tangente) caractérisés par $f''(x)=0$ :
+
+\begin{equation*}
+	\begin{split}
+		f''(x) &= \dfrac{-2(1+x^2)^2-2(-2x)(2x)(1+x^2)}{(1+x^2)^4} \\
+		       &= \dfrac{-2(1+x^2)+8x^2}{(1+x^2)^3} \\
+		       &= 2\dfrac{3x^2-1}{(1+x^2)^3} 
+	\end{split}
+\end{equation*}
+
+Les points d'inflexion sont donc $\binom{\pm\frac{1}{\sqrt{3}}}{\frac{3}{4}}$.
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-4, xmax= 4,
+		ymin=0, ymax=1.1,
+		]
+		\addplot[blue,samples=81]{1/(1+x^2)};
+	\end{axis}	
+\end{tikzpicture}
+
+
+\subsection*{Exercice 2.2}
+
+$f$ est impaire, continue et dérivable sur $\mathbb{R}$.
+
+$f(0) = 0$.
+
+\begin{displaymath}
+\lim_{x \rightarrow -\infty} f(x) = 0^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = 0^{+}
+\end{displaymath}
+
+On peut remarquer que :
+\begin{displaymath}
+	f_n\left(\frac{1}{\sqrt{n}} x \right) = \frac{1}{\sqrt{n}} f_1(x).
+\end{displaymath}
+
+La représentation graphique de $f_n$ est donc la transformée de celle de $f_1$
+par l'homothétie ayant pour centre l'origine et de rapport $\frac{1}{\sqrt{n}}$.
+L'homothétie conservant les directions (et donc les sens de variations, extrema et
+points d'inflexion, et pentes des tangentes), ll suffit d'étudier $f_1$.
+
+Cette caractéristique, si elle nous échappe initialement, deviendra évidente durant
+l'étude de la fonction lorsque l'on constatera l'alignement des points particuliers
+(extrema et points d'inflexion).
+
+\subsubsection*{Variations}
+
+\begin{displaymath}
+	f'(x) = \frac{1+nx^2-2nxx}{(1+nx^2)^2}=\frac{1-nx^2}{(1+nx^2)^2}
+\end{displaymath}
+
+$f'(0) = 1$ : toutes les courbes en la même tangente à l'origine
+
+Les extrema (où $f'(x)=0$) sont donc $\pm\frac{1}{\sqrt{n}}$
+
+$f(\frac{1}{\sqrt{n}}) = \frac{1}{2\sqrt{n}}$
+
+On constate que $\frac{f(1/\sqrt{n})}{1/\sqrt{n}} = \frac{1}{2}$, les extrema sont donc tous sur la droite
+d'équation $y=\frac{x}{2}$.
+
+Le tableau de variation est donc :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}{$-\infty$ ,$-\frac{1}{\sqrt(n)}$, $+\frac{1}{\sqrt(n)}$, $+\infty$}
+	\tkzTabLine{, - , 0 , +, 0, - , }
+	\tkzTabVar{+/$0^{-}$, -/$-\frac{1}{2\sqrt{n}}$, +/$\frac{1}{2\sqrt{n}}$, -/$0^{+}$}
+	\tkzTabVal{2}{3}{0.5}{0}{0}
+\end{tikzpicture}
+
+\subsubsection*{Points d'inflexion}
+
+\begin{displaymath}
+	f''(x) = \frac{-2nx(1+nx^2)^2-4nx(1-nx^2)(1+nx^2)}{(1+nx^2)^4}
+	       =-2nx\frac{1+nx^2+2(1-nx^2)}{(1+nx^2)^3}
+	       = -2nx\frac{3-nx^2}{(1+nx^2)^3}
+\end{displaymath}
+
+Chaque courbe présente donc 3 points d'inflexion alignés en $-\sqrt{\frac{3}{n}}$, $0$ et $\sqrt{\frac{3}{n}}$.
+
+On constate que $\frac{f(\sqrt{\frac{3}{n}})}{\sqrt{\frac{3}{n}}} = \frac{1}{4}$ et que $f'\left({\pm \sqrt{\frac{3}{n}}}\right)=-1/8$, ce qui montre que tous les points d'inflexion sont sur la droite
+$y=x/4$ et que les tangentes en ces points sont toutes parallèles.
+
+\subsubsection*{Représentation graphique}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-4, xmax= 4,
+		ymin=-0.6, ymax=0.6,
+		legend pos= north west,
+		]
+		\addplot[blue,samples=81]{x/(1+x^2)};
+		\addlegendentry{$n=1$}
+		\addplot[red,samples=81]{x/(1+2*x^2)};
+		\addlegendentry{$n=2$}
+		\addplot[green,samples=81]{x/(1+3*x^2)};
+		\addlegendentry{$n=3$}
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Exercice 2.3}
+
+\subsubsection*{1.}
+
+\begin{equation*}
+	\begin{split}
+		|\sin^{12}(x) - 2\cos^9(x)| &\leq |\sin^{12}(x)|+ |2\cos^9(x)| \text{ (inégalité triangulaire)} \\
+		                         &\leq 1 + 2 \\
+		                         & \leq 3
+	\end{split}
+\end{equation*}
+
+\subsubsection*{2.}
+
+\begin{equation*}
+	\begin{split}
+		|1-x^{12} +4x^3| &\leq |1- x^{12}|+ |4x^3| \text{ (inégalité triangulaire)} \\
+		&\leq 1 + 4 \text{ car }x \in [-1, 1], 1- x^{12} \in [0 ; 1]\\
+		& \leq 5
+	\end{split}
+\end{equation*}
+
+
+\subsection*{Exercice 2.4}
+
+\subsubsection*{(a)}
+
+Les deux termes étant positifs, on peut élever l'égalité au carré ou raisonner par disjonction de cas en fonction du signe de $x+1$ :
+
+\begin{alignat*}{2}
+	&                    & |x+1| &=2 \\
+	&\Longleftrightarrow &(x+1)^2 &= 4 \\
+	&\Longleftrightarrow & x^2 +2x -3 &= 0 \\
+	&\Longleftrightarrow & (x-1)(x+3) &= 0 \\
+\end{alignat*}
+\begin{alignat*}{2}
+&                    & |x+1| &=2 \\
+&\Longleftrightarrow &(x+1=2 \wedge x+1 \geq 0) &\vee (-x-1=2 \wedge x+1 \leq 0) \\
+&\Longleftrightarrow &(x=1 \wedge x \geq -1) &\vee (x=-3 \wedge x \leq -1) \\
+&\Longleftrightarrow & x=1 &\vee x=-3 \\
+\end{alignat*}
+
+Donc : $S=\left\lbrace -3 ; 1 \right\rbrace$
+
+\subsubsection*{(b)}
+
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |x+3| &\leq 4 \\
+	&\Longleftrightarrow &(x+3)^2 &\leq 16 \\
+	&\Longleftrightarrow & (x^2 + 6x -7) & \leq 0 \\
+	&\Longleftrightarrow & (x+7)(x-1) \leq 0\\
+\end{alignat*}
+
+L'ensembe des solutions est donc l'intervalle fermé entre les 2 racines $-7$ et $1$.
+
+Ou par disjonction de cas :
+
+\begin{alignat*}{2}
+	&                    & |x+3| &\leq 4 \\
+	&\Longleftrightarrow &(x+3\leq 4 \wedge x+3 \geq 0) &\vee (-x-3\leq 4 \wedge x+3 \leq 0) \\
+	&\Longleftrightarrow & (-3 \leq x \leq 1) &\vee (-7 \leq x \leq -3) \\
+	&\Longleftrightarrow & -7 \leq &x \leq 1 \\
+\end{alignat*}
+
+Donc : $S=[-7 ; 1]$
+
+\subsubsection*{(c)}
+
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |x+1| &> 9 \\
+	&\Longleftrightarrow &(x+1)^2 &> 9 \\
+	&\Longleftrightarrow & x^2 + 2x -8 & >0 \\
+	&\Longleftrightarrow & (x+4)(x-2) &> 0\\
+\end{alignat*}
+
+L'ensembe des solutions est donc $\mathbb{R}$ diminué de l'intervalle fermé entre les 2 racines $-4$ et $2$ : $\mathbb{R} \setminus [-4 ; 2]$
+
+Ou par disjonction de cas :
+
+\begin{alignat*}{2}
+	&                    & |x+1| &>3  \\
+	&\Longleftrightarrow &(x+1 > 3 \wedge x+1 \geq 0) &\vee (-x-1 >3 \wedge x+1 \leq 0) \\
+	&\Longleftrightarrow & (x > 2) &\vee (x < -4)
+\end{alignat*}
+
+Donc : $S=]-\infty ; -4] \cup ]2 ; +\infty[$
+
+\subsubsection*{(d)}
+
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |2x-4| &= |x+2| \\
+	&\Longleftrightarrow &(2x-4)^2 &= (x+2)^2 \\
+	&\Longleftrightarrow & 3x^2 -20x +12 & =0 \\
+	&\Longleftrightarrow & (3x-2)(x-6) &= 0\\
+\end{alignat*}
+
+
+Ou par disjonction de cas :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x-4|$ / 1, $|x+2|$/1, Equation/1, S/1}
+	           {$-\infty$ ,$-2$, $2$    , $+\infty$}
+	\tkzTabLine{, -2x+4       , , -2x+4, , 2x-4 , }
+	\tkzTabLine{, -x-2        , , x+2, , x+2 , }
+	\tkzTabLine{, -x+6=0      , , -3x+2=0, , x-6=0 , }
+	\tkzTabLine{, \varnothing ,\cup , \left\lbrace \frac{2}{3}\right\rbrace ,\cup , \left\lbrace 6 \right\rbrace , }
+\end{tikzpicture}
+
+Donc : $S=\left\lbrace \frac{2}{3} ; 6 \right\rbrace$
+
+\subsubsection*{(e)}
+
+Les deux termes étant positifs, on peut élever au carré :
+
+\begin{alignat*}{2}
+	&                    & |2x+4|        &\leq |x+1| \\
+	&\Longleftrightarrow & (2x+4)^2      &\leq (x+1)^2 \\
+	&\Longleftrightarrow & 3x^2 +14x +15 &\leq 0 \\
+	&\Longleftrightarrow & (3x+5)(x+3)   &\leq 0 \\
+	&\Longleftrightarrow & -3 \leq &x \leq -\frac{5}{3}
+\end{alignat*}
+
+Ou par disjonction de cas :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x+4|$ / 1, $|x+1|$/1,Equation/1, S/1}
+	{$-\infty$ ,$-2$, $-1$    , $+\infty$}
+	\tkzTabLine{, -2x-4 , , 2x+4, , 2x+4 , }
+	\tkzTabLine{, -x-1 , , -x-1, , x+1 , }
+	\tkzTabLine{, -x-3 \leq 0 , , 3x+5 \leq 0, , x+3 \leq 0 , }
+	\tkzTabLine{, [-3 ;-2] ,\cup , [-2 ; -\frac{5}{3}] ,\cup , \varnothing , }
+\end{tikzpicture}
+
+Donc : $S=\left[ -3 ; -\frac{5}{3} \right] $
+
+\subsubsection*{(f)}
+
+Si $|x|<1$, l'égalité ne peut être vérifiée car le terme de droite est strictement négatif et celui de
+gauche positif. Considérons donc que $|x|\geq 1$ et élevons au carré :
+
+\begin{alignat*}{2}
+	&\forall x \in \mathbb{R} \setminus ]-1;1[,  & |x+1|   &= |x| -1 \\
+	&\Longleftrightarrow                         & (x+1)^2 &= (|x|-1)^2 \\
+	&\Longleftrightarrow                         & x       &= -|x| \\
+	&\Longleftrightarrow                         & x       &\leq 0 \\
+		&\Longleftrightarrow                     & x       &\leq -1 \\
+\end{alignat*}
+
+
+
+Ou par disjonction de cas :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x|$/1,Equation/1, S/1}
+	{$-\infty$ ,$-1$, $0$    , $+\infty$}
+	\tkzTabLine{, -x-1 , , x+1, , x+1 , }
+	\tkzTabLine{, -x , , -x, , x , }
+	\tkzTabLine{, 0=0 , , 2x+2=0, , 2=0 , }
+	\tkzTabLine{, ]-\infty ;-1] ,\cup , \left\lbrace -1 \right\rbrace , \cup, \varnothing , }
+\end{tikzpicture}
+
+Donc : $S= ]-\infty ; -1]$
+
+\subsection*{Exercice 2.5}
+
+
+Par disjonction de cas :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|2x-1|$ / 1, $|3x+1|$/1,Equation/1, S/1}
+	           {$-\infty$ ,$-\frac{1}{3}$, $\frac{1}{2}$    , $+\infty$}
+	\tkzTabLine{, -2x+1  , , -2x+1  , , 2x-1    , }
+	\tkzTabLine{, -3x-1  , ,  3x+1  , , 3x+1    , }
+	\tkzTabLine{, 4x+3=1 , , -8x-1=1, , -4x-3=1 , }
+	\tkzTabLine{,   \left\lbrace -\frac{1}{2} \right\rbrace,\cup , \left\lbrace -\frac{1}{4} \right\rbrace , \cup, \varnothing , }
+\end{tikzpicture}
+
+Donc : $S=\left\lbrace -\frac{1}{2} ; -\frac{1}{4} \right\rbrace$
+
+\subsection*{Exercice 2.6}
+
+\begin{equation*}
+	\begin{split}
+		\forall x \in [-3 ; 1],
+		& \begin{cases}
+			0 \leq |x+1| \leq 2 \\
+		    -1 \leq x+2 \leq 3 \\
+		    1 \leq x^2 + 1 \leq 10
+		\end{cases} \\
+		\Longrightarrow 
+		& \begin{cases}
+			-2 \leq |x+1|(x+2) \leq 6 \\
+			0 < \frac{1}{x^2 + 1} \leq 1
+		\end{cases} \\
+		\Longrightarrow 
+		& -2 \leq \frac{|x+1|(x+2)}{x^2 + 1} \leq 6 
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 2.7}
+
+\subsubsection*{Rappel de logique}
+
+«$A$ est vraie si et seulement si (ssi) $B$ est vraie» signifie que A et B sont équivalentes ($A\Longleftrightarrow B$).
+
+«$A$ vraie si $B$ vraie » signifie que $B \Rightarrow A$
+
+«$A$ vraie seulement si $B$ vraie » signifie que  $\bar{B} \Rightarrow \bar{A}$ soit $A \Rightarrow B$
+
+On démontre une équivalence soit par équivalences successives soit en montrant que $A\Rightarrow B$ et que 
+$B\Rightarrow A$.
+
+Une implication est équivalente à sa contraposée : on peut démontrer que $A\Rightarrow B$ en montrant que
+$\bar{B}\Rightarrow \bar{A}$ ou $\bar{A}$ est la négation de $A$.
+
+\subsubsection*{1. Egalité de l'inégalité triangulaire}
+
+
+L'égalité est évidemment vraie si $x$ et $y$ sont de même signe :
+\begin{displaymath}
+	xy \geq 0 \Longrightarrow |x+y| = |x| + |y|
+\end{displaymath}
+
+Plutôt que de prouver la réciproque ($|x+y| = |x| + |y| \Longrightarrow xy \geq 0$), démontrons
+la contraposée : $xy < 0 \Longrightarrow |x+y| \neq |x| + |y|$.
+
+Soient $x$ et $y$ tels que $ x < 0 < y$, on alors :
+
+\begin{displaymath}
+		|x+y| - |x| - |y|
+		= \begin{cases}
+			x+y-(-x)-y = 2x \neq 0 \text { si } y \geq -x \\
+			-x-y-(-x)-y = -2y \neq 0 \text { si } y \leq -x \\
+		\end{cases}
+\end{displaymath}
+
+L'égalité n'est donc pas vérifiée si les 2 variables n'ont pas le même signe ce qui démontre la contraposée
+et donc l'équivalence.
+
+\subsubsection*{2. min et max}
+
+Les 2 fonctions étant symétriques en $x$ et $y$ (car $|x-y| = |y-x]$), il suffit de vérifier les égalités
+pour $x \leq y$ et elles seront vraies pour $x \geq y$.
+
+Supposons $x \leq y$ (et donc $|x-y|=y-x$), alors :
+\begin{equation*}
+	\begin{split}
+		\frac{x + y + |x-y|}{2} &= \frac{x + y + (y-x)}{2} \\
+		                        &= y \\
+		                        &= max(x,y)
+	\end{split}
+\end{equation*}
+
+et
+
+\begin{equation*}
+	\begin{split}
+		\frac{x + y - |x-y|}{2} &= \frac{x + y - (y-x)}{2} \\
+		&= x \\
+		&= min(x,y)
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 2.8}
+
+\subsubsection*{1.}
+\begin{equation*}
+	\begin{split}
+		&\frac{\exp(x^2-1)}{\exp(x+1)} \leq 1 \\
+		\Longleftrightarrow &\exp(x^2-1 -(x+1)) \leq 1 \\
+		\Longleftrightarrow &\exp((x+1)(x-2)) \leq 1 \\
+		\Longleftrightarrow &(x+1)(x-2) \leq 0 \\
+		\Longleftrightarrow & -1 \leq x \leq 2 \\
+	\end{split}
+\end{equation*}
+
+Donc : $S= [-1 ; 2]$
+
+\subsubsection*{2.}
+\begin{equation*}
+	\begin{split}
+		& e^{2x} + e^x -6 = 0 \\
+		\Longleftrightarrow & e^x = \frac{-1\pm \sqrt{25}}{2} \\
+		\Longrightarrow & e^x = 2 \text{ car $e^x$ est strictement positif} \\
+		\Longrightarrow & x = \ln 2
+	\end{split}
+\end{equation*}
+
+Donc : $S=\left\lbrace \ln 2 \right\rbrace$
+
+\subsubsection*{3.}
+\begin{equation*}
+	\begin{split}
+		\forall x \in \mathbb{R} \setminus \left\lbrace -1 ; 1 \right\rbrace, & \ln |x+1| - \ln |x-1| \leq \ln 2 \\
+		\Longleftrightarrow & \ln \left| \frac{x+1}{x-1} \right| \leq \ln 2 \\
+		\Longleftrightarrow & \left| \frac{x+1}{x-1} \right| \leq 2 \text{ car $\ln$ est croissante sur $\mathbb{R}^{+}_{*}$} \\
+		\Longleftrightarrow & \left( \frac{x+1}{x-1} \right)^2 \leq 4 \text{ car les 2 termes sont positifs} \\
+		\Longleftrightarrow & 3x^2-10x+3 \geq 0 \\
+		\Longleftrightarrow & (3x-1)(x-3) \geq 0 \\
+		\Longleftrightarrow & x \in ]-\infty ; \frac{1}{3}] \cup [3 : +\infty[ \\
+	\end{split}
+\end{equation*}
+
+Et donc $S = ]-\infty ; -1[ \cup ]-1 ; \frac{1}{3}] \cup [3 ; +\infty[$
+
+
+On aurait également pu étudier la fonction $f(x) = \left| \frac{x+1}{x-1} \right|$ définie sur $\mathbb{R} \setminus \left\lbrace -1 ; 1 \right\rbrace$.
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} f(x) = 1^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -1} f(x) = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1-} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1+} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = 1^{+}
+\end{displaymath}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   , $|x+1|$ / 1, $|x-1|$/1,$f(x)$/1, $f'(x)$/1, Variations/2}
+	           {$-\infty$  ,$-1$ , $1$    , $+\infty$}
+	\tkzTabLine{, -x-1               , d , x+1               , d , x+1    , }
+	\tkzTabLine{, -x+1               , d , -x+1              , d , x-1    , }
+	\tkzTabLine{, \frac{x+1}{x-1}    , d , -\frac{x+1}{x-1}  , d , \frac{x+1}{x-1} , }
+	\tkzTabLine{, -\frac{2}{(x-1)^2} , d , \frac{2}{(x-1)^2} , d , -\frac{2}{(x-1)^2} , }
+	\tkzTabVar{+/$1^{-}$, -C/$0$ , +D+/$+\infty$/$+\infty$, -/$1^{+}$ , }
+\end{tikzpicture}
+
+L'équation $f(x)=2$ présente donc 1 racine sur l'intervalle $]-1 ; 1[$ et une autre sur $]1; +\infty[$ : $\frac{1}{3}$ et $3$.
+
+On a donc $S = ]-\infty ; -1[ \cup ]-1 ; \frac{1}{3}] \cup [3 ; +\infty[$
+
+\subsection*{Exercice 2.9}
+
+Soit $f(x) = \frac{xe^x}{x+1}$
+
+Il s'agit du produit de fonctions ($x$, $e^x$ et $1/(x+1)$) dérivables sur $\mathbb{R}\setminus\{-1\}$,
+elle est donc dérivable sur ce même domaine. 
+
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{(e^x + x e^x)(x+1)-x e^x}{(x+1)^2} \\
+		      &= \frac{(x+1)^2-x}{(x+1)^2}e^x \\
+		      &= \frac{x^2 + x + 1}{(x+1)^2}e^x
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 2.10}
+
+Soit $f(x) = e^\frac{^1}{\ln x}$
+
+$\exp$ étant défini sur $\mathbb{R}$ et $\ln$ sur $\mathbb{R}^{+}_{*}$ mais ne devant pas être nul (car au dénominateur d'une
+fraction), on a $D = \mathbb{R}^{+}_{*}\setminus\{1\}$.
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} f(x) = 1^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1^{-}} f(x) = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 1^{+}} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = 1^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) =-\frac{1}{x\ln^2 x} e^{\frac{1}{\ln x}} < 0
+\end{displaymath}
+
+$f$ est donc strictement décroissante sur $D$.
+
+
+On peut la prolonger en $0$ par continuité avec $f(0) = 1$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/3 }
+	           {$0$  , $1$   , $+\infty$}
+	\tkzTabLine{d, - , d , -, }
+
+	\tkzTabVar{+C/$1^{-}$, -D+/$0$/+$\infty$ , -/$1$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=6cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		ymin=0,
+		]
+		\addplot[blue, domain=0:0.9, samples=81]{exp(1/ln(x))};
+		\addplot[blue, domain=1.5:5, samples=51]{exp(1/ln(x))};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Exercice 2.11}
+\subsubsection*{1. Montrons que $x \geq \ln(1+x)$ sur $\mathbb{R}^+$}
+
+Soit $f(x) = x - \ln(1+x)$
+
+$f(0) = 0$
+
+\begin{displaymath}
+	f'(x) = 1 - \frac{1}{1+x} = \frac{x}{1+x} \geq 0 \text{ sur } \mathbb{R}^{+}
+\end{displaymath}
+
+$f$ est donc croissante et par conséquence positive sur $\mathbb{R}^{+}$ : $x \geq \ln(1+x)$
+
+
+\subsubsection*{2. Montrons que $x -\frac{x^2}{2} \leq \ln(1+x)$ sur $\mathbb{R}^+$}
+
+Soit $g(x) = \ln(1+x) + \frac{x^2}{2} - x$
+
+$g(0) = 0$
+\begin{displaymath}
+	g'(x) = \frac{1}{1+x} + x - 1 = \frac{x^2}{1+x} \geq 0 \text{ sur } \mathbb{R}^{+}
+\end{displaymath}
+
+$g$ est donc croissante et positive sur $\mathbb{R}^{+}$ soit : $\ln(1+x) \geq -\frac{x^2}{2} + x$
+
+\subsection*{Exercice 2.12}
+
+$f(x) = \frac{1}{\sqrt{x^2 +x - 6}}$
+
+Le domaine de définition est le domaine où $x^2 + x -6$ est strictement positive soit $\mathbb{R}$ diminué de l'éventuel
+intervalle fermé entre ses racines ($-3$ et $2$).
+
+$D = ]-\infty ; -3 [ \cup ]2; +\infty[$
+
+\subsection*{Exercice 2.13}
+\subsubsection*{1. Dérivabilité de $p_\alpha$ en 0}
+
+Soit $\alpha \in ]0;1[$
+
+\begin{equation*}
+	\begin{split}
+		\lim_{x \rightarrow 0^{+}} \frac{p_{\alpha}(x) - p_{\alpha}(0)}{x}
+		&= \lim_{x \rightarrow 0^{+}} \frac{e^{\alpha \ln(x)}}{e^{\ln x}} \\
+		&= \lim_{x \rightarrow 0^{+}} e^{(\alpha-1) \ln(x)} \\
+		&= +\infty
+	\end{split}
+\end{equation*}
+
+$p_\alpha$ n'est donc pas dérivable en $0$.
+
+\subsubsection*{2.}
+
+C'est la conséquence du cas précédent $\alpha = \frac{1}{2}$.
+
+On peut calculer :
+
+\begin{equation*}
+	\begin{split}
+		\lim_{h \rightarrow 0^{+}} \frac{f(1-h) - f(1)}{-h}
+			&= \lim_{h \rightarrow 0^{+}} -\frac{\sqrt{h(2-h)}}{h} \\
+			&= \lim_{h \rightarrow 0^{+}} -\sqrt{\frac{(2-h)}{h}} \\
+			&= -\infty
+	\end{split}
+\end{equation*}
+
+$f$ n'est donc pas dérivable en $1$.
+
+Le calcul est identique en $-1$ mais $f$ étant paire la non dérivabilité en $-1$ est évidente.
+
+
+\subsection*{Exercice 2.14}
+
+Soit $f(x) = \sqrt{1-x^2}$
+
+Domaine de définition : $D = [-1 ; 1]$
+
+$f'(x) = -\frac{x}{\sqrt{1-x^2}}$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-1$  , $0$   , $1$}
+	\tkzTabLine{, + , 0 , -, }
+	
+	\tkzTabVar{-/$0$, +/$1$ , -/$0$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		xmin=-1.1, xmax= 1.1,
+		ymin=0, ymax=1.1,
+		]
+		\addplot[blue,samples=161]{sqrt(1-x^2)};
+	\end{axis}	
+\end{tikzpicture}
+
+On a : $x^2 + f^2(x) = 1$ ; la courbe est donc le demi-cercle centré sur l'origine et de rayon 1.
+
+\subsection*{Exercice 2.15}
+
+Soient $f(x) = \sqrt{x}$ et $g(x)= \ln x$.
+
+\begin{displaymath}
+	D_{f \circ g} = [1 ; +\infty[
+\end{displaymath}
+
+\begin{displaymath}
+	D_{g \circ f} = \mathbb{R}^{+}_{*}
+\end{displaymath}
+
+
+\subsection*{Exercice 2.16}
+\subsubsection*{1.}
+$f(x) = \sqrt{x-1} - \sqrt{2x-3}$ est continue sur son domaine de définition.
+
+$D = [\frac{3}{2} ; +\infty[$
+
+$f(\frac{3}{2}) = \frac{1}{\sqrt{2}}$
+
+$f(x) = 0 \Rightarrow x-1 = 2x-3 \Rightarrow x = 2 $
+
+$\lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+On en déduit le tableau suivant :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f$/1 }
+	{$\frac{3}{2}$  , $2$   , $+\infty$}
+	\tkzTabLine{, + , z , -, }
+\end{tikzpicture}
+
+\subsubsection*{2.}
+$f(x) = \sqrt{|x-1|} - \sqrt{|2x-3|}$
+
+$D = \mathbb{R}$
+
+$f(x) = 0 \Longleftrightarrow (x-1)^2 = (2x-3)^2 \Longleftrightarrow 3x^2 -10x +8 =0 \Longleftrightarrow (x-2)(3x-4) =0$
+
+$f(\frac{3}{2}) = \frac{1}{\sqrt{2}} > 0$
+
+$\lim_{x \rightarrow -\infty} f(x) = \lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f$/1 }
+	{$-\infty$, $\frac{4}{3}$  , $2$   , $+\infty$}
+	\tkzTabLine{, - , z , +, z, - }
+\end{tikzpicture}
+
+
+\subsubsection*{3.}
+\begin{equation*}
+	\begin{split}
+		f(x) &= (x^2-3)(2-\sqrt{x})(\sqrt{x^2-2x+1}-4) \\
+		     &= (x^2-3)(2-\sqrt{x})(\sqrt{(x-1)^2}-4) \\
+		     &= (x^2-3)(2-\sqrt{x})(|x-1|-4) \\
+	\end{split}
+\end{equation*}
+
+$D = \mathbb{R}^{+}$
+
+$f(x) = 0 \Longleftrightarrow x \in \{ \sqrt{3} ; 4 ; 5 \}$
+
+$\lim_{x \rightarrow +\infty} f(x) = -\infty$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $x^2-3$/1, $2-\sqrt{x}$/1, $|x-1| - 4$/1, $f(x)$/1 }
+	           {$0$, $\sqrt{3}$  , $4$, $5$   , $+\infty$}
+	\tkzTabLine{, - , z , + , t , + , t , + }
+	\tkzTabLine{, + , t , + , z , - , t , - }
+	\tkzTabLine{, - , t , - , t , - , z , + }
+	\tkzTabLine{, + , z , - , z , + , z , - }
+\end{tikzpicture}
+
+
+\subsubsection*{3.}
+\begin{equation*}
+	\begin{split}
+		f(x) &= \ln(x+3) + \ln(x+2) - \ln(x+11) \\
+		&= \ln \frac{(x+3)(x+2)}{x+11}
+	\end{split}
+\end{equation*}
+
+\textbf{Domaine de définition}
+
+$\ln$ étant défini sur $\mathbb{R}^{+}_{*}$ :
+
+$D = ]-3 ; +\infty[ \cap ]-2 ; +\infty[ \cap ]-11 ; +\infty[ = ]-2 ; +\infty[$ (même si la forme rassemblée de $f$ est définie sur $]-11 ; -3[$)
+
+\textbf{Valeurs et limites}
+
+$\lim_{x \rightarrow -2^+} f(x) = -\infty$
+
+$\lim_{x \rightarrow +\infty} f(x) = +\infty$
+
+$f(x)=0 \Longleftrightarrow  \frac{(x+3)(x+2)}{x+11} = 1 \Longleftrightarrow x^2 +4x -5 =0 \Longleftrightarrow x \in [-5 ; 1] \Longleftrightarrow x=1$ sur $D$.
+
+$f(0) = \ln\frac{6}{11} < 0$
+
+\textbf{Tableau de signe}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f(x)$/1 }
+	           {$-2$, $1$ , $+\infty$}
+	\tkzTabLine{d, - , 0 , + ,  }
+\end{tikzpicture}
+
+
+\subsection*{Exercice 2.17}
+
+\subsubsection*{1.a.}
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} x e^{-\ln x} = \lim_{x \rightarrow 0^{+}} x x^{-1} = 1
+\end{displaymath}
+
+\subsubsection*{1.b.}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{x+1}{x-1} = -1
+\end{displaymath}
+
+\subsubsection*{1.c.}
+\begin{displaymath}
+		\lim_{x \rightarrow 0} \frac{e^{\frac{1}{x^2}}+1}{2e^{\frac{1}{x^2}}-1}
+		        = \lim_{x \rightarrow 0} \frac{1 + e^{\frac{-1}{x^2}}}{2-e^{\frac{-1}{x^2}}} = \frac{1}{2}
+		        \quad \text{car } \lim_{x \rightarrow 0} e^{\frac{-1}{x^2}} = 0
+\end{displaymath}
+
+\subsubsection*{2.a.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{\sqrt{|x|}+1}{x-1}
+		= \lim_{x \rightarrow +\infty} \frac{1 + \frac{1}{\sqrt{|x|}}}{\frac{x}{\sqrt{|x|}}-\frac{1}{\sqrt{|x|}}}
+		= 0^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{\sqrt{|x|}+1}{x-1} = 0^{-}
+\end{displaymath}
+
+\subsubsection*{2.b.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{x^3+1}{x^2-1} = \lim_{x \rightarrow +\infty} \frac{ x+ \frac{1}{x^2} }{ 1- \frac{1}{x^2}} =+\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{x^3+1}{x^2-1} = -\infty
+\end{displaymath}
+
+\subsubsection*{2.c.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{e^{2x}+1}{e^{3x}-1} = \lim_{x \rightarrow +\infty} \frac{1+ e^{-2x}}{e^{x}-e^{-2x}} = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \frac{e^{2x}+1}{e^{3x}-1} = -1
+\end{displaymath}
+
+
+\subsubsection*{2.d.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \left( \sqrt{|x|+1} - \sqrt{|x|-1} \right)
+		= \lim_{x \rightarrow +\infty} \frac{|x|+1-(|x|-1)}{\sqrt{|x|+1} + \sqrt{|x|-1}} = \lim_{x \rightarrow +\infty} \frac{2}{\sqrt{|x|+1} + \sqrt{|x|-1}} = 0
+\end{displaymath}
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} \left( \sqrt{|x|+1} - \sqrt{|x|-1} \right) = 0
+\end{displaymath}
+
+\subsubsection*{2.e.}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} 2^{-x}e^x = \lim_{x \rightarrow +\infty} e^{x(1-\ln 2)} = +\infty \text{ cf. exercice 2.11 ou } e>2 \Longleftrightarrow 1 > \ln 2
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} 2^{-x}e^x = \lim_{x \rightarrow -\infty} e^{x(1-\ln 2)} = 0^{}
+\end{displaymath}
+
+
+\subsection*{Exercice 2.18}
+
+\subsubsection*{2.18.1.a}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} e^{\frac{1}{x^2}} - e^{\frac{2}{x^2}}  = \lim_{x \rightarrow 0} e^{\frac{1}{x^2}}(1 - e^{\frac{1}{x^2}}) = -\infty
+\end{displaymath}
+
+\subsubsection*{2.18.1.b}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{1}{x^2}  + \ln |x| = \lim_{x \rightarrow 0} \frac{1}{x^2}  (1+ x^2\ln |x|) = +\infty
+\end{displaymath}
+car $ \lim_{x \rightarrow 0} x^2\ln |x| = 0$ d'après la proposition 2.39
+
+\subsubsection*{2.18.1.c}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \frac{1+e^{-x}}{(e^x-1)^2 - |x|\ln |x|} = + \infty
+\end{displaymath}
+
+car $ \lim_{x \rightarrow 0} (e^x-1)^2 = 0^{+}$ et $ \lim_{x \rightarrow 0} |x|\ln |x| = 0^{-}$, la limite du dénominateur est donc $0^{+}$
+
+\subsubsection*{2.18.2.a}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{\ln x + xe^{-x}-e^x}{e^x+1} = \lim_{x \rightarrow +\infty} \frac{-1 + e^{-x}\ln x + xe^{-2x}}{1 +e^{-x}} = -1
+\end{displaymath}
+
+d'après les propriétés de croissance comparée $\lim_{x \rightarrow +\infty} xe^{-2x} = \lim_{x \rightarrow +\infty} e^{-2x} = 0$ et 
+$\lim_{x \rightarrow +\infty} e^{-x}\ln x = \lim_{x \rightarrow +\infty} e^{-x} =0 $.
+
+\subsubsection*{2.18.2.b}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} x^{\frac{1}{x}} = \lim_{x \rightarrow +\infty} e^\frac{\ln x}{x} = 1
+\end{displaymath}
+
+car $\lim_{x \rightarrow +\infty} \frac{\ln x}{x} = \lim_{x \rightarrow +\infty} \frac{1}{x} = 0$
+
+\subsubsection*{2.18.2.c}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} \frac{e^x - \ln x}{xe^x-x^2} = \lim_{x \rightarrow +\infty} \frac{1 - e^{-x}\ln x}{x-x^2e^{-x}} = 0
+\end{displaymath}
+
+\subsubsection*{2.18.2.d}
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} 1+ \frac{\ln (e^{3x})}{\sqrt{x}} = \lim_{x \rightarrow +\infty} 1+ \frac{3x}{\sqrt{x}} = +\infty
+\end{displaymath}
+
+
+\subsection*{Exercice 2.19}
+\subsubsection*{2.19.1.a}
+\begin{displaymath}
+	f(x) = \frac{x-2}{x+1}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &=\frac{x+1 - (x-2)}{(x+1)^2}\\
+		      &=\frac{3}{(x+1)^2}
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.1.b}
+\begin{displaymath}
+	f(x) = \frac{x^2-2x+1}{x^3+3x+3x+1} = \frac{(x-1)^2}{(x+1)^3}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &=\frac{2(x-1)(x+1)^3 - 3(x+1)^2(x-1)^2}{(x+1)^6}\\
+		      &=\frac{2(x-1)(x+1) - 3(x-1)^2}{(x+1)^4} \\
+		      &=\frac{(x-1)(2x+2-3x+3)}{(x+1)^4} \\
+		      &=\frac{(x-1)(-x+5)}{(x+1)^4}
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.1.c}
+\begin{displaymath}
+	f(x) = x^{\frac{1}{3}} \ln x
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{1}{3} x^{-\frac{2}{3}} \ln x + x^{\frac{1}{3}} \frac{1}{x} \\
+		      &=\left(1 + \frac{1}{3}\ln x \right) x^{-\frac{2}{3}}
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.1.d}
+\begin{displaymath}
+	f(x) = \frac{x}{e^x-2}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{e^x-2 - xe^x}{(e^x-2)^2} \\
+		      &= \frac{(1-x)e^x-2}{(e^x-2)^2} 
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.1.f}
+\begin{displaymath}
+	f(x) = \frac{e^x}{x^4 + 2x^2 +1} =\frac{e^x}{(x^2 +1)^2}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{e^x(x^2+1)-2 \times 2xe^x}{(x^2 +1)^3} \\
+		      &= \frac{x^2 - 4x + 1}{(x^2 +1)^3}e^x
+	\end{split}	
+\end{equation*}
+
+
+
+\subsubsection*{2.19.2.a}
+\begin{displaymath}
+	f(x) = \ln^2 x
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= 2\frac{\ln x}{x}
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.2.b}
+\begin{displaymath}
+	f(x) = \frac{\sqrt{x+1}}{x^2-1} = \frac{\sqrt{x+1}}{(x-1)(x+1)}= \frac{1}{\sqrt{x+1}(x-1)}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= -\frac{\frac{x-1}{2\sqrt{x+1}} + \sqrt{x+1}}{(x+1)(x-1)^2} \\
+		      & = -\frac{3x+1}{2(x+1)^{\frac{3}{2}} (x-1)^2}
+	\end{split}	
+\end{equation*}
+
+\subsubsection*{2.19.2.c}
+\begin{displaymath}
+	f(x) = \sqrt{e^{x^3}}
+\end{displaymath}
+\begin{equation*}
+	\begin{split}
+		f'(x) &= \frac{3x^2 e^{x^3}}{2\sqrt{e^{x^3}}} \\
+		      &= \frac{3}{2}x^2 \sqrt{e^{x^3}}
+	\end{split}	
+\end{equation*}
+
+
+\subsection*{Exercice 2.20}
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{x}
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{\ln(1+x)}{x}}
+		= \lim_{x \rightarrow 0^{+}} e^{1} 
+		= e
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{x^2} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{1}{x}\frac{\ln(1+x)}{x}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{1}{x}}
+		= +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} (1+x)^\frac{1}{\sqrt{x}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\frac{\ln(1+x)}{\sqrt{x}}} 
+		= \lim_{x \rightarrow 0^{+}} e^{\sqrt{x}\frac{\ln(1+x)}{x}}
+		= \lim_{x \rightarrow 0^{+}} e^{\sqrt{x}}
+		= 1
+\end{displaymath}
+
+car $\lim_{x \rightarrow 0^{+}} \frac{\ln(1+x)}{x} = 1$ (cf. dérivée de $\ln$ en $1$)
+
+\subsection*{Exercice 2.21}
+
+$f(x) = x^x = e^{x \ln x}$
+
+Domaine de définition : $D = \mathbb{R}^+_*$
+
+\begin{displaymath}
+	\lim_{x \rightarrow 0^{+}} f(x) = 1  \text{ (cf. croissance comparée de $x$ et $\ln x$)}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) = (1+ \ln x)e^{x \ln x} = (1+ \ln x)x^x
+\end{displaymath}
+
+\begin{displaymath}
+	f'(x) = 0 \Longleftrightarrow 1 + \ln x = 0 \Longleftrightarrow x = \frac{1}{e} \approx 0,368
+\end{displaymath}
+
+\begin{displaymath}
+	f\left(\frac{1}{e}\right) = e^{-\frac{1}{e}} \approx 0,692
+\end{displaymath}
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$0$  , $\frac{1}{e}$   , $+\infty$}
+	\tkzTabLine{d, - , z , +, }
+	\tkzTabVar{+C/$1$, -/$e^{-\frac{1}{e}}$ , +/$\infty$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=0:1.1,
+		ymin=0.5,
+		]
+		\addplot[blue, samples=101]{x^x};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsection*{Exercice 2.22}
+
+\subsubsection*{Exercice 2.22.1}
+
+$f_1(x) = \frac{1}{1+e^{-x}}$
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f_1(x) = 1
+\end{displaymath}
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} f_1(x) = 0
+\end{displaymath}
+
+$e^{-x}$ décroissante donc $(1+e^{-x})$ décroissante, donc $f_1$ est croissante.
+
+$f_1(0) = \frac{1}{2}$
+
+\begin{displaymath}
+	f_1'(x) = \frac{e^{-x}}{(1+e^{-x})^2} > 0
+\end{displaymath}
+
+Ce qui confirme que $f_1$ est strictement croissante sur $\mathbb{R}$.
+
+\begin{displaymath}
+	f_1''(x) = \frac{-(1+e^{-x})+2}{(1+e^{-x})^3}e^{-x}
+	         = \frac{1-e^{-x}}{(1+e^{-x})^3}e^{-x}
+\end{displaymath}
+
+$f_1$ présente donc un point d'inflexion en $0$.
+
+On constate que $f_1(x) + f_1(-x) = \frac{1}{2}$ ce qui signifie que la représentation
+graphique est symétrique par rapport au point $(0 ; \frac{1}{2})$
+
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-\infty$  , $+\infty$}
+	\tkzTabLine{, + , }
+	\tkzTabVar{-/$0^{+}$, +/$1^-$ }
+	\tkzTabVal{1}{2}{0.5}{0}{$\frac{1}{2}$}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-5:5,
+		ymin=0,
+		]
+		\addplot[blue, samples=101]{1/(1+exp(-x))};
+	\end{axis}	
+\end{tikzpicture}
+
+
+\subsubsection*{Exercice 2.22.2}
+
+$f_2(x) = 2x\sqrt{1-x^2}$ sur $[-1 ; 1]$
+
+$f_2$ est impaire
+
+\begin{displaymath}
+	f_2'(x) = 2\sqrt{1-x^2} + \frac{2x(-2x)}{2\sqrt{1-x^2}} 
+	        = \frac{2(1-x^2)-2x^2}{\sqrt{1-x^2}}
+	        = \frac{2-4x^2}{\sqrt{1-x^2}}
+\end{displaymath}
+
+$f_2$ s'annule donc en $\pm \frac{1}{\sqrt{2}}$
+
+$f\left( \frac{1}{\sqrt{2}} \right) = 1$
+	
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-1$, $-\frac{1}{\sqrt{2}}$, $\frac{1}{\sqrt{2}}$  , $1$}
+	\tkzTabLine{, + , z , -, z, + }
+	\tkzTabVar{+/$0$, -/$-1$,+/$1$, -/$0$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-1:1,
+		ymin=-1,
+		]
+		\addplot[blue, samples=101]{2*x*sqrt(1-x*x)};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsubsection*{Exercice 2.22.3}
+
+$f_3(x) = \exp\left( \frac{x-1}{x+1}\right) = \exp\left(1- \frac{2}{x+1}\right)$
+
+$D = \mathbb{R} \setminus \{-1\}$
+
+$f_3$ est strictement positive sur $D$
+
+\begin{displaymath}
+	\lim_{x \rightarrow -\infty} f_3(x) = e^{+}
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -1^{-}} f_3(x) = +\infty
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow -1^{+}} f_3(x) = 0
+\end{displaymath}
+
+\begin{displaymath}
+	\lim_{x \rightarrow +\infty} f_1(x) = e^{-}
+\end{displaymath}
+
+\begin{displaymath}
+	f_3'(x) = \frac{x+1-(x-1)}{(x+1)^2} \exp\left( \frac{x-1}{x+1}\right)
+	        = \frac{2}{(x+1)^2} \exp\left( \frac{x-1}{x+1}\right) > 0
+\end{displaymath}
+
+\begin{displaymath}
+	f_3''(x) = \left(\frac{-4(x+1)}{(x+1)^4} + \frac{4}{(x+1)^4}\right) \exp\left( \frac{x-1}{x+1}\right)
+	         = \frac{-4x}{(x+1)^4} \exp\left( \frac{x-1}{x+1}\right)
+\end{displaymath}
+
+$f_3$ présente un point d'inflexion en $(0 ; \frac{1}{e})$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$/1, $f'$/1, $f$/2 }
+	{$-\infty$, $-1$, $+\infty$}
+	\tkzTabLine{, + , d , + }
+	\tkzTabVar{-/$e$, +DC-/$+\infty$/$0$, +/$e$ }
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=10cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		ymin=0,
+		]
+		\addplot[blue, domain=-10:-2.5, samples=51]{exp((x-1)/(x+1))};
+		\addplot[blue, domain=-1:9, samples=51]{exp((x-1)/(x+1))};
+		\addplot[red, thin, domain=-10:9]{exp(1)};
+		\addplot[red] coordinates {(-1,0)(-1,10)};
+	\end{axis}	
+\end{tikzpicture}
+
+\end{document}]
