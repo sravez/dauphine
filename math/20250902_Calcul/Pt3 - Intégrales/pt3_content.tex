@@ -35,8 +35,6 @@
 
 \begin{document}
 
-\chapter{Cours}
-
 \subsection*{Application 3.14}
 \begin{displaymath}
 	\int_1^x \ln y dy = [y\ln y]_1^x -\int_1^x y.\frac{1}{y}dy = x \ln x - [y]_1^x = x(\ln x -1) + 1
@@ -228,5 +226,154 @@ Une primitive de $f_2$ est donc :
 		\frac{1}{2}\ln(x-1) +\frac{3}{2}\ln(3+x)   = \frac{1}{2} \ln((x-1)(x+3)^3)       & \text{ sur } ]1 ; +\infty[
 	\end{cases}
 \end{displaymath}
+
+\subsection*{Exercice 3.5}
+
+Soit $f(x) = \frac{x}{x-1} = 1 + \frac{1}{x-1} = 1 - \frac{1}{1-x}$
+
+Les primitives de $f$ sur $]-\infty; 1[$ (où $1-x>0$) sont donc de la forme $F(x) = x - \ln(1-x) + \alpha$ avec $\alpha \in \mathbb{R}$.
+
+La primitive s'annulant en $0$ est donc $F_0(x) = x - \ln(1-x)$
+
+
+\subsection*{Exercice 3.6}
+
+\subsubsection*{3.6.a}
+
+Soit :
+\begin{displaymath}
+	f(x) = \frac{x}{(x^2+1)^\frac{3}{2}}
+\end{displaymath}
+
+Les primitives de $f$ sont de la forme :
+\begin{displaymath}
+	F(x) = \frac{-1}{(x^2+1)^\frac{1}{2}} + \alpha \text{ avec } \alpha \in \mathbb{R}
+\end{displaymath}
+
+
+
+Celle s'annulant en $0$ est donc :
+\begin{displaymath}
+	F_0(x) = 1-\frac{1}{(x^2+1)^\frac{1}{2}}
+\end{displaymath}
+
+
+\subsubsection*{3.6.b}
+
+Soit :
+\begin{displaymath}
+	f(x) = (x+1)e^x = xe^x +e^x
+\end{displaymath}
+
+Les primitives de $f$ sont de la forme :
+\begin{displaymath}
+	F(x) = xe^x + \alpha \text{ avec } \alpha \in \mathbb{R}
+\end{displaymath}
+
+Celle s'annulant en $0$ est donc :
+\begin{displaymath}
+	F_0(x) = xe^x
+\end{displaymath}
+
+On peut procéder à une intégration par partie :
+\begin{displaymath}
+	F_0(x) = \int_0^x (y+1) e^y dy = \int_0^x ye^y dy + \int_0^x e^y dy = [ye^y]_0^x -\int_0^x e^y dy + \int_0^x e^y dy = xe^x
+\end{displaymath}
+
+
+
+\subsection*{Exercice 3.7}
+
+Soit :
+\begin{displaymath}
+	I_n = \int_0^1 x^n\sqrt{1-x} dx
+\end{displaymath}
+
+\subsubsection*{3.7.1}
+\begin{displaymath}
+	\forall n \in \mathbb{N}, \forall x \in [0;1], x^n\sqrt{1-x} \geq 0 \Longrightarrow	\forall n \in \mathbb{N}, \int_0^1 x^n\sqrt{1-x}dx \geq 0
+\end{displaymath}
+
+\subsubsection*{3.7.2}
+\begin{displaymath}
+		I_0 = \int_0^1 \sqrt{1-x} dx = \left[ -\frac{2}{3} (1-x)^\frac{3}{2}\right]_0^1 = \frac{2}{3}
+\end{displaymath}
+
+\subsubsection*{3.7.3}
+\begin{equation*}
+	\begin{split}
+			I_1 &= \int_0^1 x\sqrt{1-x} dx \\
+			    &= \left[ -\frac{2}{3} x(1-x)^\frac{3}{2}\right]_0^1 +\frac{2}{3}\int_0^1 (1-x)^\frac{3}{2} dx \\
+			    &= 0 - 0  + \frac{2}{3}  \left[ -\frac{2}{5} (1-x)^\frac{5}{2}\right]_0^1 \\
+			    &= \frac{4}{15}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.7.4}
+Soit $n \in \mathbb{N}^*$ :
+
+\begin{equation*}
+	\begin{split}
+		I_n &=  \int_0^1 x^n\sqrt{1-x} dx \\
+		    &= \left[  x^n \frac{-2}{3} (1-x)^\frac{3}{2}\right]_0^1  - \int_0^1 \frac{-2}{3}nx^{n-1}(1-x)^\frac{3}{2} dx\\
+		    &= \frac{2n}{3} \int_0^1 x^{n-1}(1-x)^\frac{3}{2} dx \\
+		    &= \frac{2n}{3} \int_0^1 x^{n-1}(1-x)^\frac{1}{2}(1-x) dx \\
+		    &= \frac{2n}{3} \int_0^1 \left( x^{n-1}(1-x)^\frac{1}{2}-x^{n-1}(1-x)^\frac{1}{2}x \right)dx \\
+		    &= \frac{2n}{3} \left( \int_0^1 x^{n-1}(1-x)^\frac{1}{2} dx - \int_0^1 x^{n}(1-x)^\frac{1}{2} dx \right) \\
+		    &= \frac{2n}{3} \left( I_{n-1} - I_n \right) \\
+	\end{split}
+\end{equation*}
+
+Et donc : $(3+2n)I_n = 2n I_{n-1}$
+
+\subsubsection*{3.7.5}
+
+\begin{equation*}
+	\begin{split}
+		\forall n \in \mathbb{N}^*, I_n 
+			&= \frac{2n}{3+2n}I_{n-1} \\
+			&= I_0 \prod_{k=1}^{n}\frac{2k}{3+2k}\\
+			&= \frac{2\prod_{k=1}^{n} k}{\prod_{k=1}^{n} (3+2k)} I_0 \\
+			&= \frac{2\prod_{k=1}^{n} k}{\prod_{k=1}^{n} (3+2k)} I_0 \\
+			&= \frac{2 n!}{\prod_{k=1}^{n} 3+2k} I_0 \\
+	\end{split}
+\end{equation*}
+
+Or on a :
+\begin{equation*}
+	\begin{split}
+		\prod_{k=1}^{n} (3+2k) &= \frac{\prod_{k=1}^{2n+3} k}{2 \times 3 \times \prod_{k=1}^{n} (3+2k-1)} \\
+		                       &= \frac{(2n+3)!}{6 \prod_{k=1}^{n} 2(k+1)} \\
+		                       &= \frac{(2n+3)!}{6 \times 2 \prod_{k=1}^{n} (k+1)} \\
+		                       &= \frac{(2n+3)!}{12 (n+1)!}
+	\end{split}
+\end{equation*}
+
+Donc :
+\begin{equation*}
+	\begin{split}
+		\forall n \in \mathbb{N}^*, I_n 
+			&= 2 n! \frac{12 (n+1)!}{(2n+3)!}I_0 \\
+			&=  \frac{24 n!(n+1)!}{(2n+3)!} \frac{2}{3} \\
+			&=  \frac{16 n!(n+1)!}{(2n+3)!}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.7.6}
+\begin{displaymath}
+	\forall n \in \mathbb{N}, \forall x \in [0;1], x^n \sqrt{1-x} \leq x^n
+\end{displaymath}
+
+Donc :
+\begin{displaymath}
+	\forall n \in \mathbb{N},I_n = \int_0^1 x^n \sqrt{1-x} dx \leq \int_0^1 x^n dx = \frac{1}{n+1}
+\end{displaymath}
+
+Soit :
+\begin{displaymath}
+	\forall n \in \mathbb{N}, 0\leq I_n  \leq  \frac{1}{n+1}
+\end{displaymath}
+
+$I_n$ étant encadré par deux suites tendant vers $0$, on a $\lim_{n \rightarrow +\infty} I_n = 0$
 
 \end{document}
