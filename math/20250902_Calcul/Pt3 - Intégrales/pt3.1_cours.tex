@@ -37,4 +37,170 @@
 
 \chapter{Cours}
 
+\subsection*{Application 3.14}
+\begin{displaymath}
+	\int_1^x \ln y dy = [y\ln y]_1^x -\int_1^x y.\frac{1}{y}dy = x \ln x - [y]_1^x = x(\ln x -1) + 1
+\end{displaymath}
+
+\subsection*{Exercice 3.1}
+\begin{equation*}
+	\begin{split}
+	\int_0^3 f(x)dx &= \int_0^1 f(x)dx + \int_1^2 f(x)dx +\int_2^3 f(x)dx\\
+	                &= \int_0^1 x dx + \int_1^2 1 dx + \int_2^3 (x-1)^2dx \\
+	                &= \left[ \frac{x^2}{2} \right]_0^1 +  \left[ x \right]_1^2 + \left[ \frac{(x-1)^3}{3} \right]_2^3 \\
+	                &= \frac{1}{2} + 2 - 1 + \frac{8-1}{3} \\
+	                &= \frac{3+6+14}{6} \\
+	                &= \frac{23}{6}
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 3.2 - Intégrales et fonctions composées}
+
+\subsubsection*{3.2.a}
+\begin{equation*}
+	\begin{split}
+		\int_2^3 \frac{x}{x^2-1}dx &= \left[ \frac{1}{2}\ln(x^2-1) \right]_2^3\\
+			                       &= \frac{1}{2} (\ln 8 - \ln 3) \\
+			                       &= \frac{1}{2} \ln \frac{8}{3} \\
+			                       &= \ln \sqrt{\frac{8}{3}} \\
+			                       &= \ln 2\sqrt{\frac{2}{3}}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.2.b}
+\begin{equation*}
+	\begin{split}
+		\int_2^3 \frac{x}{(x^2+1)^3}dx &= \left[ \frac{-1}{4}\frac{1}{(x^2+1)^2} \right]_2^3\\
+		                               &= \frac{-1}{4} \left( \frac{1}{100} - \frac{1}{25} \right) \\
+		                               &= \frac{3}{400}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.2.c}
+\begin{equation*}
+	\begin{split}
+		\int_1^2 \frac{\ln x}{x}dx &= \left[\frac{1}{2}\ln^2 x \right]_1^2\\
+		                           &= \frac{\ln^2 2}{2}
+	\end{split}
+\end{equation*}
+
+
+\subsection*{Exercice 3.3 - Intégration par parties}
+\subsubsection*{3.3.a}
+\begin{equation*}
+	\begin{split}
+		\int_0^1 xe^{-x}dx &= \left[ -xe^{-x} \right]_0^1 - \int_0^1 -e^{-x}dx \\
+		                   &= -e^{-1} - \left[ e^{-x} \right]_0^1 \\
+		                   &= -e^{-1} - e^{-1} + 1 \\
+		                   &= 1 - \frac{2}{e} \\
+		                   &= \frac{e-2}{e}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.3.b}
+\begin{equation*}
+	\begin{split}
+		\int_0^1 x^2e^xdx &= \left[ x^2 e^x \right]_0^1 - \int_0^1 2x e^x dx \\
+		                  &= e - 2 \left[ x e^x \right]_0^1 + 2\int_0^1 e^x dx \\
+		                  &= e -2e + 2 \left[ e^x \right]_0^1 \\
+		                  &= -e + 2(e -1) \\
+		                  & = e - 2
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.3.c}
+\begin{equation*}
+	\begin{split}
+		\int_1^x y \ln y dy &= \left[ \frac{y^2}{2} \ln y \right]_1^x - \int_1^x \frac{y}{2} dy \\
+		                    &= \frac{x^2}{2} \ln x - \left[ \frac{y^2}{4} \ln y \right]_1^x \\
+		                    &= \frac{x^2}{2} \ln x - \frac{x^2 -1}{4}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{3.3.d}
+\begin{equation*}
+	\begin{split}
+		\int_1^3 \ln^2(x) dx &= \left[ x \ln^2(x) \right]_1^3 - \int_1^3 2\ln(x) dx \\
+		                     &= 3 \ln^2(3) - \left[ 2x \ln(x) \right]_1^3 +  \int_1^3 2 dx \\
+		                     &= 3 \ln^2(3) -6 \ln(3) + \left[ 2x \right]_1^3 \\
+		                     &= 3 \ln^2(3) -6 \ln(3) + 4
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 3.4 - Décomposition en éléments simples}
+
+\subsubsection*{3.4.1}
+Si :
+\begin{equation*}
+	\begin{split}
+		\frac{1}{2x^2 + 3x -2} &= \frac{1}{(x+2)(2x-1)} \\
+		                       &= \frac{a}{x+2} +  \frac{b}{2x-1} = \frac{(2a+b)x + 2b -a}{(x+2)(2x-1)}
+	\end{split}
+\end{equation*}
+
+Alors : $2a+b =0$ et $2b-a = 1$ soit $a=\frac{-1}{5}$ et $b = \frac{2}{5}$.
+
+Et donc :
+
+\begin{displaymath}
+	\frac{1}{2x^2 + 3x -2} = \frac{-1}{5}\frac{1}{x+2} +  \frac{2}{5}\frac{1}{2x-1}
+\end{displaymath}
+
+\subsubsection*{3.4.2}
+
+Comme $x+2$ et $2x-1$ sont strictement positifs sur $]\frac{1}{2};+\infty[$, une primitive de la fonction est :
+\begin{displaymath}
+	P = \frac{-1}{5}\ln(x+2)+  \frac{1}{5}\ln(2x-1) = \frac{1}{5}\ln \frac{2x-1}{x+2}
+\end{displaymath}
+
+\subsubsection*{3.4.3}
+
+Si :
+\begin{equation*}
+	\begin{split}
+		f_1(x) =\frac{3}{x^2 + 2x -3} &= \frac{3}{(x+3)(x-1)} \\
+		&= \frac{a}{x+3} +  \frac{b}{x-1} = \frac{(a+b)x + 3b -a}{(x+3)(x-1)}
+	\end{split}
+\end{equation*}
+
+Alors $a+b=0$ et $3b-a = 3$, soit $a=\frac{-3}{4}$ et $b = \frac{3}{4}$.
+
+Donc :
+
+\begin{displaymath}
+	f_1 = \frac{3}{4} \left( \frac{1}{x-1} - \frac{1}{x+3} \right)
+\end{displaymath}
+
+Elle possède donc comme primitive en tenant compte du signe sur les intervalles :
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1   ,  $P_1$/1}
+	           {$-\infty$ ,$-3$, $1$    , $+\infty$}
+	\tkzTabLine{, \frac{3}{4} \ln \frac{x+3}{x-1} ,d ,\frac{-3}{4} \ln(-3x^2-2x+3) ,d ,\frac{3}{4} \ln \frac{x-1}{x+3}  , }
+\end{tikzpicture}
+
+Si :
+\begin{equation*}
+	\begin{split}
+		f_2(x) =\frac{2x}{x^2 + 2x -3} &= \frac{2x}{(x+3)(x-1)} \\
+		                               &= \frac{a}{x+3} +  \frac{b}{x-1} = \frac{(a+b)x + 3b -a}{(x+3)(x-1)}
+	\end{split}
+\end{equation*}
+
+Alors $a+b=2$ et $3b-a = 0$, soit $a=\frac{3}{2}$ et $b = \frac{1}{2}$.
+
+\begin{displaymath}
+	f_2 = \frac{1}{2} \left( \frac{1}{x-1} + \frac{3}{x+3} \right)
+\end{displaymath}
+
+Une primitive est donc :
+\begin{displaymath}
+	P_2 = 
+	\begin{cases}
+		-\frac{1}{2}\ln(1-x) -\frac{3}{2}\ln(-3-x) = -\frac{1}{2} \ln((x-1)(x+3)^3)      & \text{ sur } ]-\infty ; -3]\\
+		-\frac{1}{2}\ln(1-x) +\frac{3}{2}\ln(3+x)  = \frac{1}{2} \ln \frac{(x+3)^3}{1-x} & \text{ sur } ]-3 ; 1[\\
+		\frac{1}{2}\ln(x-1) +\frac{3}{2}\ln(3+x)   = \frac{1}{2} \ln((x-1)(x+3)^3)       & \text{ sur } ]1 ; +\infty[
+	\end{cases}
+\end{displaymath}
+
 \end{document}
