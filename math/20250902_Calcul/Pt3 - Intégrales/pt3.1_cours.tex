@@ -130,40 +130,54 @@
 \subsection*{Exercice 3.4 - Décomposition en éléments simples}
 
 \subsubsection*{3.4.1}
-Si :
+Soit 
 \begin{equation*}
 	\begin{split}
-		\frac{1}{2x^2 + 3x -2} &= \frac{1}{(x+2)(2x-1)} \\
-		                       &= \frac{a}{x+2} +  \frac{b}{2x-1} = \frac{(2a+b)x + 2b -a}{(x+2)(2x-1)}
+		f(x) &= \frac{1}{2x^2 + 3x -2} \\
+		       &= \frac{1}{(x+2)(2x-1)} 
 	\end{split}
 \end{equation*}
 
-Alors : $2a+b =0$ et $2b-a = 1$ soit $a=\frac{-1}{5}$ et $b = \frac{2}{5}$.
+
+\begin{alignat*}{2}
+ &                     &                f(x) &= \frac{a}{x+2} +  \frac{b}{2x-1}\\
+ & \Longleftrightarrow & \frac{1}{(x+2)(2x-1)} &= \frac{(2a+b)x + 2b -a}{(x+2)(2x-1)} \\
+ & \Longleftrightarrow & (2a+b =0)             &\vee (2b-a = 1) \\
+ & \Longleftrightarrow & a=\frac{-1}{5}        &\vee b = \frac{2}{5}
+\end{alignat*}
+
+
+
 
 Et donc :
 
 \begin{displaymath}
-	\frac{1}{2x^2 + 3x -2} = \frac{-1}{5}\frac{1}{x+2} +  \frac{2}{5}\frac{1}{2x-1}
+	f(x) = \frac{-1}{5}\frac{1}{x+2} +  \frac{2}{5}\frac{1}{2x-1}
 \end{displaymath}
 
 \subsubsection*{3.4.2}
 
-Comme $x+2$ et $2x-1$ sont strictement positifs sur $]\frac{1}{2};+\infty[$, une primitive de la fonction est :
+Comme $(x+2)$ et $(2x-1)$ sont strictement positifs sur $]\frac{1}{2};+\infty[$, une primitive de la fonction sur cet
+intervalle est :
+
 \begin{displaymath}
 	P = \frac{-1}{5}\ln(x+2)+  \frac{1}{5}\ln(2x-1) = \frac{1}{5}\ln \frac{2x-1}{x+2}
 \end{displaymath}
 
 \subsubsection*{3.4.3}
 
-Si :
+Soit :
+
 \begin{equation*}
-	\begin{split}
-		f_1(x) =\frac{3}{x^2 + 2x -3} &= \frac{3}{(x+3)(x-1)} \\
-		&= \frac{a}{x+3} +  \frac{b}{x-1} = \frac{(a+b)x + 3b -a}{(x+3)(x-1)}
-	\end{split}
+	f_1(x) =\frac{3}{x^2 + 2x -3} = \frac{3}{(x+3)(x-1)}
 \end{equation*}
 
-Alors $a+b=0$ et $3b-a = 3$, soit $a=\frac{-3}{4}$ et $b = \frac{3}{4}$.
+\begin{alignat*}{2}
+	&                     &                f_1(x) &= \frac{a}{x+3} +  \frac{b}{x-1}\\
+	& \Longleftrightarrow & \frac{3}{(x+3)(x-1)}  &=  \frac{(a+b)x + 3b -a}{(x+3)(x-1)} \\
+	& \Longleftrightarrow & (a+b=0)               &\vee (3b-a = 3) \\
+	& \Longleftrightarrow & a=\frac{-3}{4}        &\vee b = \frac{3}{4}
+\end{alignat*}
 
 Donc :
 
@@ -171,29 +185,37 @@ Donc :
 	f_1 = \frac{3}{4} \left( \frac{1}{x-1} - \frac{1}{x+3} \right)
 \end{displaymath}
 
-Elle possède donc comme primitive en tenant compte du signe sur les intervalles :
+$f_1$ possède donc comme primitive en tenant compte du signe de $x-1$ et $x+3$ sur les différents intervalles :
 
-\begin{tikzpicture}
-	\tkzTabInit{$x$ / 1   ,  $P_1$/1}
-	           {$-\infty$ ,$-3$, $1$    , $+\infty$}
-	\tkzTabLine{, \frac{3}{4} \ln \frac{x+3}{x-1} ,d ,\frac{-3}{4} \ln(-3x^2-2x+3) ,d ,\frac{3}{4} \ln \frac{x-1}{x+3}  , }
-\end{tikzpicture}
+\begin{displaymath}
+	P_1 = 
+	\begin{cases}
+		\frac{3}{4} \ln \frac{x+3}{x-1}      & \text{ sur } ]-\infty ; -3]\\
+		\frac{-3}{4} \ln(-3x^2-2x+3)         & \text{ sur } ]-3 ; 1[\\
+		\frac{3}{4} \ln \frac{x-1}{x+3}      & \text{ sur } ]1 ; +\infty[
+	\end{cases}
+\end{displaymath}
 
-Si :
+
+Soit :
 \begin{equation*}
-	\begin{split}
-		f_2(x) =\frac{2x}{x^2 + 2x -3} &= \frac{2x}{(x+3)(x-1)} \\
-		                               &= \frac{a}{x+3} +  \frac{b}{x-1} = \frac{(a+b)x + 3b -a}{(x+3)(x-1)}
-	\end{split}
+		f_2(x) =\frac{2x}{x^2 + 2x -3} = \frac{2x}{(x+3)(x-1)}
 \end{equation*}
 
-Alors $a+b=2$ et $3b-a = 0$, soit $a=\frac{3}{2}$ et $b = \frac{1}{2}$.
+\begin{alignat*}{2}
+	&                     &                f_2(x)  &= \frac{a}{x+3} +  \frac{b}{x-1}\\
+	& \Longleftrightarrow & \frac{2x}{(x+3)(x-1)}  &=  \frac{(a+b)x + 3b -a}{(x+3)(x-1)} \\
+	& \Longleftrightarrow & (a+b=2)               &\vee (3b-a = 0) \\
+	& \Longleftrightarrow & a=\frac{3}{2}        &\vee b = \frac{1}{2}
+\end{alignat*}
+
+Donc :
 
 \begin{displaymath}
 	f_2 = \frac{1}{2} \left( \frac{1}{x-1} + \frac{3}{x+3} \right)
 \end{displaymath}
 
-Une primitive est donc :
+Une primitive de $f_2$ est donc :
 \begin{displaymath}
 	P_2 = 
 	\begin{cases}
