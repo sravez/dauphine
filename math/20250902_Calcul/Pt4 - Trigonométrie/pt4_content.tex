@@ -389,11 +389,42 @@ $f_1'(x) = 2\sin(x)cos(x) = \sin(2x)$
 
 $f_2(x) = e^{-x}\sin^2(x)$
 
+$f_2$ est positive et oscille entre l'axe des abscisses et la courbe de $e^{-x}$
+et tend donc vers $0$ en $+\infty$.
+
+Elle touche l'axe des abscisses tous les $\pi$ et la courbe supérieure en $\frac{\pi}{2} +\pi\mathbb{Z}$
+
+$f_2'(x) = e^{-x} \sin(x) (2\cos(x)-\sin(x))$
+
+Les extrema inférieurs (jonctions avec l'axe des abscisses) sont $\pi\mathbb{Z}$, les extrema supérieurs
+sont $\arctan(2) +\pi\mathbb{Z}$
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=10cm,
+		width=15cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		ymax=160,
+		domain=-7.5:3.5,
+		xtick={-6.28, -4.71, -3.14,-1.57,0,1.57,3.14},
+		xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$, $-\frac{\pi}{2}$,$0$,$\frac{\pi}{2}$,$\pi$}
+		]
+		\addplot[blue,samples=101]{exp(-x)*sin(deg(x))^2};
+		\addplot[gray,samples=81]{exp(-x)};
+	\end{axis}	
+\end{tikzpicture}
+
 \subsubsection*{Exercice 4.9.3}
 
-$f_3(x) = 2\cos(x) + \cos(2x) = 2\cos^2(x) + 2\cos(x) -1 =()$
+$f_3(x) = 2\cos(x) + \cos(2x) = 2\cos^2(x) + 2\cos(x) -1 = 0$
 
 $f_3$ est paire et $2\pi$-périodique. 
+
+Les racines de $f_3$ sont telles que $\cos(x)=\frac{-1+\sqrt{3}}{2}$ (racine de $2x^2+2x-1=0$
+incluse dans l'intervalle $[-1;1]$)
+
 
 $f_3'(x) = -4\cos(x)\sin(x) -2\sin(x) = -2 \sin(x) (2\cos(x) + 1)$
 
