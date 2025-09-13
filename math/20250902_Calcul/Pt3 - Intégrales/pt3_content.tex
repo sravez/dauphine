@@ -333,19 +333,18 @@ Et donc : $(3+2n)I_n = 2n I_{n-1}$
 		\forall n \in \mathbb{N}^*, I_n 
 			&= \frac{2n}{3+2n}I_{n-1} \\
 			&= I_0 \prod_{k=1}^{n}\frac{2k}{3+2k}\\
-			&= \frac{2\prod_{k=1}^{n} k}{\prod_{k=1}^{n} (3+2k)} I_0 \\
-			&= \frac{2\prod_{k=1}^{n} k}{\prod_{k=1}^{n} (3+2k)} I_0 \\
-			&= \frac{2 n!}{\prod_{k=1}^{n} 3+2k} I_0 \\
+			&= \frac{2^n \prod_{k=1}^{n} k}{\prod_{k=1}^{n} (3+2k)} I_0 \\
+			&= \frac{2^n n!}{\prod_{k=1}^{n} (3+2k)} I_0 \\
 	\end{split}
 \end{equation*}
 
-Or on a :
+Le dénominateur est le produit des nombres impairs de $5$ à $2n+3$, il s'agit donc de $(2n+3)!$ divisé par tous les autres
+nombres entre $2$ et $2n+3$ soit $3$ et tous les nombres pairs de $2$ à $(2n+2)$ ; donc :
 \begin{equation*}
 	\begin{split}
-		\prod_{k=1}^{n} (3+2k) &= \frac{\prod_{k=1}^{2n+3} k}{2 \times 3 \times \prod_{k=1}^{n} (3+2k-1)} \\
-		                       &= \frac{(2n+3)!}{6 \prod_{k=1}^{n} 2(k+1)} \\
-		                       &= \frac{(2n+3)!}{6 \times 2 \prod_{k=1}^{n} (k+1)} \\
-		                       &= \frac{(2n+3)!}{12 (n+1)!}
+		\prod_{k=1}^{n} (3+2k) &= \frac{(2n+3)!}{3 \prod_{k=1}^{n+1} 2k} \\
+		                       &= \frac{(2n+3)!}{3 \times 2^{n+1} \prod_{k=1}^{n}k }\\
+			                   &= \frac{(2n+3)!}{3 \times 2^{n+1} (n+1)!}		
 	\end{split}
 \end{equation*}
 
@@ -353,9 +352,9 @@ Donc :
 \begin{equation*}
 	\begin{split}
 		\forall n \in \mathbb{N}^*, I_n 
-			&= 2 n! \frac{12 (n+1)!}{(2n+3)!}I_0 \\
-			&=  \frac{24 n!(n+1)!}{(2n+3)!} \frac{2}{3} \\
-			&=  \frac{16 n!(n+1)!}{(2n+3)!}
+			&= 2^n n! \frac{3 \times 2^{n+1} (n+1)!}{(2n+3)!}I_0 \\
+			&= 2^{2n+1} \frac{3 \times  n!(n+1)!}{(2n+3)!} \frac{2}{3} \\
+			&= 2^{2(n+1)} \frac{n!(n+1)!}{(2n+3)!}
 	\end{split}
 \end{equation*}
 
