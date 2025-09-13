@@ -213,11 +213,87 @@ En sommant les deux égalités, on obtient :
 	\end{split}
 \end{equation*}
 
-\subsection*{4.4}
+\subsection*{Exercice 4.4}
 
 Une primitive de $\tan x = \frac{\sin x}{\cos x}$ sur $]-\frac{\pi}{2} ; \frac{\pi}{2}[$ est $P(x)=-\ln(\cos(x))$
 
-\subsection*{4.10}
+\subsection*{Exercice 4.5}
+
+Calcul évident
+
+\subsection*{Exercice 4.6}
+
+\subsubsection*{4.6.a}
+\begin{alignat*}{2}
+	&                    & \sin |x| &= 1 \\
+	&\Longleftrightarrow & |x| &= \frac{\pi}{2} + 2k\pi \quad (k \in \mathbb{Z}) \\
+	&\Longleftrightarrow &   x &= \frac{\pi}{2} + k\pi \quad (k \in \mathbb{Z}) \\
+	&\Longleftrightarrow &   x &\equiv \frac{\pi}{2} \enspace (\pi)
+\end{alignat*}
+
+\subsubsection*{4.6.b}
+\begin{alignat*}{2}
+	&                    & \tan 2x &= \frac{1}{\sqrt{3}} \\
+	&\Longleftrightarrow & 2x      &= \frac{\pi}{6} + k\pi \quad (k \in \mathbb{Z}) \\
+	&\Longleftrightarrow & x       &= \frac{\pi}{12} + k\frac{\pi}{2} \quad (k \in \mathbb{Z}) \\
+	&\Longleftrightarrow &       x &\equiv \frac{\pi}{12} \enspace \left(\frac{\pi}{2}\right)
+\end{alignat*}
+
+
+\subsubsection*{4.6.c}
+
+Cette équation n'a pas de solution car $|\cos(3x-2)| \in [0 ; 1]$ alors que $\frac{\pi}{2} > 1$.
+
+\subsubsection*{4.6.d}
+\begin{alignat*}{2}
+	&                    &        \cos^2(2x) -3\cos(2x) &= -2 \\
+	&\Longleftrightarrow &    \cos^2(2x) -3\cos(2x) + 2 &= 0  \\
+	&\Longleftrightarrow & (\cos(2x) - 1)(\cos(2x) - 2) &= 0  \\
+	&\Longleftrightarrow &                      \cos 2x &= 1  \text{ car } \forall x \in \mathbb{R}, \cos 2x \neq 2\\
+	&\Longleftrightarrow &                           2x &= 0 + 2k\pi \quad (k \in \mathbb{Z}) \\
+	&\Longleftrightarrow &                           x  &= k\pi \quad (k \in \mathbb{Z}) \\	
+	&\Longleftrightarrow &                            x &\equiv 0 \enspace \left( \pi \right)
+\end{alignat*}
+
+
+\subsection*{Exercice 4.7 - Formule de l'arc moitié}
+
+\subsubsection*{4.7.1}
+\begin{equation*}
+	\begin{split}
+		\frac{2 \tan(\frac{x}{2})}{1 + \tan^2(\frac{x}{2})} 
+			&= \frac{2\frac{\sin\frac{x}{2}}{\cos \frac{x}{2}}}{\frac{1}{\cos^2 \frac{x}{2}}} \\
+			&= 2 \sin(\frac{x}{2})\cos(\frac{x}{2}) \\
+			&= \sin(x)
+	\end{split}
+\end{equation*}
+
+\subsubsection*{4.7.2}
+\begin{equation*}
+	\begin{split}
+		\frac{1 - \tan^2(\frac{x}{2})}{1 + \tan^2(\frac{x}{2})} 
+		&= \frac{1 - \frac{\sin^2(\frac{x}{2})}{\cos^2(\frac{x}{2})}}{\frac{1}{\cos^2(\frac{x}{2})}} \\
+		&= \cos^2(\frac{x}{2}) - \sin^2(\frac{x}{2}) \\
+		&= \cos(x)
+	\end{split}
+\end{equation*}
+
+\subsubsection*{4.7.3}
+
+Et donc évidemment :
+
+\begin{equation*}
+	\begin{split}
+		\tan (x) 
+		&= \frac{\sin(x)}{\cos(x)} \\
+		&= \frac{\frac{2 \tan(\frac{x}{2})}{1 + \tan^2(\frac{x}{2})}}{\frac{1 - \tan^2(\frac{x}{2})}{1 + \tan^2(\frac{x}{2})}} \\
+		&= \frac{2 \tan(\frac{x}{2})}{1 - \tan^2(\frac{x}{2})}
+	\end{split}
+\end{equation*}
+
+\subsection*{Exercice 4.8 - Dérivabilité de cosinus et sinus}
+
+\subsection*{Exercice 4.10}
 
 \begin{tabular}{|c|c|c|}
 	\hline
