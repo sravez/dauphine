@@ -351,7 +351,7 @@ On aurait pu utiliser la limite précédente avec $\cos(x) = -\sin(x-\frac{\pi}{
 
 \subsection*{Exercice 4.9}
 
-\subsubsection*{Exercice 4.9.1}
+\subsubsection*{4.9.1}
 
 $f_1(x) = \sin^2(x) = \frac{1 - \cos(2x)}{2}$
 
@@ -385,7 +385,7 @@ $f_1'(x) = 2\sin(x)cos(x) = \sin(2x)$
 	\end{axis}	
 \end{tikzpicture}
 
-\subsubsection*{Exercice 4.9.2}
+\subsubsection*{4.9.2}
 
 $f_2(x) = e^{-x}\sin^2(x)$
 
@@ -416,7 +416,7 @@ sont $\arctan(2) +\pi\mathbb{Z}$
 	\end{axis}	
 \end{tikzpicture}
 
-\subsubsection*{Exercice 4.9.3}
+\subsubsection*{4.9.3}
 
 $f_3(x) = 2\cos(x) + \cos(2x) = 2\cos^2(x) + 2\cos(x) -1 = 0$
 
@@ -452,6 +452,8 @@ Sur $[-\pi ; \pi]$, $f_3'$ s'annule pour $x \in \{ -\pi ; -\frac{2\pi}{3}; 0 ; \
 		\addplot[blue,samples=81]{2*cos(deg(x)) + cos(2 * deg(x))};
 	\end{axis}	
 \end{tikzpicture}
+
+
 \subsection*{Exercice 4.10}
 
 \begin{tabular}{|c|c|c|}
@@ -461,5 +463,110 @@ Sur $[-\pi ; \pi]$, $f_3'$ s'annule pour $x \in \{ -\pi ; -\frac{2\pi}{3}; 0 ; \
 	$f_3$ & $f_5$ & $f_2$  \\
 	\hline
 \end{tabular}
+
+$f_4$ : évident
+
+$f_5$ : seule fonction paire
+
+Figure 6 : cosinus avec de petites oscillations, donc $f_2$
+
+Figure 2 : oscillations autour de $y=x$ donc $f_6$
+
+Figure 4 : Oscillations constantes en amplitudes autour de $y=-x$, donc $f_3$
+
+
+\subsection*{Exercice 4.11}
+
+\subsubsection*{4.11.a}
+
+\begin{alignat*}{2}
+	&                    & \arctan \left| \frac{x+1}{x-1} \right|  &= \frac{\pi}{4} \\
+	&\Longleftrightarrow & \left| \frac{x+1}{x-1} \right|          &= 1 \\
+	&\Longleftrightarrow &                                 (x+1)^2 &= (x-1)^2 \\
+	&\Longleftrightarrow &                                      2x &= -2x \\
+	&\Longleftrightarrow &                                       x &= 0
+\end{alignat*}
+
+\subsubsection*{4.11.b}
+
+On a $x \in [-1 ; 1]$
+
+\begin{alignat*}{2}
+	&                    & \sin(|\arcsin (x)|) &= -x \\
+	&\Longleftrightarrow & \sin(\arcsin |x|))  &= -x \\
+	&\Longleftrightarrow &                |x|  &= -x \\
+	&\Longleftrightarrow &                   x & \in [-1 ; 0]  \\
+\end{alignat*}
+
+\subsubsection*{4.11.c}
+
+On a $x \in [0 ; \pi]$
+
+\begin{alignat*}{2}
+	&                    & \arccos(\sin(x))       &= x \\
+	&\Longleftrightarrow & \cos(\arccos(\sin(x))) &= \cos(x) \text{ car $\cos$ est injective sur l'intervalle} \\
+	&\Longleftrightarrow &                \sin(x) &= \cos(x) \\
+	&\Longleftrightarrow &                      x &= \frac{\pi}{4} \\
+\end{alignat*}	
+
+\subsection*{Exercice 4.12}
+
+\subsubsection*{4.12.a}
+\begin{displaymath}
+	\lim_{x \rightarrow 0} \arctan \left( \frac{\arccos(x)}{\pi} \right) = \arctan \frac{1}{2}
+\end{displaymath}
+
+\subsubsection*{4.12.b}
+\begin{displaymath}
+	\lim_{x \rightarrow \frac{\pi}{2}} \arccos \left( \frac{1}{\tan(x) +3} \right) = \arccos(0) = \frac{\pi}{2}
+\end{displaymath}
+
+\subsubsection*{4.12.c}
+\begin{displaymath}
+	\lim_{x \rightarrow 1^-} e^{\frac{1}{\arccos(x)}} = +\infty
+\end{displaymath}
+
+\subsection*{Exercice 4.13}
+\subsubsection*{4.13.a}
+
+$f(x) = \arctan(\arcsin x)$
+
+$f'(x) = \frac{1}{\sqrt{1-x^2}}\frac{1}{1+\arcsin^2(x)}$
+
+
+\subsubsection*{4.13.b}
+
+$f(x) = \arctan(x^2) -2 \arcsin(\ln(x)) $
+
+$f'(x) = \frac{2x}{1+x^4} - 2 \frac{1}{x}\frac{1}{\sqrt{1-\ln^2(x)}}$
+
+\subsubsection*{4.13.c}
+
+$f(x) = \arccos(\sin(x)) $
+
+$f'(x) = \frac{\cos(x)}{\sqrt{1-\sin^2(x)}} = \frac{\cos(x)}{|\cos(x)|} =$ signe de $\cos x$
+
+\subsection*{Exercice 4.14}
+
+\begin{equation*}
+	\begin{split}
+		\int_0^1 x \arctan(x) dx &= \left[ \frac{x^2}{2} \arctan(x) \right] _0^1 - \int_0^1 \frac{x^2}{2(1+x^2)} dx \\
+		                         &= \frac{\pi}{8} - \frac{1}{2} \int_0^1 \left( 1 - \frac{1}{1+x^2}\right) dx \\
+		                         &= \frac{\pi}{8} - \frac{1}{2}\left[ x -\arctan(x) \right]_0^1 \\
+		                         &= \frac{\pi}{8} - \frac{1}{2} \left(1 - \frac{\pi}{4}  \right)  \\
+		                         &= \frac{\pi}{4} - \frac{1}{2}
+	\end{split}
+\end{equation*}
+
+Une primitive de $\arcsin(x)$ est :
+\begin{equation*}
+	\begin{split}
+		P(x) = \int_0^x \arcsin(y) dy &= \left[ y \arcsin(y) \right]_0^x - \int_0^1 \frac{y}{\sqrt{1-y^2}} dy \\
+		&= x \arcsin(x) - [-\sqrt{1-y^2}]_0^x \\
+		&= x \arcsin(x) + \sqrt{1-x^2} -1
+	\end{split}
+\end{equation*}
+
+
 
 \end{document}
