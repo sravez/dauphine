@@ -247,7 +247,7 @@ Donc : $S =  \frac{\pi}{12} + \frac{\pi}{2}\mathbb{Z}$
 
 Cette équation n'a pas de solution car $|\cos(3x-2)| \in [0 ; 1]$ alors que $\frac{\pi}{2} > 1$.
 
-Donc : $S = \emptyset$
+Donc : $S = \varnothing$
 
 \subsubsection*{4.6.d}
 \begin{alignat*}{2}
@@ -299,6 +299,128 @@ Et donc évidemment :
 
 \subsection*{Exercice 4.8 - Dérivabilité de cosinus et sinus}
 
+\subsubsection*{4.8.1.a}
+\begin{equation*}
+	\begin{split}
+		\forall h \in ]-\frac{\pi}{2} , \frac{\pi}{2}[, \cos(h) - 1
+			&= \frac{(\cos(h) - 1)(\cos(h) + 1)}{\cos(h) + 1} \\
+			&= \frac{\cos^2(h) - 1}{\cos(h) + 1} \\
+			&= -\frac{\sin^2(h)}{\cos(h) + 1}
+	\end{split}
+\end{equation*}
+
+\subsubsection*{4.8.1.b}
+\begin{displaymath}
+	\lim_{h \rightarrow 0} \frac{\cos(h) - 1}{h}
+		= \lim_{h \rightarrow 0} -\frac{\sin^2(h)}{h(\cos(h) + 1)}
+		= \lim_{h \rightarrow 0} -\left( \frac{\sin(h)}{h}\right)^2 \frac{h}{\cos(h) + 1} = 0
+\end{displaymath}
+
+\subsubsection*{4.8.2.a}
+\begin{equation*}
+	\begin{split}
+		\forall h \in \mathbb{R} , \sin(x+h) -\sin(x)
+			&= \sin(x)\cos(h) + \sin(h)\cos(x) -\sin(x) \\
+			&= \sin(h)\cos(x) + \sin(x) (\cos(h) - 1)
+	\end{split}
+\end{equation*}
+
+\subsubsection*{4.8.2.b}
+Donc :
+\begin{equation*}
+	\begin{split}
+	\lim_{h \rightarrow 0} \frac{\sin(x+h) - \sin(x)}{h}
+		&= \lim_{h \rightarrow 0} \left( \frac{\sin(h)}{h}\cos(x) + \frac{\cos(h) - 1}{h}\sin(x) \right) \\
+		&= \lim_{h \rightarrow 0} \left( \frac{\sin(h)}{h} \right) \cos(x) + \lim_{h \rightarrow 0} \left( \frac{\cos(h) - 1}{h}\right) \sin(x)\\
+		&= \cos(x)
+	\end{split}
+\end{equation*}
+
+\subsubsection*{4.8.2}
+\begin{equation*}
+	\begin{split}
+		\lim_{h \rightarrow 0} \frac{\cos(x+h) - \cos(x)}{h}
+		&= \lim_{h \rightarrow 0} \frac{\cos(x)\cos(h) - \sin(x)\sin(h)-\cos(x)}{h} \\
+		&= \lim_{h \rightarrow 0} \left( \frac{\cos(h)-1}{h}\cos(x) - \frac{\sin(h)}{h}\sin(x) \right) \\
+		&= \lim_{h \rightarrow 0} \left( \frac{\cos(h) - 1}{h}\right) \cos(x) - \lim_{h \rightarrow 0} \left( \frac{\sin(h)}{h} \right)   \sin(x) \\
+		&= -\sin(x)
+	\end{split}
+\end{equation*}
+
+On aurait pu utiliser la limite précédente avec $\cos(x) = -\sin(x-\frac{\pi}{2})$
+
+\subsection*{Exercice 4.9}
+
+\subsubsection*{Exercice 4.9.1}
+
+$f_1(x) = \sin^2(x) = \frac{1 - \cos(2x)}{2}$
+
+$f_1$ est paire et $\pi$-périodique ; l'étude sur $[0 ; \frac{\pi}{2}]$ permet par symétrie et translation
+d'obtenir toute la courbe.
+
+$f_1'(x) = 2\sin(x)cos(x) = \sin(2x)$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}
+	           {$-\frac{\pi}{2}$ ,$0$, $\frac{\pi}{2}$}
+	\tkzTabLine{z, - , z , +, z}
+	\tkzTabVar{+/$1$, -/$0$, +/$1$ }
+	\tkzTabVal{1}{2}{0.5}{-$\frac{\pi}{4}$}{$\frac{1}{2}$}
+	\tkzTabVal{2}{3}{0.5}{$\frac{\pi}{4}$}{$\frac{1}{2}$}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-3.5:3.5,
+		xtick={-3.15,-1.57,0,1.57,3.14},
+		xticklabels={$-\pi$, $-\frac{\pi}{2}$,$0$,$\frac{\pi}{2}$,$\pi$}
+		]
+		]
+		\addplot[blue,samples=81]{sin(deg(x))^2};
+	\end{axis}	
+\end{tikzpicture}
+
+\subsubsection*{Exercice 4.9.2}
+
+$f_2(x) = e^{-x}\sin^2(x)$
+
+\subsubsection*{Exercice 4.9.3}
+
+$f_3(x) = 2\cos(x) + \cos(2x) = 2\cos^2(x) + 2\cos(x) -1 =()$
+
+$f_3$ est paire et $2\pi$-périodique. 
+
+$f_3'(x) = -4\cos(x)\sin(x) -2\sin(x) = -2 \sin(x) (2\cos(x) + 1)$
+
+Sur $[-\pi ; \pi]$, $f_3'$ s'annule pour $x \in \{ -\pi ; -\frac{2\pi}{3}; 0 ; \frac{2\pi}{3}; \pi \}$
+
+\begin{tikzpicture}
+	\tkzTabInit{$x$ / 1 , $f'(x)$ / 1, $f(x)$/2}
+	           {$-\pi$, $-\frac{2\pi}{3}$ ,$0$, $\frac{2\pi}{3}$, $\pi$}
+	\tkzTabLine{z,-  , z ,+ , z, -, z,+ ,z}
+	\tkzTabVar{+/$-1$, -/$-\frac{3}{2}$, +/$3$, -/$-\frac{3}{2}$, +/$-1$ }
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines=center,
+		height=5cm,
+		width=10cm,
+		xlabel={$x$},
+		ylabel={$f(x)$},
+		domain=-3.5:3.5,
+		xtick={-3.15,-1.57,0,1.57,3.14},
+		xticklabels={$-\pi$, $-\frac{\pi}{2}$,$0$,$\frac{\pi}{2}$,$\pi$}
+		]
+		]
+		\addplot[blue,samples=81]{2*cos(deg(x)) + cos(2 * deg(x))};
+	\end{axis}	
+\end{tikzpicture}
 \subsection*{Exercice 4.10}
 
 \begin{tabular}{|c|c|c|}
