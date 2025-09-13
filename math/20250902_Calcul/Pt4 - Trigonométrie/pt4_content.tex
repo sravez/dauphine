@@ -561,12 +561,26 @@ $f'(x) = \frac{\cos(x)}{\sqrt{1-\sin^2(x)}} = \frac{\cos(x)}{|\cos(x)|} =$ signe
 Une primitive de $\arcsin(x)$ est :
 \begin{equation*}
 	\begin{split}
-		P(x) = \int_0^x \arcsin(y) dy &= \left[ y \arcsin(y) \right]_0^x - \int_0^1 \frac{y}{\sqrt{1-y^2}} dy \\
-		&= x \arcsin(x) - [-\sqrt{1-y^2}]_0^x \\
-		&= x \arcsin(x) + \sqrt{1-x^2} -1
+		P(x) &= \int_0^x \arcsin(y) dy \\
+		     &= \left[ y \arcsin(y) \right]_0^x - \int_0^1 \frac{y}{\sqrt{1-y^2}} dy \\
+		     &= x \arcsin(x) - [-\sqrt{1-y^2}]_0^x \\
+		     &= x \arcsin(x) + \sqrt{1-x^2} -1
 	\end{split}
 \end{equation*}
 
+\subsection*{Exercice 4.15}
+
+LA primitive nulle en $0$ est :
+
+\begin{equation*}
+	\begin{split}
+		P(x) &= \int_0^x \frac{y}{(y+1)^2 +1} dy \\
+		     &= \int_0^x \left( \frac{y+1}{(y+1)^2 +1} -  \frac{1}{(y+1)^2 +1}\right) dy \\
+		     &= \left[ \frac{1}{2}\ln( 1 + (y+1)^2) -\arctan(1+y) \right]_0^x \\
+		     &= \frac{1}{2}\ln( 1 + (x+1)^2) - \frac{1}{2}\ln( 2) - \arctan(1+x) + \frac{\pi}{4} \\
+		     &= \frac{1}{2}\ln\left(\frac{x^2 +2x +2}{2}\right) - \arctan(1+x) + \frac{\pi}{4}
+	\end{split}
+\end{equation*}
 
 
 \end{document}
