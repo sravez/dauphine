@@ -489,7 +489,9 @@ Figure 4 : Oscillations constantes en amplitudes autour de $y=-x$, donc $f_3$
 
 \subsubsection*{4.11.b}
 
-On a $x \in [-1 ; 1]$
+$\arcsin$ étant impaire et positive sur $[0 ; 1]$ on a $|\arcsin(x)| = \arcsin |x|$.
+
+$x$ étant l'opposé de la valeur d'un sinus, on a $x \in [-1 ; 1]$.
 
 \begin{alignat*}{2}
 	&                    & \sin(|\arcsin (x)|) &= -x \\
@@ -500,11 +502,11 @@ On a $x \in [-1 ; 1]$
 
 \subsubsection*{4.11.c}
 
-On a $x \in [0 ; \pi]$
+$x$ appartient à l'image de $[-1; 1]$ par $\arccos$, soit $x \in [0 ; \pi]$
 
 \begin{alignat*}{2}
 	&                    & \arccos(\sin(x))       &= x \\
-	&\Longleftrightarrow & \cos(\arccos(\sin(x))) &= \cos(x) \text{ car $\cos$ est injective sur l'intervalle} \\
+	&\Longleftrightarrow & \cos(\arccos(\sin(x))) &= \cos(x) \text{ car les deux valeurs sont dans $[-1;1]$ où $\cos$ est injective} \\
 	&\Longleftrightarrow &                \sin(x) &= \cos(x) \\
 	&\Longleftrightarrow &                      x &= \frac{\pi}{4} \\
 \end{alignat*}	
@@ -544,7 +546,13 @@ $f'(x) = \frac{2x}{1+x^4} - 2 \frac{1}{x}\frac{1}{\sqrt{1-\ln^2(x)}}$
 
 $f(x) = \arccos(\sin(x)) $
 
-$f'(x) = \frac{\cos(x)}{\sqrt{1-\sin^2(x)}} = \frac{\cos(x)}{|\cos(x)|} =$ signe de $\cos x$
+$f'(x) = \frac{-\cos(x)}{\sqrt{1-\sin^2(x)}} = -\frac{\cos(x)}{|\cos(x)|} =\pm1$ signe opposé de $\cos x$
+
+\subsubsection*{4.13.d}
+
+$f(x) = \frac{\arctan(e^x)}{1 + \arccos(x)} $
+
+$f'(x) = \dfrac{\frac{e^x}{1+e^{2x}}(1 + \arccos(x)) - \frac{-1}{\sqrt{1-x^2}} \arctan(e^x)}{(1 + \arccos(x))^2} $
 
 \subsection*{Exercice 4.14}
 
