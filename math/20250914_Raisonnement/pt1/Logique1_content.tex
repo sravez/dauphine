@@ -1,0 +1,381 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{report}
+\usepackage[french]{babel}
+\usepackage{standalone}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+%\usepackage{xcolor}
+%\definecolor{dauphineblue}{RGB}{47,68,134}
+
+
+%\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Logique - Exercices}
+\author{Poppy RAVEZ}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+	
+	
+\subsection*{Exercice 1.1}
+
+\subsubsection*{1.}
+
+Proposition vraie.
+
+Négation : « Xavier n'est pas blond et Xavier n'est pas brun » (« Xavier n'est ni blond ni brun »).
+
+\subsubsection*{2.}
+
+Proposition fausse.
+
+Négation : « Xavier n'est pas roux ou Maria n'est pas blonde »
+
+\subsubsection*{3.}
+
+Proposition vraie.
+
+Négation : « Xavier est brun et Maria n'est pas blonde »
+
+
+\subsection*{Exercice 1.2}
+
+\subsubsection*{1.}
+
+$NON(x=1 \text{ ou } x=-1) = (x \neq -1 \text{ ET } x \neq 1)$
+
+$= (x \in \mathbb{R}\setminus\{-1;1\}) = (|x|\neq 1)$
+
+\subsubsection*{2.}
+
+$NON(0 \leq x \leq 1) = (x<0 \text{ OU } x>1) $
+
+\subsubsection*{3.}
+On peut développer de plusieurs façons :
+
+\begin{equation*}
+	\begin{split}
+		\text{NON}(x=0 \text{ OU } (x^2 =1 \text{ ET } x\geq 0)) 
+		&= \text{NON}(x=0 \text{ OU } ((x=-1\text{ OU } x=1)\text{ ET } x\geq0)\\
+		&= \text{NON}(x=0 \text{ OU } x=1)\\
+		&= (x\neq 0 \text{ ET } x\neq 1)\\
+		\\
+		&= (x \neq 0) \text{ ET } (x^2\neq 1 \text{ OU } x<0) \\
+		&= (x \neq 0) \text{ ET } ((x \neq -1 \text{ ET } x \neq 1) \text{ OU } x<0))\\
+		&= (x \neq 0) \text{ ET } ((x \neq -1 \text{ OU } x <0) \text{ ET }(x \neq 1 \text{ OU } x<0))\\
+		&= (x \neq 0) \text{ ET } (x \neq 1 \text{ OU } x<0) \quad\text{ car ($x \neq -1 \text{ OU } x <0)$ est VRAIE}\\
+		&= (x \neq 0) \text{ ET } (x \neq 1) \\
+		\\
+		&= (x \neq 0) \text{ ET } (x^2\neq 1 \text{ OU } x<0) \\
+		&= (x\neq 0 \text{ ET } x^2 \neq 1) \text{ OU } (x \neq 0 \text{ ET } x< 0) \\
+		&= (x\neq 0 \text{ ET } x \neq -1 \text{ ET } x \neq 1) \text{ OU } (x< 0) \\
+		&= (x \neq -1 \text{ OU } x< 0) \text{ ET } (x \neq 0 \text{ OU } x< 0) \text{ ET } (x \neq 1 \text{ OU } x< 0) \\
+		&= \text{ VRAI } \text{ ET } x \neq 0 \text{ ET } x \neq 1 \\
+		&= x \neq 0 \text{ ET } x \neq 1
+	\end{split}
+\end{equation*}
+
+car 
+\begin{itemize}
+	\item $(x \neq 0 \text{ OU } x< 0) \Longleftrightarrow x \neq 0$ \\
+	\item $(x \neq 1 \text{ OU } x< 0) \Longleftrightarrow x \neq 1$
+\end{itemize}
+
+
+\subsection*{Exercice 1.3}
+Soient les propositions
+\begin{itemize}
+	\item $P$: « $x<50$ » \\
+	\item $Q$: « $x>40$ » \\
+\end{itemize}
+
+\subsubsection*{a}
+NON($P$) : « $x \geq 50$ »
+\subsubsection*{b}
+NON($Q$) : « $x \leq 40$ »
+\subsubsection*{c}
+$P$ OU $Q$ : VRAI
+\subsubsection*{d}
+NON($P$) OU $Q$ : $Q$
+\subsubsection*{e}
+NON($P$ OU $Q$) = FAUX
+\subsubsection*{f}
+NON($P$) ET NON($Q$) : idem cas précédent
+\subsubsection*{g}
+NON(NON($P$)) = $P$
+\subsubsection*{h}
+$P$ ET $Q$ = « $x \in ]40 ; 50[$ »
+
+
+\subsection*{Exercice 1.4}
+\subsubsection*{1}
+NON(NON($P$) ET NON($Q$)) = $P$ OU $Q$
+\subsubsection*{2}
+($Q$ ET NON($P)$) OU $P$ = ($Q$ OU $P$) ET (NON($P$) OU $P$) = ($Q$ OU $P$) ET VRAI = $Q$ OU $P$
+\subsubsection*{3}
+
+($P$ ET $Q$) OU ($P$ ET NON($Q$)) OU (NON($P$) ET $Q$) \\
+= ( ($P$ OU ($P$ ET NON($Q$))) ET ($Q$ OU ($P$ ET NON($Q$))) ) OU (NON($P$) ET $Q$) \\
+= ( $P$ ET ($Q$ OU $P$) ) OU (NON($P$) ET $Q$)\\
+= $P$ OU (NON($P$) ET $Q$) \\
+= $P$ OU $Q$
+
+
+\subsection*{Exercice 1.5}
+\subsubsection*{a}
+($P \Longrightarrow$ NON($Q$)) OU (NON($R$ ET $Q$)) \\
+= (NON($Q$) OU NON($P$)) OU (NON(VRAI ET VRAI)) \\
+= (FAUX OU VRAI) OU FAUX \\
+= VRAI
+
+\subsubsection*{b}
+(NON($P$) OU NON($Q$)) $\Longrightarrow$ ($P$ OU NON($R$)) \\
+= (VRAI OU FAUX) $\Longrightarrow$ (FAUX OU FAUX) \\
+= VRAI $\Longrightarrow$ FAUX \\
+= FAUX OU NON(VRAI) \\
+= FAUX
+
+\subsubsection*{c}
+NON(NON($P$) $\Longrightarrow$ NON($Q$)) ET $R$ \\
+= NON(VRAI $\Longrightarrow$ FAUX) ET VRAI \\
+= NON(FAUX OU NON(VRAI)) \\
+= VRAI
+
+\subsubsection*{d}
+NON(NON($P$) $\Longrightarrow$ ($Q$ ET NON($R$))) \\
+= NON(VRAI $\Longrightarrow$ (VRAI ET FAUX)) \\
+= NON(VRAI OU FAUX) \\
+= FAUX
+
+
+\subsection*{Exercice 1.6}
+\subsubsection*{1}
+$P$ : $x\geq3 \Longrightarrow x+2 \geq 5 $
+
+La contraposée est : $x+2 <5 \Longrightarrow x<3$.
+
+La réciproque est : $x+2 \geq 5 \Longrightarrow x \geq 3$
+
+La proposition est vraie.
+
+\subsubsection*{2}
+$Q$ : $n>1 \Longrightarrow n^2 > n $
+
+La contraposée est : $n^2 \leq n \Longrightarrow n \leq 1$.
+
+La réciproque est : $n^2 > n \Longrightarrow n>1$
+
+La proposition est vraie.
+
+
+\subsection*{Exercice 1.7}
+
+Soit $E$ = « ($P$ ET ($Q$ OU $R$)) $\Longrightarrow$ ($Q$ OU ($P$ ET $R$)) »
+\begin{equation*}
+	\begin{split}
+		E &= [Q \vee (P \wedge R)]\vee NON[P \wedge (Q \vee R)] \\
+		  &= Q \vee (P \wedge R) \vee (\bar{P} \vee (\bar{Q} \wedge \bar{R})) \\
+		  &= [Q \vee (\bar{Q} \wedge \bar{R})] \vee [\bar{P} \vee (P \wedge R)] \\
+		  &= [Q \vee \bar{R}] \vee [\bar{P} \vee R] \\
+		  &= R \vee \bar{R} \vee Q \vee \bar{P} \\
+		  &= VRAI
+	\end{split}
+\end{equation*}
+
+\subsubsection*{Négation}
+La négation de $E$ est FAUX mais on peut calculer : 
+
+NON( ($Q$ OU ($P$ ET $R$)) OU NON($P$ ET ($Q$ OU $R$)) ) \\
+= NON($Q$ OU ($P$ ET $R$)) ET ($P$ ET ($Q$ OU $R$)) \\
+= (NON($Q$) ET NON($P$ ET $R$)) ET ($P$ ET ($Q$ OU $R$)) \\
+= NON($Q$) ET (NON($P$) OU NON($R$)) ET $P$ ET ($Q$ OU $R$) \\
+= [NON($Q$) ET ($Q$ OU $R$)] ET [$P$ ET (NON($P$) OU NON($R$))]  \\
+= (NON($Q$) ET $R$) ET ($P$ ET NON($R$)) \\
+= $R$ ET NON($R$) ET NON($Q$) ET $P$ \\
+= FAUX
+
+\subsubsection*{Contraposée}
+La contraposée est : « NON($Q$ OU ($P$ ET $R$)) $\Longrightarrow$ NON($P$ ET ($Q$ OU $R$)) » ;
+elle est équivalente à $E$ et donc vraie, on peut néanmoins la calculer :
+
+\begin{equation*}
+	\begin{split}
+	  C &= NON[P \wedge (Q \vee R)] \vee [Q \vee (P \wedge R)] \\
+		&= \bar{P} \vee (\bar{Q} \wedge \bar{R}) \vee Q \vee (P \wedge R) \\
+		&= [\bar{P} \vee (P \wedge R)] \vee [Q \vee (\bar{Q} \wedge \bar{R})] \\
+		&= [\bar{P} \vee R] \vee [Q \vee \bar{R}] \\
+		&= VRAI
+	\end{split}
+\end{equation*}
+
+
+\subsubsection*{Réciproque}
+La réciproque est : « ($Q$ OU ($P$ ET $R$)) $\Longrightarrow$ ($P$ ET ($Q$ OU $R$)) ».
+\begin{equation*}
+	\begin{split}
+		R &= [P \wedge (Q \vee R)] \vee NON[Q \vee (P \wedge R)] \\
+		  &= [P \wedge (Q \vee R)] \vee [\bar{Q} \wedge (\bar{P} \vee \bar{R})] \\
+		  &= (P \vee \bar{Q}) \wedge [P \vee (\bar{P} \vee \bar{R})] \wedge [(Q \vee R) \vee \bar{Q}] \wedge [(Q \vee R) \vee (\bar{P} \vee \bar{R})]\\
+		  &= (P \vee \bar{Q}) \wedge VRAI \wedge VRAI \wedge VRAI \\
+		  &= P \vee \bar{Q}
+	\end{split}
+\end{equation*}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	$P$ &  $Q$ & $P \Rightarrow Q$ & NON($P \Rightarrow Q$) & $(P \Rightarrow Q) \Rightarrow P$ & NON$((P \Rightarrow Q) \Rightarrow P)$ & $((P \Rightarrow Q) \Rightarrow P) \Rightarrow P$  \\
+	\hline
+	V   &  V   & V                 & F                      & V                                 &  F &  V\\
+	\hline
+	V   &  F   & F                 & V                      & V                                 &  F &  V\\
+	\hline
+	F   &  V   & V                 & F                      & F                                 &  V &  V\\
+	\hline
+	F   &  F   & V                 & F                      & F                                 &  V &  V\\
+	\hline
+\end{tabular}
+
+
+\subsection*{Exercice 1.8}
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	(a) & V & A est inclus dans B & (h) & V & $x=4$ ou $x=5$\\
+	\hline
+	(b) & V & $x=1$ & (i) & V & $x=1$\\
+	\hline
+	(c) & F & A est inclus dans B & (j) & V & $x=0$ \\
+	\hline
+	(d) & V & $x=4$ & (k) & F & $\mathbb{N}$ n'a pas de borne supérieure \\
+	\hline
+	(e) & V & B contient un majorant de C & (l) & F & $D$ pas inclus dans $A$ \\
+	\hline
+	(f) & V & B contient un majorant de A & (m) & V & 1, 2 ou 3 \\
+	\hline
+	(g) & V & $x=4$ & (n) & F & Les éléments de A ne sont pas tous égaux \\
+	\hline
+\end{tabular}
+
+
+\subsection*{Exercice 1.9}
+\subsubsection*{1}
+$\forall n \in \mathbb{N}, \exists r \in \mathbb{R}, n = r^2$
+\subsubsection*{2}
+$\forall n \in \mathbb{N}, \exists r \in \mathbb{R}^{+}, n \leq r$
+\subsubsection*{3}
+$\exists r \in \mathbb{R}, \forall n \in \mathbb{N}, r \leq n $
+
+
+\subsection*{Exercice 1.10}
+\subsubsection*{1.a}
+$\forall x \in \mathbb{R}, f(x)\neq0$
+\subsubsection*{1.b}
+$\exists (x,v) \in \mathbb{R} \times \mathbb{R}^{*}, f(x) =v$
+\subsubsection*{1.c}
+$\forall (x,y) \in \mathbb{R}^2, x > y \Longrightarrow f(x) > f(y)$
+\subsubsection*{2.a}
+« La fonction $f$ est constante sur $\mathbb{R}$. »
+\subsubsection*{2.b}
+« $f$ est surjective »
+\subsubsection*{2.c}
+« $f$ présente une borne inférieure qui possède un antécédent »
+
+
+\subsection*{Exercice 1.11}
+\subsubsection*{1.11.1}
+« Aucun étudiant n'aime le tennis. »
+\subsubsection*{1.11.2}
+« Il y a au moins un étudiant qui n'aime pas lire. »
+\subsubsection*{1.11.3}
+« Il y a au moins une matière dans laquelle aucun étudiant ne travaille régulièrement. »
+\subsubsection*{1.11.4}
+« Aucun étudiant ne travaille régulièrement dans toutes les matières. »
+
+
+\subsection*{Exercice 1.12}
+$P$ : $((A \wedge B) \Longrightarrow C)$
+\subsubsection*{1.12.1}
+$P = C \vee \overline{(A \wedge B)} = C \vee (\bar{A} \vee \bar{B}) = \bar{A} \vee \bar{B} \vee C$ = NON($A$) OU NON($B$) OU $C$
+\subsubsection*{1.12.2}
+$A$ est VRAIE, $B$ est VRAIE et $C$ est FAUSSE, $P$ est donc fausse.
+
+
+\subsection*{Exercice 1.13}
+\subsubsection*{1.13.a}
+« Tous les étudiants ont obtenu une note supérieure ou égale à 10 dans toutes les matières. »
+
+FAUX
+
+\subsubsection*{1.13.b}
+« Au moins un élève a obtenu une note inférieure à 10 (dans au moins une matière) »
+
+VRAI
+
+\subsubsection*{1.13.c}
+« Au moins un élève a eu la moyenne dans toutes les matières. »
+
+FAUX
+
+\subsubsection*{1.13.d}
+« Tous les élèves ont la moyenne dans au moins une matières. »
+
+VRAI
+
+\subsubsection*{1.13.e}
+« Il existe au moins une matière où aucun élève n'a la moyenne. »
+
+FAUX
+
+\subsubsection*{1.13.f}
+« Il y a une matière où tous les élèves ont la moyenne. »
+
+VRAI
+
+
+\subsection*{Exercice 1.14}
+\subsubsection*{1.14.1}
+$\forall x \in \mathbb{R}, \exists n \in \mathbb{N}, x \leq n$
+\subsubsection*{1.14.2}
+$\exists n \in \mathbb{N}, \forall x  \in \mathbb{R}, x \leq 2n$
+\subsubsection*{1.14.3}
+$\exists(x,y) \in \mathbb{R}^2, (x \geq y) \wedge (x^2 < y^2)$
+
+
+\subsection*{Exercice 1.15}
+\subsubsection*{1.15.1}
+$P : \exists x \in \mathbb{R} / \forall y \in \mathbb{R}, x^2 +2xy = 1$
+
+$\bar{P} = \forall x \in \mathbb{R}, \exists y \in \mathbb{R}, x^2+2xy \neq 1$
+
+$P$ est fausse, on démontre en effet que $\bar{P}$ est vraie :
+\begin{itemize}
+	\item évident pour $x=0$
+	\item Pour $x \neq 0$ on pose $y=\frac{2-x^2}{2x}$
+\end{itemize}
+
+\subsubsection*{1.15.2}
+$P: \forall x \in \mathbb{N}, \exists y \in \mathbb{N}, \exists z \in \mathbb{N}, (x\leq y) \wedge (y=2z)$
+
+$\bar{P}: \exists x \in \mathbb{N} / \forall y \in \mathbb{N}, \forall z \in \mathbb{N}, (x > y) \vee (y \neq 2z)$
+
+$P$ est vraie ($y=2x$ et $z=x$)
+
+\end{document}
