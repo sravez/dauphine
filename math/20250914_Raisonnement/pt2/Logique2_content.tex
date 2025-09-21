@@ -36,346 +36,324 @@
 \begin{document}
 	
 	
-\subsection*{Exercice 1.1}
+\subsection*{Exercice 2.1}
 
-\subsubsection*{1.}
+\subsubsection*{2.1.1}
+Proposition vraie ($x=0$ et $y=0$)
 
-Proposition vraie.
-
-Négation : « Xavier n'est pas blond et Xavier n'est pas brun » (« Xavier n'est ni blond ni brun »).
-
-\subsubsection*{2.}
-
+\subsubsection*{2.1.2}
 Proposition fausse.
 
-Négation : « Xavier n'est pas roux ou Maria n'est pas blonde »
+Soit $x=1$
 
-\subsubsection*{3.}
+Alors $\forall y \in \mathbb{N}, x > 0 \geq -y^2$
 
+\subsubsection*{2.1.3}
 Proposition vraie.
 
-Négation : « Xavier est brun et Maria n'est pas blonde »
-
-
-\subsection*{Exercice 1.2}
-
-\subsubsection*{1.}
-
-$NON(x=1 \text{ ou } x=-1) = (x \neq -1 \text{ ET } x \neq 1)$
-
-$= (x \in \mathbb{R}\setminus\{-1;1\}) = (|x|\neq 1)$
-
-\subsubsection*{2.}
-
-$NON(0 \leq x \leq 1) = (x<0 \text{ OU } x>1) $
-
-\subsubsection*{3.}
-On peut développer de plusieurs façons :
-
-\begin{equation*}
-	\begin{split}
-		\text{NON}(x=0 \text{ OU } (x^2 =1 \text{ ET } x\geq 0)) 
-		&= \text{NON}(x=0 \text{ OU } ((x=-1\text{ OU } x=1)\text{ ET } x\geq0)\\
-		&= \text{NON}(x=0 \text{ OU } x=1)\\
-		&= (x\neq 0 \text{ ET } x\neq 1)\\
-		\\
-		&= (x \neq 0) \text{ ET } (x^2\neq 1 \text{ OU } x<0) \\
-		&= (x \neq 0) \text{ ET } ((x \neq -1 \text{ ET } x \neq 1) \text{ OU } x<0))\\
-		&= (x \neq 0) \text{ ET } ((x \neq -1 \text{ OU } x <0) \text{ ET }(x \neq 1 \text{ OU } x<0))\\
-		&= (x \neq 0) \text{ ET } (x \neq 1 \text{ OU } x<0) \quad\text{ car ($x \neq -1 \text{ OU } x <0)$ est VRAIE}\\
-		&= (x \neq 0) \text{ ET } (x \neq 1) \\
-		\\
-		&= (x \neq 0) \text{ ET } (x^2\neq 1 \text{ OU } x<0) \\
-		&= (x\neq 0 \text{ ET } x^2 \neq 1) \text{ OU } (x \neq 0 \text{ ET } x< 0) \\
-		&= (x\neq 0 \text{ ET } x \neq -1 \text{ ET } x \neq 1) \text{ OU } (x< 0) \\
-		&= (x \neq -1 \text{ OU } x< 0) \text{ ET } (x \neq 0 \text{ OU } x< 0) \text{ ET } (x \neq 1 \text{ OU } x< 0) \\
-		&= \text{ VRAI } \text{ ET } x \neq 0 \text{ ET } x \neq 1 \\
-		&= x \neq 0 \text{ ET } x \neq 1
-	\end{split}
-\end{equation*}
-
-car 
-\begin{itemize}
-	\item $(x \neq 0 \text{ OU } x< 0) \Longleftrightarrow x \neq 0$ \\
-	\item $(x \neq 1 \text{ OU } x< 0) \Longleftrightarrow x \neq 1$
-\end{itemize}
-
-
-\subsection*{Exercice 1.3}
-Soient les propositions
-\begin{itemize}
-	\item $P$: « $x<50$ » \\
-	\item $Q$: « $x>40$ » \\
-\end{itemize}
-
-\subsubsection*{a}
-NON($P$) : « $x \geq 50$ »
-\subsubsection*{b}
-NON($Q$) : « $x \leq 40$ »
-\subsubsection*{c}
-$P$ OU $Q$ : VRAI
-\subsubsection*{d}
-NON($P$) OU $Q$ : $Q$
-\subsubsection*{e}
-NON($P$ OU $Q$) = FAUX
-\subsubsection*{f}
-NON($P$) ET NON($Q$) : idem cas précédent
-\subsubsection*{g}
-NON(NON($P$)) = $P$
-\subsubsection*{h}
-$P$ ET $Q$ = « $x \in ]40 ; 50[$ »
-
-
-\subsection*{Exercice 1.4}
-\subsubsection*{1}
-NON(NON($P$) ET NON($Q$)) = $P$ OU $Q$
-\subsubsection*{2}
-($Q$ ET NON($P)$) OU $P$ = ($Q$ OU $P$) ET (NON($P$) OU $P$) = ($Q$ OU $P$) ET VRAI = $Q$ OU $P$
-\subsubsection*{3}
-
-($P$ ET $Q$) OU ($P$ ET NON($Q$)) OU (NON($P$) ET $Q$) \\
-= ( ($P$ OU ($P$ ET NON($Q$))) ET ($Q$ OU ($P$ ET NON($Q$))) ) OU (NON($P$) ET $Q$) \\
-= ( $P$ ET ($Q$ OU $P$) ) OU (NON($P$) ET $Q$)\\
-= $P$ OU (NON($P$) ET $Q$) \\
-= $P$ OU $Q$
-
-
-\subsection*{Exercice 1.5}
-\subsubsection*{a}
-($P \Longrightarrow$ NON($Q$)) OU (NON($R$ ET $Q$)) \\
-= (NON($Q$) OU NON($P$)) OU (NON(VRAI ET VRAI)) \\
-= (FAUX OU VRAI) OU FAUX \\
-= VRAI
-
-\subsubsection*{b}
-(NON($P$) OU NON($Q$)) $\Longrightarrow$ ($P$ OU NON($R$)) \\
-= (VRAI OU FAUX) $\Longrightarrow$ (FAUX OU FAUX) \\
-= VRAI $\Longrightarrow$ FAUX \\
-= FAUX OU NON(VRAI) \\
-= FAUX
-
-\subsubsection*{c}
-NON(NON($P$) $\Longrightarrow$ NON($Q$)) ET $R$ \\
-= NON(VRAI $\Longrightarrow$ FAUX) ET VRAI \\
-= NON(FAUX OU NON(VRAI)) \\
-= VRAI
-
-\subsubsection*{d}
-NON(NON($P$) $\Longrightarrow$ ($Q$ ET NON($R$))) \\
-= NON(VRAI $\Longrightarrow$ (VRAI ET FAUX)) \\
-= NON(VRAI OU FAUX) \\
-= FAUX
-
-
-\subsection*{Exercice 1.6}
-\subsubsection*{1}
-$P$ : $x\geq3 \Longrightarrow x+2 \geq 5 $
-
-La contraposée est : $x+2 <5 \Longrightarrow x<3$.
-
-La réciproque est : $x+2 \geq 5 \Longrightarrow x \geq 3$
-
-La proposition est vraie.
-
-\subsubsection*{2}
-$Q$ : $n>1 \Longrightarrow n^2 > n $
-
-La contraposée est : $n^2 \leq n \Longrightarrow n \leq 1$.
-
-La réciproque est : $n^2 > n \Longrightarrow n>1$
-
-La proposition est vraie.
-
-
-\subsection*{Exercice 1.7}
-
-Soit $E$ = « ($P$ ET ($Q$ OU $R$)) $\Longrightarrow$ ($Q$ OU ($P$ ET $R$)) »
-\begin{equation*}
-	\begin{split}
-		E &= [Q \vee (P \wedge R)]\vee NON[P \wedge (Q \vee R)] \\
-		  &= Q \vee (P \wedge R) \vee (\bar{P} \vee (\bar{Q} \wedge \bar{R})) \\
-		  &= [Q \vee (\bar{Q} \wedge \bar{R})] \vee [\bar{P} \vee (P \wedge R)] \\
-		  &= [Q \vee \bar{R}] \vee [\bar{P} \vee R] \\
-		  &= R \vee \bar{R} \vee Q \vee \bar{P} \\
-		  &= VRAI
-	\end{split}
-\end{equation*}
-
-\subsubsection*{Négation}
-La négation de $E$ est FAUX mais on peut calculer : 
-
-NON( ($Q$ OU ($P$ ET $R$)) OU NON($P$ ET ($Q$ OU $R$)) ) \\
-= NON($Q$ OU ($P$ ET $R$)) ET ($P$ ET ($Q$ OU $R$)) \\
-= (NON($Q$) ET NON($P$ ET $R$)) ET ($P$ ET ($Q$ OU $R$)) \\
-= NON($Q$) ET (NON($P$) OU NON($R$)) ET $P$ ET ($Q$ OU $R$) \\
-= [NON($Q$) ET ($Q$ OU $R$)] ET [$P$ ET (NON($P$) OU NON($R$))]  \\
-= (NON($Q$) ET $R$) ET ($P$ ET NON($R$)) \\
-= $R$ ET NON($R$) ET NON($Q$) ET $P$ \\
-= FAUX
-
-\subsubsection*{Contraposée}
-La contraposée est : « NON($Q$ OU ($P$ ET $R$)) $\Longrightarrow$ NON($P$ ET ($Q$ OU $R$)) » ;
-elle est équivalente à $E$ et donc vraie, on peut néanmoins la calculer :
-
-\begin{equation*}
-	\begin{split}
-	  C &= NON[P \wedge (Q \vee R)] \vee [Q \vee (P \wedge R)] \\
-		&= \bar{P} \vee (\bar{Q} \wedge \bar{R}) \vee Q \vee (P \wedge R) \\
-		&= [\bar{P} \vee (P \wedge R)] \vee [Q \vee (\bar{Q} \wedge \bar{R})] \\
-		&= [\bar{P} \vee R] \vee [Q \vee \bar{R}] \\
-		&= VRAI
-	\end{split}
-\end{equation*}
-
-
-\subsubsection*{Réciproque}
-La réciproque est : « ($Q$ OU ($P$ ET $R$)) $\Longrightarrow$ ($P$ ET ($Q$ OU $R$)) ».
-\begin{equation*}
-	\begin{split}
-		R &= [P \wedge (Q \vee R)] \vee NON[Q \vee (P \wedge R)] \\
-		  &= [P \wedge (Q \vee R)] \vee [\bar{Q} \wedge (\bar{P} \vee \bar{R})] \\
-		  &= (P \vee \bar{Q}) \wedge [P \vee (\bar{P} \vee \bar{R})] \wedge [(Q \vee R) \vee \bar{Q}] \wedge [(Q \vee R) \vee (\bar{P} \vee \bar{R})]\\
-		  &= (P \vee \bar{Q}) \wedge VRAI \wedge VRAI \wedge VRAI \\
-		  &= P \vee \bar{Q}
-	\end{split}
-\end{equation*}
-
-\begin{tabular}{|c|c|c|c|c|c|c|}
-	\hline
-	$P$ &  $Q$ & $P \Rightarrow Q$ & NON($P \Rightarrow Q$) & $(P \Rightarrow Q) \Rightarrow P$ & NON$((P \Rightarrow Q) \Rightarrow P)$ & $((P \Rightarrow Q) \Rightarrow P) \Rightarrow P$  \\
-	\hline
-	V   &  V   & V                 & F                      & V                                 &  F &  V\\
-	\hline
-	V   &  F   & F                 & V                      & V                                 &  F &  V\\
-	\hline
-	F   &  V   & V                 & F                      & F                                 &  V &  V\\
-	\hline
-	F   &  F   & V                 & F                      & F                                 &  V &  V\\
-	\hline
-\end{tabular}
-
-
-\subsection*{Exercice 1.8}
-\begin{tabular}{|c|c|c|c|c|c|}
-	\hline
-	(a) & V & A est inclus dans B & (h) & V & $x=4$ ou $x=5$\\
-	\hline
-	(b) & V & $x=1$ & (i) & V & $x=1$\\
-	\hline
-	(c) & F & A est inclus dans B & (j) & V & $x=0$ \\
-	\hline
-	(d) & V & $x=4$ & (k) & F & $\mathbb{N}$ n'a pas de borne supérieure \\
-	\hline
-	(e) & V & B contient un majorant de C & (l) & F & $D$ pas inclus dans $A$ \\
-	\hline
-	(f) & V & B contient un majorant de A & (m) & V & 1, 2 ou 3 \\
-	\hline
-	(g) & V & $x=4$ & (n) & F & Les éléments de A ne sont pas tous égaux \\
-	\hline
-\end{tabular}
-
-
-\subsection*{Exercice 1.9}
-\subsubsection*{1}
-$\forall n \in \mathbb{N}, \exists r \in \mathbb{R}, n = r^2$
-\subsubsection*{2}
-$\forall n \in \mathbb{N}, \exists r \in \mathbb{R}^{+}, n \leq r$
-\subsubsection*{3}
-$\exists r \in \mathbb{R}, \forall n \in \mathbb{N}, r \leq n $
-
-
-\subsection*{Exercice 1.10}
-\subsubsection*{1.a}
-$\forall x \in \mathbb{R}, f(x)\neq0$
-\subsubsection*{1.b}
-$\exists (x,v) \in \mathbb{R} \times \mathbb{R}^{*}, f(x) =v$
-\subsubsection*{1.c}
-$\forall (x,y) \in \mathbb{R}^2, x > y \Longrightarrow f(x) > f(y)$
-\subsubsection*{2.a}
-« La fonction $f$ est constante sur $\mathbb{R}$. »
-\subsubsection*{2.b}
-« $f$ est surjective »
-\subsubsection*{2.c}
-« $f$ présente une borne inférieure qui possède un antécédent »
-
-
-\subsection*{Exercice 1.11}
-\subsubsection*{1.11.1}
-« Aucun étudiant n'aime le tennis. »
-\subsubsection*{1.11.2}
-« Il y a au moins un étudiant qui n'aime pas lire. »
-\subsubsection*{1.11.3}
-« Il y a au moins une matière dans laquelle aucun étudiant ne travaille régulièrement. »
-\subsubsection*{1.11.4}
-« Aucun étudiant ne travaille régulièrement dans toutes les matières. »
-
-
-\subsection*{Exercice 1.12}
-$P$ : $((A \wedge B) \Longrightarrow C)$
-\subsubsection*{1.12.1}
-$P = C \vee \overline{(A \wedge B)} = C \vee (\bar{A} \vee \bar{B}) = \bar{A} \vee \bar{B} \vee C$ = NON($A$) OU NON($B$) OU $C$
-\subsubsection*{1.12.2}
-$A$ est VRAIE, $B$ est VRAIE et $C$ est FAUSSE, $P$ est donc fausse.
-
-
-\subsection*{Exercice 1.13}
-\subsubsection*{1.13.a}
-« Tous les étudiants ont obtenu une note supérieure ou égale à 10 dans toutes les matières. »
-
-FAUX
-
-\subsubsection*{1.13.b}
-« Au moins un élève a obtenu une note inférieure à 10 (dans au moins une matière) »
-
-VRAI
-
-\subsubsection*{1.13.c}
-« Au moins un élève a eu la moyenne dans toutes les matières. »
-
-FAUX
-
-\subsubsection*{1.13.d}
-« Tous les élèves ont la moyenne dans au moins une matières. »
-
-VRAI
-
-\subsubsection*{1.13.e}
-« Il existe au moins une matière où aucun élève n'a la moyenne. »
-
-FAUX
-
-\subsubsection*{1.13.f}
-« Il y a une matière où tous les élèves ont la moyenne. »
-
-VRAI
-
-
-\subsection*{Exercice 1.14}
-\subsubsection*{1.14.1}
-$\forall x \in \mathbb{R}, \exists n \in \mathbb{N}, x \leq n$
-\subsubsection*{1.14.2}
-$\exists n \in \mathbb{N}, \forall x  \in \mathbb{R}, x \leq 2n$
-\subsubsection*{1.14.3}
-$\exists(x,y) \in \mathbb{R}^2, (x \geq y) \wedge (x^2 < y^2)$
-
-
-\subsection*{Exercice 1.15}
-\subsubsection*{1.15.1}
-$P : \exists x \in \mathbb{R} / \forall y \in \mathbb{R}, x^2 +2xy = 1$
-
-$\bar{P} = \forall x \in \mathbb{R}, \exists y \in \mathbb{R}, x^2+2xy \neq 1$
-
-$P$ est fausse, on démontre en effet que $\bar{P}$ est vraie :
-\begin{itemize}
-	\item évident pour $x=0$
-	\item Pour $x \neq 0$ on pose $y=\frac{2-x^2}{2x}$
-\end{itemize}
-
-\subsubsection*{1.15.2}
-$P: \forall x \in \mathbb{N}, \exists y \in \mathbb{N}, \exists z \in \mathbb{N}, (x\leq y) \wedge (y=2z)$
-
-$\bar{P}: \exists x \in \mathbb{N} / \forall y \in \mathbb{N}, \forall z \in \mathbb{N}, (x > y) \vee (y \neq 2z)$
-
-$P$ est vraie ($y=2x$ et $z=x$)
+Soit $y \in \mathbb{N}$.
+
+On pose $x = -y^2 -1$, $x \in \mathbb{Z}$ et donc $x \leq -y^2$.
+
+\subsubsection*{2.1.4}
+Proposition vraie.
+
+Soit $a \in \mathbb{N}^*$.
+
+Posons : $b = 2$ et $x= \frac{\ln 3}{a}$
+
+Alors $e^{ax} = 3 > 2 = b$
+
+
+\subsection*{Exercice 2.2}
+\subsubsection*{2.2.1}
+
+Si $\forall x \in \mathbb{R}, f(x)=0$, on a :
+
+$f(0) = 0$ et donc $b=0$
+
+et $f(1) = a = 0$
+
+Donc $a=b=0$
+
+\subsubsection*{2.2.1}
+
+Soit $x$ tel que $f(x) = 0$.
+
+On a donc $b=-ax^2$ et donc $ab = -(ax)^2 \leq 0$
+
+
+\subsection*{Exercice 2.3}
+\subsubsection*{2.3.1}
+
+Soit $\epsilon > 0$.
+
+On pose $\epsilon' = \sqrt{\frac{\epsilon}{5}}$
+
+D'après $(*)$ on sait que :
+
+$\exists x_o \in \mathbb{R}^*_+, 0<f(x_o)<\epsilon'$.
+
+On a donc : $0 < 5f(x_o)^2 < 5\epsilon'^2$
+
+Soit $0 < g(x_o) < \epsilon$
+
+CQFD
+
+\subsubsection*{2.3.2}
+
+Soit $\epsilon > 0$.
+
+D'après $(*)$ on sait que :
+
+$\exists x_1 \in \mathbb{R}^*_+, 0<f(x_1)<\epsilon$.
+
+Et donc $0 < h(\sqrt{x_1}) < \epsilon$
+
+CQFD
+
+\subsubsection*{2.3.3}
+
+Soit $A > 0$, on pose $\varepsilon = \frac{1}{A}$
+
+D'après $(*)$ on sait que :
+
+$\exists x_2 \in \mathbb{R}^*_+, 0<f(x_2)<\varepsilon$.
+
+Et donc $\varphi(x_2^2) = \frac{1}{f(x_2)} > \frac{1}{\varepsilon} = A$
+
+CQFD
+
+
+\subsection*{Exercice 2.4}
+\subsubsection*{2.4.1.a}
+La fonction $x^3$ étant strictement croissante :
+\begin{alignat*}{2}
+	               &\quad & x^3 &=2 \\
+	\Longrightarrow&      & x^3 &< 2^3 \\
+	\Longrightarrow&      &   x &< 2 
+\end{alignat*}
+
+\subsubsection*{2.4.1.b}
+
+Soit $x \in \mathbb{R}$ tel que $x+1$ est le carré d'un entier impair ;
+il existe donc $n \in \mathbb{N}$ et :
+\begin{alignat*}{2}
+	               &\quad & x+1 &=(2n+1)^2 \\
+	\Longrightarrow&      & x+1 &= 4n^2 + 4n +1 \\
+	\Longrightarrow&      &   x &= 4(n+1) 
+\end{alignat*}
+
+\subsubsection*{2.4.2.a}
+
+Soit $a$ et $b$ tels que $b-a > 0$.
+
+On pose $\varepsilon = \frac{(b-a)^2}{2} > 0$
+
+On donc $(b-a)^2 = 2\varepsilon > \varepsilon$
+
+\subsubsection*{2.4.2.b}
+
+Supposons que $b \neq a$ et posons $\varepsilon = |a-b|$.
+
+D'après l'inégalité triangulaire :
+$\forall x \in \mathbb{R}, |b-x| + |a-x| \geq |b-a| = \varepsilon$
+
+Ce qui démontre la contraposée.
+
+
+\subsection*{Exercice 2.5}
+
+\begin{alignat*}{2}
+	                   &\quad & xy + 2x + 2y &=-4 \\
+	\Longleftrightarrow&      & xy + 2x + 2y +4&=0 \\
+	\Longleftrightarrow&      & (x+2)(y+2) & =0 \\
+	\Longleftrightarrow&      & (x+2=0) &\vee (y+2=0) \\
+	\Longleftrightarrow&      & (x=-2) &\vee (y=-2) \\
+\end{alignat*}
+CQFD
+
+\subsection*{Exercice 2.6 - Raisonnement par l'absurde}
+\subsubsection*{2.6.1}
+
+Supposons que deux entiers $n$ ($n>0$) et $k$ vérifient $n^2 + 1 = k^2$.
+
+$|k|$ est donc strictement positif.
+
+On a alors $(n+k)(n-k) = (n+|k|)(n-|k|)= -1$.
+
+Les deux facteurs sont entiers et doivent donc être de signes différents et avoir une 
+valeur absolue égale à 1 ; or $n+|k| >1$ car $n$ et $|k|$ sont strictement positif.
+
+Le postulat de départ est donc faux. CQFD
+
+
+
+\subsubsection*{2.6.2}
+
+Soit $n \in \mathbb{N}^*$.
+
+Supposons que $n = k^2$ et $2n = l^2$ avec $(k,l) \in \mathbb{N}^2$.
+
+$k$ et $l$ sont de manière évidente strictement positif
+
+On a alors $k^2 = 2n - n = l^2 -k^2$
+
+Soit $2k^2 = l^2 \Longleftrightarrow  \sqrt{2} = \frac{l}{k} $ ce qui est impossible car $\sqrt{2}$ est irrationnel.
+
+Le postulat de départ est donc faux.
+
+\subsubsection*{2.6.2.b - $\sqrt{c}$ irrationnel si $c$ est premier}
+
+On peut également démontre par l'absurde que $\sqrt{c}$ est irrationnel si c est premier.
+
+Supposons que $\sqrt{c}$ soit rationnel ; il existe donc $p$ et $q$, 2 entiers naturels premiers entre eux tels que
+$\sqrt{c}= \frac{p}{q}$.
+
+On a alors $p^2 = cq^2$ donc $c$ divise $p^2$ ; $c$ divise donc $p$ car c'est un nombre premier (si un nombre premier
+divise le produit de 2 entiers il divise l'un deux).
+
+Il en résulte que $c^2$ divise $p^2$ et donc également $cq^2$ ; $c$ divise donc $q^2$ et donc $q$.
+
+$c$ est donc un diviseur commun de $p$ et $q$, ce qui contredit l'hypothèse de départ.
+
+
+\subsection*{Exercice 2.7 - Raisonnement par récurrence}
+
+\subsubsection*{2.7.1}
+
+Soit $P(n)_{n \in \mathbb{N}^*}$ la proposition « $2^n + 3^n \leq 5^n$ »
+
+On a $2^1 + 3^1 = 5 \leq 5^1$ ; $P(1)$ est donc vraie.
+
+Supposons qu'il existe $n \in \mathbb{N}^*$ tel que $P(n)$ soit vraie.
+
+Alors :
+
+$2^{n+1} + 3^{n+1} = 2 \times 2^n + 3 \times 3^n < 3 \times 2^n + 3 \times 3^n = 3(2^n + 3^n) < 5(2^n + 3^n)$
+
+$P(n)$ étant vraie, on a :
+
+$2^{n+1} + 3^{n+1} < 5 \times 5^n = 5^{n+1}$
+
+$P(n+1)$ est donc vraie.
+
+$P$ est donc vraie pour tout entier naturel non nul.
+
+
+\subsubsection*{2.7.2}
+
+Soit $P(n)$ : « $n! \geq 2^n$ »
+
+Comme $4! = 24 > 16 = 2^4$, $P(4)$ est vraie.
+
+Supposons qu'il existe $n$ entier naturel supérieur ou égal à 4 tel que $P(n)$ soit vraie.
+
+Alors $(n+1)! = (n+1) n! > 2n! \geq 2 \times 2^n = 2^{n+1}$
+
+$P(n+1)$ est donc vraie.
+
+$P$ est donc vraie pour tout entier naturel supérieur ou égal à 4.
+
+
+\subsubsection*{2.7.3}
+
+Soit $P(n)_{n \in \mathbb{N}^*}$ : « $2^{n-1} \leq n! \geq n^n$ »
+
+On a $1! = 1 \leq 1^1$ et $1! = 1 \geq 2^{1-1}$
+
+$P(1)$ est donc vraie.
+
+Supposons qu'il existe $n \in \mathbb{N}^*$, tel que $P(n)$ soit vraie.
+
+Alors : $(n+1)! = (n+1)n! \leq (n+1)n^n < (n+1)(n+1)^n = (n+1)^{n+1}$
+
+Et : $(n+1)! = (n+1)n! \geq 2n! \geq 2 \times 2^{n-1} = 2^{(n+1)-1}$
+
+$P(n+1)$ est donc vraie.
+
+$P$ est donc vraie pour tout entier naturel non nul.
+
+
+\subsection*{Exercice 2.8}
+
+S'il existe $(h,\alpha) \in H \times \mathbb{R}, f = \alpha g + h$, on a :
+
+Alors $f(0) = \alpha g(0) + h(0) = \alpha$
+
+Et : $h = f - f(0)g$
+
+S'il existe, le couple est donc unique.
+
+$h$ est une fonction de $\mathbb{R}$ dans $\mathbb{R}$ qui vérifie $h(0) = 0$ et appartient donc bien à $H$
+
+Le couple existe donc et est unique.
+
+
+\subsection*{Exercice 2.9}
+\subsubsection*{2.9.1}
+On a :
+
+$f(0) + 0 \times f(1) = 1$, donc $f(0) = 1$
+
+Et donc :
+
+$f(1) + 1 \times f(0) = 2$, donc$f(1) = 1$
+
+\subsubsection*{2.9.2}
+
+En remplaçant $x$ par $1-x$ (possible car $(1-x)$ est une bijection de $\mathbb{R}$ dans $\mathbb{R}$), on a:
+
+$f(1-x) +(1-x)f(x) = 2 -x$
+
+Et donc en composant les deux égalités :
+
+$(1-x(1-x))f(x) + (x-x)f(1-x) = 1+x -x(2-x)$
+
+Soit : $(x^2-x+1)f(x) = x^2 -x +1$
+
+Le polynôme $x^2-x+1$ n'ayant aucune racine, on en conclut que $f$ est la fonction constante égale à 1.
+
+
+\subsection*{Exercice 2.10}
+
+\subsubsection*{2.10.1.a}
+
+Avec $x=0$ et $y=0$, on a $2f(0) = 4f(0)$ et donc $f(0) = 0$
+
+Avec $x=0$, on a pour tout $y$: $f(y) + f(-y) = 2f(y)$, soit : $f(y)=f(-y)$, $f$ est donc paire.
+
+\subsubsection*{2.10.1.b}
+
+En dérivant deux fois par rapport à $x$ on a :
+
+$\forall (x,y) \in \mathbb{R}^2, f''(x+y) + f''(x-y) = 2f''(x)$
+
+En faisant la même opération par rapport à $y$ on a :
+
+$\forall (x,y) \in \mathbb{R}^2, f''(x+y) + f''(x-y) = 2f''(y)$
+
+Et donc :
+
+$\forall (x,y) \in \mathbb{R}^2, f''(x) = 2f''(y)$
+
+$f''$ est donc constante
+
+\subsubsection*{2.10.2}
+
+$f$ est donc un polynôme du second degré $ax^2 + bx + c$.
+
+$f(0)=0 \Longrightarrow c = 0$
+
+$f$ paire $ \Longrightarrow b = 0$
+
+
+$f$ est donc de la forme $f(x) = a x^2$ avec $a \in \mathbb{R}$, vérifions que tout ces 
+fonctions vérifient la propriété :
+
+$f(x+y) + f(x-y) = a((x+y)^2 +(x-y)^2) = a (2x^2 + 2y^2) = 2(f(x) + f(y))$
+
+L'ensemble des fonctions vérifiant la propriété sont donc celles de la forme $f(x) = a x^2$ avec $a \in \mathbb{R}$.
+
 
 \end{document}

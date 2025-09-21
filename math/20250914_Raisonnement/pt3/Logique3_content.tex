@@ -29,12 +29,20 @@
 %\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
 %\setmonofont[Scale=MatchLowercase]{Andale Mono}
 
-\title{Math - Logique}
+\title{Logique - Exercices}
 \author{Poppy RAVEZ}
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
-\include{cover}
-\include{Logique2_content}
+	
+\subsection*{Proposition 3.21 - Distributivité}
+
+\subsubsection*{3.21.1 - Distributivité de l'intersection}
+\begin{alignat*}{2}
+	&                    & x \in A &\cap (B\cup C) \\
+	\Longleftrightarrow& & (x \in A) &\wedge ((x \in B) \vee (x \in C)) \\
+	\Longleftrightarrow& & ((x \in A) \wedge (x \in B)) &\vee ((x \in A) \wedge (x \in C)) \\
+	\Longleftrightarrow& & (x \in A \cap B) &\vee (x \in A\cap C) \\
+\end{alignat*}
 
 \end{document}
