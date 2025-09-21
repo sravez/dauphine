@@ -37,12 +37,362 @@
 	
 \subsection*{Proposition 3.21 - Distributivité}
 
+On part de la définition des intersection et union et on utilise les règles de distribution
+des opérateurs logiques ET ($\wedge$) et OU ($\vee$) dont on remarquera la similarité
+sémantique et picturale avec $\cap$ et $\cup$
+
 \subsubsection*{3.21.1 - Distributivité de l'intersection}
 \begin{alignat*}{2}
 	&                    & x \in A &\cap (B\cup C) \\
 	\Longleftrightarrow& & (x \in A) &\wedge ((x \in B) \vee (x \in C)) \\
 	\Longleftrightarrow& & ((x \in A) \wedge (x \in B)) &\vee ((x \in A) \wedge (x \in C)) \\
 	\Longleftrightarrow& & (x \in A \cap B) &\vee (x \in A\cap C) \\
+	\Longleftrightarrow& & x \in (A \cap B) &\cup (A\cap C) \\
 \end{alignat*}
+
+\subsubsection*{3.21.1 - Distributivité de l'union}
+\begin{alignat*}{2}
+	&                    & x \in A &\cup (B\cap C) \\
+	\Longleftrightarrow& & (x \in A) &\vee ((x \in B) \wedge (x \in C)) \\
+	\Longleftrightarrow& & ((x \in A) \vee (x \in B)) &\wedge ((x \in A) \vee (x \in C)) \\
+	\Longleftrightarrow& & (x \in A \cup B) &\wedge (x \in A\cup C) \\
+	\Longleftrightarrow& & x \in (A \cup B) &\cap (A\cup C) \\
+\end{alignat*}
+
+\subsection*{Exercice 3.1}
+\subsubsection*{3.1.1}
+
+$a\mathbb{N} \subset b\mathbb{N} \Longrightarrow a \in b\mathbb{N}$ car $a \in a\mathbb{N}$.
+
+Démontrons la réciproque.
+
+Supposons donc que $a \in b\mathbb{N}$. Par définition de $b\mathbb{N}$, on sait que : $\exists k \in \mathbb{N}, a=kb$
+
+Alors :
+
+$e \in a\mathbb{N} \\
+\Longrightarrow \exists k' \in \mathbb{N}, e=k'a \\
+\Longrightarrow e=k'kb \\
+\Longrightarrow e \in b\mathbb{N}$
+
+Donc : $a\mathbb{N} \subset b\mathbb{N}$.
+
+Ce qui démontre la réciproque et donc l'équivalence
+
+
+\subsubsection*{3.1.2}
+
+\begin{alignat*}{2}
+	                    &\quad &                           a\mathbb{N} &= b\mathbb{N}\\
+	\Longleftrightarrow &      &       a\mathbb{N} \subset b\mathbb{N} &\wedge b\mathbb{N} \subset a\mathbb{N} \\
+	\Longleftrightarrow &      & \exists (k,k') \in \mathbb{N}^2, a=kb &\wedge b=k'a \\
+\end{alignat*}
+
+On a alors $a=kk'a$, donc $k=k'=1$ car $a\neq 0$, donc $a=b$.
+
+La réciproque est évidente.
+
+
+\subsection*{Exercice 3.2}
+
+L'ensemble des parties de $E$ est donc : $\{ E, \emptyset \}$.
+
+Et $P(P(E)) = \left\lbrace \emptyset, \{\emptyset\}, \{ E\}, \{E, \emptyset \} \right\rbrace $
+
+\subsection*{Exercice 3.3}
+
+Soient $A= \{2, 3, 4 ,5\}$ et $B= \{4,5,6\}$.
+
+Alors :
+
+$A \cap B = \{4,5\}$
+
+$A \cup B = \{2,3,4,5,6\}$
+
+$C_{\mathbb{N}}(A) = \mathbb{N} \setminus \{2, 3, 4 ,5\} = \{0,1,6,7,\ldots\} $ 
+
+$C_{\mathbb{R}}(B) = \mathbb{R} \setminus \{4,5,6\} = ]-\infty;4[ \cup ]4;5[ \cup ]5;6[ \cup]6; +\infty[ $ 
+
+
+\subsection*{Exercice 3.4}
+
+Soient $A = \{ x \in \mathbb{R} / x^2-3x+1 >0\}$ et $B = \{x \in \mathbb{R} /x >0\}$
+
+
+Les racines de $x^2 -3x +1$ sont $r_1 = \frac{3-\sqrt{5}}{2}$ et $r_2 = \frac{3+\sqrt{5}}{2}$
+
+
+Alors :
+
+$A = ]-\infty; r_1[ \cup ]r_2 ; +\infty[$
+
+$B = \mathbb{R}^*_+$
+
+$A^c = \{ x \in \mathbb{R} / x^2-3x+1 \leq 0\} = [r_1 ; r_2]$
+
+$B^c = \mathbb{R}_{-}$
+
+$A \cap B = ]0; r_1[ \cup ]r_2 ; +\infty[$
+
+$A \cup B = \mathbb{R}$
+
+$A \setminus B = ]-\infty; 0]$
+
+$B \setminus A = [r_1; r_2]$
+
+\subsection*{Exercice 3.5}
+
+\subsubsection*{1}
+
+Supposons que $A \subset B$
+
+$A \subset B \Longrightarrow (A \cup B) \subset (B \cup B) \Longrightarrow (A \cup B) \subset B$
+
+Or $B \subset (A \cup B)$, donc $B = (A \cup B)$.
+
+On a donc $(a) \Longrightarrow (b)$ :
+
+$A \subset B \Longrightarrow B = (A \cup B)$
+
+\subsubsection*{2}
+
+Supposons que $B = (A \cup B)$
+
+Alors :
+
+$A \cap B = A \cap (A \cup B) = (A \cap A) \cup (A \cap B) = A \cup (A \cap B) = A$ car par définition $(A \cap B) \subset A$.
+
+On a donc $(b) \Longrightarrow (c)$ :
+
+$B = (A \cup B) \Longrightarrow A \cap B = A$
+
+\subsubsection*{3}
+
+Supposons que $A \cap B = A$
+
+Tout élément de $A$ appartient donc à l'intersection de $A$ et $B$, donc à $B$ soit $A \subset B$
+
+On a donc $(c) \Longrightarrow (a)$ :
+
+$A \cap B = A \Longrightarrow A \subset B$
+
+\subsubsection*{Conclusion}
+
+On a donc $(a) \Longrightarrow (b) \Longrightarrow (c) \Longrightarrow (a)$, ce qui démontre l'équivalence
+des trois propositions.
+
+
+\subsection*{Exercice 3.6}
+\subsubsection*{1}
+Il est nécessaire que $E$ soit non vide.
+
+Si $A=E$, $B=E$, et $C=\emptyset$, on a $A \cup B = A \cup C = E$ 
+
+\subsubsection*{2}
+Il est nécessaire que $E$ soit non vide.
+
+Si $A=\emptyset$, $B=E$, et $C=\emptyset$, on a $A \cap B = A \cap C = \emptyset$ 
+
+\subsubsection*{3}
+
+Supposons que $(A \cup B = A \cup C) \wedge (A \cap B = A \cap C)$.
+
+Soit $x \in B$.
+
+Si $x \in A \cap B$, $x \in A \cap C$ d'après les égalités ci-dessus, et donc $x \in C$.
+
+Si $x \notin A \cap B$, $x \notin A$ mais $x \in A \cup C$ d'après les inégalités ci-dessus (car appartient à $A \cup B$), et donc $x \in C$.
+
+Donc $x \in C$, ce qui démontre l'implication.
+
+\subsection*{Exercice 3.7}
+
+\subsubsection*{1}
+\begin{alignat*}{2}
+	                    &\quad &               x \in (A \setminus B)&\setminus C  \\
+	\Longleftrightarrow &      &       (x \in A \setminus B) &\wedge (x \notin C) \\
+	\Longleftrightarrow &      &  (x \in A) \wedge (x \notin B) &\wedge (x \notin C)\\
+	\Longleftrightarrow &      &  (x \in A) \wedge [NON(x \in B) &\wedge NON(x \in C)]\\
+	\Longleftrightarrow &      &  (x \in A) \wedge NON[(x \in B) &\vee (x \in C)]\\
+	\Longleftrightarrow &      &  (x \in A) \wedge NON(x \in B&\cup C)\\
+	\Longleftrightarrow &      &  (x \in A) \wedge (x \notin B&\cup C)\\
+    \Longleftrightarrow &      &  x \in A \setminus(B&\cup C)
+\end{alignat*}
+
+CQFD
+
+\subsubsection*{2}
+\begin{alignat*}{2}
+	                    &\quad &               x \in A &\cap (A^c \cup B)  \\
+	\Longleftrightarrow &      &  (x \in A) &\wedge (x \in (A^c \cup B))\\
+	\Longleftrightarrow &      & (x \in A) &\wedge ( (x \in A^c) \vee (x \in B))  \\
+	\Longleftrightarrow &      &  (x \in A) &\wedge ( NON(x \in A) \vee (x \in B))\\
+	\Longleftrightarrow &      &  ((x \in A) \wedge NON(x \in A)) &\vee ((x \in A) \wedge (x \in B))\\
+	\Longleftrightarrow &      &  FAUX &\vee (x \in A \cap B)\\
+	\Longleftrightarrow &      &  x \in A &\cap B
+\end{alignat*}
+
+CQFD
+
+
+\subsubsection*{3}
+
+\begin{alignat*}{2}
+	                    &\quad &  C_E(B) &\subset C_E(A)  \\
+	\Longleftrightarrow &      & \forall x \in E, &(x \in C_E(B)) \Longrightarrow (x \in C_E(A)) \\
+	\Longleftrightarrow &      & \forall x \in E, &(x \in C_E(A)) \vee NON(x \in C_E(B))\\
+	\Longleftrightarrow &      & \forall x \in E, &NON(x \in A) \vee (x \in B)\\
+	\Longleftrightarrow &      & \forall x \in E, &(x \in A) \Longrightarrow (x \in B)\\
+	\Longleftrightarrow &      & A &\subset B
+\end{alignat*}
+
+CQFD
+
+\subsection*{Exercice 3.8}
+
+\begin{alignat*}{2}
+	                    &\quad &               x \in E &\setminus (F \cap G)  \\
+	\Longleftrightarrow &      & (x \in E) &\wedge NON(x \in F\cap G)\\
+	\Longleftrightarrow &      & (x \in E) &\wedge NON( (x \in F) \wedge (x \in G) )\\
+	\Longleftrightarrow &      & (x \in E) &\wedge ( NON(x \in F) \vee NON(x \in G) )\\
+	\Longleftrightarrow &      & [ (x \in E) \wedge NON(x \in F) ] &\vee [ (x \in E) \wedge NON(x \in G) ]\\
+	\Longleftrightarrow &      & (x \in E\setminus F) &\vee (x \in E\setminus G)\\
+	\Longleftrightarrow &      & x \in (E\setminus F) &\cup ( E\setminus G)
+\end{alignat*}
+
+CQFD
+
+\subsection*{Exercice 3.9}
+
+On remarque que les propriétés sont inchangées si on effectue les permutations ($A \leftrightarrow B$) et ($C \leftrightarrow D$).
+Il suffit donc de démontrer la première égalité, la seconde en découllant par permutation.
+
+Soit $x \in C$.
+
+D'après (iii), $x \notin D$ et donc, d'après (ii), $x \notin B$.
+
+D'après (iv), $x \in A \cup B$ (car dans $C \cup D$) et donc $x \in A$ (car n'appartient pas à $B$.)
+
+Il en résulte que $C \subset A$, ce qui implique d'après (i) que $A = C$
+
+
+\subsection*{Exercice 3.10}
+
+$E = \mathbb{Z} \times 2\mathbb{N} \times [-5 ; 5]$ si on entend entier naturel par nombre pair.
+
+
+\subsection*{Exercice 3.11}
+
+\begin{alignat*}{2}
+	                    &\quad &               (x,y) &\in (A \times B) \cap (C \times D)  \\
+	\Longleftrightarrow &      &     [(x,y) \in (A \times B)] &\wedge [(x,y) \in (C \times D)]\\
+	\Longleftrightarrow &      & [(x \in A) \wedge (y \in B)] &\wedge [(x \in C) \wedge (y \in D)]\\
+	\Longleftrightarrow &      & (x \in A) \wedge (x \in C)   &\wedge (y \in B) \wedge (y \in D)\\
+	\Longleftrightarrow &      &           (x \in A \cap C)   &\wedge (y \in B \cap D)\\
+	\Longleftrightarrow &      &                        (x,y) &\in (A \cap C) \times (B \cap D)
+\end{alignat*}
+
+CQFD
+
+\subsection*{Exercice 3.12}
+
+Soit $A_k = [0;k]$ pour $k \in \mathbb{N}$
+
+\subsubsection*{3.12.1}
+$A_0 = \{0\}$ par définition
+
+\subsubsection*{3.12.2}
+$A_1 = [0 ; 1]$ par définition
+
+\subsubsection*{3.12.3}
+$A_1 \setminus A_2 = \emptyset$ car $A_1 \subset A_2$
+
+\subsubsection*{3.12.4}
+$A_2 \setminus A_1 = [0;2]\setminus [0;1] = ]1 ; 2]$
+
+\subsubsection*{3.12.5}
+
+Par définition l'intersection est incluse dans $A_0$ (comme dans tous les intervalles) ; $A_0$ étant inclus
+dans tous les intervalles, il est inclus dans l'interdiction. Il en résulte que l'intersection est $A_0$.
+
+$\bigcap_{k \in \mathbb{N}} A_k = A_0 = \{0\}$
+
+\subsubsection*{3.12.6}
+
+L'union est incluse dans $\mathbb{R}_+$ (car tous les intervalles sont inclus dans $\mathbb{R}_+$)
+
+Tout réel positif $x$ est compris dans $A_{\lfloor x \rfloor + 1}$ (où $\lfloor x \rfloor$ est la partie entière de $x$) et
+donc dans l'union.
+
+Il en résulte que $\bigcup_{k \in \mathbb{N}} A_k = \mathbb{R}_+$ 
+
+
+\subsection*{Exercice 3.13}
+
+Soit $A_k = [k;k+10]$ et $B_k = [-1 ; k]$ pour $k \in \mathbb{N}$
+
+\subsubsection*{E1}
+
+\begin{alignat*}{2}
+ 	                    &\quad & x &\in \bigcap_{k=i}{j} A_k  \\
+	\Longleftrightarrow &      & \forall k \in \{i,\ldots,j\},& x\geq k \wedge x \leq k+10  \\
+	\Longleftrightarrow &      &  x\geq j &\wedge x \leq i+10 \\
+	\Longleftrightarrow &      & x &\in [j ; i+10]           
+\end{alignat*}
+
+$E_1 = [3;13]\cap[4;14]\cap[5;15]\cap \ldots \cap [10 ; 20] = [10 ; 13]$
+
+\subsubsection*{E2}
+
+$E_2 = \bigcap_{k \in \mathbb{N}} A_k = \emptyset$ car par exemple $A_0 \cap A_{11} = \emptyset$
+
+\subsubsection*{E3}
+
+On démontre facilement par récurrence que $\bigcup_{k=i}^{j} A_k = [i ; j+10]$
+
+$E_3 = \bigcup_{k=3}^{10} A_k= [3 ; 20]$
+
+\subsubsection*{E4}
+
+L'union des intervalles est inclus dans $\mathbb{R}_+$.
+
+Tout réel positif $x$ est compris dans $A_{\lfloor x \rfloor}$ et donc dans l'union des intervalles.
+
+$E_4 = \bigcup_{k \in \mathbb{N}} A_k = \mathbb{R}_+$
+
+\subsubsection*{F1}
+
+$F_1 = \bigcap_{k=3}^{10} B_k= B_3 = [-1 ; 3]$ car $B_k \subset B_{k+1}$
+
+\subsubsection*{F2}
+
+L'intersection est par définition un sous-ensemble de $B_0$ ; $B_0$ étant un sous-ensemble de tout $B_k$, il appartient 
+à l'intersection.
+
+$F_2 = \bigcap_{k \in \mathbb{N}} B_k= B_0 = [-1 ; 0]$
+
+\subsubsection*{F3}
+
+
+$F_3 = \bigcup_{k=3}^{10} B_k = B_{10} = [-1 ; 10]$
+
+\subsubsection*{F4}
+
+
+$F_4 = \bigcup_{k \in \mathbb{N}} B_k = [-1 ; +\infty[$
+
+
+\subsection*{Exercice 3.14}
+
+\subsubsection*{1}
+
+$x \in I_p \Longrightarrow x \leq \frac{(p+1)\alpha}{m}$
+
+$x \in I_{p+1} \Longrightarrow x > \frac{(p+1)\alpha}{m}$
+
+Les intervalles sont donc disjoints, $I_p \cap I_{p+1} = \emptyset$
+
+\subsubsection*{2}
+$\bigcup_{p=0}^{m-1} = ]0 ; \alpha]$
 
 \end{document}
