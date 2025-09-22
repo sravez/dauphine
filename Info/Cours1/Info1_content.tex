@@ -19,7 +19,14 @@
 \usepackage{tkz-tab}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usepackage{algorithm,algorithmic}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\newcommand\Print{\State \textbf{print }}
+\newcommand\Printtt[1]{\State \textbf{print }\texttt{"#1"}}
+\newcommand\Get{\State \textbf{get }}
+\algblock[<block>]{Vars}{EndVars}
+\algblock[<block>]{Begin}{End}
 
 %\usepackage{xcolor}
 %\definecolor{dauphineblue}{RGB}{47,68,134}
@@ -99,53 +106,58 @@ Si on considère (toujour avec $\Delta = 0$ ) uniquement les systèmes où les �
 \begin{algorithm}
 	\caption{Système d'équations linéaires}
 	\begin{algorithmic}
-		\STATE \textbf{Algo}
-			\STATE $a$: \textbf{float}
-			\STATE $b$: \textbf{float}
-			\STATE $c$: \textbf{float}
-			\STATE $d$: \textbf{float}
-			\STATE $e$: \textbf{float}
-			\STATE $f$: \textbf{float}
-			\STATE $D$: \textbf{float}
-			\STATE $DX$: \textbf{float}
-			\STATE $DY$: \textbf{float}
+		\Vars
+			\State $x_1$: \textbf{float}
+			\State $y_1$: \textbf{float}
+			\State $c_1$: \textbf{float}
+			\State $x_2$: \textbf{float}
+			\State $y_2$: \textbf{float}
+			\State $c_2$: \textbf{float}
+			\State $D$: \textbf{float}
+			\State $DX$: \textbf{float}
+			\State $DY$: \textbf{float}
+		\EndVars
+		
+		\Statex
+		\Begin
+			\Printtt{Première équation : aX+bY = c} \Comment{Saisie des variables}
+			\Printtt{a ?}
+			\Get $x_1$
+			\Printtt{b ?}
+			\Get $y_1$
+			\Printtt{c ?}
+			\Get $c_1$
 			
-		\STATE \textbf{begin}
-		\PRINT "Première équation : ax+by = c"
-		\PRINT "a ?"
-		\STATE \textbf{get} $a$
-		\PRINT "b ?"
-		\STATE \textbf{get} $b$
-		\PRINT "c ?"
-		\STATE \textbf{get} $c$
-		\PRINT "Seconde équation : dx+ey = f"
-		\PRINT "d ?"
-		\STATE \textbf{get} $d$
-		\PRINT "e ?"
-		\STATE \textbf{get} $e$
-		\PRINT "f ?"
-		\STATE \textbf{get} $f$
-		
-		\STATE $D \leftarrow ae-db$ 
-		\STATE $DX \leftarrow ce-fb$
-		\STATE $DY \leftarrow af-dc$
-		
-		\IF{$D \neq 0$}
-			\PRINT "Solution unique"
-			\PRINT "X = " + ($DX / D$)
-			\PRINT "Y = " + ($DY / D$)
-		\ELSIF{$(a=0 \wedge b=0 \wedge c\neq 0) \vee (d=0 \wedge e=0 \wedge f\neq 0) \vee (DX \neq 0) \vee (DY \neq 0)$}
-			\PRINT "Aucune solution"
-		\ELSIF{$(a=0) \wedge (b=0)$}
-			\IF{$(d=0) \wedge (e=0)$}
-				\PRINT "Solution = R x R"
-			\ELSE
-				\PRINT "Solution = droite d'équation " $dx + ey =f$
-			\ENDIF
-		\ELSE
-			\PRINT "Solution = droite d'équation " $ax + by =c$
-		\ENDIF
-		\STATE \textbf{end}
+			\Printtt{Seconde équation : dX+eY = f}
+			\Printtt{d ?}
+			\Get $x_2$
+			\Printtt{e ?}
+			\Get $y_2$
+			\Printtt{f ?}
+			\Get $c_2$
+			
+			\Statex \Comment{Calcul des déterminants}
+			\State $D \leftarrow x_1 y_2-x_2y_1$ 
+			\State $D_X \leftarrow c_1y_2-c_2y_1$
+			\State $D_Y \leftarrow x_1c_2-x_2c_1$
+			
+			\Statex
+			\If{$D \neq 0$}
+				\Printtt{Solution unique}
+				\Printtt{X = } + ($D_X / D$)
+				\Printtt{Y = } + ($D_Y / D$)
+			\ElsIf{$(x_1=0 \wedge y_1=0 \wedge c_1\neq 0) \vee (x_2=0 \wedge y_2=0 \wedge c_2\neq 0) \vee (D_X \neq 0) \vee (D_Y \neq 0)$}
+				\Printtt{Aucune solution}
+			\ElsIf{$(x_1=0) \wedge (y_1=0)$}
+				\If{$(x_2=0) \wedge (y_2=0)$}
+					\Printtt{Solution = R x R}
+				\Else
+					\Printtt{Solution = droite d'équation } $x_2X + y_2Y =c_2$
+				\EndIf
+			\Else
+				\Printtt{Solution = droite d'équation } $x_1X + y_1Y =c_1$
+			\EndIf
+		\End
 	\end{algorithmic}
 \end{algorithm}
 
