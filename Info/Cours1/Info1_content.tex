@@ -19,6 +19,8 @@
 \usepackage{tkz-tab}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+\usepackage{algorithm,algorithmic}
+
 %\usepackage{xcolor}
 %\definecolor{dauphineblue}{RGB}{47,68,134}
 
@@ -36,6 +38,115 @@
 \begin{document}
 	
 	
+\subsection*{Exercice 1.11 - Système de deux équations linéaires}
 
+Une équation linéaire à 2 inconnues de la forme $ax +by = c$ correspond dans le plan à :
+\begin{itemize}
+	\item une droite si $|a| + |b| > 0$
+	\item le plan si $|a|+|b|= c = 0$
+	\item l'ensemble vide sinon ($|a|+|b|=0$ et $c\neq0$)
+\end{itemize}
+
+Le résultat d'un système de 2 equations linéaires à 2 inconnues peut-donc être :
+\begin{itemize}
+	\item un point si on a deux droites non parallèles (donc sécantes) ;
+	\item l'ensemble vide si une des équations n'a pas de solutions ou si les équations
+	      correspondent à deux droites parallèles non confondues ;
+	\item le plan si les deux équations sont triviales et correspondent au plan ;
+	\item une droite si l'on a deux droites confondues ou un plan et une droite.
+\end{itemize}
+
+Soit le systèmes d'équations :
+
+\begin{displaymath}
+\begin{cases}
+	ax + by = c \\
+	dx + ey = f
+\end{cases}
+\end{displaymath}
+
+Le cas des droites concourantes est caractérisé par $\Delta = ae - db \neq 0$ ; la solution est alors :
+\begin{displaymath}
+\begin{pmatrix}
+	x \\ y
+\end{pmatrix}
+=	
+\begin{pmatrix}
+	\frac{\Delta_x}{\Delta} \\
+	\frac{\Delta_x}{\Delta}
+\end{pmatrix}
+=
+\begin{pmatrix}
+	\frac{ce-fb}{ae-db} \\
+	\frac{af-dc}{ae-db}
+\end{pmatrix}
+\end{displaymath}
+
+Le cas $\Delta = 0$ ne peut être résumé à la nullité de $\Delta_x$ et $\Delta_y$ car les systèmes suivants
+ont leurs 3 déterminants nuls mais ne possède aucune solutions :
+
+\begin{displaymath}
+	\begin{cases}
+		0x + 0y = a & \text{avec } a \neq 0 \\
+		0x + 0y = b & \text{avec } b \in \mathbb{R}
+	\end{cases}
+\end{displaymath}
+
+Si on considère (toujour avec $\Delta = 0$ ) uniquement les systèmes où les équations linéaires ont des solutions 
+(i.e. pas celle de la forme $0=a$ avec $a\neq 0$), le système n'a une solution que si $\Delta_x = \Delta_y = 0$ 
+
+
+\begin{algorithm}
+	\caption{Système d'équations linéaires}
+	\begin{algorithmic}
+		\STATE \textbf{Algo}
+			\STATE $a$: \textbf{float}
+			\STATE $b$: \textbf{float}
+			\STATE $c$: \textbf{float}
+			\STATE $d$: \textbf{float}
+			\STATE $e$: \textbf{float}
+			\STATE $f$: \textbf{float}
+			\STATE $D$: \textbf{float}
+			\STATE $DX$: \textbf{float}
+			\STATE $DY$: \textbf{float}
+			
+		\STATE \textbf{begin}
+		\PRINT "Première équation : ax+by = c"
+		\PRINT "a ?"
+		\STATE \textbf{get} $a$
+		\PRINT "b ?"
+		\STATE \textbf{get} $b$
+		\PRINT "c ?"
+		\STATE \textbf{get} $c$
+		\PRINT "Seconde équation : dx+ey = f"
+		\PRINT "d ?"
+		\STATE \textbf{get} $d$
+		\PRINT "e ?"
+		\STATE \textbf{get} $e$
+		\PRINT "f ?"
+		\STATE \textbf{get} $f$
+		
+		\STATE $D \leftarrow ae-db$ 
+		\STATE $DX \leftarrow ce-fb$
+		\STATE $DY \leftarrow af-dc$
+		
+		\IF{$D \neq 0$}
+			\PRINT "Solution unique"
+			\PRINT "X = " + ($DX / D$)
+			\PRINT "Y = " + ($DY / D$)
+		\ELSIF{$(a=0 \wedge b=0 \wedge c\neq 0) \vee (d=0 \wedge e=0 \wedge f\neq 0) \vee (DX \neq 0) \vee (DY \neq 0)$}
+			\PRINT "Aucune solution"
+		\ELSIF{$(a=0) \wedge (b=0)$}
+			\IF{$(d=0) \wedge (e=0)$}
+				\PRINT "Solution = R x R"
+			\ELSE
+				\PRINT "Solution = droite d'équation " $dx + ey =f$
+			\ENDIF
+		\ELSE
+			\PRINT "Solution = droite d'équation " $ax + by =c$
+		\ENDIF
+		\STATE \textbf{end}
+	\end{algorithmic}
+\end{algorithm}
 
 \end{document}
