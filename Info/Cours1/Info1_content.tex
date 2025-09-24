@@ -45,7 +45,161 @@
 %\date{}                                           % Activate to display a given date or no date
 
 \begin{document}
+
+
+\subsection*{Exercice 1.1}
+\begin{tabular}{|l|l|}
+	\hline
+	Instruction & Action \\
+	\hline
+	\texttt{x = 3.5}             & Affectation de la valeur $3.5$ à la variable \texttt{x}  \\
+	\hline
+	\textbf{print}\texttt{(x)}   & Affichage de la valeur de la variable \texttt{x}, donc \texttt{3.5} \\
+	\hline
+	\textbf{print}\texttt{("x")} & Affichage de la chaîne de caractère(s) \texttt{x} \\
+	\hline
+	\texttt{v}=\textbf{float}(\textbf{Input}(\texttt{Saisir...})) & Affectation à la variable \texttt{v} d'une entrée utilisateur convertie en flottant\\
+	\hline
+	\textbf{print}\texttt{("x=", v)}&  Affichage de la valeur précédente précédée de la chaîne \texttt{x=} \\
+	\hline
+\end{tabular}
+
+La variable \texttt{x} n'est jamais modifiée après son initialisation et vaut donc $3.5$ à la fin de l'exécution.
+
+
+\subsection*{Exercice 1.6}
+\subsubsection*{1. $2.3$ et $-2$}
+\texttt{moins de 4}
+
+\texttt{a= 2.3}
+
+\texttt{b= 1}
+
+\subsubsection*{2. $4$ et $3$}
+\texttt{plus de 4}
+
+\texttt{a= 4.0}
+
+\texttt{b= 0}
+
+\subsubsection*{3. $-1$ et $1$}
+
+\texttt{a= -2.0}
+
+\texttt{b= 1}
+
+\subsection*{Exercice 1.7}
+\begin{algorithm}
+	\caption{Système d'équations linéaires}
+	\begin{algorithmic}
+		\Vars
+		\State $a$: \textbf{float}
+		\State $b$: \textbf{float}
+		\State $c$: \textbf{float}
+		\EndVars
+		
+		\Statex
+		\Begin
+			\Printtt{a ?}
+			\Get $a$
+			\Printtt{b ?}
+			\Get $b$
+			\Printtt{c ?}
+			\Get $c$
+			
+			\Statex
+			\State $D \leftarrow b^2 - 4ac$ 
+			\If{$D<0$}
+				\Printtt{Aucune solution}
+			\ElsIf{$D=0$}
+				\Printtt{1 racine double : } + ($-b/2a$)
+			\Else
+				\Printtt{2 racines}
+				\Printtt{r1 : } + ($(-b-\sqrt{D})/2a$)
+				\Printtt{r2 : } + ($(-b+\sqrt{D})/2a$)
+			\EndIf
+		\End
+	\end{algorithmic}
+\end{algorithm}
 	
+\subsection*{Exercice 1.8}
+
+On considère les paramètres comme entiers non nuls
+
+\begin{tabular}{|l|c c c c c|}
+	\hline
+	message                                           & (niveau           & ,        &  section         & ,        & discipline)  $\in$\\
+	\hline
+	\texttt{il est trop petit}                        & $\{7,8,\ldots\}$ & $\times$ & $\mathbb{N}^*$   & $\times$ & $\mathbb{N}^*$ \\
+	\hline
+	\texttt{c'est un collégien}                       & $\{3, 4, 5, 6\}$ & $\times$ & $\mathbb{N}^*$   & $\times$ & $\mathbb{N}^*$ \\
+	\hline
+	\texttt{Lycéen qui n'est pas en section générale} & $\{1, 2\}$       & $\times$ & $\{1\}$          & $\times$ & $\mathbb{N}^*$\\
+	\hline
+	\texttt{Lycéen en section générale littéraire}    & $\{1, 2\}$       & $\times$ & $\{2,3,\ldots\}$ & $\times$ &  $\{1\}$\\
+	\hline
+	\texttt{Lycéen en section générale non littéraire}& $\{1, 2\}$       & $\times$ & $\{2,3,\ldots\}$ & $\times$ &  $\{2,3,\ldots\}$\\
+	\hline
+\end{tabular}
+	
+
+\subsection*{Exercice 1.9}
+\begin{algorithm}
+	\caption{Système d'équations linéaires}
+	\begin{algorithmic}
+		\Vars
+			\State $n$: \textbf{int}
+		\EndVars
+		
+		\Statex
+		\Begin
+			\Printtt{n ?}
+			\Get $n$
+			
+			\Statex
+			\If{$n<10$}
+				\Printtt{Ajourné}
+			\ElsIf{$n<12$}
+				\Printtt{Passable}
+			\ElsIf{$n<14$}
+				\Printtt{AB}
+			\ElsIf{$n<16$}
+				\Printtt{B}
+			\Else	
+				\Printtt{TB}
+			\EndIf
+		\End
+\end{algorithmic}
+\end{algorithm}
+	
+\subsection*{Exercice 1.10}
+\begin{algorithm}
+	\caption{Système d'équations linéaires}
+	\begin{algorithmic}
+		\Vars
+			\State $a$: \textbf{float}
+			\State $b$: \textbf{float}
+			\State $c$: \textbf{float}
+		\EndVars
+		
+		\Statex
+		\Begin
+			\Printtt{a ?}
+			\Get $a$
+			\Printtt{b ?}
+			\Get $b$
+			\Printtt{c ?}
+			\Get $c$
+			
+			\Statex
+			\If{($(a=b+c)$ OR $(b=a+c)$ OR $(c=a+b)$)}
+				\Printtt{oui}
+			\Else
+				\Printtt{non}
+			\EndIf
+		\End
+	\end{algorithmic}
+\end{algorithm}
 	
 \subsection*{Exercice 1.11 - Système de deux équations linéaires}
 
