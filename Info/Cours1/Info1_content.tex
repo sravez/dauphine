@@ -28,6 +28,8 @@
 \algblock[<block>]{Vars}{EndVars}
 \algblock[<block>]{Begin}{End}
 
+\usepackage{diagbox}
+
 %\usepackage{xcolor}
 %\definecolor{dauphineblue}{RGB}{47,68,134}
 
@@ -49,12 +51,13 @@
 
 Une équation linéaire à 2 inconnues de la forme $ax +by = c$ correspond dans le plan à :
 \begin{itemize}
-	\item une droite si $|a| + |b| > 0$
-	\item le plan si $|a|+|b|= c = 0$
-	\item l'ensemble vide sinon ($|a|+|b|=0$ et $c\neq0$)
+	\item $D$ : une droite si $|a| + |b| > 0$
+	\item $P$ = $\mathbb{R}^2$: le plan si $a=b=c=0$
+	\item $\emptyset$ : l'ensemble vide sinon ($a=b=0$ et $c\neq0$)
 \end{itemize}
 
-Le résultat d'un système de 2 equations linéaires à 2 inconnues peut-donc être :
+Le résultat d'un système de 2 equations linéaires à 2 inconnues est l'intersection
+de 2 des types d'éléments précédents et peut donc être :
 \begin{itemize}
 	\item un point si on a deux droites non parallèles (donc sécantes) ;
 	\item l'ensemble vide si une des équations n'a pas de solutions ou si les équations
@@ -62,6 +65,22 @@ Le résultat d'un système de 2 equations linéaires à 2 inconnues peut-donc ê
 	\item le plan si les deux équations sont triviales et correspondent au plan ;
 	\item une droite si l'on a deux droites confondues ou un plan et une droite.
 \end{itemize}
+
+Cela peut être résumé par le tableau suivant $S = S_1 \cap S_2$ :
+
+\begin{tabular}{|c|c|c|p{5cm}|}
+	\hline
+	 \diagbox{$S_1$}{$S_2$}& $\emptyset$ & $P$         & $D_2$                            \tabularnewline
+	\hline
+	$\emptyset$            & $\emptyset$ & $\emptyset$ & $\emptyset$                      \tabularnewline
+	\hline
+	$P$                    & $\emptyset$ & $P = S_1$         & $D_2$                            \tabularnewline
+	\hline
+	$D_1$                  & $\emptyset$ & $D_1$       & Un point si droites concourantes \newline
+	                                                     $D_2$ ($=D_1$) si confondues     \newline
+	                                                     $\emptyset$ sinon                \tabularnewline
+	\hline
+\end{tabular}
 
 Soit le systèmes d'équations :
 
@@ -72,7 +91,10 @@ Soit le systèmes d'équations :
 \end{cases}
 \end{displaymath}
 
-Le cas des droites concourantes est caractérisé par $\Delta = ae - db \neq 0$ ; la solution est alors :
+Le cas des droites concourantes est caractérisé par $\Delta = ae - db \neq 0$ : les vecteurs normaux aux droites, 
+$\begin{pmatrix} a \\ b \end{pmatrix}$ et $\begin{pmatrix} d \\ e \end{pmatrix}$, sont non colinéaires.
+La solution est alors :
+
 \begin{displaymath}
 \begin{pmatrix}
 	x \\ y
@@ -89,18 +111,24 @@ Le cas des droites concourantes est caractérisé par $\Delta = ae - db \neq 0$ 
 \end{pmatrix}
 \end{displaymath}
 
-Le cas $\Delta = 0$ ne peut être résumé à la nullité de $\Delta_x$ et $\Delta_y$ car les systèmes suivants
-ont leurs 3 déterminants nuls mais ne possède aucune solutions :
+Deux droites (donc $|a|+|b| >0$ et $|d|+|e| >0$) sont confondues si les deux équations sont proportionnelles ce qui est équivalent à dire que
+$\Delta=\Delta_x = \Delta_y = 0$.
 
-\begin{displaymath}
-	\begin{cases}
-		0x + 0y = a & \text{avec } a \neq 0 \\
-		0x + 0y = b & \text{avec } b \in \mathbb{R}
-	\end{cases}
-\end{displaymath}
+Si on considère (toujours avec $\Delta = 0$) uniquement les systèmes où les équations linéaires ont des solutions 
+(i.e. pas celle de la forme $0=a$ avec $a\neq 0$), le système a une solution ssi $\Delta_x = \Delta_y = 0$ :
 
-Si on considère (toujour avec $\Delta = 0$ ) uniquement les systèmes où les équations linéaires ont des solutions 
-(i.e. pas celle de la forme $0=a$ avec $a\neq 0$), le système n'a une solution que si $\Delta_x = \Delta_y = 0$ 
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\diagbox{$S_1$}{$S_2$}& $\emptyset$                             & $P$                           & $D_2$                            \\
+	\hline
+	$\emptyset$           & $\Delta=\Delta_x=\Delta_y=0$           & $\Delta=\Delta_x=\Delta_y=0$  & $\Delta=0$ ; $|\Delta_x|+|\Delta_y| >0$ \\
+	\hline
+	$P$                   & $\Delta=\Delta_x=\Delta_y=0$           & $\Delta=\Delta_x=\Delta_y=0$  & $\Delta=\Delta_x=\Delta_y=0$   \\
+	\hline
+	$D_1$                 & $\Delta=0$ ; $|\Delta_x|+|\Delta_y| >0$ & $\Delta=\Delta_x=\Delta_y=0$ &                                \\
+	\hline
+\end{tabular}
+ 
 
 
 \begin{algorithm}
