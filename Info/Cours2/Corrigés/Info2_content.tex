@@ -1,0 +1,132 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,10pt]{report}
+\usepackage[french]{babel}
+\usepackage{standalone}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper,hmargin=2cm,vmargin=1.5cm,includeheadfoot}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tkz-tab}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\newcommand\Print{\State \textbf{print }}
+\newcommand\Printtt[1]{\State \textbf{print }\texttt{"#1"}}
+\newcommand\Get{\State \textbf{get }}
+\algblock[<block>]{Vars}{EndVars}
+\algblock[<block>]{Begin}{End}
+
+\usepackage{diagbox}
+
+%\usepackage{xcolor}
+%\definecolor{dauphineblue}{RGB}{47,68,134}
+
+
+%\usepackage{fontspec,xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+\title{Logique - Exercices}
+\author{Poppy RAVEZ}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+
+\subsection*{Exercice 2.3 - Diviseurs stricts}
+
+\subsubsection*{1. Méthode la plus évidente}
+
+La méthode la plus évidente pour identifier et sommer tous les diviseurs stricts d'un entier $n$ et de parcourir l'ensemble des nombres
+compris entre 1 et $n-1$ et de vérfier s'ils divisent $n$.
+
+\begin{algorithm}
+	\caption{Somme des diviseurs stricts (1)}
+	\begin{algorithmic}
+		\Vars
+		\State $n$: \textbf{int} \Comment{Entier à analyser}
+		\State $s$: \textbf{int} \Comment{Somme de ses diviseurs stricts}
+		\State $d$: \textbf{int} \Comment{Diviseur potentiel en cours de vérification}
+		\EndVars
+		
+		\Statex
+		\Begin
+			\Printtt{n ?}
+			\Get $n$
+		
+			\Statex
+			\State $s \leftarrow 0$
+			\State $d \leftarrow 1$
+			\While{$d < n$}
+				\If{n mod d = 0}
+					\State $s$ += $d$
+				\EndIf
+				\State $d$ += 1
+			\EndWhile
+			\Printtt{S = } + $s$
+		\End
+	\end{algorithmic}
+\end{algorithm}
+
+Le nombre d'opérations effectuées dans cet algorithme est de l'ordre de grandeur de $n$.
+
+
+\subsubsection*{2. Méthode plus efficace}
+
+L'algorithme précédent peut être amélioré en remarquant que pour tout diviseur $d$ identifié, $n/d$
+est un diviseur ; on peut donc chercher les diviseurs $d$ de $1$ à $\sqrt{n}$ et ajouter $d$ et $n/d$ en
+prenant néanmoins garde, le cas échéant de n'ajouter q'une fois $\sqrt{n}$.
+
+L'ordre de grandeur du nouvelle algorithme est donc de $n^{1/2}$ ce qui est beaucoup plus efficace
+que le précédent pour les grands nombres.
+
+\begin{algorithm}
+	\caption{Somme des diviseurs stricts (2)}
+	\begin{algorithmic}
+		\Vars
+		\State $n$: \textbf{int} \Comment{Entier à analyser}
+		\State $s$: \textbf{int} \Comment{Somme de ses diviseurs stricts}
+		\State $d$: \textbf{int} \Comment{Diviseur potentiel en cours de vérification}
+		\EndVars
+		
+		\Statex
+		\Begin
+		\Printtt{n ?}
+		\Get $n$
+		
+		\Statex
+		\State $s \leftarrow 0$
+		\If{$n>1$}
+			\State $s \leftarrow 1$
+			\State $d \leftarrow 2$
+			\While{$d < \sqrt{n}$}
+				\If{$n$ mod $d$ = 0}
+					\State $s$ += $d$
+					\State $s$ += $n$ div $d$
+				\EndIf
+				\State $d$ += 1
+			\EndWhile
+			\If{($n$ mod $d$ = 0) AND ($d$ = $n$ div $d$)} \Comment{$d$ est la racine carrée de $n$}
+				\State $s$ += $d$
+			\EndIf
+		\EndIf
+		\Printtt{S = } + $s$
+		\End
+	\end{algorithmic}
+\end{algorithm}
+
+
+\end{document}
