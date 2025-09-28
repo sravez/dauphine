@@ -1,4 +1,4 @@
-import time0
+import time
 import strict_factors as sf
 
 n = int(input("n? "))
