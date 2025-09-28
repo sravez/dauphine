@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b8c994b5-bc03-46f2-8805-34f65bd585bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/Info2_exercices.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/TP.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/exercice_2.3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/exercice_2.4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cours2/code/Info2_exercices/exercice_2.5.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sravez&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sravez/dauphine.git&quot;,
+    &quot;accountId&quot;: &quot;18bcad60-f810-487c-bca5-cbad1cec4618&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="33A2qngZh8bfYc4N8TvqqigrNiY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.EX_2.3.executor": "Run",
+    "Python.EX_2.4.executor": "Run",
+    "Python.EX_2.5.executor": "Run",
+    "Python.TP.executor": "Run",
+    "Python.TP_1.15.executor": "Run",
+    "Python.exercice_2.3.executor": "Run",
+    "Python.exercice_2.4.executor": "Run",
+    "Python.exercice_2.5.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/serge/Dev/dauphine/Info/code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TP/TP1" />
+      <recent name="$PROJECT_DIR$/Exercices/Ex2" />
+      <recent name="$PROJECT_DIR$/TP" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-PY-252.26199.168" />
+        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8c994b5-bc03-46f2-8805-34f65bd585bf" name="Changes" comment="" />
+      <created>1758745748596</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758745748596</updated>
+      <workItem from="1758745749600" duration="2408000" />
+      <workItem from="1758821998278" duration="1258000" />
+      <workItem from="1758972365653" duration="6000" />
+      <workItem from="1759066387121" duration="5309000" />
+      <workItem from="1759071863782" duration="110000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Info2_exercices$TP.coverage" NAME="TP Coverage Results" MODIFIED="1758822621391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$exercice_2_5.coverage" NAME="exercice_2.5 Coverage Results" MODIFIED="1758747636821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$TP_1_15.coverage" NAME="TP_1.15 Coverage Results" MODIFIED="1759071635987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TP/TP1" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$exercice_2_3.coverage" NAME="exercice_2.3 Coverage Results" MODIFIED="1759067330624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Exercices/Ex2" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$EX_2_4.coverage" NAME="EX_2.4 Coverage Results" MODIFIED="1759068333694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Exercices/Ex2" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$EX_2_5.coverage" NAME="EX_2.5 Coverage Results" MODIFIED="1759070386729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Exercices/Ex2" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$EX_2_3.coverage" NAME="EX_2.3 Coverage Results" MODIFIED="1759068024437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Exercices/Ex2" />
+    <SUITE FILE_PATH="coverage/Info2_exercices$exercice_2_4.coverage" NAME="exercice_2.4 Coverage Results" MODIFIED="1758746535758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
