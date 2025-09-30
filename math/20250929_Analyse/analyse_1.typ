@@ -342,8 +342,45 @@ $exists l in RR, forall epsilon >0, exists n in NN, forall k ≥n, |u_k - l| < e
 
 == Exercice 2.6
 
-$ |u_n| &= abs((sin(n^2) + arctan(n))/(n^2+1))\
+$ 0 ≤ |u_n| &= abs((sin(n^2) + arctan(n))/(n^2+1))\
         &≤ (abs(sin(n^2)) + abs(arctan(n))) / (n^2 + 1)\
         &≤ (1 + pi/2)/(n^2 + 1) $
 
-Ce qui démontre que $(u_n)_(n in NN)$ converge vers 0.
+Ce qui démontre que $(u_n)_(n in NN)$ converge vers 0 par le théorème des gendarmes.
+
+== exercice 3.1
+=== 1.a
+
+Soit $epsilon >0$,
+
+On pose $mu = min(1, epsilon/7)$
+
+alors
+
+$forall x in [1-mu ; 1+ mu], |-x^3 - (-1)| &= | 1 -x^3| \
+                                                 &= |(1-x)(1 + x + x^2) \
+                                                 &= |1-x| dot |1+x+x^2| \
+                                                 &≤ mu dot 7 " car " x in [0;2] \
+                                                 &≤ epsilon$
+
+Donc :
+
+$forall epsilon > 0, exists mu >0, forall x in [1-mu ; 1+ mu], | 1 -x^3| ≤ epsilon$
+
+Ce qui est la définition de la limite de $-x^3$ en 1.
+
+=== 1.b
+
+Soit $epsilon > 0$
+
+On pose $mu = min(1/2, epsilon/4)$
+
+
+
+$forall x in [1-mu ; 1+ mu], |x/(x-2) - (-1)| &= |(2x-2)/(x-2)| \
+                                              &≤ (2 mu)/(|x-2|)
+                                              &≤ (2 mu) / (1/2) " car " x in [-3/2 ; -1/2] \
+                                              &≤ 4 mu \
+                                              &≤ epsilon$
+
+
