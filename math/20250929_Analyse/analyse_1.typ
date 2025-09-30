@@ -463,4 +463,4 @@ $forall y in ]x-alpha ; x+ alpha[, |f(y) -x f(1)| &≤ |f(y) - f(q)| + |f(q) - x
                                                   &≤ epsilon/3 + epsilon/3 + epsilon/3 \
                                                   &≤ epsilon$
 
-Ce qui démontre que la limite de $f$ en $x$ est $x f(1)$  et donc que $f(x)= f(1)$                                                  
+Ce qui démontre que la limite de $f$ en $x$ est $x f(1)$  et donc que $f(x)= x f(1)$                                                  
