@@ -1,4 +1,19 @@
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1" : *
+#show: codly-init.with()
+#codly(languages: codly-languages)
+
+
 = Analyse 1
+
+Essai de code 
+
+```python
+def proc:
+
+    print("test")
+        
+```
 
 == Exercice 1.1
 

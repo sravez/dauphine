@@ -36,9 +36,9 @@ def s2(n: int) -> int:
 def s3(n: int) -> int:
     s = 0
     red = max(1, n - 18)
-    while red <= 6 and red + 2 <= n :
+    while red <= min(6, n - 2) :
         green = max(1, n - red - 10)
-        while green <= 8 and red +green < n :
+        while green <= min(8, n - red - 1) :
             s += 1
             green += 1
         red += 1
@@ -54,5 +54,8 @@ def s4(n: int) -> int:
         red += 1
     return s
 
-target = int(input("Entrez un nombre : "))
-print("Nombre de solutions :", s1(target), " / ", s2(target), " / ", s3(target), " / ", s4(target))
+#target = int(input("Entrez un nombre : "))
+#print("Nombre de solutions :", s1(target), " / ", s2(target), " / ", s3(target), " / ", s4(target))
+
+for i in range(3, 25):
+    print(f"[{i}], [{s4(i)}],")
