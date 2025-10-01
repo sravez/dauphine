@@ -19,19 +19,31 @@ from math import sqrt
 a = int(input("Entrez a : "))
 b = int(input("Entrez b : "))
 c = int(input("Entrez c : "))
-d= b*b - 4*a*c
-print("La valeur de delta est", d)
-# Cas où il y a deux solutions réelles
-if d > 0:
-    x1 = (-b + sqrt(d))/(2*a)
-    x2 = (-b - sqrt(d))/(2*a)
-    if (a*x1*x1 + b*x1 +c !=0 or a*x2*x2 + b*x2 +c !=0):
-        print("Erreur")
+
+if a==0:
+    # Equation dégénérée
+    if b==0:
+        if c==0:
+            print("S = R")
+        else:
+            print("Aucune solution")
     else:
-        print("Il y a deux racines réelles : x1 =", x1, "et x2 =", x2)
-# Cas où il y a une seule solution réelle
-elif d==0 :
-    print("Il y une unique racine réelle : x =", -b/(2*a))
-# Cas où il n'y aucune solution réelle
+        print("Une solution :", -c/b)
 else:
-    print("Il y a deux racines complexes distinctes, z1 =", -b/(2*a),"+ i x",sqrt(-d)/(2*a), "et z2 =", -b/(2*a),"- i x",sqrt(-d)/(2*a),"i")
+    # On a une équation du second degré
+    d= b*b - 4*a*c
+    print("La valeur de delta est", d)
+    # Cas où il y a deux solutions réelles
+    if d > 0:
+        x1 = (-b + sqrt(d))/(2*a)
+        x2 = (-b - sqrt(d))/(2*a)
+        if (a*x1*x1 + b*x1 +c !=0 or a*x2*x2 + b*x2 +c !=0):
+            print("Erreur")
+        else:
+            print("Il y a deux racines réelles : x1 =", x1, "et x2 =", x2)
+    # Cas où il y a une seule solution réelle
+    elif d==0 :
+        print("Il y a une unique racine réelle : x =", -b/(2*a))
+    # Cas où il n'y aucune solution réelle
+    else:
+        print("Il y a deux racines complexes distinctes, z1 =", -b/(2*a),"+ i x",sqrt(-d)/(2*a), "et z2 =", -b/(2*a),"- i x",sqrt(-d)/(2*a),"i")

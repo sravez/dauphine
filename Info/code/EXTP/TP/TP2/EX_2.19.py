@@ -47,7 +47,7 @@ def s3(n: int) -> int:
 def s4(n: int) -> int:
     s = 0
     red = max(1, n - 18)
-    while red <= 6 and red + 2 <= n :
+    while red <= min(6, n - 2) :
         min_green = max(1, n - red - 10)
         max_green = min(8, n - red -1)
         s += max(0, max_green - min_green + 1)

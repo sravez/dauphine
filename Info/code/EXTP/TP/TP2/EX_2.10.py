@@ -1,4 +1,4 @@
-# On considèra que 0**0 = 1
+# On considèrera que 0**0 = 1
 x = -1.0
 while x < 0:
     x = float(input("Entrez un nombre positif : "))
