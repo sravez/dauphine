@@ -301,3 +301,106 @@ Soit $A = {q in QQ, q^2 < 2}$
 Si on considère $A$ comme sous-ensemble de $RR$, il est majoré par $sqrt(2)$ et l'on démontre aisément que c'est sa borne supérieure car de par la densité de $QQ$ dans $RR$, $forall epsilon > 0, (sqrt(2)- epsilon)$ n'est pas un majorant.
 
 Si on considère $A$ comme un sous-ensemble de $QQ$, $A$ est majoré mais ne possède pas de borne supérieure car $sqrt(2) in.not QQ$
+
+== Exercice 1.34
+
+$f$ fonction de $RR$ dans $RR$ vérifiant :
+- (i) $f$ n'est pas la fonction nulle
+- (ii) $forall(x,y) in RR^2, f(x+y) = f(x) + f(y)$
+- (iii) $forall(x y) in RR^2, f(x+y) = f(x) f(y)$
+
+=== 1.34.1
+==== 1.34.1.a
+
+$ f(0) = f(0 + 0) = f(0) + f(0) = 2f(0) " d'après (ii)" \ 
+==> f(0) = 0 $
+
+$ f(1) = f( 1 times 1) = f(1) times f(1) = f(1)^2 " d'après (iii) " \
+==> f(1) in {0 ; 1} $
+
+Or : $forall x in RR, f(x) = f(x times 1) = f(x)f(1)$
+
+$f$ n'étant pas la fonction nulle (i), $f(1)$ ne peut être nul et donc :
+$ f(1) = 1 $
+
+==== 1.34.1.b
+
+On démontre aisément par récurrence que : $forall x in RR, forall n in N, f(n x) = n f(x)$
+
+Et donc avec ($x = 1$), $forall n in NN, f(n) = n$
+
+$f$ est impaire car $f(0) = f(x - x) = f(x) + f(-x) = 0$ (la première propriété est donc vraie sur $ZZ$)
+
+Et donc $forall n in ZZ, f(n) = n$
+
+Soit un rationnel $x = p/q$
+
+Comme :
+$ 1 = f(1) = f(q 1/q) = q f(1/q) $
+On a
+$ f(1/q) = 1/q $
+Et donc :
+$ f(x) = f(p/q) = p times f(1/q) = p 1/q = x $
+
+=== 1.34.2
+==== 1.34.2.a
+
+Étant positif, $x$ possède une racine carrée réelle et donc :
+
+$f(x) = f(sqrt(x) sqrt(x)) = f(sqrt(x))^2 ≥ 0$
+
+==== 1.34.2.b
+
+Si $y ≥ x$, on a :
+
+$ f(y) - f(x) & = f(y) + f(-x) " car "f" est impaire" \
+              & = f(y + (-x)) " d'après (ii)" \
+              & = f(y - x) \
+              & ≥ 0 "d'après le point précédent" $
+
+$f$ est donc croissante.
+
+=== 1.34.3
+
+==== 1.34.3.a
+
+Soit $x in RR \\ QQ$
+
+$QQ$ étant dense dans $RR$ : $forall n in NN, exists r in Q, r in ]x - 1/n, x[$
+
+CQFD
+
+==== 1.34.3.b
+
+Soit : $epsilon >0$ et $x in RR$
+
+
+$ limits(lim)_(n -> +oo) 1/n = 0 <==>  exists n_epsilon in NN^*, forall k≥n_epsilon,  1/k < epsilon/2 $
+
+D'après le point précédent : $exists r in QQ, 0 < x - r < 1/n_epsilon$
+
+Et donc d'après l'inégalité triangulaire:
+
+$ |f(x) - x| &≤ |f(x) - r |     + |r -x | \ 
+             &< |f(x) + f(-r) | + 1/n_epsilon \ 
+             &< | f(x - r) |    + 1/n_epsilon \
+             &< f(x-r) + 1/n_epsilon " car, "f" étant croissante et "x-r > 0, f(x-r) ≥ f(0) = 0 \
+             &< f(1/n_epsilon) + 1/n_epsilon " car "f" croissante et " x-r < 1/n_epsilon \ 
+             &< 1/n_epsilon + 1/n_epsilon " car " 1/n_epsilon in QQ " donc " f(1/n_epsilon) = 1/n_epsilon\ 
+             &< 2/n_epsilon \
+             &< epsilon $
+
+Donc : $forall epsilon >0, forall x in RR, |f(x) - x| < epsilon$
+
+Il en résulte que : $forall x in RR, f(x) = x$
+
+== Exercice 1.35
+
+La réponse est évidemment *non*, encore faut-il le démontrer de manière rigoureuse.
+
+Soit $I = ]a,b[$ un intervalle ouvert de $RR$.
+
+Supposons qu'il existe deux intervalle ouverts non vides $I_1 = ]a_1,b_1[$ et $I_2 = ]a_2,b_2[$ tels que $I = I_1 union I_2$ et $I_1 inter I_2 = emptyset$.
+
+On numérote les intervalles tel que $a_1 ≤ a_2$.
+
