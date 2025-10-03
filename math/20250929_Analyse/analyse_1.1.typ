@@ -396,11 +396,63 @@ Il en résulte que : $forall x in RR, f(x) = x$
 
 == Exercice 1.35
 
-La réponse est évidemment *non*, encore faut-il le démontrer de manière rigoureuse.
+La réponse est évidemment *non*.
 
-Soit $I = ]a,b[$ un intervalle ouvert de $RR$.
+Soit $I = ]a,b[$ un intervalle ouvert de $RR$ avec $a in RR union {-oo}$ et $b in RR union {+oo}$
 
-Supposons qu'il existe deux intervalle ouverts non vides $I_1 = ]a_1,b_1[$ et $I_2 = ]a_2,b_2[$ tels que $I = I_1 union I_2$ et $I_1 inter I_2 = emptyset$.
+Supposons qu'il existe deux intervalles ouverts non vides $I_1 = ]a_1,b_1[$ et $I_2 = ]a_2,b_2[$ tels que $I = I_1 union I_2$ et $I_1 inter I_2 = emptyset$.
 
-On numérote les intervalles tel que $a_1 ≤ a_2$.
+Les intervalles sont numérotés tels que $a_1 ≤ a_2$.
 
+On a $a_2 ≥ b_1$ car sinon $]a_2, b_1[$ serait non vide et inclus dans l'intersection qui est vide.
+
+Il en résulte que $[b_1, a_2]$ est non vide et n'appartient pas à l'union des intervalles qui n'est donc pas un intervalle et ne peut donc être égale à $I$.
+
+== Exercice 1.36
+
+=== 1.36.1
+
+Soit $a in RR$ ; montrer que $ZZ + a ZZ$ est dense dans $RR$ si et seulement si $a in.not QQ$
+
+On a de manière évidente $ZZ + a ZZ = ZZ + (-a) ZZ = ZZ + (a - floor(a)) ZZ = ZZ + (1-(a-floor(a))) ZZ$
+
+On pourra donc se limiter, le cas échéant à $a in [0 ; 1/2]$.
+
+=== 1.36.1.a
+
+Soit $a in QQ$, $a$ peut s'écrire (de manière unique) sous la forme $a = E(a) + p/q$ où $p$ et $q$ sont deux entiers positifs premiers entre eux (on a $p<q$).
+
+Soit $x in ZZ + a ZZ$, $exists (n,k) in ZZ^2, x = n + k a$
+
+Soient $d$ et $r$, le dividende et le reste de la division euclidienne de $k$ par $q$ :
+
+$ k = d q + r " avec " r in {0,..,q-1} $
+
+On peut donc écrire :
+
+$ x = n + (d q + r)p/q = (n+d) + r p/q $
+
+Donc :
+
+$ x in ( r p/q + ZZ ) subset limits(union)_(s=0)^(q-1) ( s p/q + ZZ ) = limits(union)_(s=0)^(q-1) ( s/q + ZZ ) $
+
+La dernière égalité résulte du fait que $p$ et $q$ soient premiers entre eux, mais il y a de toute façon inclusion.
+
+On a donc :
+
+$ ZZ + a ZZ subset limits(union)_(s=0)^(q-1) ( s/q + ZZ ) $
+
+Il y a même égalité car $p$ et $q$ sont premiers entre eux mais ce n'est pas nécessaire à la démonstration.
+
+Il en résulte donc que $ZZ + a ZZ$ est un ensemble discret dont la différence entre deux éléments différents est supérieure ou égale à $1/q$.
+
+Donc :
+$ a in QQ ==> ZZ + a ZZ " n'est pas dense dans " RR $
+
+=== 1.36.1.b
+
+=== 1.36.2
+
+$ B = { cos(n), n in ZZ} = { cos(n + 2k pi), (n,k) in ZZ^2 } $
+
+$2pi$ n'est pas rationnel, donc d'après le point précédent, l'ensemble $ZZ + 2pi ZZ$ est dense dans $RR$ ; la fonction $cos$ étant continue, les bornes supérieure et inférieure de $B$ sont 1 et -1.

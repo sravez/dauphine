@@ -13,7 +13,6 @@
 
   image("MIDO_centre_20.png", width: 60%)
   
-  set align(horizon)
   text(size:18pt, weight: "bold")[
     #topic
 
