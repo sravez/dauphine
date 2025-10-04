@@ -441,7 +441,8 @@ On définit $A_n = {k + n/k, k in NN^*}$ pour $n in NN^*$
 
 Soit $f_n (x) = x + n/x$ sur $RR^*_+$.
 
-$f$ est évidemment positive et
+$f$ est évidemment positive avec :
+
 $ limits(lim)_(x -> 0^+) f_n (x)= +oo $
 et
 $ limits(lim)_(x -> +oo) f_n (x)= +oo $
@@ -450,16 +451,136 @@ Calculons la dérivée :
 
 $ f'_n (x) = 1 - n/x^2 $
 
-Qui s'annule pour $x = sqrt(n)$ où $f_n$ prend la valeur $f_n (sqrt(n)) = 2 sqrt(n)$
+Qui s'annule pour $x = sqrt(n)$ où $f_n$ prend la valeur $f_n (sqrt(n)) = 2 sqrt(n)$ :
 
+/*
 #tabvar(
        variable: $x$,
+       label: (([f'(x)], "s"),),
        domain: ($0$, $sqrt(n)$, $+oo$),
-       label: (($f'_n$,"s")),
        contents: (
-              ($-$, "0", $+$)
-       )
+              ($-$, ($0$,"+") )
+       ),
 )
+*/
+
+=== 1.13.2
+
+Comme $A_n = {f_n (k), n in NN^*}$, cet ensemble est minoré par la borne inférieure de $f$ soit $2sqrt(n)$ et admet donc une borne inférieure.
+
+$A_n$ n'est évidemment pas majoré.
+
+=== 1.13.3
+
+L'inégalité est évidente.
+
+Il y a égalité si $exists k in NN^*, k in sqrt(n)$ donc si $n$ est un carré parfait
+
+=== 1.13.4
+
+Soit $r = floor(sqrt(n))$ la partie entière de $sqrt(n)$ : $r ≤ sqrt(n) < r + 1$
+
+D'après les variations de $f$ :
+
+$ forall k < r, f_n (r) > r_n (r) " et " forall k > r+1, f_n (k) > f_n (r+1) $
+
+Donc $ forall k in NN^* \\ {r, r +1}, f_n (k) > min(f_n (r), f_n (r+1)) $
+
+La borne inférieure est donc $min (f_n (r) , f_n (r+1))$ qui est donc son plus petit élément car les deux valeurs appartiennent à $A_n$.
+
+== Exercice 1.14
+
+=== 1.14.1
+
+Soient deux réels $a$ et $b$ tels que $a < b$.
+
+Et $E = { (1-t)a + t b, t in [0,1]}$
+
+Soit $x in [a, b]$
+
+On pose $t = (x-a)/(b-a)$
+
+On a $x = (1-t)a + t b$ donc $x in E$ et donc : $ [a;b] subset E $
+
+Soit $y in E$ et $t in [0;1], y = (1-t)a + t b = a + t(b-a)$ :
+
+$(b-a) ≥ 0 ==> a ≤ y ≤ a + b - a = b$
+
+Donc $y in [a;b]$, donc : $ E subset [a;b] $
+
+Ce qui démontre l'égalité : $ [a;b] =  { (1-t)a + t b, t in [0,1]} $
+
+=== 1.14.2
+
+Soit : $ I = { x-y, x in [-1;4], y in [-3;-1]} $
+
+De manière évidente $I = [0 ; 7]$
+
+$ [-1;4] = { -(1-t) + 4t, t in [0,1]} = { 5t - 1, t in [0,1]} $
+
+$ [-3;1] = { -3(1-u) - u, u in [0,1]} = { 2u - 3, u in [0,1]} $
+
+Et donc : 
+
+$ I = { 5t - 1 -2u +3, (t,u) in [0,1]^2} = { 5t -2u + 2, (t,u) in [0,1]^2 } $
+
+Soit $v = (5t -2u +2)/7$, alors $v in [0,1]$ et $I = { (1-v)times 0 + 7v, v in [0,1]} = [0; 7]$
+
+== Exercice 1.15
+
+=== 1.15.1
+
+Il suffit que les intervalles soient disjoints (comme $[1;2]$ et $[3;5]$) pour que leur union ne soit pas un intervalle.
+
+=== 1.15.2
+
+Soit deux intervalles ouverts $]a_1 ; b_1[$ et $]a_2, b_2[$.
+
+On conviendra que $a_1 ≤ a_2$.
+
+Si $b_1 ≤ a_2$, l'intersection est vide.
+
+Si $b_1 > a_2$, l'intersection est $]a_2, min(b_1, b_2) [$
+
+On peut écrire : 
+$ ]a_1 ; b_1[ " "inter" " ]a_2 ; b_2[ " "=" " ]max(a_1,a_2),min(b_1, b_2)[ $
+
+que l'on considèrera comme vide si $max(a_1,a_2) > min(b_1, b_2)$
+
+== Exercice 1.17
+
+=== 1.17.1
+Soit $epsilon > 0$.
+
+Quels sont les entiers naturels vérifiant $1/(n^2+1)< epsilon$ ?
+
+Si $epsilon ≥ 1$, l'ensemble des solutions est $NN$.
+
+Supposons maintenant que $epsilon < 1$.
+
+$ &1/(n^2+1) < epsilon \ 
+ <==> &n^2 > 1/epsilon -1 \
+ <==> &n > sqrt(1/epsilon -1) \
+ <==> &n > floor(sqrt(1/epsilon -1)) " car "n" est entier" $
+
+L'ensemble des solutions est donc $S = {n in NN, n ≥ 1 + floor(sqrt(1/epsilon -1))}$
+
+=== 1.17.2
+
+Soit $A > 0$.
+
+Quels sont les entiers naturels vérifiant $sqrt(n^2 - n) > A$ ?
+
+$    & sqrt(n^2 - n) > A \
+<==> & n^2 -n -A^2 > 0$
+
+Cette équation du second degré possède deux racines réelles de signes opposés, la racine positive étant :
+$ r= (1+sqrt(1+4A^2))/2 $
+
+Les solutions sont donc les entiers strictement supérieurs à $r$ soient ceux strictement supérieurs à sa partie entière :
+
+$ S = { n in NN, n > floor((1+sqrt(1+4A^2))/2)} $
+
 
 == Exercice 1.25
 
