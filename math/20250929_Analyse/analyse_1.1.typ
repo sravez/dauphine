@@ -1,3 +1,5 @@
+#import "@preview/vartable:0.2.2": tabvar
+
 = Exercice du chapitre 1
 
 == Exercice 1.1
@@ -252,6 +254,213 @@ $A$ étant borné, il admet des bornes inférieure et supérieure.
 
 $ sup(B) = 1/inf(A) " et " inf(B) = 1/sup(A) $
 
+
+== Exercice 1.8
+
+$A$ partie non vide de $RR$
+
+Soit $B = { m in RR | " "]m, +oo[ subset A }$
+
+=== 1.8.1
+
+Supposons que $B$ admet une borne inférieure $b$.
+
+Suppsons que $b in.not B$.
+
+Soit $x in ]b , +oo[$
+
+$b$ étant la borne inférieure et n'appartenant pas à $B$ :
+
+$ exists y in B inter " " ]b, (b+x)/2[ $
+
+Ce qui signifie que $]y,+oo[ subset A$. Or $x>y$ et donc $x in A$.
+
+Donc $]b, +oo[ subset A$ ce qui signifie que $b in B$
+
+CQFD
+
+=== 1.8.2
+
+Supposons que le complémentaire $A^c$ de $A$ admet une borne supérieure $s$.
+
+$ x in B &<==> ]x,+oo[ subset A \
+         &<==> ] x, +oo[ subset.not A^c \
+         &<==> A^c subset ]-oo, x] \
+         &==> s≤x$
+
+$B$ est donc minoré et admet donc une borne inférieure $b$ qui est supérieure ou égale à $s$.
+
+Raisonnons par l'absurde et supposons que $s≠b$ (donc $s<b$) et posons $y=(s+b)/2$, on a :
+
+$ y < b &==> y in.not B \
+        &==> ]y,+oo[ subset.not A \
+        &==> ]y,+oo[ inter A^c ≠ emptyset \ 
+        &==> sup(A^c) ≥ y > s$
+
+Ce qui absurde, et donc $s = b$.
+
+CQFD
+
+=== 1.8.3
+
+Raisonnons par l'absurde et supposons que  $A$ est majoré par $m$ et $A^c$ par $m_c$.
+
+Soit $x = max(m, m_c) + 1$
+
+Il en découle que $x in.not A union A^c$, ce qui est absurde car par définition $A union A^c = RR$.
+
+
+== Exercice 1.10
+=== 1.10.1
+
+Soit $A = { 1/m + 1/n, (m,n) in NN^* times NN^*}$
+
+==== 1.10.1.a
+
+De manière évidente $A subset ]0 ; 2]$
+
+==== 1.10.1.b
+
+$ sup(A) = 2 " (qui est son plus grand élément)" $
+
+$ inf(A) = 0 $
+
+C'est évident mais on peut le démontrer rigoureusement par :
+
+$   &forall epsilon >0, exists n in NN^*, 1/n < epsilon / 2 \
+==> &forall epsilon >0, exists n in NN^*, 1/n + 1/n< epsilon \
+==> &forall epsilon >0, exists x in A, x < epsilon $
+
+=== 1.10.2
+
+Soit $B = { 1/m - 1/n, (m,n) in NN^* times NN^*}$
+
+==== 1.10.2.a
+
+De manière évidente $B subset ]-1 ; 1[$
+
+==== 1.10.2.b
+
+$B$ étant bornée, admet une borne inférieure et une borne supérieure.
+
+Démontrons que :
+$ sup(B) = 1 $
+
+$&forall epsilon >0, exists n in NN^*, 1/n < epsilon\
+==> &forall epsilon>0, exists n in NN^*, 1 - epsilon < 1/1 - 1/n < 1$
+
+Le raisonnement est similaire pour :
+$ inf(B) = -1 $
+
+
+== Exercice 1.11
+
+Soit $ A = { 0,1 " "; 0,11 " "; 0,101 " "; 0,1001 " "; 0,10001 " ";...} \
+         = { 0,1 } union {0,1 + 10^(-(n+1)), n in NN^*} $
+
+De manière évidente :
+$ sup(A) = 0,11 " et " inf(A) = 0,1 $
+
+== Exercice 1.12
+
+$A$ et $B$ deux parties non vides de $RR$ vérifiant :
+$ forall a in A, forall b in B, a≤b $
+
+=== 1.12.1
+
+$A$ est majoré par tout élément de $B$ et admet donc une borne supérieure.
+
+$B$ est minoré par tout élément de $A$ et admet donc une borne inférieure.
+
+Si $sup(A) in A$, $sup(A)$ est un minorant de $B$ et est donc inférieur ou égale à $inf(B)$ qui est le plus grand des minorants. Même raisonnement si $inf(B) in B$
+
+Supposons que : $sup(A) > inf(B)$
+
+Posons $m =(sup(A) + inf(B))/2$ et donc : $inf(B) < m < sup(A)$
+
+Par définition des bornes : 
+$ exists (x_A, x_B) in A times B, x_A in ]m, sup(A)], x_B in [inf(B), m[ $
+
+Ce qui entraînerait $ exists (x_A, x_B) in A times B, x_A > x_B $ ce qui est absurde.
+
+Et donc :
+$ sup(A) ≤ inf(B) $
+
+=== 1.12.2
+
+==== 1.12.2.a Première implication
+
+Supposons que $sup(A) = inf(B)$
+
+Soit $epsilon >0$.
+
+Par définition des bornes : 
+$ exists a in A, a in ]sup(A)-epsilon/2; sup(A)] " et " exists b in B, b in [inf(B); inf(B) + epsilon/2[ $
+
+Et donc :
+$ exists (a,b) in A times B , b-a <inf(B) + epsilon/2 -(sup(A)-epsilon/2) = epsilon$
+
+Donc :
+
+$ sup(A) = sup(B) ==> forall epsilon >0, exists a in A, exists b in B, b-a ≤ epsilon $
+
+==== 1.12.2.b Deuxième implication (via la contraposée)
+
+Supposons que $sup(A) ≠ inf(B)$.
+
+On a donc $sup(A) < inf(B)$ d'après *1.12.1*
+
+On a donc : 
+$ forall a in A, forall B in B, a≤sup(A)<inf(B) ≤ b $
+
+En posant $epsilon = (inf(B) -sup(A))/2 > 0$ : 
+$ forall a in A, forall B in B, b-a ≥ inf(B) - sup(A) > epsilon $
+
+Donc 
+
+$ sup(A) ≠ inf(B) ==> exists epsilon >0, forall a in A, forall b in B, b-a > epsilon $
+
+Ce qui est équivalent :
+
+$ forall epsilon >0, exists a in A, exists b in B, b-a ≤ epsilon ==> sup(A) = sup(B) $
+
+Cela démontre l'équivalence.
+
+==== 1.12.3
+
+Un exemple de parties adjacentes est :
+
+$ A = [0 ; 1] " et " B=[1;2] $
+
+
+== Exercice 1.13
+
+On définit $A_n = {k + n/k, k in NN^*}$ pour $n in NN^*$
+
+=== 1.13.1
+
+Soit $f_n (x) = x + n/x$ sur $RR^*_+$.
+
+$f$ est évidemment positive et
+$ limits(lim)_(x -> 0^+) f_n (x)= +oo $
+et
+$ limits(lim)_(x -> +oo) f_n (x)= +oo $
+
+Calculons la dérivée :
+
+$ f'_n (x) = 1 - n/x^2 $
+
+Qui s'annule pour $x = sqrt(n)$ où $f_n$ prend la valeur $f_n (sqrt(n)) = 2 sqrt(n)$
+
+#tabvar(
+       variable: $x$,
+       domain: ($0$, $sqrt(n)$, $+oo$),
+       label: (($f'_n$,"s")),
+       contents: (
+              ($-$, "0", $+$)
+       )
+)
+
 == Exercice 1.25
 
 Soient $U$ une partie dense de $RR$ et $a$ $b$ deux réels tels que $a<b$.
@@ -274,7 +483,6 @@ ci-dessus est supérieur ou égal à $n$.
 Donc : $forall n in NN, op("card") (U inter ]a;b[) ≥ n$
 
 L'ensemble $U inter ]a;b[$ est donc infini.
-
 
 == Exercice 1.27
 Soit $U$ l’ensemble des nombres rationnels ayant, dans leur écriture sous forme de fraction irréductible, un dénominateur impair.
@@ -414,42 +622,81 @@ Il en résulte que $[b_1, a_2]$ est non vide et n'appartient pas à l'union des 
 
 Soit $a in RR$ ; montrer que $ZZ + a ZZ$ est dense dans $RR$ si et seulement si $a in.not QQ$
 
-On a de manière évidente $ZZ + a ZZ = ZZ + (-a) ZZ = ZZ + (a - floor(a)) ZZ = ZZ + (1-(a-floor(a))) ZZ$
+On nommera $E_a = ZZ + a ZZ$
+
+On a de manière évidente $E_a = E_(-a) = ZZ + (a - floor(a)) ZZ = ZZ + (1-(a-floor(a))) ZZ$
 
 On pourra donc se limiter, le cas échéant à $a in [0 ; 1/2]$.
 
-=== 1.36.1.a
+=== 1.36.1.a $a in QQ => E_a$ n'est pas dense dans $RR$
 
-Soit $a in QQ$, $a$ peut s'écrire (de manière unique) sous la forme $a = E(a) + p/q$ où $p$ et $q$ sont deux entiers positifs premiers entre eux (on a $p<q$).
+Soit $a in QQ$.
 
-Soit $x in ZZ + a ZZ$, $exists (n,k) in ZZ^2, x = n + k a$
+Si $a in ZZ$, $E_a = ZZ$ (car $a ZZ subset ZZ$) qui est discret.
 
-Soient $d$ et $r$, le dividende et le reste de la division euclidienne de $k$ par $q$ :
+Si $a in.not ZZ$, il peut s'écrire (de manière unique) sous la forme $a = E(a) + p/q$ où $p$ et $q$ sont deux entiers strictement positifs premiers entre eux ($0<p<q$). On a donc :
 
-$ k = d q + r " avec " r in {0,..,q-1} $
+$ E_a = E_(p/q) subset E_(1/q) = 1/q ZZ $
 
-On peut donc écrire :
+Ce qui suffit à démontrer que $E_a$ est discret, mais, $p$ et $q$ étant premiers entre eux :
+$ { k p mod q, k in ZZ} = { k p mod q, k in {0,...q-1} } = {0,..., q-1} $
 
-$ x = n + (d q + r)p/q = (n+d) + r p/q $
+Ce qui entraîne : $ E_(p/q) = E_(1/q) $
 
-Donc :
-
-$ x in ( r p/q + ZZ ) subset limits(union)_(s=0)^(q-1) ( s p/q + ZZ ) = limits(union)_(s=0)^(q-1) ( s/q + ZZ ) $
-
-La dernière égalité résulte du fait que $p$ et $q$ soient premiers entre eux, mais il y a de toute façon inclusion.
-
-On a donc :
-
-$ ZZ + a ZZ subset limits(union)_(s=0)^(q-1) ( s/q + ZZ ) $
-
-Il y a même égalité car $p$ et $q$ sont premiers entre eux mais ce n'est pas nécessaire à la démonstration.
-
-Il en résulte donc que $ZZ + a ZZ$ est un ensemble discret dont la différence entre deux éléments différents est supérieure ou égale à $1/q$.
 
 Donc :
 $ a in QQ ==> ZZ + a ZZ " n'est pas dense dans " RR $
 
 === 1.36.1.b
+
+* Lemme préliminaire * : $E_a$ dense $<==>$ $E_a$ dense à droite de 0
+
+L'implication $==>$ est évidente.
+
+La réciproque $<==$ découle du fait que $E_a$ est invariant par translation de la valeur d'un de ses éléments (et donc d'un multiple de cette valeur).
+
+Soit un intervalle $I = ]alpha, beta[$ non vide.
+
+$E_a$ étant dense à droite de 0 : $exists x in E_a inter ]0,(beta - alpha)/2[$
+
+Soit : $x' = (floor(alpha / x) + 1) x$, on a donc :
+
+$ alpha < x' ≤ alpha + x < alpha + (beta - alpha)/2 = (alpha + beta)/2 $
+
+Donc $x' in I$, ce qui démontre la réciproque.
+
+=== 1.36.1.c $E_a$ n'est pas dense dans $RR ==> " "a in QQ$
+
+Supposons que $E_a$ n'est pas dense dans $RR$, il existe donc $x_0$ tel que $E_a inter ]0,x_0[ = emptyset$.
+
+Soit $m$ la borne inférieure de $[x_0, +oo[ inter E_a$.
+
+Il en découle que : $]0,m[ inter E_a = emptyset$
+
+Démontrons par l'absurde que $m in E_a$.
+
+Si $m in.not E_a, forall n in NN^*, exists x_n in E_a, m < x_n < m + 1/(2n)$
+
+$E_a$ étant stable par addition et soustraction, il est symétrique par rapport à chacun de ses éléments. Le symétrique $I_n$ de $]0,m[$ par rapport à $x_n$ a donc une intersection nulle avec $E_a$.
+
+Or : $I_n = ]2 x_n - m, 2 x_n [ " " supset " " ]m+ 1/n , 2m[$, donc :
+
+$ forall n in NN^*, E_a inter ]m+ 1/n , 2m[ = emptyset $
+
+Il en découle que : 
+$ E_a inter ]m, 2m[ = emptyset $
+et que, si $m in.not E_a$,
+$ E_a inter [m, 2m[ = emptyset $ 
+ce qui infirme que $m$ soit la borne inférieure de $[x_0, +oo[ inter E_a$.
+
+Donc $m in E_a$ et il est alors évident que $E_a = m ZZ$ 
+
+$a$ est donc un multiple de $m$ car $a ZZ subset m ZZ$.
+
+De $ZZ subset E_a$, il découle que $m in QQ$ et donc que $a in QQ$ car multiple d'un rationnel.
+
+CQFD
+
 
 === 1.36.2
 
