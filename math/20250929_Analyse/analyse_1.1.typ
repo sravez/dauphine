@@ -661,6 +661,65 @@ Ce qui équivaut à : $E(x)+ 1 = E(x+1)$
 
 === 1.18.2
 
+On définit :
+
+$ cases(
+       d_x = x - E(x) & ==> 0≤d_x<1 \
+       d_y = y - E(y) & ==> 0≤d_x<1 \
+       d = d_x + d_y  & ==> 0≤ d <2  ==> E(d) in {0;1}\
+       d_d = d - E(d) & ==> 0≤d_d<1
+) $
+
+On a donc : 
+$ E(x+y) &= E(E(x) + d_x + E(y) +d_y) \
+         &= E(E(x) + E(y) + d) \
+         &= E((E(x) + E(y) + E(d)) + d_d)  $
+
+Comme $E(x) + E(y) + E(d) in ZZ$ et $d in [0;1[$ :
+$ E(x+y) = E(x) + E(y) + E(d) $
+
+Les deux inégalités sont alors évidentes car $E(d) in {0;1}$
+
+== Exercice 1.18 bis
+
+=== 1.18b.1
+
+Soit $x in RR$.
+
+Posons : $d = x - E(x)$ ; $d in [0; 1[$
+
+Considérons 2 cas :
++ $d in [0; 1/2[$
++ $d in [1/2 ; 1[$
+
+==== Cas 1 : $d in [0; 1/2[$
+
+Alors :
+
+$E(2x) = E(2E(x) + 2d) = 2E(x)$
+
+Comme :
+
+$E(x) ≤ x + 1/2 = E(x) + (d + 1/2) < E(x) + 1$
+
+On a $E(x+1/2) = E(x)$ et donc :
+
+$ E(2x) = E(x) + E(x+1/2) $
+
+==== Cas 2 : $d in [1/2 ; 1[$
+
+
+Alors :
+
+$E(2x) = E(2E(x) + 2d) = 2E(x) + 1$ car $2d in [1;2[$
+
+Comme :
+
+$ x + 1/2 = x + d + $
+
+==== Conclusion
+
+L'égalité étant vraie dans les deux cas, elle l'est pour tout réel.
 
 == Exercice 1.25
 
