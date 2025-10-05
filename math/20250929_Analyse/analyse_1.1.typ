@@ -1,3 +1,5 @@
+#import "@preview/cetz:0.4.2"
+#import "@preview/cetz-plot:0.1.3"
 #import "@preview/vartable:0.2.2": tabvar
 
 = Exercice du chapitre 1
@@ -453,16 +455,46 @@ $ f'_n (x) = 1 - n/x^2 $
 
 Qui s'annule pour $x = sqrt(n)$ où $f_n$ prend la valeur $f_n (sqrt(n)) = 2 sqrt(n)$ :
 
-/*
 #tabvar(
-       variable: $x$,
-       label: (([f'(x)], "s"),),
-       domain: ($0$, $sqrt(n)$, $+oo$),
-       contents: (
-              ($-$, ($0$,"+") )
-       ),
+  first-column-width: 2cm,     
+  variable: $x$,
+  label: (
+    ($f'$, "s"),
+    ($f$ , "v"),
+  ),
+  domain: ($0$, $sqrt(n)$, $+oo$),
+  contents: (
+    (("||",$-$), ("0",$+$)),
+    (
+      (top, "||", $+oo$),
+      (bottom, $2 sqrt(n)$),
+      (top, $+oo$)
+    ),
+  )
 )
-*/
+
+#cetz.canvas({
+  import cetz.draw: *
+  import cetz-plot: *
+  
+  let n = 4
+  plot.plot(
+      size: (5,5),
+
+    axis-style: "school-book",
+    x-min:0, x-max: 2*n    , x-tick-step: none, x-ticks:((calc.sqrt(n)    , [$sqrt(n)$]),),
+    y-min:0, y-max: 2*n + 2, y-tick-step: none, y-ticks:((2 * calc.sqrt(n), [$2sqrt(n)$]),),
+    y-label: $f_n (x)$,
+    {
+      plot.add(
+        domain:(0.01,2*n),
+        x => x + n/x)
+      plot.add-hline(2*calc.sqrt(n), style: (stroke: 0.5pt + gray))
+      plot.add-vline(calc.sqrt(n)  , style: (stroke: 0.5pt + gray))
+    
+    }
+  )  
+})
 
 === 1.13.2
 
@@ -579,7 +611,55 @@ $ r= (1+sqrt(1+4A^2))/2 $
 
 Les solutions sont donc les entiers strictement supérieurs à $r$ soient ceux strictement supérieurs à sa partie entière :
 
-$ S = { n in NN, n > floor((1+sqrt(1+4A^2))/2)} $
+$ S = { n in NN, n ≥ floor((1+sqrt(1+4A^2))/2) + 1} $
+
+== Exercice 1.17 bis
+
+=== 1.17b.1
+
+Soit $epsilon > 0$.
+
+Quels sont les entiers de $NN^*$ vérifiant $1/(ln(n))< epsilon$ ?
+
+On a évidemment $n>1$
+
+La fonction $exp$ étant strictement croissante et $n>1 => ln(n) > 0$ :
+
+$    & 1/(ln(n))< epsilon \
+<==> & ln(n) > 1/epsilon \
+<==> & n > exp(1/epsilon) \
+<==> & n > floor(exp(1/epsilon)) \
+<==> & n ≥ 1 + floor(exp(1/epsilon)) $
+
+=== 1.17b.2
+
+Soit $A > 0$.
+
+Quels sont les entiers naturels vérifiant $3^n > A$ ?
+
+$    & 3^n > A \
+<==> & n ln(3) > ln(A) \
+<==> & n > ln(A)/ln(3) \ 
+ ==> & n > floor(ln(A)/ln(3)) $
+
+Donc :
+$ S &= NN inter {1 + floor(ln(A)/ln(3)),...} \ 
+    &= cases(
+         NN                           &" si " A<1 \
+         {1 + floor(ln(A)/ln(3)),...} &" si " A≥1
+       ) $
+
+== Exercice 1.18
+
+=== 1.18.1
+
+$E(x)$ est le seul entier vérifiant : $x-1 < E(x) ≤ x$.
+
+Il en résulte que : $(x+1) - 1 < E(x)+1 ≤ (x+1)$
+
+Ce qui équivaut à : $E(x)+ 1 = E(x+1)$
+
+=== 1.18.2
 
 
 == Exercice 1.25
