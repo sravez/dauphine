@@ -506,7 +506,7 @@ $A_n$ n'est évidemment pas majoré.
 
 L'inégalité est évidente.
 
-Il y a égalité si $exists k in NN^*, k in sqrt(n)$ donc si $n$ est un carré parfait
+Il y a égalité si $exists k in NN^*, k = sqrt(n)$ donc si $n$ est un carré parfait
 
 === 1.13.4
 
@@ -811,11 +811,118 @@ CQFD
 
 Soient $p$ et $q$ deux entiers premiers entre eux.
 
-$ limits(sum)_(k=1)^(q-1) E(k p/q) &= limits(sum)_(k=1)^(q-1) E((q-k) p/q) \
-                                   &= limits(sum)_(k=1)^(q-1) E(p - k p/q) $
+On sait alors que $q$ divise $p n$ ($n in ZZ$) si et seulement si $q$ divise $n$. Donc, $q$
+ ne divisant aucun des entiers de 1 à $q-1$, on a : $forall k in {1,...,q-1}, k p/q in.not ZZ$.
+
+$ limits(sum)_(k=1)^(q-1) E(k p/q) &= limits(sum)_(k=1)^(q-1) (-1 - E(-k p/q)) " d'après la question précédente" \
+                                   &= -(q - 1) - limits(sum)_(k=1)^(q-1) E(-k p/q) \
+                                   &= -(q - 1) - limits(sum)_(k=1)^(q-1) E(-(q-k) p/q) " changement d'indice "k' = k - q\
+                                   &= -(q - 1) - limits(sum)_(k=1)^(q-1) E(k p/q - p) \
+                                   &= -(q - 1) - limits(sum)_(k=1)^(q-1) (E(k p/q) - p) " car "forall (x,n) in RR times ZZ, E(x-n) = E(x)-n \
+                                   &= -(q - 1) + (q-1)p - limits(sum)_(k=1)^(q-1) E(k p/q) \
+                                   &= (q-1)(p-1) - limits(sum)_(k=1)^(q-1) E(k p/q) $
+                                
+Et donc :
+
+$ limits(sum)_(k=1)^(q-1) E(k p/q) = ((q-1)(p-1))/2 $
+
+CQFD
+
+== Exercice 1.21
+
+Montrer que les ensembles suivants sont bornés.
+
+=== 1.21.1
+
+$ A = { x in RR | x^2 < 12} $
+
+$ x in A & <==> x^2 < 12 \ 
+         & <==> |x| < 2sqrt(3) \
+         & <==> x in ]-2sqrt(3) ; 2sqrt(3) [ $
+
+$A = ]-2sqrt(3) ; 2sqrt(3) [$ est donc borné
+
+=== 1.21.2
+
+$B = { x^7 - 8 x^3 -5, x in ]-2;2[ }$
+
+Soit $f(x) = x^7 - 8 x^3 -5$
+
+$f$ est définie et continue sur $RR$, l'image par $f$ d'un ensemble borné est donc borné.
+
+=== 1.21.3
+
+$C = { (sin(x) + 3/(x^2+4))^5, x in RR}$
+
+D'après la croissance de la fonction $f(x) = x^5$ et l'inégalité triangulaire :
+
+$ forall x in RR,  abs((sin(x) + 3/(x^2+4))^5) &= abs(sin(x) + 3/(x^2+4))^5 \
+                                               &≤ (abs(sin(x)) + abs(3/(x^2+4)))^5 \
+                                               &≤ (1 + 3/4)^5 \ 
+                                               &< 2^5 = 64 $
+
+Donc : $C subset [-64; 64]$  et est donc borné.
+
+== Exercice 1.22
+
+Soit $A$ une partie non vide et bornée de $RR$. On définit :
+$ B= { |x-y|, (x,y) in A^2} $
+
+=== 1.22.1
+
+Si $A$ est borné : $exists M, forall x in A, |x| ≤ M$
+
+Alors :
+
+$ &forall (x, y) in A^2, |x-y| ≤ |x| + | y| ≤ 2M \
+==> &forall b in B, 0≤b≤ 2M$
+
+$B$ est donc borné et admet donc une borne inférieure et une borne supérieure.
+
+=== 1.22.2
+
+0 est évidemment le plus petit élément de $B$.
+
+=== 1.22.3
+
+$ &forall (x,y) in A^2, cases(
+    inf(A) ≤ x ≤ sup(A),
+    -sup(A) ≤ -y ≤ -inf(A)
+) \ 
+==> &forall (x,y) in A^2, inf(A) - sup(A) ≤ x - y ≤ sup(A) - inf(A) \
+==> &forall (x,y) in A^2, |x-y| ≤ sup(A) - inf(B) \
+==> &forall b in B, b ≤ sup(A) - inf(A) \
+==> & sup(B) ≤ sup(A) - inf(A) $
+
+=== 1.22.4
+
+Soit $epsilon >0$.
+
+D'après la définition des bornes supérieure et inférieure :
+
+$ & cases(
+    exists x_epsilon in A \, sup(A) - epsilon < x_epsilon ≤ sup(A) \
+    exists y_epsilon in A \, inf(A) ≤ y_epsilon < inf(A) + epsilon
+) \
+==> exists (x_epsilon, y_epsilon) in A^2, &sup(A) - inf(A) -2 epsilon < x_epsilon - y_epsilon ≤ sup(A) - inf(A) \ 
+==> exists (x_epsilon, y_epsilon) in A^2, &sup(A) - inf(A) -2 epsilon < x_epsilon - y_epsilon ≤ | x_epsilon - y_epsilon|  \
+==> exists (x_epsilon, y_epsilon) in A^2, &| x_epsilon - y_epsilon| > sup(A) - inf(A) -2 epsilon $
+
+CQFD
+
+=== 1.22.5
+
+Il résulte des 2 points précédents que :
+
+$ forall epsilon > 0, sup(A) - inf(A) -2 epsilon < sup(B) ≤ sup(A) - inf(A) $
+
+Et donc :
+
+$ sup(B) = sup(A) - inf(A) $
+
 == Exercice 1.25
 
-Soient $U$ une partie dense de $RR$ et $a$ $b$ deux réels tels que $a<b$.
+Soient $U$ une partie dense de $RR$ et $a$ $b$ deux réels tels que $a<b$. 
 
 Soit $n in NN^*$.
 
