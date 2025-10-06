@@ -696,13 +696,13 @@ Considérons 2 cas :
 
 Alors :
 
-$E(2x) = E(2E(x) + 2d) = 2E(x)$
+$E(2x) = E(2E(x) + 2d) = 2E(x)$ car $2d in [0;1[$
 
-Comme :
+et
 
-$E(x) ≤ x + 1/2 = E(x) + (d + 1/2) < E(x) + 1$
+$&x + 1/2 = E(x) +(d + 1/2) ==> &E(x+1/2) = E(x)$ car $(d+1/2) in [1/2; 1[ subset [0;1[$
 
-On a $E(x+1/2) = E(x)$ et donc :
+Et donc :
 
 $ E(2x) = E(x) + E(x+1/2) $
 
@@ -711,16 +711,108 @@ $ E(2x) = E(x) + E(x+1/2) $
 
 Alors :
 
-$E(2x) = E(2E(x) + 2d) = 2E(x) + 1$ car $2d in [1;2[$
+$E(2x) = E(2E(x) + 2d) = E(2E(x)+1 + (2d-1)) = 2E(x) + 1$ car $(2d-1) in [0;1[$
 
-Comme :
+et
 
-$ x + 1/2 = x + d + $
+$x+1/2 = E(x) + 1 + (d-1/2) ==> &E(x+1/2) = E(x) +1 $ car $(d-1/2) in [0; 1/2[ subset [0;1[$
+
+Et donc :
+
+$ E(2x) = E(x) + E(x+1/2) $
 
 ==== Conclusion
 
 L'égalité étant vraie dans les deux cas, elle l'est pour tout réel.
 
+=== 1.18b.2
+
+Soient $x in RR$, $n in NN^*$
+
+Posons :
+- $d=x - E(x)$ 
+- $d' = n d - E(n d)$
+
+Par définition $(d,d') in [0;1[ times [0;1[$
+
+Alors : $n x = n E(x) + n d = n E(x) + E(n d) + d'$
+
+$==> E(n x) = n E(x) + E (n d) \
+==> E(n x)/n = E(x) +E(n d)/n$
+
+Or : $n d in [0;n[ ==> 0≤ E(n d) < n ==> 0≤ E(n d)/n <1$
+
+Ce qui implique :
+
+$ E(E(n x)/n) = E(x)$
+
+
+== Exercice 1.19
+
+=== 1.19.1
+
+Soit $ n in NN^*$
+
+$ (2+sqrt(3))^n + (2-sqrt(3))^n &= limits(sum)_(k=0)^n binom(n,k) 2^(n-k) sqrt(3)^k + limits(sum)_(k=0)^n binom(n,k) 2^(n-k) (-sqrt(3))^k \
+&= limits(sum)_(k=0)^n binom(n,k) 2^(n-k) (sqrt(3)^k + (-sqrt(3))^k) \
+&= limits(sum)_(k=0)^n binom(n,k) (1+ (-1)^k) 2^(n-k) sqrt(3)^k $
+
+Tous les membres de rang impair étant nuls (cf. $1+ (-1)^(2i+1) = 0$), il ne reste que les membres de rang pair (de 0 à $2E(n/2)$) :
+
+$ (2+sqrt(3))^n + (2-sqrt(3))^n &= limits(sum)_(i=0)^E(n/2) binom(n,2i) 2 times 2^(n-2i) sqrt(3)^(2i) \
+                                &= 2 limits(sum)_(i=0)^E(n/2) binom(n,2i) 2^(n-2i) 3^i $
+
+*Ce qui démontre la parité* comme une somme d'entiers multipliée par 2.
+/*
+On a : $n = 2E(n/2) + epsilon$ avec $epsilon in {0;1}$
+
+$ (2+sqrt(3))^n + (2-sqrt(3))^n &= 2 limits(sum)_(i=0)^E(n/2) binom(n,2i) 2^epsilon 2^(2(E(n/2)-i)) 3^i \
+                                &= 2^(1+epsilon)  limits(sum)_(i=0)^E(n/2) binom(n,2i)  4^(E(n/2)-i) 3^i $ 
+
+
+*/
+
+On aurait pu également procéder en montrant que :
+
+$p_n = (2+ sqrt(3))^n$ est de la forme $alpha_n + beta_n sqrt(3)$ avec $(alpha_n, beta_n) in NN^* times NN^*$.
+
+Et que : $m_n = (2-sqrt(3))^n = alpha_n - beta_n sqrt(3)$
+
+
+=== 1.19.2
+
+On a : $0 < 2-sqrt(3) <1$ et donc $forall n in NN^*, (2-sqrt(3))^n in ]0;1[$
+
+Donc : 
+
+$ (2+sqrt(3))^n  &= 2k - (2-sqrt(3))^n \
+                 &= 2k -1 + (1 - (2-sqrt(3))^n) $
+
+Ce qui démontre que $E((2+sqrt(3))^n)$ est impair car $ (1 - (2-sqrt(3))^n) in ]0;1[$
+
+== Exercice 1.20
+
+=== 20.1
+
+$ x in ZZ <==> E(x) = x $
+
+Donc : $x in ZZ ==> E(x) + E(-x) = x + (-x) = 0$
+
+$x in.not Z ==> exists! d in ]0;1[, x = E(x) + d $
+
+Donc : $-x = -E(x)-1 + (1-d) $ 
+
+Comme $(-E(x)-1) in ZZ$ et $(1-d) in ]0;1[$ :
+$ E(-x) = -E(x) - 1 $
+
+CQFD
+
+=== 20.2
+
+Soient $p$ et $q$ deux entiers premiers entre eux.
+
+$ limits(sum)_(k=1)^(q-1) E(k p/q) &= limits(sum)_(k=1)^(q-1) E((q-k) p/q) \
+                                   &= limits(sum)_(k=1)^(q-1) E(p - k p/q) $
 == Exercice 1.25
 
 Soient $U$ une partie dense de $RR$ et $a$ $b$ deux réels tels que $a<b$.
