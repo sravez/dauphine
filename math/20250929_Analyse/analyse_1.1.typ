@@ -929,7 +929,7 @@ Soit $A$ et $B$ des parties non vides et bornées de $RR$.
 Montrer que $C = {a+e^b-a^2, (a,b) in A times B}$ est bornée.
 
 Les fonctions $f(x) = x -x^2$ et $g(x) = e^x$ sont définies et continues sur $RR$. $A$ et $B$ étant inclus dans des fermés bornés de $R$,
-leur image par respectivement $f$ et $g$ est également bornée ; $C$ l'est donc également comme somme deux valeurs bornées.
+leur image par respectivement $f$ et $g$ est également bornée ; $C$ l'est donc également car constitué d'éléments étant la somme deux valeurs bornées.
 
 == Exercice 1.23 bis
 
@@ -937,6 +937,29 @@ Soit $A$ et $B$ des parties non vides de $RR$ avec $A$ bornée.
 
 Montrer que $D = {ln(1+a^2) + b/(1+|b|) -2, (a,b) in A times B}$ est borné
 
+$f(x)= ln(a+x^2)$ est définie et continue sur $RR$, l'image de $A$ qui est borné l'est donc également.
+
+Soit $g(x)= x/(1+|x|)$ qui est définie sur $RR$ et :
+
+$g(0) = 0 and forall x in RR^*, |g(x)| = abs(x/(1+|x|)) = (|x|)/(1+|x|)= 1/(1+ 1/(|x|)) < 1$
+
+$g$ est donc bornée sur $RR$.
+
+Il résulte que les éléments de $D$ sont la somme de 3 éléments bornés ; $D$ est donc borné
+
+== Exercice 1.24
+
+Soit $A = { (2 x y) / (x^2 + y^2), x>0, y≥0}$
+
+Montrer que $A$ est borné.
+
+$ &forall (x, y) in RR^2, (x-y)^2 ≥ 0  and (x + y)^2 ≥ 0 \
+ <==> &forall(x,y) in RR^2, 2 x y≤ x^2 + y^2 and -(x^2 +y^2) ≤ 2 x y \
+ ==> & forall(x,y) in RR^2, -(x^2 + y^2) ≤ 2 x y ≤ x^2 + y^2 \
+ ==> &forall x > 0, forall y ≥ 0, -1 ≤ (2 x y)/(x^2 + y^2) ≤ 1 " car "(x^2 + y^2) > 0
+$
+
+$A$ est donc borné et inclus dans $[-1;1]$
 
 == Exercice 1.25
 
@@ -960,6 +983,53 @@ ci-dessus est supérieur ou égal à $n$.
 Donc : $forall n in NN, op("card") (U inter ]a;b[) ≥ n$
 
 L'ensemble $U inter ]a;b[$ est donc infini.
+
+== Exercice 1.26
+
+Soit $U$ une partie dense dans $RR$.
+
+=== 1.26.1
+
+Soit $V = {2x-1, x in U}$
+
+Montrer que $V$ est dense dans $RR$.
+
+Soit $f(x) = 2x-1$
+
+C'est peut-être le résultat d'un théorème du cours mais voici la démonstration.
+
+
+Soit $]a;b[$ un intervalle ouvert non vide de $RR$.
+
+Posons $y= (a+b)/2$ et $epsilon =(b-a)/2 > 0$
+
+$f$ étant bijective et continue :
+
+$ &exists mu > 0, forall x in ]f^(-1)(y) - mu , f^(-1)(y) +mu[, |f(x)-f(f^(-1)(y)| < epsilon \
+<==> &exists mu > 0, forall x in ]f^(-1)(y) - mu , f^(-1)(y) +mu[, f(x) in ]a;b[ $
+
+$U$ étant dense dans $RR$ : 
+
+$ &exists x_mu in U inter ]f^(-1)(y) - mu , f^(-1)(y) +mu[ \
+==> &exists x in U, f(x) in ]a, b[ \
+==> &exists v in V inter ]a, b[ $
+
+$V$ est donc dense dans $RR$
+
+=== 1.26.2
+
+Soit $W = {ln(|x|), x in U\\{0}}$
+
+Montrer que $W$ est dense dans $RR$.
+
+Soit $g(x) = ln(x)$ de $RR^*_+$ dans $RR.$
+
+$U$ est dense dans $RR$ donc dans $RR^*_+$.
+
+$g$ est continue et surjective, $g(U inter RR^*_+)$ est donc dense dans $g(RR^*_+)$ ($= RR$)
+
+Et donc a fortiori, $g(R^*)$ est dense dans $RR$.
+
 
 == Exercice 1.27
 Soit $U$ l’ensemble des nombres rationnels ayant, dans leur écriture sous forme de fraction irréductible, un dénominateur impair.
