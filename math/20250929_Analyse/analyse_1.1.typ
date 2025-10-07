@@ -1157,7 +1157,15 @@ $|y| = |y+x - x| ≤ |y+x| + |-x| ==> |x+y| ≥ |y| -|x|$
 
 === 1.31.4
 
+*VRAI*
 
+$A = {x in RR, pi x in.not QQ}$
+
+Soit $f(x) = x/pi$ fonction définie et continue sur $RR$
+
+On a : $f(RR\\QQ) = A$
+
+Or $RR\\QQ$ étant dense dans $RR$, son image par $f$ l'est également.
 
 == Exercice 1.34
 
