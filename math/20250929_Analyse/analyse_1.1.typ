@@ -146,7 +146,7 @@ $p$ et $q$ sont donc premier entre eux.
 
 On a alors $p^2 = n q^2$.
 
-$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p. Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
+$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p$. Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
 
 == Exercice 1.5
 
