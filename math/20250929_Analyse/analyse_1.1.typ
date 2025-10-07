@@ -133,18 +133,20 @@ Cette affirmation est fausse car le carré du nombre irrationnel $sqrt(2)$ est r
 
 == Exercice 1.4
 
+=== (b) $==>$ (a)
 $(b) ==> (a)$ est évident car $NN subset QQ$.
 
+=== (a) $==>$ (b)
 Démontrons $(a) ==> (b)$.
 
 Soit $n in NN$ tel que $sqrt(n) in QQ$.
 
 On peut donc écrire $sqrt(n)$ sous la forme d'une fraction irréductible  $sqrt(n)= p/q$ avec $p in NN, q in NN^*$ ;
-$p$ et $q$ sont donc premier entre eux ($exists (alpha, beta) in ZZ^2, alpha p + beta q = 1$).
+$p$ et $q$ sont donc premier entre eux.
 
 On a alors $p^2 = n q^2$.
 
-$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p = alpha p^2 + beta p q$. Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
+$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p. Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
 
 == Exercice 1.5
 
