@@ -1167,6 +1167,94 @@ On a : $f(RR\\QQ) = A$
 
 Or $RR\\QQ$ étant dense dans $RR$, son image par $f$ l'est également.
 
+Si elle n'est pas admise, on peut démontrer la densité de $RR\\QQ$ en utilisant celle de $QQ$ avec l'intervalle $]a-sqrt(2), b - sqrt(2)[$ sachant que $sqrt(2)$ est irrationnel et que la somme d'un rationnel et d'un irrationnel est irrationnelle.
+
+== Exercice 1.32
+
+Soient $A$ et $B$ deux parties non vides de $RR$ telles que $A subset B$.
+
+=== 1.32.1
+
+On suppose que $B$ est majorée.
+
+Alors :
+$ x in A => x in B => x ≤ sup(B) $
+
+$A$ est donc majoré et $sup(A) ≤ sup(B)$ car $sup(B)$ est un majorant et la borne supérieure est le plus petit des majorants.
+
+=== 1.32.2
+
+On suppose que $B$ est minorée.
+
+Alors :
+$ x in A => x in B => x ≥ inf(B) $
+
+$A$ est donc minorée et $inf(A) ≤ inf(B)$
+
+== Exercice 1.33
+
+Soit $A = { x in RR | exists (p,q) in ZZ^2, x = p + q sqrt(2)} = ZZ + sqrt(2) ZZ$
+
+On note $u = sqrt(2) - 1$
+
+=== 1.33.1
+
+$ x in A &==> x = p + q sqrt(2) " avec "(p,q) in ZZ^2\ 
+         &==> k x = k p + k q sqrt(2) " avec " k in ZZ \
+         &==> k x in A " car " (k p, k q) in ZZ^2 $
+
+$A$ est donc stable par multiplication par un entier : tout multiple d'un élément de $A$ appartient à $A$ 
+
+=== 1.33.2
+
+On peut le démontrer aisément par récurrence.
+
+On peut également procéder par calcul.
+
+On note $n = 2k + epsilon$ avec $epsilon in {0;1}$
+
+$ u^n &= (sqrt(2) -1)^n \
+      &= sum_(i=0)^n binom(n,i) sqrt(2)^i (-1)^(n-i) \
+      &= sum_(i=0)^k binom(n, 2i) sqrt(2)^(2i)(-1)^(n-2i) + sum_(i=0)^(k-1) binom(n, 2i+1) sqrt(2)^(2i+1)(-1)^(n-2i-1) + epsilon sqrt(2)^(2k+epsilon) \
+      &= sum_(i=0)^k binom(n, 2i) 2^i (-1)^epsilon - sqrt(2) sum_(i=0)^(k-1) binom(n, 2i+1) 2^i (-1)^epsilon  + epsilon 2^k sqrt(2) \ 
+      &= (-1)^epsilon sum_(i=0)^k binom(n, 2i) 2^i  + (epsilon 2^k - (-1)^epsilon sum_(i=0)^(k-1) binom(n, 2i+1) 2^i)sqrt(2) $ 
+
+=== 1.33.3
+
+$ 2 < 9/4 ==> sqrt(2) < 3/2 ==> sqrt(2) -1 < 1/2 $
+
+$1 <sqrt(2) < 2 ==> u_1 < 1 ==> $ L'inégalité est vraie pour $n=1$
+
+$u<1/2 => u^2 < 1/4 < 1/2 ==>$ L'inégalité est vraie pour $n=1$
+
+Si $u_n < 1/n$ ($n≥2$) alors : $u_(n+1) < 1/(2n) < 1/(n+1)$
+
+=== 1.33.4
+
+$exists n in N^*, 1/n < b-a ==> exists n in N^*, u_n < b -a$
+
+=== 1.33.5
+
+Soit $]a;b[$, un intervalle non vide de $RR$.
+
+D'après les points précédents : $exists x in A, 0<x<(b-a)/2$.
+
+Soit :
+- $k = E(a/x)$
+- $y = (k+1)x$
+
+D'après (1), $y in A$.
+
+Selon la définition de la partie entière d'un réel :
+
+$ &a/x ≤ k < a/x + 1 \
+==> & (a/x +1)x≤ (k+1)x <(a/x +2)x = a+ 2x = b \
+==> & a+x ≤ (k+1)x < a+ 2x \ 
+==> & a< (k+1)x < b \
+==> & y in ]a;b[ $
+
+$A$ est donc dense dans $RR$
+
 == Exercice 1.34
 
 $f$ fonction de $RR$ dans $RR$ vérifiant :
