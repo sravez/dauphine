@@ -890,6 +890,7 @@ $ &forall (x,y) in A^2, cases(
     -sup(A) ≤ -y ≤ -inf(A)
 ) \ 
 ==> &forall (x,y) in A^2, inf(A) - sup(A) ≤ x - y ≤ sup(A) - inf(A) \
+==> &forall (x,y) in A^2, - (sup(A) - inf(A)) ≤ x - y ≤ sup(A) - inf(A) \
 ==> &forall (x,y) in A^2, |x-y| ≤ sup(A) - inf(B) \
 ==> &forall b in B, b ≤ sup(A) - inf(A) \
 ==> & sup(B) ≤ sup(A) - inf(A) $
@@ -919,6 +920,23 @@ $ forall epsilon > 0, sup(A) - inf(A) -2 epsilon < sup(B) ≤ sup(A) - inf(A) $
 Et donc :
 
 $ sup(B) = sup(A) - inf(A) $
+
+
+== Exercice 1.23
+
+Soit $A$ et $B$ des parties non vides et bornées de $RR$.
+
+Montrer que $C = {a+e^b-a^2, (a,b) in A times B}$ est bornée.
+
+Les fonctions $f(x) = x -x^2$ et $g(x) = e^x$ sont définies et continues sur $RR$. $A$ et $B$ étant inclus dans des fermés bornés de $R$,
+leur image par respectivement $f$ et $g$ est également bornée ; $C$ l'est donc également comme somme deux valeurs bornées.
+
+== Exercice 1.23 bis
+
+Soit $A$ et $B$ des parties non vides de $RR$ avec $A$ bornée.
+
+Montrer que $D = {ln(1+a^2) + b/(1+|b|) -2, (a,b) in A times B}$ est borné
+
 
 == Exercice 1.25
 
