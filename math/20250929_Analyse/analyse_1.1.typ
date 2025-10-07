@@ -1059,6 +1059,38 @@ $ cases(
 
 Montrer que $A$ est dense dans $RR$.
 
+Raisonnons par l'absurde et supposons que $A$ ne soit pas dense dans $RR$.
+
+Il existe donc un intervalle ouvert non vide $I = ]u,v[$ tels que $I inter A = emptyset$.
+
+D'après (i) : $exists (a_0,b_0) in A^2, a_0<u, v< b_0$
+
+
+Soient $(a_n, b_n) in A^2$ tels que $a_n ≤u$ et $v≤b_n$. L'intervalle $I_n = ]a_n, b_n [$ inclut donc $I$
+
+Le milieu de $I_n$ , ($(a_n+b_n)/2$), appartient à $A$ d'après (ii) mais n'appartient pas à $I$ par hypothèse et
+est donc inférieur à $u$ ou supérieur à $v$.
+
+On définit par dichotomies successives les intervalles $I_n$ dont les bornes appartiennent à $A$ et incluant $I$ :
+
+$ cases(
+    a_(n+1) = cases(
+        a_n            &"si " (a_n + b_n)/2 ≥ v \
+        (a_n + b_n)/2  &"si " (a_n + b_n)/2 ≤ u
+    ) \
+    b_(n+1) = cases(
+        (a_n + b_n)/2 & "si " (a_n + b_n)/2 ≥ v \
+        b_n           & "si " (a_n + b_n)/2 ≤ u
+    )
+) $
+
+On a alors : $b_(n+1) - a_(n+1) = (b_n - a_n)/2 = (b_0 - a_0) /2^(n+1)$, valeur qui tend vers 0 alors qu'elle doit être supérieure
+ou égale à $v-u$ car $I subset I_n$.
+
+L'hypothèse est donc fausse et $A$ est dense dans $RR$.
+
+$QQ$ est un sous-ensemble de $RR$ vérifiant les propriétés (i) et (ii).
+
 == Exercice 1.29
 
 Soit $A = {q in QQ, q^2 < 2}$
@@ -1066,6 +1098,66 @@ Soit $A = {q in QQ, q^2 < 2}$
 Si on considère $A$ comme sous-ensemble de $RR$, il est majoré par $sqrt(2)$ et l'on démontre aisément que c'est sa borne supérieure car de par la densité de $QQ$ dans $RR$, $forall epsilon > 0, (sqrt(2)- epsilon)$ n'est pas un majorant.
 
 Si on considère $A$ comme un sous-ensemble de $QQ$, $A$ est majoré mais ne possède pas de borne supérieure car $sqrt(2) in.not QQ$
+
+
+== Exercice 1.30
+
+=== 1.30.1
+
+$A = ]-oo, 1[ union {10}$
+
+A n'est pas minoré et admet un plus grand élément (10).
+
+=== 1.30.2
+
+$B = { n/(sqrt(abs(n))+1), n in ZZ}$
+
+$limits(lim)_(n->+oo) n/(sqrt(abs(n))+1) = +oo$
+
+$limits(lim)_(n->-oo) n/(sqrt(abs(n))+1) = -oo$
+
+$B$ n'est donc ni majoré, ni minoré.
+
+=== 1.30.3
+
+$C = QQ inter ]-sqrt(3), sqrt(7)[$
+
+Dans $RR$, $C$ est borné mais n'admet ni plus grand élément ni plus petit élément car $sqrt(3)$ et $sqrt(7)$ ne sont pas
+rationnels.
+
+=== 1.30.4
+
+$D= { (x+1)/(x+2), x≤ -3 }$
+
+$f(x) = (x+1)/(x+2)$ est définie, continue et croissante sur $]-oo; -3]$
+
+$D$ est donc minoré par la limite en $-oo$ de $f$ : 1 mais n'admet pas de plus petit élément.
+
+$D$ est majoré par la valeur de $f$ en -3 : 2 qui est son plus grand élément.
+
+== Exercice 1.31
+
+=== 1.31.1
+
+*FAUX*
+
+Cet ensemble n'est pas borné car $forall k in ZZ, | tan(pi/6 +k pi) | = 1/sqrt(3) < 1$
+
+=== 1.31.2
+
+*VRAI*
+
+$forall x in RR, -1 ≤ -1/(1+x^2) < 0$
+
+=== 1.31.3
+
+*VRAI*
+
+$|y| = |y+x - x| ≤ |y+x| + |-x| ==> |x+y| ≥ |y| -|x|$
+
+=== 1.31.4
+
+
 
 == Exercice 1.34
 
