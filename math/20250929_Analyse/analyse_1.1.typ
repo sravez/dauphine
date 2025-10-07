@@ -1048,6 +1048,16 @@ On en déduit que : $exists gamma in ZZ, gamma/(2 m n + 1) in [x ; y]$.
 
 $2 m n + 1$ étant impair, tous ses diviseurs le sont également ; la forme réduite de $z = gamma/(2 m n + 1)$ a donc un dénominateur impair ; donc $z in U$ ce qui démontre la densité de $U$ dans $RR$
 
+== Exercice 1.28
+
+Soit $A$ partie de $RR$ vérifiant :
+
+$ cases(
+    "(i) "  &forall x in RR\, exists (a,b) in A^2\, a < x < b \
+    "(ii) " &forall (a,b) in A^2\, (a+b)/2 in A
+) $
+
+Montrer que $A$ est dense dans $RR$.
 
 == Exercice 1.29
 
