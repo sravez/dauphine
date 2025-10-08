@@ -1,4 +1,4 @@
-from random import uniform
+from random import uniform, random
 
 def almost_pi(n: int)-> float:
     nb = 0

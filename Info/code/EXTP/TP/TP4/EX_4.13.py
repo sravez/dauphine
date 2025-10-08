@@ -33,8 +33,22 @@ def woon():
         w = p/a
     print(i, w)
 
+def fraction_continue(n):
+    d = 1
+    while n >= 1:
+        d = 1/n + 1/d
+        n -= 1
+    return 2 + 2/d
 
+def fractions_continues():
+    i = 1
+    while abs(fraction_continue(i) - math.pi)> delta:
+        i += 1
+    print(i)
+    
 
 leibniz()
 euler()
 woon()
+fractions_continues()
+
