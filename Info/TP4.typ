@@ -127,3 +127,51 @@ def pgcd_par_euclide(a,b):
         r = a % b
     return b
 ```
+
+== Exercice 4.7
+
+=== 4.7.1
+
+On peut importer tout le module `math` ou seulement les éléments dont on a besoin :
+
+
+```python
+import math
+print(math.cos(math.pi/2))
+```
+ou
+```python
+from math import cos, pi
+print(cos(pi/4))
+```
+
+=== 4.7.2
+
+La fonction `random()` génère des nombres pseudo-aléatoire dans l'intervalle $[0;1[$.
+Pour que 50 soit une valeur possible, il faut multiplier par une valeur plus grande
+que l'intervalle, mais pas trop pour que 50 n'est pas une probabilité anormalement
+élevée. Il faut ensuite écrêter les valeurs supérieures à 50.
+
+On n'induit pas de délai pour la dernière itération afin que le programme rende la 
+main le plus vite possible.
+
+```python
+import random, time
+
+n = 10
+vmin = 10
+vmax = 50
+interval = 1
+
+while n > 0:
+    print(min(vmax,vmin + (vmax - vmin + 0.01) * random.random()))
+    n -=1
+    if n > 0:
+        time.sleep(interval)
+```
+
+== Exercice 4.8
+
+=== 4.8.1
+
+
