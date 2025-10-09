@@ -1,4 +1,5 @@
 import math
+import time
 from random import random
 
 
@@ -85,22 +86,6 @@ def monte_carlo(N: int)-> float:
             nb += 1
     return 4*nb/N    
 
-r = leibniz_estimate(delta)
-print(r["n"], r["pi"])
-print(leibniz(r["n"]) == r["pi"])
-
-r = euler_estimate(delta)
-print(r["n"], r["pi"])
-print(euler(r["n"]) == r["pi"])
-
-r = woon_estimate(delta)
-print(r["n"], r["pi"])
-print(woon(r["n"]) == r["pi"])
-
-r = fractions_continues_estimate(delta)
-print(r["n"], r["pi"])
-print(fraction_continue(r["n"]) == r["pi"])
-
 def monte_carlo_simulations():
     t = 10
     N = 100
@@ -108,7 +93,36 @@ def monte_carlo_simulations():
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(f"La valeur approximative de pi avec {N} points est", s/t)
+        print(f"La valeur approximative de pi avec {N} points est", round(s/t, 7))
         N *=10
 
-monte_carlo_simulations()
+
+def display_line(suite, rank, estimate, duration):
+    print("{0: <20}  {1: >7}  {2: <14}  {3: <15}".format(suite, rank, round(estimate,7), round(duration*1e-9, 4)))
+
+def run_simulations(precision: float):
+    print("{0: <20}  {1: <7}  {2: <14}  {3: <15}".format("Suite", "Rang", "Approximation", "Temps de calcul"))
+
+    start = time.monotonic_ns()
+    r = leibniz_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Leibniz", r["n"], r["pi"], end - start)
+    
+    start = time.monotonic_ns()
+    r = euler_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Euler", r["n"], r["pi"], end - start)
+
+    start = time.monotonic_ns()
+    r = woon_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Woon", r["n"], r["pi"], end - start)
+
+    start = time.monotonic_ns()
+    r = fractions_continues_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Fractions continues", r["n"], r["pi"], end - start)
+
+    monte_carlo_simulations()
+
+run_simulations(1e-6)

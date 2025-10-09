@@ -147,11 +147,6 @@ print(cos(pi/4))
 
 === 4.7.2
 
-La fonction `random()` génère des nombres pseudo-aléatoire dans l'intervalle $[0;1[$.
-Pour que 50 soit une valeur possible, il faut multiplier par une valeur plus grande
-que l'intervalle, mais pas trop pour que 50 n'est pas une probabilité anormalement
-élevée. Il faut ensuite écrêter les valeurs supérieures à 50.
-
 On n'induit pas de délai pour la dernière itération afin que le programme rende la 
 main le plus vite possible.
 
@@ -164,7 +159,7 @@ vmax = 50
 interval = 1
 
 while n > 0:
-    print(min(vmax,vmin + (vmax - vmin + 0.01) * random.random()))
+    print(random.uniform(vmin, vmax))
     n -=1
     if n > 0:
         time.sleep(interval)
@@ -173,6 +168,7 @@ while n > 0:
 == Exercice 4.8
 
 === 4.8.1
+
 
 
 == Exercice 4.13
@@ -337,13 +333,48 @@ def monte_carlo_simulations():
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(f"La valeur approximative de pi avec {N} points est", s/t)
+        print(f"La valeur approximative de pi avec {N} points est", round(s/t, 7))
         N *=10
 ```
 
 Le résultat n'est bien sûr par le même à chaque simulation mais voici un résultat :
 ```
-La valeur approximative de pi avec 100 points est 3.2039999999999997
-La valeur approximative de pi avec 1000 points est 3.1848
-La valeur approximative de pi avec 10000 points est 3.1456799999999996
+La valeur approximative de pi avec 100 points est 3.132
+La valeur approximative de pi avec 1000 points est 3.1536
+La valeur approximative de pi avec 10000 points est 3.14056
+```
+
+=== 4.13.3 Affichage
+
+```python
+
+def display_line(suite, rank, estimate, duration):
+    print("{0: <20}  {1: >7}  {2: <14}  {3: <15}".format(suite, rank, round(estimate,7), round(duration*1e-9, 4)))
+
+def run_simulations(precision: float):
+    print("{0: <20}  {1: <7}  {2: <14}  {3: <15}".format("Suite", "Rang", "Approximation", "Temps de calcul"))
+
+    start = time.monotonic_ns()
+    r = leibniz_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Leibniz", r["n"], r["pi"], end - start)
+    
+    start = time.monotonic_ns()
+    r = euler_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Euler", r["n"], r["pi"], end - start)
+
+    start = time.monotonic_ns()
+    r = woon_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Suite de Woon", r["n"], r["pi"], end - start)
+
+    start = time.monotonic_ns()
+    r = fractions_continues_estimate(precision)
+    end = time.monotonic_ns()
+    display_line("Fractions continues", r["n"], r["pi"], end - start)
+
+    monte_carlo_simulations()
+
+run_simulations(1e-6)
 ```
