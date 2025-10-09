@@ -175,3 +175,175 @@ while n > 0:
 === 4.8.1
 
 
+== Exercice 4.13
+
+=== 4.13.1
+
+==== 4.13.1.a Suite de Leibniz
+
+$ u_n = 4 times sum_(k=0)^(n) (-1)^k / (2k+1) $
+Voici une fonction permettant de calculer un terme de la suite de Leibniz :
+
+```python
+def leibniz(n: int) -> float:
+    i = 0
+    u = 4
+    while i < n:
+        i += 1
+        u += 4 * (-1)**i / (2*i+1)
+    return u
+```
+
+Il serait _anti-économique_ d'utiliser la fonction précédente dans la recherche de notre approximation de $pi$ car chaque terme peut se déduire du précédent par une addition dépendant uniquement de l'indice. On procèdera donc ainsi :
+
+```python
+def leibniz_estimate(precision: float):
+    i = 0
+    u = 4
+    while abs(u - math.pi)> precision:
+        i += 1
+        u += 4 * (-1)**i / (2*i+1)
+    return { "n":i, "pi": u}
+```
+
+Pour une précision de $10^(-6)$, on obtient :
+- $n = 1" "000" "000$
+- $u_n = 3.1415936535887745$
+
+==== 4.13.1.b Suite d'Euler
+
+$ v_n = sqrt(6 times sum_(k=1)^n 1/k^2) $
+
+Le raisonnement est le même que pour la suite de Leibniz
+
+Calcul d'un membre de la suite :
+```python
+def euler(n: int):
+    i = 0
+    s = 0
+    while i < n:
+        i += 1
+        s += 6 / i**2
+    return math.sqrt(s)
+```
+
+Recherche d'une approximation de $pi$ :
+```python
+def euler_estimate(precision: float):
+    i = 0
+    s = 0
+    v = 0
+    while abs(v - math.pi)> precision:
+        i += 1
+        s += 6 / i**2
+        v = math.sqrt(s)
+    return { "n":i, "pi": v}
+```
+
+Pour une précision de $10^(-6)$, on obtient :
+- $n = 954" "930$
+- $v_n = 3.141591653590463$
+
+==== 4.13.1.c Suite de Woon
+
+$a_0 = 1$, $a_n = sqrt(1 + (sum_(k=0)^(n-1) a_k)^2 )$ et $w_n = 2^(n+1) / a_n$
+
+```python
+def woon(n: int):
+    i = 0
+    s = 1
+    while i < n:
+        i += 1
+        a = math.sqrt(1 + s**2)
+        s += a
+    return 2**(n+1) / a
+```
+
+Fonction d'estimation :
+
+```python
+def woon_estimate(precision: float):
+    i = 0
+    p = 2
+    s = 1
+    w = 2
+    while abs(w - math.pi)> precision:
+        i += 1
+        a = math.sqrt(1 + s**2)
+        s += a
+        p *= 2
+        w = p/a
+    return { "n":i, "pi": w}
+```
+
+Pour une précision de $10^(-6)$, on obtient :
+- $n = 11$
+- $w_n = 3.1415923455701176$
+
+
+==== 4.13.1.d Fractions continues
+
+On calcule la valeur d'une fraction continue de la façon suivante :
+
+```python
+def fraction_continue(n):
+    d = 1
+    while n >= 1:
+        d = 1/n + 1/d
+        n -= 1
+    return 2 + 2/d
+```
+
+Il n' y pas de relation évidente entre deux fractions continues consécutives, la fonction d'estimation calculera donc tous les termes successivement :
+
+```python
+def fractions_continues_estimate(precision: float):
+    i = 1
+    f = 3
+    while abs(f - math.pi)> precision:
+        i += 1
+        f = fraction_continue(i)
+    return { "n":i, "pi": f}
+```
+
+Pour une précision de $10^(-6)$, on obtient :
+- $n = 627$
+- $f_n = 3.141591656276364$
+
+=== 4.13.2 Monte-Carlo
+
+Remarque : la proportion étant la même on peut se contenter d'effectuer des tirages aléatoires dans le quadrant $[0;1[ times [0 ; 1[$
+
+```python
+from random import random
+
+def monte_carlo(N: int)-> float:
+    nb = 0
+    i = N
+    while i > 0:
+        i -= 1
+        if(random()**2 + random()**2 < 1):
+            nb += 1
+    return 4*nb/N
+```
+
+On effectue les simulations demandées grâce à la fonction suivante :
+
+```python
+def monte_carlo_simulations():
+    t = 10
+    N = 100
+    for i in range(0,3):
+        s = 0
+        for k in range(0,t):
+            s += monte_carlo(N)
+        print(f"La valeur approximative de pi avec {N} points est", s/t)
+        N *=10
+```
+
+Le résultat n'est bien sûr par le même à chaque simulation mais voici un résultat :
+```
+La valeur approximative de pi avec 100 points est 3.2039999999999997
+La valeur approximative de pi avec 1000 points est 3.1848
+La valeur approximative de pi avec 10000 points est 3.1456799999999996
+```
