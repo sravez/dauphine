@@ -1,7 +1,10 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1" : *
 #show: codly-init.with()
-#codly(languages: codly-languages)
+#codly(
+    languages: codly-languages,
+    header-cell-args: (align:center)
+)
 
 = Informatique - TP4
 
@@ -9,6 +12,7 @@
 
 === Code originel
 
+#codly(header: [*Code originel bogué*])
 ```python
 def pgcd_par_diviseurs(a;b):
     '''calcul les diviseurs communs à a et b (avec a >b) et
@@ -92,7 +96,7 @@ def pgcd_par_diviseurs(a: int,b: int)-> int:
     return i
 ```
 
-=== 4.6.3.a PGCD par differences
+=== 4.6.3.a PGCD par différences
 
 L'algorithme proposé ne fait que soustraire $b$ successivement à $a$ sans changer sa valeur.
 
@@ -112,7 +116,11 @@ def pgcd_par_differences(a: int,b: int)-> int:
 
 === 4.6.3.a PGCD par Euclide
 
-Si l'ordre est inversé, il est correct après la première itération.
+Les erreurs :
+- on assigne le quotient à $r$ et non le reste.
+- usage impropre de `if` et `continue`
+
+*Rq :* Si l'ordre des paramètres est inversé, il est correct après la première itération.
 
 Le code corrigé est :
 
@@ -126,6 +134,36 @@ def pgcd_par_euclide(a,b):
         b = r
         r = a % b
     return b
+```
+
+=== 4.6.5
+
+La valeur nulle perturbe les méthodes par diviseurs et Euclide car dans un cas, elle accepte tous les diviseurs
+et provoque des erreurs `DivisonByZero` dans l'autre.
+
+$op("pgcd")(0,0)$ est indéfini quand $op("pgcd")(0,n)$ est égal à $n$ si $n>0$.
+
+On modifie les fonctions en traitant d'abord le cas des valeurs nulles.
+
+La fonction renvoie la valeur nulle s'il n'y a pas de PGCD (qui n'est jamais nul).
+
+```python
+def pgcd_par_diviseurs(a: int,b: int)-> int:
+    a = abs(a)
+    b = abs(b)
+    if a * b == 0:
+        if a + b == 0:
+            # pgcd(0,0) n'existe pas
+            return 0
+        else:
+            return max(a,b)
+    else:
+        i = min(a,b)
+        while i>1:
+            if a%i == 0 and b%i == 0:
+                break
+            i -= 1
+        return i
 ```
 
 == Exercice 4.7
@@ -167,9 +205,154 @@ while n > 0:
 
 == Exercice 4.8
 
-=== 4.8.1
+Le programme ci-dessous inverse si besoin les bornes.
+
+On initialise les valeurs minimale et maximale aux bornes respectivement maximale
+et minimale afin qu'elles prennent la valeur du premier entier aléatoire.
+
+```python
+from random import randint
+
+nb = 10
+
+def tirage(vmin=0, vmax=20):
+    i = 0
+    inf = max(vmin,vmax)
+    sup = min(vmin,vmax)
+    sum = 0
+    vmin = sup
+    vmax = inf
+
+    while i < nb:
+        i += 1
+        v = randint(vmin, vmax)
+        sum += v
+        inf = min(inf, v)
+        sup = max(sup, v)
+    return { "inf": inf, "moy": sum/nb, "sup": sup}
 
 
+def display_result(r):
+    print(f"Minimum : {r["inf"]} ; Moyenne : {r["moy"]} ; Maximum {r["sup"]}")
+
+display_result(tirage(vmin=0, vmax=20))
+
+if(int(input("Voulez-vous changer les bornes (1/0) : ")) == 1):
+    display_result(
+        tirage(
+            vmin = int(input("Borne 1 :")),
+            vmax = int(input("Borne 2 :"))
+        )
+    )
+```
+
+== Exercice 4.9
+
+=== 4.9.1
+
+```python
+from random import random
+from math import floor
+
+def tirage()-> int:
+    return floor(2 * random())
+
+def AleatoireAvecRepetitions(n: int):
+    if n > 0:
+        nb = 0
+        while n > 0:
+            nb += 1
+            if tirage() == 1:
+                n -= 1
+        return { "last": tirage(), "nb" : nb}
+    else:
+        print("Mauvais paramètre")
+        return None
+```
+
+=== 4.9.2
+
+```python
+n = 0
+while n <= 0:
+    n = int(input("Nombre de 1 requis par tirage (>0) : "))
+
+iterations = 1000
+
+total_last = 0
+total_nb = 0
+for i in range(0, iterations):
+    t = AleatoireAvecRepetitions(n)
+    total_last += t["last"]
+    total_nb += t["nb"]
+
+print("Nombre de 1 :",total_last)
+print("Nombre moyen de tirages :", total_nb / iterations)
+```
+
+=== 4.9.3
+
+Un résultat (qui change à chaque fois) :
+
+#table(
+    columns:3,
+    [*n*], [*Nombre de 1*], [*Nombre moyen de tirages*],
+    [1]  , [499]           , [1,978],
+    [2]  , [479]           , [4,032],
+    [3]  , [469]           , [6,072],
+    [4]  , [522]           , [7,924],
+    [5]  , [492]           , [9,772],
+    [6]  , [504]           , [12,003],
+    [7]  , [501]           , [14,06],
+)
+
+On constate que :
+- le nombre de 1 est aux alentours de 500 ;
+- le nombre moyen de tirages est aux alentours de $2 n$.
+
+Cela s'explique par le fait que, 0 et 1 étant équiprobables, on a :
+- un nombre sensiblement égal de 0 et 1 pour le dernier tirage, donc : 1000 / 2 = 500 ;
+- un nombre de tirages nécessaires sensiblement égal à $2 n$ pour obtenir $n$ fois 1.
+
+== Ecercice 4.10 - Évaluation de $pi$ par la méthode de Monte-Carlo
+
+```python
+from random import uniform
+
+def monte_carlo(n: int)-> float:
+    nb = 0
+    i = n
+    while i > 0:
+        i -= 1
+        if uniform(-1,1)**2 + uniform(-1,1)**2 <1 :
+            nb += 1
+    return 4*nb/n
+```
+ On peut noter qu'il est possible de se restreindre au premier quadrant du cercle :
+
+```python
+from random import random
+
+def monte_carlo(n: int)-> float:
+    nb = 0
+    i = n
+    while i > 0:
+        i -= 1
+        if random()**2 + random()**2 < 1:
+            nb += 1
+    return 4*nb/n
+```
+
+Un résultat est :
+
+#table(
+    columns:2,
+    [*n*]   , [*Monte-Carlo*],
+    [50]    , [3.04]         , 
+    [500]   , [3.2]          , 
+    [5000]  , [3.44]         ,
+    [50000] , [3.28]          
+)
 
 == Exercice 4.13
 
@@ -213,6 +396,9 @@ $ v_n = sqrt(6 times sum_(k=1)^n 1/k^2) $
 Le raisonnement est le même que pour la suite de Leibniz
 
 Calcul d'un membre de la suite :
+#codly(
+    header: [*Suite de Euler*],
+)
 ```python
 def euler(n: int):
     i = 0
@@ -224,6 +410,8 @@ def euler(n: int):
 ```
 
 Recherche d'une approximation de $pi$ :
+
+#codly( header: [*Estimation par la suite de Euler*])
 ```python
 def euler_estimate(precision: float):
     i = 0
@@ -327,17 +515,23 @@ On effectue les simulations demandées grâce à la fonction suivante :
 
 ```python
 def monte_carlo_simulations():
+    print("\nMonte-Carlo :")
     t = 10
     N = 100
     for i in range(0,3):
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(f"La valeur approximative de pi avec {N} points est", round(s/t, 7))
+        print(
+            "- La valeur approximative de pi avec {0:>5} points est {1:.7f}"
+            .format(N, round(s/t, 7))
+        )
         N *=10
 ```
 
 Le résultat n'est bien sûr par le même à chaque simulation mais voici un résultat :
+
+#codly(enabled: false)
 ```
 La valeur approximative de pi avec 100 points est 3.132
 La valeur approximative de pi avec 1000 points est 3.1536
@@ -346,35 +540,76 @@ La valeur approximative de pi avec 10000 points est 3.14056
 
 === 4.13.3 Affichage
 
+On chronomètre via la fonction `monotonic()` du module `time` en capturant la valeur de l'horloge
+en début et en fin d'exécution et en affichant la différence.
+
+Afin de simplifier la maintenance du code en évitant les répétitions, on crée des fonctions internes
+(dont une prend une fonction comme paramètre).
+
+#codly(enabled: true)
 ```python
+def run_estimations(precision: float):
+    '''Approximations chronométrées de pi'''
 
-def display_line(suite, rank, estimate, duration):
-    print("{0: <20}  {1: >7}  {2: <14}  {3: <15}".format(suite, rank, round(estimate,7), round(duration*1e-9, 4)))
-
-def run_simulations(precision: float):
-    print("{0: <20}  {1: <7}  {2: <14}  {3: <15}".format("Suite", "Rang", "Approximation", "Temps de calcul"))
-
-    start = time.monotonic_ns()
-    r = leibniz_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Leibniz", r["n"], r["pi"], end - start)
+    print("Approximation de pi :\n")
+    # Largeurs des colonnes
+    w0 = 19 ; w1 = 7 ; w2 = 13 ; w3 = 15
+    print(
+        "{0: <{w0}}  {1: <{w1}}  {2: <{w2}}  {3: <{w3}}"
+        .format(
+            "Suite", "Rang", "Approximation", "Temps de calcul",
+            w0=w0, w1=w1, w2=w2, w3=w3
+        )
+    )
+    print(
+        "{0:-<{w0}}  {1:-<{w1}}  {2:-<{w2}}  {3:-<{w3}}"
+        .format("", "", "", "",w0=w0, w1=w1, w2=w2, w3=w3)
+    )
     
-    start = time.monotonic_ns()
-    r = euler_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Euler", r["n"], r["pi"], end - start)
+    def display_line(suite, rank, estimate, duration):
+        '''Fonction imprimant une ligne de résultat'''
+        print(
+            "{0: <{w0}}  {1: >{w1}}  {2: <{w2}}  {3: .4f}"
+            .format(
+                suite, rank, round(estimate,7), round(duration, 4),
+                w0=w0, w1=w1, w2=w2, w3=w3
+            )
+        )
+    
+    def run_estimation(name: str, fn):
+        '''Exécution chronométrée d'une fonction d'approximation'''
+        start = time.monotonic()
+        r = fn(precision)
+        end = time.monotonic()
+        display_line(name, r["n"], r["pi"], end - start)
 
-    start = time.monotonic_ns()
-    r = woon_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Woon", r["n"], r["pi"], end - start)
+    run_estimation("Suite de Leibniz", leibniz_estimate)
+    run_estimation("Suite de Euler", euler_estimate)
+    run_estimation("Suite de Woon", woon_estimate)
+    run_estimation("Fractions continues", fractions_continues_estimate)
 
-    start = time.monotonic_ns()
-    r = fractions_continues_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Fractions continues", r["n"], r["pi"], end - start)
-
-    monte_carlo_simulations()
-
-run_simulations(1e-6)
+run_estimations(1e-6)
+monte_carlo_simulations()
 ```
+
+Il en ressort l'affichage suivant :
+
+
+#codly(enabled: false)
+```
+Approximation de pi :
+
+Suite                Rang     Approximation  Temps de calcul
+-------------------  -------  -------------  ---------------
+Suite de Leibniz     1000000  3.1415937       0.3030
+Suite de Euler        954930  3.1415917       0.1088
+Suite de Woon             11  3.1415923       0.0000
+Fractions continues      627  3.1415917       0.0121
+
+Monte-Carlo :
+- La valeur approximative de pi avec   100 points est 3.1440000
+- La valeur approximative de pi avec  1000 points est 3.1220000
+- La valeur approximative de pi avec 10000 points est 3.1402000
+```
+
+*On constate que la suite de Woon est de loin la méthode la plus efficace.*

@@ -49,7 +49,6 @@ def pgcd_par_euclide(a,b):
     et réitérer'''
     a = abs(a)
     b = abs(b)
-    z = manage_zeros(a,b)
     if a * b == 0:
         if a + b == 0:
             # pgcd(0,0) n'existe pas

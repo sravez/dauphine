@@ -87,42 +87,60 @@ def monte_carlo(N: int)-> float:
     return 4*nb/N    
 
 def monte_carlo_simulations():
+    print("\nMonte-Carlo :")
     t = 10
     N = 100
     for i in range(0,3):
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(f"La valeur approximative de pi avec {N} points est", round(s/t, 7))
+        print(
+            "- La valeur approximative de pi avec {0:>5} points est {1:.7f}"
+            .format(N, round(s/t, 7))
+        )
         N *=10
 
 
-def display_line(suite, rank, estimate, duration):
-    print("{0: <20}  {1: >7}  {2: <14}  {3: <15}".format(suite, rank, round(estimate,7), round(duration*1e-9, 4)))
 
-def run_simulations(precision: float):
-    print("{0: <20}  {1: <7}  {2: <14}  {3: <15}".format("Suite", "Rang", "Approximation", "Temps de calcul"))
+def run_estimations(precision: float):
+    '''Approximations chronométrées de pi'''
 
-    start = time.monotonic_ns()
-    r = leibniz_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Leibniz", r["n"], r["pi"], end - start)
+    print("Approximation de pi :\n")
+    # Largeurs des colonnes
+    w0 = 19 ; w1 = 7 ; w2 = 13 ; w3 = 15
+    print(
+        "{0: <{w0}}  {1: <{w1}}  {2: <{w2}}  {3: <{w3}}"
+        .format(
+            "Suite", "Rang", "Approximation", "Temps de calcul",
+            w0=w0, w1=w1, w2=w2, w3=w3
+        )
+    )
+    print(
+        "{0:-<{w0}}  {1:-<{w1}}  {2:-<{w2}}  {3:-<{w3}}"
+        .format("", "", "", "",w0=w0, w1=w1, w2=w2, w3=w3)
+    )
     
-    start = time.monotonic_ns()
-    r = euler_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Euler", r["n"], r["pi"], end - start)
+    def display_line(suite, rank, estimate, duration):
+        '''Fonction imprimant une ligne de résultat'''
+        print(
+            "{0: <{w0}}  {1: >{w1}}  {2: <{w2}}  {3: .4f}"
+            .format(
+                suite, rank, round(estimate,7), round(duration, 4),
+                w0=w0, w1=w1, w2=w2, w3=w3
+            )
+        )
+    
+    def run_estimation(name: str, fn):
+        '''Exécution chronométrée d'une fonction d'approximation'''
+        start = time.monotonic()
+        r = fn(precision)
+        end = time.monotonic()
+        display_line(name, r["n"], r["pi"], end - start)
 
-    start = time.monotonic_ns()
-    r = woon_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Suite de Woon", r["n"], r["pi"], end - start)
+    run_estimation("Suite de Leibniz", leibniz_estimate)
+    run_estimation("Suite de Euler", euler_estimate)
+    run_estimation("Suite de Woon", woon_estimate)
+    run_estimation("Fractions continues", fractions_continues_estimate)
 
-    start = time.monotonic_ns()
-    r = fractions_continues_estimate(precision)
-    end = time.monotonic_ns()
-    display_line("Fractions continues", r["n"], r["pi"], end - start)
-
-    monte_carlo_simulations()
-
-run_simulations(1e-6)
+run_estimations(1e-6)
+monte_carlo_simulations()
