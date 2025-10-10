@@ -354,6 +354,75 @@ Un résultat est :
     [50000] , [3.28]          
 )
 
+== Exercice 4.11
+
+=== Pseudo-code
+
+
+=== Implémentation
+
+==== Fonction de saisie de données utilisateur
+
+On crée une fonction demandant à l'utilisateur de saisir un entier dans un intervalle
+(éventuellement infini si on met la borne haute négative) avec une invite variable permettant
+de l'utiliser aux différents endroits du programme.
+
+```python
+def get_int(prompt: str, vmin: int, vmax: int)-> int:
+    error_str = ""
+    interval = f"({vmin}-{vmax})"
+    if vmax < 0:
+        interval = f"(≥ {vmin})"
+    i = -1
+    while i < vmin or (i > vmax and vmax >= 0):
+        i = int(input(f"{error_str}{prompt} {interval} : "))
+        error_str = "ERREUR DE SAISIE\n"
+```        
+==== Fonction de simulation d'un lancer
+
+La fonction demande à l'utilisateur combien il veut miser (dans la limite de son budget) et sur quel
+numéro, simule le lancer de boule et renvoie le gain net (éventuellement négatif).
+
+```python
+from random import randint
+from math import ceil
+
+
+def play(budget:int)-> int:
+    bet = get_int("\nCombien voulez-vous miser ?", 1, budget)
+    num = get_int("Sur quel numéro ?", 0, 49)
+
+    res = randint(0,49)
+    print("\tRésultat :",res)
+    if num == res:
+        print("\tBon numéro !")
+        return 2 * bet
+    elif num % 2 == res % 2 :
+        print("\tBonne couleur !")
+        return ceil(bet/2)
+    else:
+        print("\tPerdu !")
+        return -bet
+```
+
+==== Gestion de la partie
+
+```python
+def start():
+    budget = get_int("Quel est votre budget ?", 0, -1)
+    while budget > 0:
+        print("")
+        if get_int("Voulez-vous jouer ?", 0, 1) == 1:
+            budget += play(budget)
+            print("Votre cagnotte :", budget)
+            if budget == 0:
+                print("Vous êtes ruiné !")
+                break
+        else:
+            break
+
+start()
+```
 
 == Exercice 4.12
 
