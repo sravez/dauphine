@@ -68,9 +68,6 @@ def print_result(n: int, res: list[int], bet: list[int])-> None:
         else:
             print("Perdu !")
 
-print_result(4, [1,2,3], [3])
-print_result(7, [1,2,3], [3])
-print_result(8, [1,2,3], [3])
 
 def bet_simulation()-> None:
     n = get_horse_count(4, 20)
