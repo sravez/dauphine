@@ -9,9 +9,8 @@ def get_horse_count(vmin, vmax) ->int:
     return n
 
 
-def get_three_horses(n: int)-> list[int]:
+def get_three_horses(n: int, k:int = 3)-> list[int]:
     r = []
-    k = 3
     while len(r) < min(k,n):
         h = random.randint(1,n)
         if(r.count(h)==0):
@@ -72,7 +71,7 @@ def print_result(n: int, res: list[int], bet: list[int])-> None:
 def bet_simulation()-> None:
     n = get_horse_count(4, 20)
     print_odds(n)
-    
+
     p = get_bet_count()
     b = get_bet(n, p)
     

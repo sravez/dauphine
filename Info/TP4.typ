@@ -1,3 +1,5 @@
+#import "@preview/algo:0.3.6": algo, i, d, comment, code
+
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1" : *
 #show: codly-init.with()
@@ -5,6 +7,7 @@
     languages: codly-languages,
     header-cell-args: (align:center)
 )
+
 
 = Informatique - TP4
 
@@ -102,15 +105,16 @@ L'algorithme proposé ne fait que soustraire $b$ successivement à $a$ sans chan
 
 Le code corrigé est :
 
+#codly(header: [*Calcul du PGCD par la méthode des différences*])
 ```python
 def pgcd_par_differences(a: int,b: int)-> int:
     a = abs(a)
     b = abs(b)
     diff = abs(a - b)
     while diff > 0:
+        b = min(a,b)
         a = diff
         diff = abs(a - b)
-        b = a
     return a
 ```
 
@@ -147,6 +151,7 @@ On modifie les fonctions en traitant d'abord le cas des valeurs nulles.
 
 La fonction renvoie la valeur nulle s'il n'y a pas de PGCD (qui n'est jamais nul).
 
+#codly(header: [*Calcul du PGCD par la méthode des diviseurs*])
 ```python
 def pgcd_par_diviseurs(a: int,b: int)-> int:
     a = abs(a)
@@ -164,6 +169,26 @@ def pgcd_par_diviseurs(a: int,b: int)-> int:
                 break
             i -= 1
         return i
+```
+
+#codly(header: [*Calcul du PGCD par la méthode d'Euclide*])
+```python
+def pgcd_par_euclide(a,b):
+    a = abs(a)
+    b = abs(b)
+    if a * b == 0:
+        if a + b == 0:
+            # pgcd(0,0) n'existe pas
+            return 0
+        else:
+            return max(a,b)
+    else:
+        r = a % b
+        while r != 0:
+            a = b
+            b = r
+            r = a % b
+        return b
 ```
 
 == Exercice 4.7
@@ -356,15 +381,32 @@ Un résultat est :
 
 == Exercice 4.11
 
-=== Pseudo-code
+=== 4.11.1 Pseudo-code
 
+#algo(
+    title: "Roulette",
+      comment-prefix: [#sym.triangle.stroked.r ],
+      block-align: left,
+      line-numbers: false
+)[
+    #comment(inline: true)[Renvoie le gain net (éventuellement négatif) d'un lancer]\
+    $m <--$ *get*(Mise) \
+    $n <--$ *get*(Numéro) \
+    $r <--$ randint(0, 49) #comment[Résultat du lancer] \
+    if $r=n$ :#i#comment[Bon numéro]\
+        return $2 times m$ #d#comment[*Gain net* = 2 fois la mise]\
+    else if $r mod 2 = n mod 2$ :#i#comment[Bonne couleur]\
+        return $0.5 times m$ #d#comment[*Gain net* = la moitié de la mise]\
+    else : #i#comment[Perdu]\
+        return $-m$ #d#comment[*Perte de la mise*]
+]
 
-=== Implémentation
+=== 4.11.2 Implémentation
 
 ==== Fonction de saisie de données utilisateur
 
 On crée une fonction demandant à l'utilisateur de saisir un entier dans un intervalle
-(éventuellement infini si on met la borne haute négative) avec une invite variable permettant
+(éventuellement infini si on spécifie une borne haute négative) avec une invite variable permettant
 de l'utiliser aux différents endroits du programme.
 
 ```python
@@ -386,7 +428,6 @@ numéro, simule le lancer de boule et renvoie le gain net (éventuellement néga
 ```python
 from random import randint
 from math import ceil
-
 
 def play(budget:int)-> int:
     bet = get_int("\nCombien voulez-vous miser ?", 1, budget)
@@ -453,12 +494,17 @@ def print_odds(c: int):
 print_odds(get_horse_count(4,20))
 ```
 
-=== 4.12.3
+=== 4.12.3 Génération du tiercé
+
+On tire un numéro au hasard et on l'ajoute à la liste s'il n'y figure pas déjà sinon on retire un cheval ; et ce, jusqu'à ce que la liste comporte 3 éléments.
+
+On se donne la possibilité de tirer un nombre différent de chevaux en passant ce nombre en argument avec 3 comme valeur par défaut.
+
+On stipule $min(k,n)$ comme borne d'arrêt car on pourrait avoir une boucle infinie si $k>n$ (ce qui n'est pas supposé arriver dans le cas présent).
 
 ```python
-def get_three_horses(n: int)-> list[int]:
+def get_three_horses(n: int, k: int = 3)-> list[int]:
     r = []
-    k = 3
     while len(r) < min(k,n):
         h = random.randint(1,n)
         if(r.count(h)==0):
@@ -536,9 +582,9 @@ bet_simulation()
 ```
 
 
-== Exercice 4.13
+== Exercice 4.13 - Approximation de la valeur de $pi$
 
-=== 4.13.1
+=== 4.13.1 Différentes suites convergeant vers $pi$
 
 ==== 4.13.1.a Suite de Leibniz
 
@@ -578,9 +624,8 @@ $ v_n = sqrt(6 times sum_(k=1)^n 1/k^2) $
 Le raisonnement est le même que pour la suite de Leibniz
 
 Calcul d'un membre de la suite :
-#codly(
-    header: [*Suite de Euler*],
-)
+
+#codly(header: [*Suite de Euler*])
 ```python
 def euler(n: int):
     i = 0
@@ -614,6 +659,7 @@ Pour une précision de $10^(-6)$, on obtient :
 
 $a_0 = 1$, $a_n = sqrt(1 + (sum_(k=0)^(n-1) a_k)^2 )$ et $w_n = 2^(n+1) / a_n$
 
+#codly( header: [*Suite de Woon*])
 ```python
 def woon(n: int):
     i = 0
@@ -627,6 +673,7 @@ def woon(n: int):
 
 Fonction d'estimation :
 
+#codly( header: [*Estimation par la suite de Woon*])
 ```python
 def woon_estimate(precision: float):
     i = 0
@@ -649,8 +696,13 @@ Pour une précision de $10^(-6)$, on obtient :
 
 ==== 4.13.1.d Fractions continues
 
-On calcule la valeur d'une fraction continue de la façon suivante :
+On calcule la valeur d'une fraction $f_n$ en calculant le dénominateur de la fraction en remontant de « $1/n + 1$ » à « $1 + ...$ ».
 
+Si $d_0 = 1/n + 1$ et $d_k = 1/(n-k) + 1/(1/(n-k+1) +...)$, on a :
+
+$d_(k+1) = 1/(n-k-1) + 1/d_k$ et $f_n = 2 + 2/d_(n-1)$
+
+#codly( header: [*Fractions continues*])
 ```python
 def fraction_continue(n):
     d = 1
@@ -662,6 +714,7 @@ def fraction_continue(n):
 
 Il n' y pas de relation évidente entre deux fractions continues consécutives, la fonction d'estimation calculera donc tous les termes successivement :
 
+#codly( header: [*Estimation par la méthode des fractions continues*])
 ```python
 def fractions_continues_estimate(precision: float):
     i = 1
@@ -680,6 +733,7 @@ Pour une précision de $10^(-6)$, on obtient :
 
 Remarque : la proportion étant la même on peut se contenter d'effectuer des tirages aléatoires dans le quadrant $[0;1[ times [0 ; 1[$
 
+#codly( header: [*Méthode de Monte-Carlo*])
 ```python
 from random import random
 
@@ -704,10 +758,7 @@ def monte_carlo_simulations():
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(
-            "- La valeur approximative de pi avec {0:>5} points est {1:.7f}"
-            .format(N, round(s/t, 7))
-        )
+        print(f"- La valeur approximative de pi avec {N:>5} points est {round(s/t, 7):.7f}")
         N *=10
 ```
 
@@ -715,9 +766,10 @@ Le résultat n'est bien sûr par le même à chaque simulation mais voici un ré
 
 #codly(enabled: false)
 ```
-La valeur approximative de pi avec 100 points est 3.132
-La valeur approximative de pi avec 1000 points est 3.1536
-La valeur approximative de pi avec 10000 points est 3.14056
+Monte-Carlo :
+- La valeur approximative de pi avec   100 points est 3.1080000
+- La valeur approximative de pi avec  1000 points est 3.1492000
+- La valeur approximative de pi avec 10000 points est 3.1368000
 ```
 
 === 4.13.3 Affichage
@@ -736,28 +788,15 @@ def run_estimations(precision: float):
     print("Approximation de pi :\n")
     # Largeurs des colonnes
     w0 = 19 ; w1 = 7 ; w2 = 13 ; w3 = 15
-    print(
-        "{0: <{w0}}  {1: <{w1}}  {2: <{w2}}  {3: <{w3}}"
-        .format(
-            "Suite", "Rang", "Approximation", "Temps de calcul",
-            w0=w0, w1=w1, w2=w2, w3=w3
-        )
-    )
-    print(
-        "{0:-<{w0}}  {1:-<{w1}}  {2:-<{w2}}  {3:-<{w3}}"
-        .format("", "", "", "",w0=w0, w1=w1, w2=w2, w3=w3)
-    )
+    print(f"{'Suite': <{w0}}  {'Rang': <{w1}}  {'Approximation': <{w2}}  {'Temps de calcul': <{w3}}")
+    print(f"{''     :-<{w0}}  {''    :-<{w1}}  {''             :-<{w2}}  {''               :-<{w3}}")
     
+
     def display_line(suite, rank, estimate, duration):
         '''Fonction imprimant une ligne de résultat'''
-        print(
-            "{0: <{w0}}  {1: >{w1}}  {2: <{w2}}  {3: .4f}"
-            .format(
-                suite, rank, round(estimate,7), round(duration, 4),
-                w0=w0, w1=w1, w2=w2, w3=w3
-            )
-        )
-    
+        print(f"{suite: <{w0}}  {rank: >{w1}}  {round(estimate,7): <{w2}} {duration: .4f}")
+
+
     def run_estimation(name: str, fn):
         '''Exécution chronométrée d'une fonction d'approximation'''
         start = time.monotonic()
@@ -783,10 +822,10 @@ Approximation de pi :
 
 Suite                Rang     Approximation  Temps de calcul
 -------------------  -------  -------------  ---------------
-Suite de Leibniz     1000000  3.1415937       0.3030
-Suite de Euler        954930  3.1415917       0.1088
-Suite de Woon             11  3.1415923       0.0000
-Fractions continues      627  3.1415917       0.0121
+Suite de Leibniz     1000000  3.1415937      0.3030
+Suite de Euler        954930  3.1415917      0.1088
+Suite de Woon             11  3.1415923      0.0000
+Fractions continues      627  3.1415917      0.0121
 
 Monte-Carlo :
 - La valeur approximative de pi avec   100 points est 3.1440000

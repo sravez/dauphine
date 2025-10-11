@@ -1,13 +1,3 @@
-def manage_zeros(a: int, b:int):
-    if a * b == 0:
-        if a + b == 0:
-            return -1
-        else:
-            return max(a,b)
-    else:
-        return 0
-
-
 def pgcd_par_diviseurs(a: int,b: int)-> int:
     '''Cherche le plus grand diviseur commun de manière
     décroissante en commençant par b'''
@@ -28,7 +18,7 @@ def pgcd_par_diviseurs(a: int,b: int)-> int:
         return i
 
 def pgcd_par_differences(a: int,b: int)-> int:
-    '''calcule le pgcd par l algorithme des differences :
+    '''calcule le pgcd par l' algorithme des differences :
     Si un nombre est un diviseur de 2 autres nombres a et b
     (avec a>b), alors il est aussi un diviseur
     de leur difference a-b'''
@@ -36,9 +26,9 @@ def pgcd_par_differences(a: int,b: int)-> int:
     b = abs(b)
     diff = abs(a - b)
     while diff > 0:
+        b = min(a,b)
         a = diff
         diff = abs(a - b)
-        b = a
     return a
 
 def pgcd_par_euclide(a,b):

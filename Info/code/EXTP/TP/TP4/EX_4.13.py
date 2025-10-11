@@ -94,10 +94,7 @@ def monte_carlo_simulations():
         s = 0
         for k in range(0,t):
             s += monte_carlo(N)
-        print(
-            "- La valeur approximative de pi avec {0:>5} points est {1:.7f}"
-            .format(N, round(s/t, 7))
-        )
+        print(f"- La valeur approximative de pi avec {N:>5} points est {round(s/t, 7):.7f}")
         N *=10
 
 
@@ -108,27 +105,13 @@ def run_estimations(precision: float):
     print("Approximation de pi :\n")
     # Largeurs des colonnes
     w0 = 19 ; w1 = 7 ; w2 = 13 ; w3 = 15
-    print(
-        "{0: <{w0}}  {1: <{w1}}  {2: <{w2}}  {3: <{w3}}"
-        .format(
-            "Suite", "Rang", "Approximation", "Temps de calcul",
-            w0=w0, w1=w1, w2=w2, w3=w3
-        )
-    )
-    print(
-        "{0:-<{w0}}  {1:-<{w1}}  {2:-<{w2}}  {3:-<{w3}}"
-        .format("", "", "", "",w0=w0, w1=w1, w2=w2, w3=w3)
-    )
+    print(f"{'Suite': <{w0}}  {'Rang': <{w1}}  {'Approximation': <{w2}}  {'Temps de calcul': <{w3}}")
+    print(f"{''     :-<{w0}}  {''    :-<{w1}}  {''             :-<{w2}}  {''               :-<{w3}}")
     
     def display_line(suite, rank, estimate, duration):
         '''Fonction imprimant une ligne de résultat'''
-        print(
-            "{0: <{w0}}  {1: >{w1}}  {2: <{w2}}  {3: .4f}"
-            .format(
-                suite, rank, round(estimate,7), round(duration, 4),
-                w0=w0, w1=w1, w2=w2, w3=w3
-            )
-        )
+        print(f"{suite: <{w0}}  {rank: >{w1}}  {round(estimate,7): <{w2}} {duration: .4f}")
+
     
     def run_estimation(name: str, fn):
         '''Exécution chronométrée d'une fonction d'approximation'''
