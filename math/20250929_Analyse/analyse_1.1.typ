@@ -146,13 +146,13 @@ $p$ et $q$ sont donc premier entre eux.
 
 On a alors $p^2 = n q^2$.
 
-$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p$. Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
+$q$ divisant $n q^2$, il divise $p^2$ ; et donc $p$ (si $q$ divise $ a p$ alors $q$ divise $a$ car $p$ et $q$ sont premiers entre eux). Le seul diviseur commun à $p$ et $q$ étant $1$, on a $q=1$ et donc $n=p^2$ carré parfait.
 
 == Exercice 1.5
 
 === 5.1.a
 $E = { x in RR | cos(x) + x > 0}$
-
+ 
 $E$ est minoré par $-1$ mais n'est pas majoré car $forall x >1, cos(x) + x > 0$ et donc $]1 ; +oo[ subset E$.
 
 $E$ n'est donc pas borné.
