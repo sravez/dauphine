@@ -309,7 +309,24 @@ $f$ n'est ni injective ni surjective.
 - $f^(-1)(RR_+) = RR_+$
 
 == Exercice 1.17
+=== 1.17.1
 
+Démontrons la contraposée et supposons que $h$ ne soit pas injective :
+$&exists (x_1, x_2) in RR^2, x_1≠x_2 and h(x_1) = h(x_2) \
+<==> &exists (x_1, x_2) in RR^2, x_1≠x_2 and f(x_1) = f(x_2) and g(x_1) = g(x_2)$.
+
+Et donc ni $f$ ni $g$ ne sont injectives.
+
+CQFD
+
+=== 1.17.2
+
+Non avec $f(x) = x$ et $g(x) = x$ qui sont toutes deux surjectives mais $h$ n'est pas surjective (par exemple $(0,1)$ n'est pas dans l'image de $h$).
+
+=== 1.17.3
+
+Si $h$ est surjective :
+$forall y in RR, exists x in RR, h(x) = (y,y)$ ce qui démontre la surjectivité de $f$ et $g$.
 === 1.17.4
 
 $h(x) = (x^2, (x-1)^2)$
