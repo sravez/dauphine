@@ -567,3 +567,61 @@ Aucun de ces deux ensembles n'est inclus dans l'autre.
 
 === 1.24.2
 
+==== 1.24.2.a
+
+Supposons $f$ bijective.
+
+Soit $A in P(E)$
+
+On supposera que $A in.not {E, emptyset}$ (ces cas se traitant aisément en tenant compte que $f(emptyset)=emptyset$ et $f(E)=F$ (car $f$ est bijective))
+
+Soit $y_0 in f(E\\A)$
+
+Donc par définition : $exists x_0 in E\\A, y_0 = f(x_0)$
+
+$f$ étant injective (car bijective), tout élément de $f(A)$ n'a qu'un seul antécédent, antécédent qui appartient à $A$ ; comme $x_0 in.not A$, $f(x_0) in.not f(A)$ et donc $y_0 in F\\f(A)$.
+
+Donc :
+$ f(E\\A) subset F\\f(A) $
+
+Soit maintenant $y_1 in F\\f(A)$.
+
+$f$ étant surjective, $exists x_1 in E, y_1 = f(x_1)$.
+
+$x_1$ ne peut appartenir à $A$ car sinon son image $y_1$ appartiendrait à $f(A)$, donc $x_1 in E\\A$.
+
+Il en découle que $y_1 in f(E\\A)$ et donc que :
+$ F\\f(A) subset f(E\\A) $
+
+Ce qui démontre l'égalité des deux ensembles et donc la première implication : 
+
+$ f "bijective " ==> forall A in P(E), F\\f(A) = f(E\\A) $
+
+==== 1.24.2.b
+
+Démontrons la réciproque.
+
+Supposons maintenant que : $forall A in P(E), F\\f(A) = f(E\\A)$
+
+Avec $A = emptyset$ (et donc $f(A)=emptyset$), on a : $f(E) = F$, $f$ est donc *surjective*.
+
+Supposons que l'on ait : $(x_1, x_2, y) in E times E times F, f(x_1) = f(x_2)= y$
+
+Avec l'ensemble ${x_2}$, on obtient :
+
+$F\\{y} = f(E\\{x_2})$.
+
+Raisonnons par l'absurde :
+
+$& x_1 ≠ x_2\
+==> &x_1 in E\\{x_2} \
+==> &f(x_1) in f(E\\{x_2}) \
+==> & y in F\\{y}$
+
+Ce qui est absurde.
+
+Donc $x_1 = x_2$, ce qui démontre que $f$ est *injective et donc bijective* (car surjective).
+
+Cela démontre l'implication réciproque et donc l'équivalence.
+
+CQFD
