@@ -321,7 +321,7 @@ CQFD
 
 === 1.17.2
 
-Non avec $f(x) = x$ et $g(x) = x$ qui sont toutes deux surjectives mais $h$ n'est pas surjective (par exemple $(0,1)$ n'est pas dans l'image de $h$).
+Posons $f(x) = x$ et $g(x) = x$ qui sont toutes deux surjectives mais $h$ n'est pas surjective (par exemple $(0,1)$ n'est pas dans l'image de $h$).
 
 === 1.17.3
 
@@ -330,3 +330,240 @@ $forall y in RR, exists x in RR, h(x) = (y,y)$ ce qui démontre la surjectivité
 === 1.17.4
 
 $h(x) = (x^2, (x-1)^2)$
+
+Car :
+
+$&h(x_1) = h(x_2) \
+<==> & x_1^2 = x_2^2 and (x_1 -1)^2 = (x_2 -1)^2 \
+<==> & x_1 = epsilon x_2 and abs(epsilon) = 1 and x_1  = epsilon x_1 \
+<==> & x_1 = epsilon x_2 and abs(epsilon) = 1 and (x_1 = 0 or epsilon =1) \
+<==> & x_1 = x_2$ 
+
+== Exercice 1.18
+
+- $E$, $F$ et $G$ trois ensemble
+- $f: E ->F $
+- $g: F -> G$
+
+=== 1.18.1
+
+Supposons que $g compose f$ est injective et que $f$ est surjective.
+
+Supposons que $g(y_1) = g(y_2)$ avec $(y_1, y_2) in F^2$
+
+$f$ étant surjective :
+
+$& exists (x_1, x_2) in E^2, y_1 = f(x_1) and y_2 = f(x_2)$
+
+Et donc :
+
+$ g(y_1) = g compose f(x_1) and g(y_2) = g compose f(x_2) ==> g compose f(x_1) = g compose f(x_2)$
+
+$g compose f$ étant injective, on a $x_1 = x_2$ et donc $y_1 = y_2$.
+
+$g$ est donc injective.
+
+=== 1.18.2
+
+Supposons que $g compose f$ est surjective et que $g$ est injective.
+
+Soit $y_0 in F$.
+
+$g compose f$ étant surjective : $exists x_0 in E, g compose f(x_0) = g(f(x_0))= g(y_0)$
+
+$g$ étant injective, on a :$f(x_0) = y_0$ ce qui démontre la surjectivité de $f$.
+
+== Exercice 1.19
+- $E$ et $F$ deux ensemble
+- $f: A -> F$
+- $A subset E$ et $B subset F$
+
+=== 1.19.1
+
+On sait que : $A subset f^(-1)(f(A))$
+
+==== 1.19.1.a
+Supposons que $f$ est injective.
+
+$& x in f^(-1)(f(A))\
+<==> &f(x) in f(A) \
+==> & x in A$
+
+Or par définition de $f(A)$, $f(x)$ possède au moins un antécédent dans $A$ mais l'injectivité de $f$ induit l'unicité dans $E$ de l'antécédent de $f(x)$ et donc $x in A$.
+
+Donc :
+
+$f$ injective $==> f^(-1)(f(A)) subset A ==> f^(-1)(f(A)) = A$ 
+
+==== 1.19.1.b
+
+Supposons que pour tout partie $A$ de $E$, $A = f^(-1)(f(A))$
+
+Soit $y_0 in f(E)$, par définition : $exists x_0 in E, f(x_0) = y_0$
+
+On pose $A = {x_0}$, on déduit de l'hypothèse que ${x_0} = f^(-1)({y_0})$ et que $y_0$ n'a qu'un antécédent et que $f$ est donc injective. 
+
+=== 1.19.2
+
+On sait que pour toute partie $B$ de $F$: $f(f^(-1)(B)) subset B$
+
+==== 1.19.2.a
+
+Supposons que $f$ est surjective.
+
+Soit $y_0 in B$.
+
+$exists x_0  in E, y_0 = f(x_0)$ car $f$ est surjective
+
+avec $x_0 in f^(-1)({y_0}) subset f^(-1)(B)$ (car $A subset B ==> f^(-1)(A) subset f^(-1)(B)$).
+
+$y_0$ est donc l'image d'un élément de $f^(-1)(B)$
+
+==== 1.19.2.b
+
+Supposons que $f(f^(-1)(B)) = B$ pour toute partie $B$ de $F$.
+
+Soit $y_0 in F$
+
+En posant $B = {y_0}$
+
+$B$ est donc l'image par $f$, de $f^(-1)(B)$ ; $B$ étant non vide, ce dernier ensemble ne peut l'être et donc $y_0$ a au moins un antécdent ce qui démontre la surjectivité de $f$.
+
+== Exercice 1.20
+
+- $E$ un ensemble
+- $f : E -> E$
+- $ f compose f compose f = f$
+
+=== 1.20.a
+
+Supposons que $f$ est surjective et que $f(y_1) = f(y_2)$
+
+$& exists (x_1, x_2) in E^2, y_1 = f(x_1) and y_2 = f(x_2)$
+
+Alors :
+
+$&f compose f(x_1) = f compose f (x_2) \
+==> &f compose f compose f(x_1) = f compose f compose f (x_2)\
+==> & f(x_1) = f(x_2)\
+==> &y_1 = y_2$
+
+$f$ est donc injective
+
+=== 1.20.b
+
+Supposons que $f$ est injective.
+
+Soit $y_0 in E$.
+
+On a donc : $f(y_0) = f(f compose f(y_0))$
+
+L'injectivité de $f$ impose que $y_0 = f compose f(y_0)$ ; $y_0$ est donc l'image par $f$ de $f(y_0)$.
+
+$f$ est donc surjective.
+
+
+== Exercice 1.21
+
+$f: RR_- &-> RR_+\
+x &|-> x^2$
+
+$g: RR_- &-> RR_+\
+x &|-> sqrt(abs(x))$
+
+=== 1.21.1
+
+Les fonctions $g compose f$ et $f compose g$ ne sont pas bien définies car les ensembles de départ et d'arrivée ne correspondents pas ; tout au plus sont-elles définies en 0.
+
+Les équations $f(x)=y$ et $g(x)=y$ avec $y in RR_+$ admettent une et une seule solution dans $RR_-$ ; ce sont donc deux bijections de $RR_-$ dans $RR_+$
+
+$f^(-1): RR_+ &-> RR_-\
+x &|-> -sqrt(x)$
+
+$g^(-1): RR_+ &-> RR_-\
+x &|-> -x^2$
+
+
+== Exercice 1.22
+
+$f: ]1, +oo[ &-> ]0, +oo[\
+x &|-> ln((x+1)/(x-1))$
+
+$g: RR &-> RR\
+x &|-> root(3,1-x^3)$
+
+=== 1.22.a Bijectivité de $f$
+
+Soit $y in ]0, +oo[$
+
+On résoud sur $]1,+oo[$ l'équation suivante :
+
+$ &f(x) = y \
+<==> &ln((x+1)/(x-1)) = y \ 
+<==> &(x+1)/(x-1) = e^y " car "exp" est bijective (sinon seulement"==>")" \
+<==> &(1-e^y)x = -e^y - 1 \
+<==> & x = (e^y + 1)/(e^y -1) = 1 + 2/(e^y -1) $
+
+On constate que  : $forall y in RR^*_+, (e^y + 1)/(e^y -1) > 1$
+
+L'équation admet donc une et une solution dans $]1,+oo[$ ; $f$ est donc bijective et :
+
+$f: ]0, +oo[ &-> ]1, +oo[\
+x &|-> (e^x + 1)/(e^x -1)$
+
+=== 1.22.b Bijectivité de $g$
+
+Soit $y in RR$
+
+$ &g(x) = y \
+<==> & root(3,1-x^3) = y\
+<==> &1-x^3 = y^3 " car "x |-> x^3" est bijective"\
+<==> & x = root(3, 1-y^3) = g(y) $
+
+$g$ est donc bijective et est sa propre réciproque, c'est une _involution_.
+
+== Exercice 1.23
+
+- $E$, $F$, $G$ et $H$ 4 ensembles
+- $f: E -> F$
+- $g: F -> G$
+- $h: G -> H$
+- $g compose f$ et $h compose g$ bijectives
+
+La surjectivité des fonctions composées implique celle de $g$ et $h$.
+
+L'injectivité des fonctions composées implique celle de $f$ et $g$.
+
+$g$ est donc injective et surjective ; elle est donc bijective et admet une bijection réciproque $g^(-1)$.
+
+$g^(-1)$ et $g compose f$ étant deux bijections, leur composition l'est également :
+
+$ g^(-1) compose (g compose f) = (g^(-1) compose g) compose f = f $
+
+$f$ est donc bijective.
+
+De même :
+
+$ (h compose g) compose g^(-1) = h " est une bijection" $ 
+
+== Exercice 1.24
+
+$f: E -> F$
+
+=== 1.24.1
+
+Soit :
+
+$f : RR &-> RR\
+      x &|-> cos(x)$
+
+$A = [0, pi]$
+
+$f(E\\A) = [-1,1]$
+
+$F\\f(A) = RR \\ [0,1] = ]-oo, 0[ union ]1,+oo[$
+
+Aucun de ces deux ensembles n'est inclus dans l'autre.
+
+=== 1.24.2
+
