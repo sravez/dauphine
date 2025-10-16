@@ -293,3 +293,17 @@ C'est le nombre précédent augmenté du nombre de menus avec 2 entrées (on lai
 === 2.13.3
 
 Le nombre de menus possibles est : $C_4^2 times C_3^2 times C_5^2 = 6 times 3 times 10 = 180$
+
+== Exercice 2.14
+
+Nombre de façon de disposer 4 pions numérotés sur 3 cases numérotées.
+
+=== 2.14.1 Au moins une case vide
+
+Si $k$ est le nombre de cases vides :
+
+$N = sum_(k=1)^3 C_3^k A_4^(3-k) = 3 A_4^2 + 3 A_4^1 + 1 = 3 times 12 + 3 times 4 +1 = 49$
+
+=== 2.14.2 Aucune case vide
+
+$N = A_4^3 = 24$
