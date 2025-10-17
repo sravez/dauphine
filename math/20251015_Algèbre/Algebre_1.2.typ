@@ -10,9 +10,9 @@
 $x R y <==> x = -y$ sur $ZZ$
 
 - pas réflexives ($1 ≠ -1$)
-- symétrique ($x R y <==> x = -y <==> y = -x <==> y R x$)
+- symétrique ($x cal(R) y <==> x = -y <==> y = -x <==> y cal(R) x$)
 - pas antisymétrique
-- pas transitive ($1 R -1$, $-1 R 1$ mais pas $1 R 1$)
+- pas transitive ($1 cal(R) -1$, $-1 cal(R) 1$ mais pas $1 cal(R) 1$)
 
 === 2.1.2
 
@@ -21,7 +21,7 @@ $x R Y <==> cos^2(x) + sin^2(y) = 1$ sur $RR$
 - réflexive
 - symétrique ($cos^2(x) + sin^2(y) = 2 - (cos^2(y) + sin^2(x))$)
 - pas antisymétrique
-- transitive ; si $x R y and y R z$ :
+- transitive ; si $x cal(R) y and y cal(R) z$ :
   - $cos^2 x + sin^2 z = cos^2 x + 1 - cos^2 y = cos^2 x + sin^2 y$
 
 == Exercice 2.2
@@ -31,14 +31,14 @@ Une relation d'ordre est :
 - antisymétrique
 - transitive
 
-Soit $R$ la relation $n R p <==> p " divise " n$ sur $NN^*$
+Soit $cal(R)$ la relation $n cal(R) p <==> p " divise " n$ sur $NN^*$
 
 === 2.2.a Réflexivité
 Elle est évidemment réflexive car tout entier est divisible par lui-même.
 
 === 2.2.b (Anti)symétrie
 
-Supposons que $n R p$ et $p R n$, $(n,p) in NN^(*2)$
+Supposons que $n cal(R) p$ et $p cal(R) n$, $(n,p) in NN^(*2)$
 
 Donc : $exists (k,l) in NN^(*2), n = k p and p = l n$
 
@@ -47,7 +47,7 @@ $==> &n = k l n \
 ==> &k = l = 1\
 ==> &n = p$
 
-$R$ est donc antisymétrique.
+$cal(R)$ est donc antisymétrique.
 
 === 2.2.c transitivité
 
@@ -63,7 +63,7 @@ Il s'agit donc bien d'une relation d'ordre sur $NN^*$
 
 === 2.2.d Sur $ZZ^*$
 
-La relation n'est pas antisymétrique dans $ZZ^*$ car $(n R -n)$ et $(-n R n)$
+La relation n'est pas antisymétrique dans $ZZ^*$ car $(n cal(R) -n)$ et $(-n cal(R) n)$
 
 == Exercice 2.3
 
@@ -175,7 +175,7 @@ $A$ et $B$ 2 parties d'un ensemble fini $E$
 === 2.6.1
 
 Les ensembles $A\\B$ et $A inter B$ sont disjoint, donc :
-$ "Card"((A\\B) union (A inter B)) = "Card"(A\\B) + "Card"(A inter B) $
+$ op("Card")((A\\B) union (A inter B)) = "Card"(A\\B) + "Card"(A inter B) $
 
 Or : $A = (A\\B) union (A inter B)$
 
@@ -477,9 +477,9 @@ Soit $E = {e_1,..., e_n}$ un ensemble à $n$ éléments.
 
 Il y a bijection entre l'ensemble des parties de $E$ et ${0,1}^n$ : une partie $A subset E$ est associée au n-uplet $(a_1,..., a_n)$ où $e_i in A <==> a_i = 1$.
 
-Alors : $"Card"(P(E)) = "Card"({0,1}^n) = 2^n$
+Alors : $"Card"(cal(P)(E)) = "Card"({0,1}^n) = 2^n$
 
-Or : $"Card"(P(E)) = sum_(k=0)^n binom(n,k)$ : somme du nombre de parties de 0 à n éléments.
+Or : $"Card"(cal(P)(E)) = sum_(k=0)^n binom(n,k)$ : somme du nombre de parties de 0 à n éléments.
 
 CQFD
 
@@ -509,10 +509,10 @@ Soit $E$ un ensemble à $n ≥ 4$ éléments et $2≤p≤n-2$.
 Soient $a$ et $b$ deux éléments distincts de $E$.
 
 Une partie à $p$ éléments de $E$ entre dans une et une seule des catégories suivantes :
-- parties contenant $a$ et $b$ : $C_(n-2)^(p-2)$
-- parties contenant $a$ mais pas $b$ : $C_(n-2)^(p-1)$
-- parties contenant $b$ mais pas $a$ : $C_(n-2)^(p-1)$
-- parties ne contenant ni $a$ ni $b$ : $C_(n-2)^p$
+- parties contenant $a$ et $b$ ; nombre = $C_(n-2)^(p-2)$
+- parties contenant $a$ mais pas $b$ ; nombre = $C_(n-2)^(p-1)$
+- parties contenant $b$ mais pas $a$ ; nombre = $C_(n-2)^(p-1)$
+- parties ne contenant ni $a$ ni $b$ ; nombre = $C_(n-2)^p$
 
 On a donc : $C_n^p = C_(n-2)^(p-2) + 2 C_(n-2)^(p-1) + C_(n-2)^p$
 
