@@ -156,3 +156,57 @@ $ sum_(k=0)^n binom(n,k) cos(k theta)
     &= frak(R e) ( (1 + e^(i theta))^n) \
     &= frak(R e) ( ( 2 cos(theta/2) e^(i theta/2))^n) \ 
     &= 2^n cos^n theta/2 cos (n theta)/2 $ 
+
+== Exercice 3.8
+
+$ a + i b &= sum_(k=1)^(n) e^(i (theta + (2k pi)/n)) \
+          &= e^(i theta) sum_(k=1)^(n) e^(i (2k pi)/n) &&"(Somme des racines énième de l'unité = 0)"\
+          &= e^(i theta) ( e^(i (2(n+1) pi)/n) - e^(i (2 pi)/n))/(e^(i (2 pi)/n) - 1) &&" Si " n>2\ 
+          &= e^(i theta) (e^(i (n+2)pi/n))/(e^(i pi/n)) (sin pi)/(sin pi/n) \
+          &= 0 $
+
+On a démontré le résultat du cours qui veut que la somme des racines énièmes de l'unité est nulle.
+
+Donc $a$ et $b$ sont nuls
+
+== Exercice 3.9
+
+=== 3.9.1
+
+On pose $c = cos theta$ et $s = sin theta$
+
+$ cos 5 theta &= frak(R e) (e^(i 5 theta)) \
+              &= frak(R e) ((e^(i theta))^5) \
+              &= frak(R e) ((c + i s)^5) \ 
+              &= frak(R e) (c^5 + 5i c^4s - 10 c^3 s^2 -10 i c^2 s^3 + 5 c s^4 + i s^5) \
+              &= c^5 -10 c^3 s^2 +5c s^4 \
+              &= c^5 -10 c^3 (1-c^2) +5c (1 -2c^2 +c^4) \ 
+              &= 16 c^5 -20 c^3 + 5c \
+              &= 16 cos^5 theta -20 cos^3 theta + 5 cos theta$
+
+=== 3.9.2
+
+$cos pi/10$ est donc une racine de l'équation $16 x^5 - 20 x^3 + 5x = 0$
+
+$16 x^5 -20 x^3 + 5x = x(16x^4 - 20 x^2 +5)$
+
+L'équation du second degré en $x^2$ admet comme racines $(5±sqrt(5))/8$ qui sont toutes deux positives.
+
+L'équation du cinquième degré admet donc comme racines :${- sqrt(5+sqrt(5))/(2sqrt(2)),- sqrt(5-sqrt(5))/(2sqrt(2)), 0, sqrt(5-sqrt(5))/(2sqrt(2)), sqrt(5+sqrt(5))/(2sqrt(2))}$
+
+On sait que $cos pi/10 in ]cos pi/6, cos 0[ = ]sqrt(3)/2, 1[$
+
+La seule racine dans cette intervalle est la plus grande et donc :
+$ cos pi/10 = sqrt(5+sqrt(5))/(2sqrt(2)) $
+
+=== 3.9.3
+
+On calcule $sqrt(10 + 2 sqrt(5))^2 + (1-sqrt(5))^2 = 16$
+
+Donc :
+
+$ sqrt(10 + 2 sqrt(5)) + i (1-sqrt(5)) 
+  &= 4 (sqrt(2)/4 sqrt(5 + sqrt(5)) + i (1-sqrt(5))/4 ) \
+  &= 4 ( sqrt(5+sqrt(5))/(2sqrt(2)) + i (1-sqrt(5))/4 ) \
+  &= 4 (cos - pi/10 + i sin - pi/10) \ 
+  &= 4 e^(- i pi/10) $
