@@ -210,3 +210,97 @@ $ sqrt(10 + 2 sqrt(5)) + i (1-sqrt(5))
   &= 4 ( sqrt(5+sqrt(5))/(2sqrt(2)) + i (1-sqrt(5))/4 ) \
   &= 4 (cos - pi/10 + i sin - pi/10) \ 
   &= 4 e^(- i pi/10) $
+
+== Exercice 3.10
+
+=== 3.10.1
+
+$z = 1/2 + sqrt(3)/2 = e^(i pi/3)$
+
+Les racines carrées de $z$ sont donc $e^(i pi/6)$ et $-e^(i pi/6)$
+
+$z' = 8(sqrt(3) + i) = 16( sqrt(3)/2 + i 1/2) = 16 e^(i pi/6)$
+
+Les racines carrées de $z'$ sont donc $4 e^(i pi/12)$ et $-4 e^(i pi/12)$
+
+=== 3.10.2
+
+$z = -2 + 2i sqrt(3) = 4 (-1/2 + i sqrt(3)/2) = 4 e^(i (2 pi)/3)$
+
+Les racines carrées de $z$ sont donc $2 e^(i pi/3)$ et $-2 e^(i pi/3)$
+
+$z' = 9i = 9 e^(i pi/2)$
+
+Les racines carrées de $z'$ sont donc $3 e^(i pi/4)$ et $-3 e^(i pi/4)$
+
+== Exercice 3.11
+
+=== 3.11.1
+
+$z_1 = 1 + i = sqrt(2) e^(i pi/4)$
+
+Les trois racines troisièmes de $z_1$ sont donc : ${ root(6, 2)" "e^(i (pi/12 + 2k pi/3)), k in {0, 1, 2}}$
+
+=== 3.11.2
+
+$z_2 = 1 - i sqrt(3) = 2 e^(-i pi/3)$
+
+Les racines cinquièmes de $z_2$ sont donc : ${ root(5, 2)" "e^(i (-pi/15 + 2k pi/5)), k in {0, 1, 2, 3, 4}} = { root(5, 2)" "e^(i (5pi/15 + 2k pi/5)), k in {0, 1, 2, 3, 4}}$
+
+=== 3.11.3
+
+$z_3 = -4 = 4 e^(i pi)$
+
+Les racines quatrièmes de $z_3$ sont donc : ${ sqrt(2)" "e^(i (pi/4 + k pi/2)), k in {0, 1, 2, 3}}$
+
+== Exercice 3.12
+
+$   &&       (x + i)^n &= (x - i)^n \
+<==>&& ((x+i)/(x-i))^n &= 1 &&x=i " n'est pas une solution" \
+<==>&& (x+i)/(x-i) &= e^(i k (2 pi) /n) && " avec "k in [|0,n-1|] \
+<==>&& x (1 - e^(i k (2 pi) /n)) &= -i (e^(i k (2 pi) /n) +1) \
+<==>&& -2 i x e^(i k pi / n) sin ((k pi)/n) &= -2i e^(i k pi/n) cos((k pi)/n) \
+<==>&& x sin ((k pi)/n) &= cos((k pi)/n) \ 
+<==>&& x &= 1/ (tan (k pi) /n) = cot (k pi)/n &&" avec "k in [|1,n-1|] $ 
+
+Il y a donc $n-1$ solutions réelles distinctes : $ { cot (k pi)/n, k in [|1,n-1|] } $
+
+
+== Exercice 3.13
+
+=== 3.13.1
+
+$ &&                   | 1 + i z| &= |1 - i z| \
+<==>&&               | 1 + i z|^2 &= |1 - i z|^2 \
+<==>&& (1 + i z)(1 - i macron(z)) &= (1 - i z)(1+ i macron(z)) \ 
+<==>&& 1 + z macron(z) +i (z - macron(z)) &= 1 +z macron(z) + i(macron(z) - z) \ 
+<==>&& z &= macron(z) $
+
+CQFD
+
+=== 3.13.2
+
+$a in RR$
+Soit l'équation suivante dans $CC$ :
+
+$ ((1+i z)/(1 - i z))^n = (1 + i a)/(1 - i a) $
+
+==== 3.13.2.a
+
+$a$ étant réel, le membre de droite à un module égal à $1$ ; cela doit donc aussi être le cas du membre de gauche ; on déduit donc d'après la question précédente que les solutions $z$ sont réelles.
+
+==== 3.13.2.b
+
+On pose :
+- $a = tan alpha$ avec $alpha in ]-pi/2, pi/2[$
+- $z = tan theta$ avec $theta in ]-pi/2, pi/2[$
+
+L'équation devient :
+$   &&( (1 + i tan theta)/(1 - i tan theta))^n &= (1 + i tan alpha)/(1 - i tan alpha) \
+<==>&& (e^(i theta) / e^(-i theta))^n &= e^(i alpha) / e^(-i alpha) \
+<==>&& e^(2 i n theta) &= e^(2 i alpha) \ 
+<==>&& e^(i theta) &= e^( i(alpha/n + k pi/n)) && k in [|0, 2n-1|] \
+<==>&& cos theta = cos (alpha/n + k pi/n) &and sin theta = sin (alpha/n + k pi/n) \
+==>&& z = tan theta &= tan (arctan(a)/n + k pi/n) &&, k in [|0, 2n-1|] \ 
+==>&& z &= tan (arctan(a)/n + k pi/n) &&, k in [|0, n-1|] "car " tan(theta + pi) = tan theta $
+
