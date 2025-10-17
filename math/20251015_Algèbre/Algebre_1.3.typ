@@ -87,4 +87,72 @@ $ cos^4(x)sin(x)
 
 === 3.6.1
 
+$theta in ]0, pi/2[$
 
+Si $t = tan theta / 2$ :
+
+$ 1 + e^(i theta) &= 1 + (1 + i t)/(1 - i t) \ 
+                  &=  2/(1-i t) \ 
+                  &= (2 cos theta/2 )/(e^(-i theta/2)) \
+                  &= 2 cos(theta/2) e^(i theta/2) $ 
+
+On peut retrouver la formule géométriquement en remarquant que les points d'affixe $0$, $1$, $e^(i theta)$ et $1 + e^(i theta)$ forment un losange.
+
+=== 3.6.2
+
+$theta in ]0, 2 pi[$
+
+La formule ci-dessus reste valable, y compris pour $theta = pi$.
+
+Mais $cos theta/2 <0$ pour $theta in ] pi, 2 pi [$, la forme trigonométrique sur cet intervalle est donc : $2 abs(cos theta/2) e^(i(theta/2 + pi))$.
+
+Si on veut mettre le module en facteur, la formule générique est :
+
+$ 1 + e^(i theta) = 2 abs(cos(theta/2)) e^(i (theta/2 + E((theta + pi)/(2 pi)) pi)) $
+
+
+=== 3.6.3
+
+$ 1 - cos theta + i sin theta 
+   &= 1 + cos(pi - theta) + i sin(pi - theta) \ 
+   &= 1 + e^(i(pi - theta))\
+   &= 2 abs(cos((pi - theta)/2)) e^(i ((pi - theta)/2 + E((pi - theta + pi)/(2 pi)) pi)) \ 
+   &= 2 abs(sin theta/2) e^(i ((pi - theta)/2 + E((- theta )/(2 pi)) pi)) $
+
+=== 3.6.4
+
+$ e^(i theta) + e^(2 i theta)
+    &= e^(i (3 theta)/2) ( e^(-i theta/2) + e^(i theta/2) ) \ 
+    &= 2 cos(theta / 2) e^(i (3 theta)/2) $
+
+Voir plus haut si on veut le module en facteur (et gérer les cas où $cos theta/2 <0$)
+== Exercice 3.7
+
+$theta in RR$ et $n in NN^*$
+
+=== 3.7.1
+
+$ a + i b &= sum_(k=0)^n e^(i k theta) \
+          &= (e^(i(n+1)theta) -1)/(e^(i theta)-1) && " (Somme d'une suite géométrique)" \ 
+          &= e^(i ((n+1)theta)/2)/e^(i theta/2) times (e^(i ((n+1)theta)/2) - e^(-i ((n+1)theta)/2))/(e^(i theta/2) - e^(-i theta/2)) \ 
+          &= e^(i n theta/2) (2 i sin(((n+1)theta)/2))/(2 i sin(theta/2)) \
+          &= (sin(((n+1)theta)/2))/(sin(theta/2)) e^(i n theta/2) $
+
+On a donc :
+$ a = (sin ((n+1)theta)/2  cos (n theta)/2 )/(sin theta/2 ) $
+$ b = (sin ((n+1)theta)/2  sin (n theta)/2 )/(sin theta/2 ) $
+
+=== 3.7.2
+
+$ c &= sum_(k = -n)^(n) e^(i k theta) \
+    &= (e^(i (n+1) theta) - e^(-i n theta)) / (e^(i theta)-1) \
+    &= (e^(i (n+1/2) theta) - e^(-i (n+1/2 theta))) / (e^(i theta/2) - e^(-i theta/2)) \
+    &= ( sin (n+1/2) theta) / (sin theta/2) $
+
+=== 3.7.3
+
+$ sum_(k=0)^n binom(n,k) cos(k theta) 
+    &= frak(R e) ( sum_(k=0)^n binom(n,k) e^(i k theta)) \ 
+    &= frak(R e) ( (1 + e^(i theta))^n) \
+    &= frak(R e) ( ( 2 cos(theta/2) e^(i theta/2))^n) \ 
+    &= 2^n cos^n theta/2 cos (n theta)/2 $ 
