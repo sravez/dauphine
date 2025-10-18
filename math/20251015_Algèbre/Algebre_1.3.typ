@@ -364,7 +364,7 @@ $ { e^(i ((2 pi)/9 + (2 k pi)/3)), k in {0, 1, 2}} union { e^(i (-(2 pi)/9 + (2 
  = { e^(i (2 k pi)/9), k in { 1, 2, 4, 5, 7, 8}} \
  = { e^(i (2 k pi)/9), k in { -4, -2, -1, 1, 2, 4 }} $
 
- == Exercice 3.16
+== Exercice 3.16
 
  === 3.16.1
 
@@ -438,3 +438,117 @@ sin ((5pi)/12) = (sqrt(3)+1)/(2 sqrt(2)),
 cos ((11pi)/12) = (-sqrt(3)-1)/(2 sqrt(2)),
 sin ((11pi)/12) = (sqrt(3)-1)/(2 sqrt(2))
 ) $
+
+== Exercice 3.18
+
+=== 3.18.1
+
+$ r : &CC &&-> CC \
+      &z  &&|-> 1 + i + (z - 1 - i)e^(-i pi/4) $
+
+=== 3.18.2
+
+$ h : &CC &&-> CC \
+      &z  &&|-> -2i + (z + 2i)/3 = (z - 4i)/3 $
+
+== Exercice 3.19
+
+$f_alpha (z) = alpha z$
+
+=== 3.19.1
+$alpha = 2/5$
+
+==== 3.19.1.a
+
+$f_alpha$ est l'homothétie de rapport $2/5$ ayant pour centre l'origine.
+
+==== 3.19.1.b
+
+$forall z in CC, 5/2 z in CC and f_alpha (5/2 z) = z$
+
+$f_alpha$ est donc surjective.
+
+$f_alpha (z_1) = f_alpha (z_2) <==> 2/5 z_1 = 2/5 z_2 <==> z_1 = z_2$
+
+$f_alpha$ est donc injective.
+
+Il en résulte que $f_alpha$ est bijective et que sa réciproque est $f_(1/alpha)$:
+
+$f^(-1)_alpha : z |-> 5/2 z$
+
+==== 3.19.1.c
+
+?
+
+=== 3.19.2
+
+$alpha = j = e^(i (2 pi)/3)$
+
+==== 3.19.2.a
+
+$f_alpha$ est la rotation de centre l'origine et d'angle $2 pi/3$.
+
+==== 3.19.2.b
+
+$A = { z in CC, |z| = sqrt(2)}$
+
+$A$ représente le cercle de centre l'origine et de rayon $sqrt(2)$ qui est stable par toute rotation de centre l'origine.
+
+Une démonstration formelle :
+
+Comme :
+
+$ forall z in CC, |f_alpha (z) | = |z e^(i (2 pi)/3)|=|z|dot|e^(i (2 pi)/3)|=|z| $
+
+On a : $f_alpha (A) subset A$
+
+De plus :
+$ forall z in A, z/j in A and f_alpha (z/j)=z  $
+
+Donc : $A subset f_alpha (A)$
+
+Donc : $ f_alpha (A) = A $
+
+== Exercice 3.20
+- $a in C$
+- $f(z) = a z + i$
+
+=== 3.20.1
+- $a=1$
+- $f(z) z + i$
+
+
+$forall z in CC, (z -i) in CC and f(z-i) = z$
+
+$f$ est donc surjective.
+
+$f(z_1) = f(z_2) <==> z_1 = z_2$
+
+$f$ est donc injective et donc *bijective*.
+
+La réciproque de $f$ est donc : $f^(-1) : z |-> z - i$
+
+$f$ est la translation de vecteur $vec(0,1)$ et $f^(-1)$ celle de vecteur $vec(0,-1)$.
+
+=== 3.20.2
+$a≠1$
+
+$f(z_0) = z_0 <==> z_0 = i/(1-a)$
+
+Donc $f$ admet un unique point fixe $z_0 = i/(1-a)$ et on peut écrire :
+$ f(z) = a (z - z_0) + z_0 $
+
+=== 3.20.3
+$a = e^(i pi/3)$
+
+On a donc : 
+
+$f(z) = e^(i pi/3) (z - z_0) + z_0$ avec $z_0 = i/(1 - e^(i pi/3)) = i/e^(-i pi/3) = e^(i (5pi)/6)$
+
+On remarquera que le point d'affixe $z_0$ est un des points d'intersection du cercle unité et de son image par la translation de vecteur $vec(0,1)$.
+
+=== 3.20.4
+$a = 2$
+
+$f$ est l'homothétie de centre $z_0 = -i$ et de rapport $2$ :
+$f(z) = 2 (z + i) - i$
