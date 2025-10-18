@@ -596,3 +596,96 @@ Ce qui démontre l'égalité
 $ f(RR) = UU \\{1} $
 
 CQFD
+
+== Exercice 3.22
+$ f : CC^* &-> CC^* \
+z &|-> 2 / macron(z) $
+
+=== 3.22.1
+
+$ forall z in CC^*, f compose f (z) = 2/macron((2/macron(z))) = 2/(macron(2)/macron((macron(z)))) = 2/(2/z) = z $
+
+Donc : $f compose f = id_(CC^*)$
+
+=== 3.22.2
+
+$f$ est une involution ; elle est donc bijective et sa réciproque est elle-même.
+
+=== 3.22.3
+
+$R in RR_+^*$
+
+$C_R = {z in CC, |z| = R}$
+
+On a : $ forall z in C_R, |f(z)| = |2/macron(z)| = 2/(|macron(z)|) = 2/(|z|) = 2/R $
+
+Donc : $f(C_R) subset C_(2/R)$
+
+Soit $z' in C_(2/R)$, alors : $abs(f^(-1)(z')) = abs(f(z')) = 2/abs(z') = 2 / (2/R) = R$
+
+CE qui démontre l'égalité : $f(C_R) = C_(2/R)$
+
+=== 3.22.4
+
+$f(z) = z <==> z macron(z) = 2 <==> |z|^2 = 2 <==> |z| = sqrt(2)$
+
+L'ensemble des points fixes de $f$ est donc le cercle de centre l'origine et de rayon $sqrt(2)$ : $C_(sqrt(2))$
+
+== Exercice 3.23
+$ f :& CC &&-> CC \
+     & x+i y &&|-> 1/2(e^(-y) e^(i x)+ e^(y) e^(-i x)) $
+
+=== 3.23.1
+
+$f|_(RR) : RR &->  RR \
+                    x &|-> cos x$
+
+=== 3.23.2
+
+$forall z = x + i y in CC, f(z + 2 pi) = 1/2(e^(-y) e^(i (x + 2pi))+ e^(y) e^(-i (x+2pi))) = f(z)$
+
+$forall z = x + i y in CC, f(-z) = 1/2(e^(y) e^(-i x)+ e^(-y) e^(i x)) = f(z)$
+
+$forall z = x + i y in CC, f(2z)
+  &= 1/2(e^(-2y) e^(2i x)+ e^(2y) e^(-2i x)) \
+  &= 1/2[(e^(-y) e^(i x)+ e^(y) e^(-i x))^2 - 2 e^(-y) e^(i x)e^(y) e^(-i x)] \
+  &= 1/2[(2 f(z))^2 - 2] \
+  &= 2(f(z))^2 - 1$
+
+=== 3.23.3
+
+D'après la question 1 , la restriction de $f$ à $RR$ est la fonction cosinus qui n'est pas injective ; $f$ ne l'est donc pas.
+
+=== 3.23.4
+
+$    & f(z) = 0 \
+<==> & 1/2(e^(-y) e^(i x)+ e^(y) e^(-i x)) = 0 \
+<==> & e^(2y) e^(-2i x) = -1 \ 
+<==> & y = 0 and -2x equiv pi (2 pi) \
+<==> & y = 0 and x = pi/2 + k pi && k in ZZ $
+
+L'ensemble des zéros de $f$ est donc : $f^(-1)(0) = { pi/2 + k pi, k in ZZ }$
+
+== Exercice 3.24
+
+$ f :& CC^* &&-> CC \
+     & z &&|-> 1/2(z + 1/z) $
+
+=== 3.24.1
+$    & f(z) = z' \
+<==> & z^2 -2z'z + 1 = 0 $
+
+Tout équation du second degré admet au moins une solution dans $CC$ ; $0$ n'étant pas une solution, il existe donc toujours une solution non nulle. $f$ est donc *surjective*.
+
+Le discriminant de cette équation est $Delta = 4 z'^2 - 4 = 4(z'^2 -1)$. À l'exception de 1 et -1, toute élément de $CC$ possède deux antécédents distincts ; $f$ n'est donc *pas injective*.
+
+=== 3.24.2
+
+D'après l'équation précédente, les antécédents de $i$ sont :
+
+$ (2i ±i sqrt(8))/2 = (1 ± sqrt(2))i $
+
+=== 3.24.3
+$forall z = e^(i theta) in UU, f(z) = 1/2(e^(i theta) + e^(-i theta)) = cos theta $
+
+Donc : $f(UU) = [-1,1]$
