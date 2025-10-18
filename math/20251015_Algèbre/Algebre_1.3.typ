@@ -304,3 +304,137 @@ $   &&( (1 + i tan theta)/(1 - i tan theta))^n &= (1 + i tan alpha)/(1 - i tan a
 ==>&& z = tan theta &= tan (arctan(a)/n + k pi/n) &&, k in [|0, 2n-1|] \ 
 ==>&& z &= tan (arctan(a)/n + k pi/n) &&, k in [|0, n-1|] "car " tan(theta + pi) = tan theta $
 
+Identifions les conditions d'annulation de $cos (alpha/n + k pi/n)$.
+
+On a : $ - pi/(2n) < alpha/n + k pi/n < pi/(2n) +(n-1)/n pi = (1-1/(2n)) pi $
+
+La seule valeur où le cosinus s'annule sur cet intervalle est $pi/2$ (si $n>1$); on aurait donc :
+$ alpha/n + k pi/n = pi/2  <==> alpha = (n - 2 k) pi/2 $
+
+Or $alpha in ]-pi/2, pi/2[$, donc $alpha = 0$, $n$ pair et $k = n/2$ ; dans ce cas, la valeur de $theta$ serait $pi/2$ et doit donc être exclue.
+
+Donc :
+- si $a ≠ 0$ ou si $n$ est impair, il y a $n$ solutions réelles distinctes : 
+$ {tan (arctan(a)/n + k pi/n) &&, k in [|0, n-1|]} $.
+- si $a = 0$ et si $n$ est pair, il y a $n-1$ solutions réelles distinctes :
+$ {tan (k pi/n) &&, k in [|0, n-1|] \\ {n/2}} = {tan (k pi/n) &&, k in [|-n/2 + 1, n/2 -1|] } $
+
+== Exercice 3.13.3
+
+$ (sqrt(3) + i)/(sqrt(3)-i) 
+    = (2 e^(i pi/6)) / (2 e^(- i pi / 6)) 
+    = e^(i pi/3) $
+
+Les racines cubiques de ce nombre sont donc : ${ e^(i (pi/9 + 2k pi/3)), k in {0, 1, 2}}$
+
+== Exercice 3.14
+
+$ z^2 - 2 i z -1 + 2i = 0 $
+
+Si on remarque que 1 est une solution, on factorise :
+ $ (z-1)(z +1 -2i) = 0 $
+
+Sinon, on commence par calculer le discriminant :
+
+$ Delta = -4 +4 - 8i = -8i = 8 e^(-i pi / 2) $
+
+Les racines de l'équation sont donc :
+
+$ z_1 =(2i + 2sqrt(2) e^(-i pi/4)) /2 = i + sqrt(2)(1-i)/sqrt(2) = 1 $
+
+$ z_2 = (2i + 2sqrt(2) e^(3i pi/4) ) /2 = i sqrt(2) (-1 + i)/sqrt(2) = -1 + 2i $
+
+== Exercice 3.15
+
+$ z^6 + z^3 +1 = 0 $
+
+On résoud l'équation du second degré en $z^3$ : $u^2 + u + 1 =0$
+
+Elle admet pour solutions $u = (-1 ± i sqrt(3))/2$, soit :
+$ u_1 &= e^(i 2pi/3) \
+"et"\
+u_2 &= e^(- i 2pi/3) $
+
+Les racines de l'équation initiale sont donc les racines troisièmes de $u_1$ et $u_2$ :
+
+$ { e^(i ((2 pi)/9 + (2 k pi)/3)), k in {0, 1, 2}} union { e^(i (-(2 pi)/9 + (2 k pi)/3)), k in {0, 1, 2}} \ 
+ = { e^(i (epsilon (2 pi)/9 + (2 k pi)/3)), epsilon in {-1,1}, k in {0, 1, 2}} \ 
+ = { e^(i (2 pi)/3(epsilon/3 + k)), epsilon in {-1,1}, k in {0, 1, 2}} \ 
+ = { e^(i (2 k pi)/9), k in {-1, 1, 2, 4, 5, 7}} \
+ = { e^(i (2 k pi)/9), k in { 1, 2, 4, 5, 7, 8}} \
+ = { e^(i (2 k pi)/9), k in { -4, -2, -1, 1, 2, 4 }} $
+
+ == Exercice 3.16
+
+ === 3.16.1
+
+ $ &z^2 - 2 cos(theta) z + 1 = 0 \
+ <==>& (z - cos theta)^2 -cos^2 theta  + 1 = 0 \ 
+<==>& (z - cos theta)^2 + sin^2 theta = 0 \
+<==>& (z - cos theta)^2 -(i sin theta)^2 = 0 \ 
+<==>& (z - cos theta + i sin theta)(z-cos theta - i sin theta) = 0 $
+
+Les deux solutions sont donc $z_1 = e^(i theta)$ et $z_2 = e^(-i theta)$
+
+=== 3.16.2
+
+$ z^2 -2 e^(i theta) z + 2i sin(theta) e^(i theta) = 0 $
+
+On calcule le discriminant :
+
+$Delta &= 4 e^(2i theta) - 8 i e^(i theta) sin theta\
+       &= 4 cos 2theta + 4i sin 2 theta + 8 sin^2 theta - 8i sin theta cos theta \
+       &= 4 (cos^2 theta - sin^2 theta) + 4i sin 2 theta + 8 sin^2 theta - 4i sin 2theta \
+       &= 4 (1 - 2 sin^2 theta) + 8 sin^2 theta \
+       &= 4 $
+
+Les racines de l'équation sont donc :
+$ z_1 = (2 e^(i theta) + 2)/2 = e^(i theta) + 1 $
+$ z_2 = (2 e^(i theta) - 2)/2 = e^(i theta) - 1 $
+
+
+== Exercice 3.17
+
+$ z^2 + (1 - i sqrt(3))z - (1 +i sqrt(3)) = 0 $
+
+=== 3.17.1
+
+$Delta &= 1 - 3 - 2 i sqrt(3) + 4  + 4 i sqrt(3) \
+       &= 2 + 2i sqrt(3) \ \
+       &= 4 e^(i pi/3)$
+
+Le déterminant étant non nul, l'équation admet deux solutions distinctes :
+
+$ z_1 = (2b + 2 e^(i pi/6))/2 = b + a $
+$ z_2 = b - a $
+
+=== 3.17.2
+
+$z_1 &= b + a \
+     &= e^(i (2 pi)/3) + e^(i pi/6) \
+     &= e^(i (5pi)/12) (e^(i (3pi)/12) + e^(-i (3pi)/12)) \
+     &= 2 cos (pi/4) e^(i (5pi)/12) \
+     &= sqrt(2) " " e^(i (5pi)/12)$
+
+$z_1 &= b - a \
+     &= e^(i (2 pi)/3) - e^(i pi/6) \
+     &= e^(i (5pi)/12) (e^(i pi/4) - e^(-i pi/4)) \
+     &= 2 i sin (pi/4) e^(i (5pi)/12) \
+     &= i sqrt(2) e^(i (5pi)/12) \
+     &= sqrt(2)" "e^(i (11pi)/12)$
+
+=== 3.17.3
+
+On a : 
+$ z_1 = sqrt(2) (cos (5pi/12) + i sin (5pi/12)) = b + a = (sqrt(3)-1)/2 + i (sqrt(3) +1)/2 $
+
+$ z_2 = sqrt(2) (cos (11pi/12) + i sin (11pi/12)) = b - a = (-sqrt(3)-1)/2 + i (sqrt(3) -1)/2 $ 
+
+Il en résulte que :
+
+$ cases(
+cos ((5pi)/12) = (sqrt(3)-1)/(2 sqrt(2)),
+sin ((5pi)/12) = (sqrt(3)+1)/(2 sqrt(2)),
+cos ((11pi)/12) = (-sqrt(3)-1)/(2 sqrt(2)),
+sin ((11pi)/12) = (sqrt(3)-1)/(2 sqrt(2))
+) $
