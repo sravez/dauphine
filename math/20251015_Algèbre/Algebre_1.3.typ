@@ -464,13 +464,7 @@ $f_alpha$ est l'homothétie de rapport $2/5$ ayant pour centre l'origine.
 
 ==== 3.19.1.b
 
-$forall z in CC, 5/2 z in CC and f_alpha (5/2 z) = z$
-
-$f_alpha$ est donc surjective.
-
-$f_alpha (z_1) = f_alpha (z_2) <==> 2/5 z_1 = 2/5 z_2 <==> z_1 = z_2$
-
-$f_alpha$ est donc injective.
+$forall z' in CC, f_alpha (z) = z' <==> z = 5/2 z'$
 
 Il en résulte que $f_alpha$ est bijective et que sa réciproque est $f_(1/alpha)$:
 
@@ -517,14 +511,9 @@ Donc : $ f_alpha (A) = A $
 - $a=1$
 - $f(z) z + i$
 
+$forall z' in CC, f_alpha (z) = z' <==> z = z' - i$
 
-$forall z in CC, (z -i) in CC and f(z-i) = z$
-
-$f$ est donc surjective.
-
-$f(z_1) = f(z_2) <==> z_1 = z_2$
-
-$f$ est donc injective et donc *bijective*.
+$f$ est donc bijective car chaque élément de $CC$ possède un et un seul antécédent.
 
 La réciproque de $f$ est donc : $f^(-1) : z |-> z - i$
 
@@ -552,3 +541,58 @@ $a = 2$
 
 $f$ est l'homothétie de centre $z_0 = -i$ et de rapport $2$ :
 $f(z) = 2 (z + i) - i$
+
+
+== Exercice 3.21
+
+$ f : CC\\{i} &-> CC\\{1}\
+z &|-> (z+i)/(z-i) $
+
+=== 3.21.1
+
+Soit $z' in CC\\{1}$
+$ &f(z) = z' \
+<==>& z' (z - i) = z + i \
+<==>& z (z' - 1) = i (z' + 1) \
+<==>& z = i (z' + 1)/(z' - 1) $
+
+On vérifie aisément que $z ≠ i$.
+
+Chaque élément de $CC\\{1}$ possède donc un et un seul antécédent par $f$.
+
+$f$ est donc bijective et sa réciproque est :
+
+$ f^(-1) : CC\\{1} &-> CC\\{i}\
+z &|-> i (z + 1)/(z - 1) $
+
+=== 3.21.2
+
+Les points fixes de $f$ sont les solutions de l'équation :
+$    & (z + i)/(z - i) = z \
+<==> & z^2 -(1+i)z - i = 0 $
+
+$Delta = 1 - 1 + 2i + 4i = 6i = 6 e^(i pi/2)$
+
+$f$ possède donc deux points fixes distincts : $ (1+i ± sqrt(6) e^(i pi/4))/2 = (1 ±sqrt(3))/2 (1+i) $
+
+=== 3.21.3.a
+Comme $RR subset CC\{i}$, on peut écrire :
+
+$ forall x in RR, |f(x)| = abs((x+i)/(x-i)) = abs(x+i) / abs(x-i) = sqrt(1 + x^2) / sqrt(1 + x^2) = 1 $
+
+Donc : $f(RR) subset UU inter (CC\\{1}) = UU \\{1}$
+
+=== 3.21.3.b
+Soit $z in UU \\{1}$ : $z = e^(i theta)$ avec $theta in ]0, 2 pi[$ 
+
+$ f^(-1) (z) &= i (e^(i theta) +1)/(e^(i theta)-1) \
+             &= i e^(i theta/2)/e^(i theta/2) (e^(i theta/2) + e^(-i theta/2))/(e^(i theta/2) - e^(-i theta/2)) \ 
+             &= i (2cos theta/2)/(2i sin theta/2) \
+             &= cot theta/2 $
+
+Donc $f^(-1) (UU \\{1}) subset RR$
+
+Ce qui démontre l'égalité 
+$ f(RR) = UU \\{1} $
+
+CQFD
