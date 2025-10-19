@@ -159,6 +159,8 @@ def test2_3(s1: str, s2: str) -> int:
 
 == Exercice 10
 
+
+
 ```python
 def display_x(s:str)-> None:
     l = len(s)
