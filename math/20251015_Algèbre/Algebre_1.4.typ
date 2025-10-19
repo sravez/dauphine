@@ -230,3 +230,26 @@ Le théorème des valeurs intermédiaires appliquées à l'intervalle $[x_1 -1 ,
 
 == Exercice 4.10
 
+$P_n (X) = X^(2n) - n X^(n+1) + n X^(n-1) -1$
+
+$P_n(1) = 0$
+
+$P_n (-1) = 0$
+- Dérivé première
+  - $P'_n (X) = 2n X^(2n-1) - (n^2 + n)X^n +(n^2 - n) X^(n-2)$
+    - $P'_n (1) = 0$
+- Dérivée seconde
+  - $P''_(n>2) (X) = n(4n -2) X^(2n-2) -n^2(n+1) X^(n-1) + n(n^2 -3n+2) X^(n-3)$
+    - $P''_(n>2) (1) = 0$
+  - $P''_2 (X) = 12 X^2 -12 X$
+    - $P''_2 (1) = 0$
+- Dérivée troisième
+  - $P^((3))_(n>3) (X) = n(4n^2 -12n +4) X^(2n-3) - n^2(n^2 - 1) X^(n-2) + n(n^3 - 6n^2 +11n -6)X^(n-4)$
+    - $P^((3))_(n>3) (1) = -2 n^3 -2n = -2n(n+1) <0$
+  - $P^((3))_3 (X) = 12 X^3 - 72 X$ 
+    - $P^((3))_3 (1) = -60 < 0$
+  - $P^((3))_2 (1) = 12 < 0$
+
+  $-1$ est donc racine de rang 3.
+
+
