@@ -157,23 +157,61 @@ def test2_3(s1: str, s2: str) -> int:
     return n
 ```
 
-== Exercice 10
+== Exercice 5.10
 
+- `l` : numéro de ligne
+- `c` : indice du premier caractère affiché qui est égal au nombre d'espaces avant le premier caractère
+- `c1` : premier caractère affiché
+- `c2` : deuxième caractère affiché qui est le symétrique de `c1` si ce n'est pas le caractère médian ( quand `c = m-1-c`)
 
 
 ```python
 def display_x(s:str)-> None:
-    l = len(s)
-    for i in range(0, l):
-        j = min(i,l-i-1)
-        c1 = s[j]
-        if j == l - j -1:
+    m = len(s)
+    for l in range(0, m):
+        c = min(l, m-1-l)
+        c1 = s[c]
+        if c == m - 1 - c:
             c2 = ""
         else:
-            c2 = s[l-j-1]
-        print(f"{j*" "}{c1}{(l-2*j-2)*" "}{c2}")
+            c2 = s[m-c-1]
+        print(f"{c*" "}{c1}{(m - 2*c -2)*" "}{c2}")
 
 display_x("MAGIQUE")
 display_x("PYTHON")
 display_x("MAGIQUEPYTHON")
+```
+
+== Exercice 5.11
+
+```python
+def hidden_in(needle: str, haystack: str) -> bool:
+    n = 0
+    h = 0
+    f = -1
+    while n < len(needle) and h < len(haystack):
+        while h < len(haystack):
+            h += 1
+            if needle[n] == haystack[h-1]:
+                f = n
+                break
+        n +=1
+    
+    return f == len(needle) - 1
+```
+
+== Exercice 5.12
+
+```python
+from random import randint
+    
+def permuteMot(s: str) -> str :
+    r = s[0]
+    chars = s[1:len(s)-1]
+    while len(chars) > 0 :
+        i = randint(0,len(chars) -1)
+        r += chars[i]
+        chars = chars[0:i] + chars[i+1:]
+    r += s[len(s)-1]    
+    return r
 ```
