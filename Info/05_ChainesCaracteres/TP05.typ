@@ -106,3 +106,72 @@ else:
 
 == Exercice 5.9
 
+```python
+def test2(s1:str, s2: str) -> int:
+    n = len(s1) // len(s2)
+    if s1 == n * s2:
+        return n
+    else:
+        return 0
+
+s1 = str(input("Chaîne 1 : "))
+s2 = str(input("Chaîne 2 : "))
+
+if (n := test2(s1, s2)) > 0:
+    print(n)
+else:
+    print("non")
+```
+
+On peut aussi parcourir la chaîne `s1` et vérifier la présence successive du motif :
+
+```python
+def test2_2(s1: str, s2: str) -> int:
+    start = 0
+    n = 0
+    while start < len(s1):
+        if s1[start:start + len(s2)] == s2 :
+            start += len(s2)
+            n += 1
+        else:
+            n = 0
+            break
+    return n
+
+```
+
+Remarquer l'opérateur _Walrus_.
+
+Si la longueur de `s1` n'est pas un multiple de celle `s2`, le résultat sera `non` on peut donc vérifier cela et éviter de parcourir toute la chaîne. Cela présente un gain pour les longues chaînes.
+
+```python
+def test2_3(s1: str, s2: str) -> int:
+    n = 0
+    if len(s1) % len(s2) == 0:
+        n = len(s1) // len(s2)
+        for i in range(0,n):
+            start = i * len(s2)
+            if s1[start:start + len(s2)] != s2 :
+                n = 0
+                break
+    return n
+```
+
+== Exercice 10
+
+```python
+def display_x(s:str)-> None:
+    l = len(s)
+    for i in range(0, l):
+        j = min(i,l-i-1)
+        c1 = s[j]
+        if j == l - j -1:
+            c2 = ""
+        else:
+            c2 = s[l-j-1]
+        print(f"{j*" "}{c1}{(l-2*j-2)*" "}{c2}")
+
+display_x("MAGIQUE")
+display_x("PYTHON")
+display_x("MAGIQUEPYTHON")
+```

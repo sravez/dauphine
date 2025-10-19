@@ -1,15 +1,9 @@
-def has_space(s: str) -> bool:
-    for i in range(0, len(s)):
-        if s[i] == " ":
-            return True
-    return False
-
 def get_str_wo_space(p: str) -> str:
     r = " "
     e = ""
     while r.count(" ") > 0:
         r = str(input(e+p))
-        e = "Pas d'espace - "
+        e = "!! Pas d'espace - "
     return r
 
 def has_multiple_occurences(s: str) -> bool:
@@ -39,7 +33,7 @@ print(test(3,"ababaaaba", "ab"))
 
 n  = int(input("Nombre d'occurences : "))
 s1 = get_str_wo_space("Chaîne contenante   : ")
-s2 = str(input("Motif à rechercher  : "))
+s2 = get_str_wo_space("Motif à rechercher  : ")
 
 if test(n,s1,s2):
     print("oui")
