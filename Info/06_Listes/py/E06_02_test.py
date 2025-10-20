@@ -1,5 +1,14 @@
 import pytest
 
-from E06_02 import analyze_notes
+from E06_02 import get_stats
 
-test_analyse_notes():
+def test_get_stats():
+    notes = [10,15,20,5,20]
+    stats = {
+        "mean": 14,
+        "good":  3,
+        "max" : 20,
+        "best": [2,4]
+    }
+    res = get_stats(notes)
+    assert res == stats
