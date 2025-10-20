@@ -5,4 +5,5 @@ def get_u_list(n: int) -> list[int]:
         u.append(5*u[i-1] + 10*u[i-2])
     return u
 
-print(get_u_list(5))
+n = int(input("Nombre de membres (≥ 2) : "))
+print(get_u_list(n))

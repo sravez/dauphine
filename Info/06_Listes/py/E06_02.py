@@ -24,28 +24,36 @@ def get_notes(n: int)-> list[float]:
 
 
 def get_stats(notes: list[float])->dict:
-    # Moyenne de la classe
-    m = sum(notes) / len(notes)
-    # Note maximale
-    M = max(notes)
-    # Nombre d'élèves au-dessus de la moyenne de la classe
-    good = 0
-    # Indices des élèves ayant la meilleure note
-    best:list[int] = []
-    
-    # Détermination de `good` et `best``
-    for i in range(0, len(notes)):
-        if notes[i] >= m :
-            good +=1
-        if notes[i] == M:
-            best.append(i)
+    if len(notes) == 0:
+        return {
+            "mean" : None,
+            "max"  : None,
+            "good" : None,
+            "best" : None
+        }
+    else:
+        # Moyenne de la classe
+        m = sum(notes) / len(notes)
+        # Note maximale
+        M = max(notes)
+        # Nombre d'élèves au-dessus de la moyenne de la classe
+        good = 0
+        # Indices des élèves ayant la meilleure note
+        best:list[int] = []
+        
+        # Détermination de `good` et `best``
+        for i in range(0, len(notes)):
+            if notes[i] >= m :
+                good +=1
+            if notes[i] == M:
+                best.append(i)
 
-    return {
-        "mean" : m,
-        "max"  : M,
-        "good" : good,
-        "best" : best
-    }
+        return {
+            "mean" : m,
+            "max"  : M,
+            "good" : good,
+            "best" : best
+        }
 
 
 def display_stats(stats: dict)->None:

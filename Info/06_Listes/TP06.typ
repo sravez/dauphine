@@ -74,34 +74,41 @@ def get_notes(n: int)-> list[float]:
 
 === 6.2.2 Statistiques
 
-Pour le calcul de la moyenne, on peut parcourir la liste pour sommer les notes mais on a pris ici le parti d'utiliser `reduce()`.
 
 L'énoncé suggère l'unicité de la meilleure note (et donc l'usage de `notes.index(M)`) mais plusieurs élèves peuvent avoir la note maximale ; on est donc obliger de parcourir la liste pour les identifier et on utilisera une liste pour les stocker.
 
 ```python
 def get_stats(notes: list[float])->dict:
-    # Moyenne de la classe
-    m = sum(notes) / len(notes)
-    # Note maximale
-    M = max(notes)
-    # Nombre d'élèves au-dessus de la moyenne de la classe
-    good = 0
-    # Indices des élèves ayant la meilleure note
-    best:list[int] = []
-    
-    # Détermination de `good` et `best``
-    for i in range(0, len(notes)):
-        if notes[i] >= m :
-            good +=1
-        if notes[i] == M:
-            best.append(i)
+    if len(notes) == 0:
+        return {
+            "mean" : None,
+            "max"  : None,
+            "good" : None,
+            "best" : None
+        }
+    else:
+        # Moyenne de la classe
+        m = sum(notes) / len(notes)
+        # Note maximale
+        M = max(notes)
+        # Nombre d'élèves au-dessus de la moyenne de la classe
+        good = 0
+        # Indices des élèves ayant la meilleure note
+        best:list[int] = []
+        
+        # Détermination de `good` et `best``
+        for i in range(0, len(notes)):
+            if notes[i] >= m :
+                good +=1
+            if notes[i] == M:
+                best.append(i)
 
-    return {
-        "mean" : m,
-        "max"  : M,
-        "good" : good,
-        "best" : best
-    }
+        return {
+            "mean" : m,
+            "max"  : M,
+            "good" : good,
+            "best" : best
+        }
 
 
 def display_stats(stats: dict)->None:
@@ -110,7 +117,7 @@ def display_stats(stats: dict)->None:
     print("Note maximale :", stats["max"])
     print("Meilleurs     :", ", ".join([str(s) for s in stats["best"]]))
 ```
-*NB :* on utilise la compréhension de liste pour convertir les nombres en chaînes de caractères afin de pouvoir utiliser `join()`  et éviter une boucle.
+*NB :* on utilise la compréhension de liste pour convertir les nombres en chaînes de caractères afin de pouvoir utiliser `join()` et éviter une boucle.
 
 === 6.2.3 Programme
 
@@ -123,21 +130,23 @@ n = int(input("Nombre de notes : "))
 
 == Exercice 6.3
 
-Afficher n'est pas stocker !
-
+Il n'est pas nécessaire de constituer la liste pour l'afficher, il serait plus économique en ressources de l'afficher en même temps que le calcul si on n'en a pas l'usage après.
 ```python
 def get_u_list(n: int) -> list[int]:
     u = [1,2]
     for i in range(2, n+1):
         u.append(5*u[i-1] + 10*u[i-2])
     return u
+
+n = int(input("Nombre de membres (≥ 2) : "))
+print(get_u_list(n))
 ```
 
 == Exercice 6.4
 
 2 stratégies possibles :
 - On copie la plus longue liste et on ajoute aux premiers éléments la valeur de ceux de la plus courte.
-- On crée une nouvelle liste après avoir identifier en ajoutant d'abord la somme des éléments de même rang puis les  éléments restants de la liste la plus longue.
+- On crée une nouvelle liste après avoir identifié la plus longue (et donc la plus courte) en ajoutant d'abord la somme des éléments de même rang puis les  éléments restants de la liste la plus longue.
 
 *NB :* `short = l1` ne crée pas une copie de `l1` mais une référence (comme un alias) vers `l1`; toute modification de `short` est alors une modification de `l1`. Par contre `r = l1.copy()` effectue une copie mais une copie dite _shallow_ : cela signifie que les objets référencés dans `l1` (par exemple des listes) ne sont pas copiés et que leur modification est donc effectives dans `l1` et `r`.
 
@@ -189,17 +198,14 @@ def LRES_2(l1: list[int], l2: list[int]) -> list[int]:
 def moyenne(resultats, eleve: str) -> float:
     s = 0
     n = 0
-
     for resultat in resultats:
         if resultat[0] == eleve :
             s += resultat[2]
             n += 1
-
     if n> 0 :
         return s / n
     else:
         return None
-
 
 resultats = [
     ["Bob", "Python", 11],
@@ -318,6 +324,9 @@ print(f"Somme des entiers de {1} à {n} :", sum(range(1, n+1)))
 == Exercice 6.9
 
 On propose 3 méthodes de calcul du produit :
++ la plus évidente qui multiplie tous les nombres de la suite ;
++ une évolution de la précédente qui s'arrête si le produit est nul ;
++ l'utilisation de `reduce()` avec une fonction lambda.
 
 ```python
 from random import randint
@@ -328,18 +337,100 @@ def TabAlea(n, a, b) -> list[int]:
 
 def TabProduit_1(T) -> int:
     p = 1
+    for i in range(0, len(T)):
+        p *= T[i]
+    return p
+
+def TabProduit_2(T) -> int:
+    p = 1
     i = 0
     while i<len(T) and p != 0 :
         p *= T[i]
         i += 1
     return p
 
-def TabProduit_2(T) -> int:
-    return reduce(lambda x,y: x*y, T)
-
 def TabProduit_3(T) -> int:
-    p = 1
-    for i in range(0, len(T)):
-        p *= T[i]
-    return p
+    return reduce(lambda x,y: x*y, T)
+```
+
+== Exercice 6.10
+
+On peaufine l'affichage en calculant la taille maximale des entiers avec `ceil(log10(n * 7))`
+
+```python
+from math import ceil, log10
+
+def display(n: int, p: int):
+    l = [ 7 * i for i in range(1,n+1)]
+    m = 0
+    pad = ceil(log10(n * 7))
+    for i in l:
+        print(f"{i:{pad}d}", end="")
+        if i % p == 0:
+            m +=1
+            print("")
+        else:
+            print(" ; ", end="")
+    if i % p != 0:
+        print("")
+    print(f"Vous avez affiché {m} multiples de {p}")
+
+n = int(input("Combien de multiples de 7 voulez-vous afficher ? "))
+print("Vous irez à la ligne après chaque multiple de...")
+p = int(input("(nombre strictement positif svp) : "))
+
+display(n,p)
+```
+
+Plutôt que de parcourir la liste, on peut envisager de calculer le nombre d'éléments de chaque ligne et d'extraire les éléments correspondants et de les afficher après les avoir joints.
+
+Le nombre d'éléments de chaque ligne est :
+- $p$ si $p$ n'est pas un multiple de 7 ($p$ et 7 premiers entre eux);
+- $p/7$ si $p$ est un multiple de 7.
+
+```python
+from math import ceil, log10
+
+def display(n: int, p:int):
+    l = [ 7 * i for i in range(1,n+1)]
+    k: int  = p
+    if p % 7 == 0:
+        k = p // 7
+    
+    pad = ceil(log10(n * 7))
+    for i in range(0, n, k):
+        print( " ; ".join([f"{str(m):>{pad}}" for m in l[i : i+k] ]) )
+    print(f"Vous avez affiché {n // k} multiples de {p}")
+
+n = int(input("Combien de multiples de 7 voulez-vous afficher ? "))
+print("Vous irez à la ligne après chaque multiple de...")
+p = int(input("(nombre strictement positif svp) : "))
+
+display(n,p)
+```
+
+== Exercice 6.12
+
+```python
+from random import randint
+
+def get_list_of_lists(n, l_max, v_max):
+    r = []
+    for i in range(0,n):
+        l = [ randint(0, v_max) for j in range(0, randint(0, l_max)) ]
+        r.append(l)
+    return r
+
+def get_sum_of_first_longest_sublist(lol):
+    l = 0
+    s = 0
+    for sl in lol:
+        if len(sl) > l:
+            l = len(sl)
+            s = sum(sl)
+    return s
+
+l = get_list_of_lists(5,5,9)
+print(l)
+print(get_sum_of_first_longest_sublist(l))
 ```
