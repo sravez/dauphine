@@ -25,7 +25,7 @@ def get_notes(n: int)-> list[float]:
 
 def get_stats(notes: list[float])->dict:
     # Moyenne de la classe
-    m = reduce(lambda x,y: x+y, notes) / len(notes)
+    m = sum(notes) / len(notes)
     # Note maximale
     M = max(notes)
     # Nombre d'élèves au-dessus de la moyenne de la classe

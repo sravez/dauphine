@@ -81,7 +81,7 @@ L'énoncé suggère l'unicité de la meilleure note (et donc l'usage de `notes.i
 ```python
 def get_stats(notes: list[float])->dict:
     # Moyenne de la classe
-    m = reduce(lambda x,y: x+y, notes) / len(notes)
+    m = sum(notes) / len(notes)
     # Note maximale
     M = max(notes)
     # Nombre d'élèves au-dessus de la moyenne de la classe
@@ -211,13 +211,110 @@ print(moyenne(resultats, "Bob")) # 10.75
 print(moyenne(resultats, "Zoe")) # 14.0
 print(moyenne(resultats, "Doe")) # None
 ```
-On peut également utiliser une compréhension de liste et la réduction pour un code plus concis mais pas obligatoirement plus efficace :
+On peut également utiliser une compréhension de liste pour un code plus concis mais pas obligatoirement plus efficace :
 
 ```python
 def moyenne(resultats, eleve: str) -> float:
     notes = [ r[2] for r in resultats if r[0] == eleve]
     if len(notes) > 0:
-        return reduce(lambda x,y: x+y, notes) / len(notes)
+        return sum(notes) / len(notes)
     else:
         return None
 ```
+
+== Exercice 6.7
+
+=== 6.7.1
+
+L'erreur de syntaxe nous indique une erreur dans l'opérateur : une espace s'est glissée entre le `<` et le `=`.
+
+=== 6.7.2
+
+L'erreur nous indique un retour à la ligne invalide (2 fois la même erreur) : soit on met tout sur la même ligne soit on fait précéder le retour à la ligne d'un anti-slash `'\'` : `'affichage = affichage + ... + \'`
+
+Il manque également un double apostrophe dans la dernière commande `print`: `print("La chaine \"", ch...)`
+
+=== 6.7.3
+
+La variable `nbMots` est lue avant d'être initialisée. Il faut l'initialiser à 0 en tout début d'exécution, avant la boucle `while`.
+
+=== 6.7.4
+
+La concaténation de chaînes ne convertit pas automatiquement les entiers en chaînes, il faut donc le faire expressément avec `str(mot.count(mot[0]))`.
+
+=== 6.7.5
+
+Les deux boucles `while` sur `i` possèdent l'instruction d'incrémentation ; c'est donc vraisemblement la boucle sur `mot` qui ne vérifie jamais la condition de fin. En mettant `print(mot)` dans la boucle on constate en effet que la variable `mot` n'est pas modifiée car la méthode `replace()` renvoie une nouvelle chaîne sans modifier la chaîne d'origine.
+
+On corrige avec : `mot = mot.replace(mot[0], "")`
+
+=== 6.7.6
+
+Le message d'erreur signifie qu'on essaye de lire un caractère au-delà de la longueur de la chaîne.
+
+Il faut modifier les conditions de fin de `while` par `i < len(ch)` car les indices de caractères varient de 0 à `len(ch)-1`.
+
+=== 6.7.7
+
+Lors de l'évalution d'une condition `a and b`, python n'évalue pas `b` si `a` est faux, ce qui fait qu'on essaie pas de lire `ch[i]` quand on est au-delà de la longueur de `ch`. Si on intervertit les conditions, on essaie de lire un caractère au-delà de la longueur; ce qui provoque une erreur.
+
+=== 6.7.8
+
+Il faut initialiser `affichage` avant la première boucle `while`.
+
+=== 6.7.9 Code corrigé
+
+```python
+def compteMotsEtCaracteres(ch):
+    i = 0
+    nbMots = 0
+    affichage = ""
+
+    while i < len(ch):
+        mot = ""
+        #Récupération du mot courant
+        while (i < len(ch) and ch[i] != " "):
+            mot += ch[i]
+            i += 1
+            
+        #Pour ne compter que les mots non vides
+        if mot != "":
+            nbMots += 1
+            affichage += "Le mot \"" + mot + "\" contient : \n"
+            
+            #Pour compter les caractères du mot courant
+            while (mot != ""):
+                affichage += "  " + str(mot.count(mot[0])) + " fois le caractère '" + mot[0] + "'\n"
+                mot = mot.replace(mot[0], "")
+        i += 1
+        
+    if nbMots != 0:
+        print("La chaine \"", ch, "\" contient : ", nbMots,
+        		" mots\n", affichage, sep="", end="")
+        
+compteMotsEtCaracteres("ananas poire kiwi")
+```
+
+== Exercice 6.8
+
+```python
+def somme_des_entiers(n: int) -> int :
+    s = 0
+    for i in range(1, n+1):
+        s += i
+    return s
+
+def get_integer() -> int:
+    r = 0
+    while r < 1:
+        r = int(input("Entrez un entier strictement positif : "))
+    return r
+
+n = get_integer()
+print(f"Somme des entiers de {1} à {n} :", somme_des_entiers(n))
+print(f"Somme des entiers de {1} à {n} :", sum(range(1, n+1)))
+```
+
+== Exercice 6.9
+
+

@@ -18,13 +18,13 @@ def moyenne(resultats, eleve: str) -> float:
 def moyenne_2(resultats, eleve: str) -> float:
     notes = [ r[2] for r in resultats if r[0] == eleve]
     if len(notes) > 0:
-        return reduce(lambda x,y: x+y, notes) / len(notes)
+        return sum(notes) / len(notes)
     else:
         return None
 
 resultats = [
-    ["Bob", "Python", 11],
-    ["Zoe", "Python", 14],
+    ["Bob", "Python" , 11  ],
+    ["Zoe", "Python" , 14. ],
     ["Bob", "algebre", 10.5]
 ]  
 
