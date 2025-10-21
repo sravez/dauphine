@@ -411,10 +411,19 @@ display(n,p)
 
 == Exercice 6.12
 
+On génère une liste de listes aléatoire qui prend comme paramètres :
+- `n`: nombre de sous-listes,
+- `l_max` : longueur maximale des sous-listes,
+- `v_max` : valeur entière maximale des éléments des sous-listes.
+
+Le fait de renvoyer la somme de la première liste de longueur maximale
+simplifie l'algorithme et de ne considérer que les sous-suites de longueur 
+strictement supérieure à la dernière plus grande.
+
 ```python
 from random import randint
 
-def get_list_of_lists(n, l_max, v_max):
+def get_list_of_lists(n=5, l_max=6, v_max=9):
     r = []
     for i in range(0,n):
         l = [ randint(0, v_max) for j in range(0, randint(0, l_max)) ]
@@ -433,4 +442,160 @@ def get_sum_of_first_longest_sublist(lol):
 l = get_list_of_lists(5,5,9)
 print(l)
 print(get_sum_of_first_longest_sublist(l))
+```
+
+== Exercice 6.13
+
+=== 6.13.1
+
+C'est une très mauvaise façon de stocker les données…
+
+On essaie d'aligner verticalement les prénoms et les notes pour faciliter la maintenance du code
+
+```python
+students = ["Florian","Antoine","Charles1","Robert","Charles2","Erwan","Jean","Xavier","Didier","Alain","Hadi"]
+notes    = [ 2       , 12      , 0        , 0      , 8        , 7     , 20   , 11     , 20     , 0     , 12   ]
+```
+
+=== 6.13.2 Calcul et affichage de la moyenne
+
+```python
+def moyenne(notes: list[float]) -> float:
+    if len(notes) > 0:
+        return sum(notes)/len(notes)
+    else:
+        return None
+
+print("Moyenne : ", round(moyenne(notes), 1))
+```
+
+=== 6.13.3 Affichage des résultats
+
+```python
+def print_results(students: list[str], notes: list[float])->None:
+    w = max([len(s) for s in students])
+    for i in range(0, len(students)):
+        print(f"{students[i]:<{w}} : {notes[i]:4.1f} => {'recalé' if notes[i]<10 else 'admis'}")
+```
+
+Noter l'usage de l'opérateur ternaire dans `'recalé' if notes[i]<10 else 'admis'`.
+
+=== 6.13.4
+
+```python
+def split_ok_ko(students, notes):
+    ok_students = []
+    ok_notes = []
+    ko_students = []
+    ko_notes = []
+    for i in range(0, len(students)):
+        if notes[i]>= 10 :
+            ok_students.append(students[i])
+            ok_notes.append(notes[i])
+        else:
+            ko_students.append(students[i])
+            ko_notes.append(notes[i])
+    
+    return {
+        "ok_students": ok_students,
+        "ok_notes"   : ok_notes,
+        "ko_students": ko_students,
+        "ko_notes"   : ko_notes,
+    }
+```
+
+=== 6.13.5 Suppression des zéros
+
+==== PIÈGE
+
+Le code ci-dessous *NE FONCTIONNE PAS* pour plusieurs raison :
+- lors de la suppression d'une note nulle à la position `p`, les éléments suivants sont décalés : l'élément `p+1` devient l'élément `p` et n'est pas examiné car `i` passe à `p+1` et teste alors l'élément qui était `p+2`.
+- si on supprime des éléments, on va essayer d'accéder à des indices au-delà de la nouvelle longueur de la liste.
+
+```python
+# NE FONCTIONNE PAS
+def bad_remove_zeroes(students, notes):
+    for i in range(0, len(students)):
+        if notes[i] == 0:
+            notes.pop(i)
+            students.pop(i)
+```
+
+L'usage d'une boucle `while` incrémentale avec des tests sur la longueur supprime les erreurs d'exécution liées à la longueur de liste mais ne résoud pas le premier problème :
+
+```python
+# NE FONCTIONNE PAS
+def bad_remove_zeroes(students, notes):
+    while i< len(students):
+        if i < len(students) and notes[i] == 0:
+            notes.pop(i)
+            students.pop(i)
+        i += 1
+```
+==== Solution 1
+
+On parcourt la liste des notes dans l'ordre des indices décroissants, les suppressions n'influençant alors pas les indices qu'il nous reste à explorer.
+
+```python
+def remove_zeroes_backwards(students, notes):
+    for i in range(len(students)-1, -1, -1):
+        if notes[i] == 0:
+            notes.pop(i)
+            students.pop(i)
+```
+
+==== Solution 2
+
+On peut également utiliser une boucle `while` en traitant l'élément qui remplace celui supprimé (éventuellemeent plusieurs fois) avant d'incrémenter l'indice.
+
+```python
+def remove_zeroes_forwards(students, notes):
+    i = 0
+    while i < len(students):
+        while i < len(notes) and notes[i] == 0:
+            notes.pop(i)
+            students.pop(i)
+        i += 1
+```
+
+==== Solution 3
+
+Une autre solution consiste à stocker dans un premier temps les indices des éléments nuls puis à les supprimer en les décalant de 1 pour chaque suppression antérieure.
+
+```python
+def remove_zeroes_afterwards(students, notes):
+    zeroes = []
+    for i in range(0, len(students)):
+        if notes[i] == 0:
+            zeroes.append(i)
+    for j in range(0, len(zeroes)):
+        notes.pop(zeroes[j]-j)
+        students.pop(zeroes[j]-j)
+```
+
+==== Solution 4
+
+Une autre solution consiste à chercher les zéros et supprimer l'élément correspondant jusqu'à ce qu'il y en ait plus. `index()` produisant une erreur si l'élément est introuvable, on peut utiliser les mécanismes de gestion d'erreur (`try...except...`) ou faire précéder l'appel d'un `count()` (solution 5, qui multiplie les recherches)
+
+```python
+def remove_zeroes_search(students: list[str], notes: list[float]):
+    pos = 0
+    while pos >=0:
+        try:
+            pos = notes.index(0, pos)
+        except:
+            pos = -1
+        else:
+            students.pop(pos)
+            notes.pop(pos)
+```
+==== Solution 5
+
+```python
+def remove_zeroes_count_index(students: list[str], notes: list[float]):
+    pos = 0
+    while notes.count(0) > 0:
+        pos = notes.index(0, pos)
+        students.pop(pos)
+        notes.pop(pos)
 ```

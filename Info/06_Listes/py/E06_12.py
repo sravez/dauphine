@@ -1,6 +1,6 @@
 from random import randint
 
-def get_list_of_lists(n, l_max, v_max):
+def get_list_of_lists(n=5, l_max=6, v_max=9):
     r = []
     for i in range(0,n):
         l = [ randint(0, v_max) for j in range(0, randint(0, l_max)) ]
@@ -16,6 +16,6 @@ def get_sum_of_first_longest_sublist(lol):
             s = sum(sl)
     return s
 
-l = get_list_of_lists(5,5,9)
+l = get_list_of_lists()
 print(l)
 print(get_sum_of_first_longest_sublist(l))
