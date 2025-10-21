@@ -667,3 +667,78 @@ remove_zeroes(ko_students, ko_notes)
 print("Moyenne   : ", round(moyenne(), 1))
 print_results()
 ```
+
+== Exercice 6.14
+
+=== 6.14.1
+
+```python
+def lireDistance():
+    distance = [[0 for j in villes] for i in villes]
+    print("Entrez les distances entre les villes")
+    for i in range(0, len(villes)-1):
+        print("")
+        for j in range(i+1, len(villes)):
+            distance[i][j] = int(input(f"    {villes[i]:>8} <-> {villes[j]:<8} : "))
+            distance[j][i] = distance[i][j]
+    return distance
+```
+
+=== 6.14.2
+
+Si on tiens pour acquis que le tableau est symétrique avec une diagonale nulle (ce qu'il est par construction),
+il suffit de tester les couples $(i,j)$ avec $i<j$ ; l'inégalité devenant une égalité si $k$ est égal à $i$ ou $j$, on pourrait économiser 2 tests par couple $(i,j)$.
+
+```python
+def check_consistency(d):
+    pb = []
+    for i in range (0, len(villes)):
+        for j in range(i+1, len(villes)):
+            for k in range(0, len(villes)):
+                if d[i][j] > d[i][k] + d[k][j]:
+                    pb.append([i,j,k])
+    return pb
+```
+=== 6.14.3
+```python
+villes = ["Auxerre", "Avallon", "Clamecy", "Joigny", "Migennes"]
+
+def lireDistance():
+    distance = [[0 for j in villes] for i in villes]
+    print("Entrez les distances entre les villes")
+    for i in range(0, len(villes)-1):
+        print("")
+        for j in range(i+1, len(villes)):
+            distance[i][j] = int(input(f"    {villes[i]:>8} <-> {villes[j]:<8} : "))
+            distance[j][i] = distance[i][j]
+    return distance
+
+def check_consistency(d):
+    pb = []
+    for i in range (0, len(villes)):
+        for j in range(i+1, len(villes)):
+            for k in range(0, len(villes)):
+                if d[i][j] > d[i][k] + d[k][j]:
+                    pb.append([i,j,k])
+    return pb
+    
+
+def print_inconsistencies(pb):
+    if len(pb) > 0:
+        print(f"Il y a {len(pb)} incohérences : ")
+        for p in pb:
+            print(f"{villes[p[0]]} - {villes[p[1]]} - {villes[p[2]]}")
+    else:
+        print("Toutes les inégalités triangulaires sont respectées.")
+
+distance = lireDistance()
+pb = check_consistency(distance)
+print_inconsistencies(pb)
+```
+
+On constate 3 triplets qui pose problème :
+- Avallon - Migennes - Auxerre
+- Avallon - Migennes - Clamecy
+- Avallon - Migennes - Joigny
+
+C'est donc la Avallon - Migennes qui est surévaluée, toute valeur entre 61 et 65 permet de respecter les inégalités triangulaires
