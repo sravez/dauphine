@@ -1,0 +1,35 @@
+Champion Adele
+27
+francais,anglais,espagnol
+Chili,Perou,Equateur,Australie,Espagne
+AdeleChampion@gmail.com
+0607080910
+oui
+Gagnant Eric
+31
+francais,flamand,espagnol,italien
+Argentine,France,Grece
+gagnantBelge@gmail.com
+0101010101
+oui
+Victoire Eloise
+22
+francais,italien
+Allemagne,Bresil
+eloise.victoire@yahoo.fr
+0145452666
+oui
+Meilleur Pablo
+28
+espagnol
+Perou,Bresil
+pablo.meilleur@gmail.com
+0652412222
+non
+Parfaite Sylvia
+25
+italien,espagnol,francais
+France,Guatemala
+sylvia.parfaite@gmail.com
+0403020100
+oui
