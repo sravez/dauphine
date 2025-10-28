@@ -30,6 +30,8 @@ Et donc : $limits(lim)_(n-> +oo) a^n = 0$
 
 === 1.3
 
+Soit $a in ]-1 ; 1[$.
+
 On a (« le suivant moins le premier sur la raison moins un ») :
 
 $ u_n = sum_(k=0)^n a^k = (a^(n+1) - 1)/(a-1) $
@@ -115,11 +117,13 @@ Alors $forall n ≥ N, | u_(n+1) - u_n | ≤ |u_(n+1) - l| + |u_n - l| < 1$
 
 === 2.7.2
 
-D'après le point précédent, la différence entre deux termes successifs est, à partir d'un certain rang, inférieure à 1 ce qui implique, pour des entiers, qu'ils sont égaux. La suite est donc stationnaire à partir de ce même rang.
+D'après le point précédent, la différence entre deux termes successifs est, à partir d'un certain rang, strictementinférieure à 1 ce qui implique, pour des entiers, qu'ils sont égaux. La suite est donc stationnaire à partir de ce même rang.
 
 == Exercice 2.8
 
 === 2.8.1
+
+Afin de limiter le nombre de démonstration en va démontrer une chaîne circulaire d'implication.
 
 (a)$==>$(b) : par la définition de la densité avec l'intervalle $]x-epsilon ; x+epsilon[$.
 
@@ -127,7 +131,7 @@ D'après le point précédent, la différence entre deux termes successifs est, 
 
 (c)$==>$(d) : on construit une suite $(u_n)$ en choisissant pour $u_n$ un élément de $U inter ]x-1/n ; x+1/n [$ qui est non vide.
 
-(d)$==>$(a) : on choisit $x$ comme le milieu de l'intervalle cible
+(d)$==>$(a) : si $x in ]a, b[$, choisit $epsilon = min(b-x, x-a)$
 
 === 2.8.2
 
@@ -154,7 +158,7 @@ $ limits(lim)_(n->+oo) n^alpha = limits(lim)_(n->+oo) e^(alpha ln(n)) = +oo $
 
 car $limits(lim)_(n->+oo) alpha ln(n) = +oo$ et $limits(lim)_(x->+oo) e^x = +oo$
 
-=== 2.9.1
+=== 2.9.2
 
 Soit $a > 1$ ($==> ln(a) > 0$)
 
@@ -162,7 +166,7 @@ $ limits(lim)_(n->+oo) a^n = limits(lim)_(n->+oo) e^(n ln(a)) = +oo $
 
 car $limits(lim)_(n->+oo) n ln(a) = +oo$ et $limits(lim)_(x->+oo) e^x = +oo$
 
-=== 2.10
+== Exercice 2.10
  Soit $(u_n)_(n in NN)$ une suite qui tend vers $+oo$. Montrer (à partir de la définition) que la suite $(E(u_n))$ tend aussi vers $+oo$.
 
  Soit $x in RR$, on sait donc que :
@@ -178,7 +182,19 @@ car $limits(lim)_(n->+oo) n ln(a) = +oo$ et $limits(lim)_(x->+oo) e^x = +oo$
 
  CQFD
 
- == Exercice 2.12
+== Exercice 2.11
+
+$ forall n in NN^*, u_n = n^3/(n+1) > n^3 / n = n^2 ≥ n $
+
+Soit $x in RR$, on pose $N = E(x) + 1$ (et donc $x < N$).
+
+On a alors :
+
+$ forall n ≥N, u_n > n ≥ N ≥ x $
+
+CQFD
+
+== Exercice 2.12
 
 Soit $x in RR$, on définit la suite $(u_n)_(n in NN^*)$ par :
 
@@ -186,8 +202,236 @@ Soit $x in RR$, on définit la suite $(u_n)_(n in NN^*)$ par :
 
  Donc :
 
- $ (x - 1 + (2x - 1) + ... (n x -1))/n^2 < &u_n ≤(x + 2x + ... + n x)/n^2 \ 
- <==> ( n(n+1)/2 x - n) / n^2 < &u_n ≤  ( n(n+1)/2 x )/ n^2 \ 
- <==> (n+1)/(2n) x - 1/n < & u_n ≤ (n+1)/(2n) x $
+ $   &&(x - 1 + (2x - 1) + ... (n x -1))/n^2 < &u_n ≤(x + 2x + ... + n x)/n^2 \
+ <==>&& (sum_(k=1)^n (k x -1))/n^2 < &u_n ≤ (sum_(k=1)^n k x )/n^2\ 
+ <==>&& ( n(n+1)/2 x - n) / n^2 < &u_n ≤  ( n(n+1)/2 x )/ n^2 \ 
+ <==>&& (n+1)/(2n) x - 1/n < & u_n ≤ (n+1)/(2n) x $
 
  D'après le théorème des gendarmes, la suite $(u_n)$ converge vers $x/2$
+
+ == Exercice 2.13
+
+ $ forall n in NN^*, u_n = sum_(k=0)^n 1/(n+sqrt(k)) $
+
+ === 2.13.1
+Soit $n in NN^*$
+ $   & forall k in {0,dots,n}, 0 ≤ k ≤ n \
+ ==> & forall k in {0,dots,n}, 0 ≤ sqrt(k) ≤ sqrt(n) &&" car " sqrt(x) " est croissante sur " RR\ 
+ ==> & forall k in {0,dots,n}, 0 < n ≤ n + sqrt(k) ≤ n + sqrt(n) &&" car " n > 0\
+ ==> & forall k in {0,dots,n}, 1/n ≥ 1/(n + sqrt(k)) ≥ 1/ (n + sqrt(n)) $
+
+ CQFD
+
+ === 2.13.2
+
+ Il résulte du point précédent que 
+
+$   & forall n in NN^*, n / (n + sqrt(n))≤ u_n ≤ n  1/n \
+==> & forall n in NN^*, 1 - 1/(sqrt(n) + 1)≤ u_n ≤ 1 $
+
+Et donc que $(u_n)_(n in NN^*)$ converge vers 1
+
+== Exercice 2.14
+
+=== 2.14.1
+
+==== 2.14.1.a
+Soit :
+
+$f:& RR_+ && -> &&RR \
+&  x   &&|-> &&x - ln(1+x)$
+
+On a :
+- $f(0)$
+- $lim_(x -> +oo) f(x) = + oo$ car $ lim_(x->+oo) ln(x)/x = 0$
+- $f'(x) = 1 - 1/(1+x) = x/(1+x) ≥ 0$
+
+$f$ est donc croissante et positive.
+
+==== 2.14.1.b
+Soit :
+
+$g: & RR_+ && -> &&RR \
+    &  x   &&|-> &&ln(1+x) -x + x^2 /2$
+
+- $g(0) = 0$
+- $lim_(x->+oo) g(x) = lim_(x->+oo) x^2 (1 - 1/x + ln(1+x) / x^2) = +oo$
+- $g'(x) = 1/(1+x) -1 + x = x^2 /(1+x) ≥ 0$
+
+$g$ est donc croissante et positive
+
+CQFD
+
+=== 2.14.2
+
+$a in RR$
+
+La suite étant constante égale à 1 si $a = 0$, on considèrera $a≠0$
+
+Soit $epsilon > 0$.
+
+La fonctionne exponentielle est continue sur $RR$, donc en 0, et admet donc 1 comme limite en 0 :
+
+$ exists mu >0, forall x in ]-mu, mu[, abs(e(x)-1) < epsilon $
+
+Soit $N = E(abs(a)/mu) + 1$
+
+Par définition de la partie entière, on a $N> abs(a)/mu$ et donc :
+
+$   & forall n ≥ N, abs(a)/n ≤ abs(a)/N = abs(a) / (E(abs(a)/mu) + 1) <abs(a) / (abs(a)/mu) = mu \
+==> & forall n ≥ N, a/n in ]-mu, mu[ $
+
+
+Donc :
+
+$ forall n ≥ N, abs(e^(a/n) - 1)< epsilon $
+
+Ce qui est la définition de la convergence vers 1 de la suite.
+
+
+=== 2.14.4
+
+==== 2.14.4.a
+
+$ (1 + 1/n^2)^n = exp(n ln(1 + 1/n^2)) $
+
+$forall n in NN, n ln(1 + 1/n^2) ≥ 0$
+
+Donc d'après le point (1) avec $x=1/n^2$, on a :
+
+$ 0 ≤ n ln(1 + 1/n^2) ≤ n 1/n^2 $
+
+Il en découle d'après le théorème des gendarmes que : $lim_(n->+oo) n ln(1 + 1/n^2) = 0$
+
+Et donc :
+
+$ lim_(n -> +oo) (1 + 1/n^2)^n = 1$
+
+==== 2.14.4.b
+
+En utilisant le point 14.1 avec $x = 1/sqrt(n)$ et $exp$ étant croissante on a :
+
+$ (1 + 1/sqrt(n))^n &= exp(n ln(1 + 1/sqrt(n))) \
+                    &≥ exp(n (1/sqrt(n) - 1/(2n))) \
+                    &≥ exp(sqrt(n) -1/2) $
+Et donc :
+$ lim_(n -> +oo) (1 + 1/sqrt(n))^n = +oo $
+
+==== 2.14.4.c
+
+D'après le 14.1 :
+
+$    && n(1/n -1/(2n^2)) ≤ &n ln(1 + 1/n) ≤ n 1/n \
+<==> && 1- 1/(2n) ≤ &n ln(1 + 1/n) ≤ 1 $
+
+Ce qui démontre que :
+
+$ lim_(n -> +oo) (1 + 1/n)^n = e $
+
+
+== Exercice 2.15
+
+$(u_n)$ et $(v_n)$ deux suites dans $[0,1]$ telles que $lim_(n->+oo) u_n v_n = 1$
+
+Soit $epsilon >0$, d'après la convergence de $(u_n v_n)$ :
+
+$ exists N in NN, forall n ≥ N, 1-epsilon < u_n v_n ≤ 1 $
+
+$ epsilon < 1 ==> cases(0 < u_n ≤1, "et",0<v_n≤1) ==> cases( u_n v_n ≤ u_n, "et",u_n v_n ≤ v_n) ==> forall n ≥ N, 1-epsilon<u_n≤1 " et " 1-epsilon<v_n≤1 $
+
+Ces inégalités sont par hypothèse vraies pour $epsilon ≥ 1$.
+
+Ce qui démontre la convergence de $(u_n)$ et $(v_n)$ vers 1.
+
+== Exercice 2.16
+
+Soit $alpha <1$ et la suite $u_n = sum_(k=1)^n 1/k^alpha$
+
+$(u_n)$ est strictement croissante.
+
+En tenant compte du sens de variation de $f_alpha (x) = x^(-alpha)$, on a :
+
+$ cases(
+    u_n ≥ n f_alpha (1) = n           & " si" alpha≤0   " car " f_alpha " croissante",
+    u_n ≥ n f_alpha (n) = n^(1-alpha) & " si" 0<alpha<1 " car " f_alpha " décroissante"
+  ) $
+
+Il en résulte que dans les deux cas : $ lim_(n -> +oo) u_n = +oo $
+
+
+== Exercice 2.17
+
+Soit $u = (u_n)_n(n in NN)$ une suite réelle qui ne s'annule pas.
+
+=== 2.17.1
+
+On suppose que : $ exists alpha in [0, 1[, exists N in NN, forall n ≥ N, abs(u_(n+1)/u_n) ≤ alpha $
+
+Soit $n > N$.
+
+Comme $u$ ne s'annule pas on a : $ u_n = u_N product_(k=N)^(n-1) u_(k+1)/u_k $
+
+Et donc : $ abs(u_n) = abs(u_N) product_(k=N)^(n-1) abs(u_(k+1)/u_k) ≤ alpha^(n-N) abs(u_n) $
+
+Or : $lim_(n->+oo) alpha^(n-N) = 0$ (car $0≤ alpha<1$)
+
+Donc : $ lim_(n->+oo) u_n = 0 $
+
+CQFD
+
+=== 2.17.2
+
+On suppose que : $ exists cal(l) in ]-1,1[, u_(n+1)/u_n stretch(->)_(n -> +oo) cal(l) $
+
+On pose :
+$ epsilon = (1-abs(cal(l)))/2 $
+
+On a donc : $0<epsilon<1$.
+
+Par définition de la limite :
+$ exists N in NN, forall n ≥ N, abs( u_(n+1)/u_n - cal(l) ) < epsilon $
+
+Or :
+
+$  & abs( u_(n+1)/u_n ) ≤ abs( u_(n+1)/u_n - cal(l) ) + abs( cal(l) ) \
+==>& forall n ≥ N, abs( u_(n+1)/u_n ) ≤ epsilon + abs(l) = (1 + abs(cal(l)))/2 $
+
+En posant $alpha = (1 + abs(cal(l)))/2$ on se retrouve dans le cas précédent car $0<alpha<1$. *CQFD*
+
+=== 2.17.3
+
+==== 2.17.3.a
+
+$a in RR$
+
+Soit : $u_n = a^n / n!$
+
+Soit $N = E(abs(a))$, on a donc : $abs(a) <N + 1$
+
+Donc :
+
+$ forall n ≥ N, abs(u_(n+1)/u_n) = abs(a)/(n+1)≤ abs(a)/(N+1) $
+
+On est donc dans le premier cas avec $alpha = abs(a)/(N+1) < 1$ ; alors :
+$ lim_(n -> +oo) a^n / n! = 0 $
+
+==== 2.17.3.b
+
+Soit :
+- $a in [-1, 1]$
+- $p in NN^*$
+- $u =(a^n / n^p)_(n in NN^*)$
+
+De manière évidente :
+$ abs(u_n) ≤ 1/n^p stretch(->)_(n -> +oo) 0$
+
+Nul besoin donc d'appliquer les cas précédents.
+ 
+
+=== Exercice 2.17 bis
+
+
+
+
+
+
