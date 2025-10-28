@@ -671,25 +671,29 @@ $ forall N in NN, forall n ≥ N, a_N ≤ a_n ≤ b_n ≤ b_N $
 
  Elles sont donc respectivement majorée et minorée ; elles convergent donc vers respectivement $a$ et $b$.
 
-$(b_n - a_n) --> 0 ==> a = b$ 
+$(b_n - a_n) --> 0 ==> a = b$, on nommera $l$ cette limite commune
 
-$forall n in NN, a_n≤a = b≤ b_n ==>forall n in NN, a in [a_n, b_n] ==> a in limits(inter)_(n in NN) [a_n, b_n]$
+$forall n in NN, a_n≤l≤ b_n <==>forall n in NN, l in [a_n, b_n] <==> l in limits(inter)_(n in NN) [a_n, b_n]$
 
 
 Soit $epsilon > 0$
 
 De par la définition des limites de $(a_n)$ et $(b_n)$ :
-- $exists N_a in NN, forall n ≥ N_a, a - epsilon < a_n ≤ a$
-- $exists N_b in NN, forall n ≥ N_b, a ≤ b_n < a + epsilon $
+- $exists N_a in NN, forall n ≥ N_a, l - epsilon < a_n ≤ l$
+- $exists N_b in NN, forall n ≥ N_b, l ≤ b_n < l + epsilon $
 
 Donc si $N = max(N_a, N_b)$
 
-$    & forall n ≥ N, a - epsilon < a_n ≤ b_n < a + epsilon \
- ==> & forall n ≥N, [a_n, b_n] subset [a - epsilon, a + epsilon] \ 
- ==> & limits(inter)_(n in NN) [a_n, b_n] subset [a-epsilon, a+ epsilon] $
+$    & forall n ≥ N, l - epsilon < a_n ≤ b_n < l + epsilon \
+ ==> & forall n ≥N, [a_n, b_n] subset [l - epsilon, l + epsilon] \ 
+ ==> & limits(inter)_(n in NN) [a_n, b_n] subset [l-epsilon, l+ epsilon] $
 
 
 
- Donc : $limits(inter)_(n in NN) [a_n, b_n] subset {a}$
+ Donc : $forall epsilon >0, limits(inter)_(n in NN) [a_n, b_n] subset [l-epsilon, l+ epsilon]$
 
+ Ce qui implique :$limits(inter)_(n in NN) [a_n, b_n] subset {l}$
 
+La double inclusion demontre l'égalité :
+
+$ limits(inter)_(n in NN) [a_n, b_n] = {l} $
