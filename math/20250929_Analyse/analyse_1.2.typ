@@ -658,3 +658,38 @@ Il en résulte que $lim u = 1/2$
 
 
 == Exercice 2.23
+
+Soit $([a_n , b_n])_(n in NN)$ une suite de segments emboîtés. On suppose que $(b_n - a_n)_(n in NN)$ tend vers 0.
+
+Montrer que l'intersection $limits(inter)_(n in NN) [a_n, b_n]$ est un singleton.
+
+*Solution*
+
+Par définition, les suites $(a_n)$ et $(b_n)$ sont respectivement croissante et décroissante et :
+
+$ forall N in NN, forall n ≥ N, a_N ≤ a_n ≤ b_n ≤ b_N $
+
+ Elles sont donc respectivement majorée et minorée ; elles convergent donc vers respectivement $a$ et $b$.
+
+$(b_n - a_n) --> 0 ==> a = b$ 
+
+$forall n in NN, a_n≤a = b≤ b_n ==>forall n in NN, a in [a_n, b_n] ==> a in limits(inter)_(n in NN) [a_n, b_n]$
+
+
+Soit $epsilon > 0$
+
+De par la définition des limites de $(a_n)$ et $(b_n)$ :
+- $exists N_a in NN, forall n ≥ N_a, a - epsilon < a_n ≤ a$
+- $exists N_b in NN, forall n ≥ N_b, a ≤ b_n < a + epsilon $
+
+Donc si $N = max(N_a, N_b)$
+
+$    & forall n ≥ N, a - epsilon < a_n ≤ b_n < a + epsilon \
+ ==> & forall n ≥N, [a_n, b_n] subset [a - epsilon, a + epsilon] \ 
+ ==> & limits(inter)_(n in NN) [a_n, b_n] subset [a-epsilon, a+ epsilon] $
+
+
+
+ Donc : $limits(inter)_(n in NN) [a_n, b_n] subset {a}$
+
+
