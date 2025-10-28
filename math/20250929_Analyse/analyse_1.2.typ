@@ -497,5 +497,164 @@ $ lim u = 0 $
 
 ==== 2.18.1.c
 
+$   & forall n ≥ e, ln(n) ≥ 1 \
+==> & forall n ≥3, sqrt(ln(n)) ≥1 " et " ln(sqrt(ln(n))) = 1/2 ln(ln(n)) ≥ 0 \ 
+==> & forall n ≥ 3, 0 ≤ ln(sqrt(ln(n))) ≤ sqrt(ln(n)) - 1 &" d' après l'inégalité (a) avec " t=sqrt(ln(n)) \ 
+==> & forall n ≥ 3, 0 ≤ ln(ln(n)) ≤ 2 sqrt(ln(n)) - 2 \ 
+==> & forall n ≥ 3, 0 ≤ ln(ln(n)) / ln(n) ≤ 2 /sqrt(ln(n)) - 2/ ln(n) stretch(->)_(n->+oo) 0$
+
+Donc : $ lim v = 0 $
+
+=== 2.18.2
+
+$a > 0$ et $b > 0$
+
+$ e^(a n) / n^b = e^(a n - b ln(n)) = e^(a n (1-b ln(n)/n)) stretch(->)_(n->+oo) +oo $
+
+car : $lim_(n->+oo) ln(n)/n =0 ==> lim_(n->+oo) a n (1-b ln(n)/n) = +oo$
+
+=== 2.18.3
+
+$a > 0$ et $b > 0$
+
+$ forall n >1, ln ( n^b / ln(n)^a ) = b ln(n) -a ln(ln(n)) = ln(n) (b - a ln(ln(n))/ln(n)) stretch(->)_(n -> +oo) +oo $
+
+Donc par passage à l'exponentielle : $ lim_(n->+oo) n^b / ln(n)^a = +oo $
+
+=== 2.18.4
+
+$a>0$, $b>0$, $c>0$
+
+$ e^(a n)/(n^b ln(n)^c) = e^(a n) / n^(b+1) times n / ln(n)^c stretch(->)_(n -> +oo) +oo $
+
+d'après les 2 points précédents.
+
+== Exercice 2.19
+
+=== 2.19.1
+
+Soit $u = (u_n)_(n in NN)$ une suite décroissante qui converge vers 0. Montrer que $u$ est positive.
+
+Raisonnonsp par l'absurde.
+
+Supposons qu'il existe un entier $m$ tel que $u_m < 0$.
+
+La convergence de $u$ vers 0 impose que :
+
+$ exists N in NN, forall n ≥ N, abs(u_n) < -u_m / 2 $
+
+Ce qui implique que :
+
+$ forall n > max(N, m), u_n > u_m / 2 > u_m $
+
+Ce qui contredit le fait que $u$ soit décroissante.
+
+=== 2.19.2
+
+Soit $u = (u_n)n in NN$ une suite croissante non majorée. Montrer que u tend vers +oo.
+
+Soit $M in RR$.
+
+$M$ n'étant pas un majorant de $u$ :
+
+$ exists m in NN, u_m > M $
+
+$u$ étant croissante :
+
+$ forall n > m, u_n > M $
+
+*CQFD*
+
+== Exercice 2.20
+
+Soit la suite : $display(u_n = sum_(k=0)^n ln(1 + 1/2^k) )$
+
+On a : $u_(n+1) = u_n + ln(1 + 1/2^(n+1)) > u_n$
+
+$u$ est donc strictement croissante (et positive)
+
+D'après l'exercice *2.14*, on a :
+
+$ forall k in NN, ln(1+ 1/2^k) ≤ 1/2^k $
+
+D'après la formule d'une suite géométrique :
+
+$    & forall n in NN, u_n ≤ (1/2^(n+1) - 1)/(1/2 -1) \
+==> & forall n in NN, u_n ≤ 2 - 1/2^n < 2 $
+
+$u$ est donc croissante et majorée, elle converge donc.
 
 
+== Exercice 2.21
+
+1. Montrer que $forall k ≥ 2, 1/k^2 ≤ 1/(k-1) -1/k$. En déduire que la suite $u_n = sum_(k=1)^n 1/k^2$ converge.
+
+2. Montrer que pour tout $alpha ≥2$, la suite $u_n = sum_(k=1)^n 1/k^alpha$ converge.
+
+*Solution*
+
+=== 2.21.1
+
+Calculons :
+
+$ forall k ≥ 2, 1/(k-1) -1/k - 1/k^2 &= (k^2 -k(k-1) -(k-1))/(k^2(k-1)) \
+                                     &= 1/(k^2(k-1)) \
+                                     &>0 $
+
+Donc :
+
+$ forall n ≥ 2, u_n &= sum_(k=1)^n 1/k^2 \
+                    &= 1 + sum_(k=2)^n 1/k^2 \
+                    &≤ 1 + sum_(k=2)^n (1/(k-1) -1/k) \
+                    &≤ 1 + 1 - 1/n \
+                    &< 2$
+
+$(u_n)$ est évidemment croissante (et positive).
+
+$(u_n)$ est donc croissante et majorée, elle converge donc.
+
+=== 2.21.2
+
+$(u_n)$ est croissante et est majorée car, d'après le point précédent :
+
+$ forall n≥2, u_n = sum_(k=1)^n 1/k^alpha ≤ sum_(k=1)^n 1/k^2 < 2 $
+
+Elle converge donc.
+
+
+== Exercice 2.22
+On définit la suite $(u_n)_(n in N)$ par :
+
+$ cases(u_1 &= 1,
+        u_(n+1) &= u_n dot (1 - 1/(n+1)^2) " pour " n≥ 1
+) $
+
+1. Montrer que la suite $(u_n)$ est convergente sans calculer sa limite.
+2. Montrer qu'en fait $u_n = (n+1)/(2n)$ pour tout $n≥1$. Quelle est la limite de $(u_n)$ ?
+
+*Solution*
+
+=== 2.22.1
+
+$   & forall n≥1, 0 < 1/(n+1)^2<1 \
+==> & forall n≥1, 0 < 1 -  1/(n+1)^2< 1 \
+==> & (u_n) " est positive et décroissante (récurrence évidente)"\
+==> & (u_n) " est donc convergente" $
+
+=== 2.22.2
+
+Démonstration par récurrence.
+
+Si $u_n = (n+1)/(2n)$ alors :
+
+$ u_(n+1) &= (n+1)/(2n)  (1 - 1/(n+1)^2)\
+          &= (n+1)/(2n) - 1/(2n(n+1)) \
+          &= (n^2 + 2 n)/(2n(n+1)) \
+          &= ((n + 1) + 1 )/(2(n+1)) $
+
+La formule est donc vraie au rang $n+1$.
+
+Il en résulte que $lim u = 1/2$
+
+
+== Exercice 2.23
