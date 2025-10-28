@@ -428,10 +428,74 @@ $ abs(u_n) ≤ 1/n^p stretch(->)_(n -> +oo) 0$
 Nul besoin donc d'appliquer les cas précédents.
  
 
-=== Exercice 2.17 bis
+== Exercice 2.17 bis
+
+$u = (u_n)_(n in NN)$ dont tous les termes sont strictement positifs
+
+=== 2.17b.1
+
+On suppose que :
+$ exists alpha > 1, exists N in NN, forall n ≥ N, u_(n+1) / u_n > alpha $
+
+On a : $ forall n > N, u_n = u_N product_(k=N)^(n-1) u_(k+1) / u_(k) ≥ u_N alpha^(n-N) stretch(->)_(n->+oo) +oo " car "u_N > 0 " et " alpha > 1 $
+
+*CQFD*
 
 
+=== 2.17b.2
 
+Soit $cal(l) = lim_(n-> +oo) u_(n+1) / u_n > 1$
+
+Soit $epsilon = (cal(l) - 1)/2 > 0$ et $alpha = (1+cal(l))/2 > 1$
+
+Par définition de la limite :
+
+$ exists N in NN, forall n≥N, cal(l) - epsilon < u_(n+1) / u_n < cal(l) + epsilon $
+
+Donc :
+
+$ forall n≥N, u_(n+1) / u_n > cal(l) - epsilon = alpha > 1 $
+
+On se retrouve dans le premier cas. *CQFD*
+
+== Exercice 2.18 - Théorème des croissances comparées
+
+=== 2.18.1
+
+Soient :
+
+$display(u = (ln(n) / n)_(n in NN*))$
+
+$display(v = (ln(ln(n)) / ln(n))_(n in NN*))$
+
+==== 2.18.1.a
+
+- $f(x) = ln(x) - x + 1$
+- $lim_(x->0^+) f(t) = -oo$
+- $lim_(x->+oo) f(t) = -oo$
+- $f'(x) = (1-x)/x$ s'annule en 1
+- $f(1) = 0 $
+
+Tableau de variation. *CQFD*
+
+==== 2.18.1.b
+
+On a : $ forall n in NN^*, ln(n) /n ≥ 0 $
+En posant $t=sqrt(n) > 0$ et en appliquant l'inégalité précéente:
+
+$   & forall n in NN^*, ln(sqrt(n)) ≤ sqrt(n) - 1 \
+==> & forall n in NN^*, 1/2 ln(n) ≤ sqrt(n) - 1 \
+==> & forall n in NN^*, ln(n) ≤ 2(sqrt(n) - 1) \
+==> & forall n in NN^*, ln(n) /n ≤ 2(sqrt(n) - 1)/n  " car " n > 0 $
+
+Donc :
+
+$ forall n in NN^*, 0≤ ln(n) /n ≤ 2(sqrt(n) - 1)/n $
+
+Comme $lim_(n->+oo) 2(sqrt(n) - 1)/n =0$, on a d'après le théorème des gendarmes que :
+$ lim u = 0 $
+
+==== 2.18.1.c
 
 
 
