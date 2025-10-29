@@ -371,7 +371,7 @@ Soit $n > N$.
 
 Comme $u$ ne s'annule pas on a : $ u_n = u_N product_(k=N)^(n-1) u_(k+1)/u_k $
 
-Et donc : $ abs(u_n) = abs(u_N) product_(k=N)^(n-1) abs(u_(k+1)/u_k) ≤ alpha^(n-N) abs(u_n) $
+Et donc : $ abs(u_n) = abs(u_N) product_(k=N)^(n-1) abs(u_(k+1)/u_k) ≤ alpha^(n-N) abs(u_N) $
 
 Or : $lim_(n->+oo) alpha^(n-N) = 0$ (car $0≤ alpha<1$)
 
@@ -692,7 +692,7 @@ $    & forall n ≥ N, l - epsilon < a_n ≤ b_n < l + epsilon \
 
  Donc : $forall epsilon >0, limits(inter)_(n in NN) [a_n, b_n] subset [l-epsilon, l+ epsilon]$
 
- Ce qui implique :$limits(inter)_(n in NN) [a_n, b_n] subset {l}$
+ Ce qui implique :$limits(inter)_(n in NN) [a_n, b_n] subset {l}$ (tout autre élément $x$ est exclu en prenant $epsilon = abs(x-l)/2$)
 
 La double inclusion demontre l'égalité :
 
